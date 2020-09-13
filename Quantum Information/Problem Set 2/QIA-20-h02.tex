@@ -1,0 +1,168 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Rmath}{\mathbf{R}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 \ \  Problem Set 2}}
+\end{center}
+
+\bigskip
+
+ Solutions are due in 4 pm
+on Tuesday Sep 8. 
+
+%Problems 3 and 4 are from J. J. Sakurai: {\em Modern Quantum Mechanics}, numbers 3.2 and 3.8, respectively.
+
+\begin{enumerate}
+
+\item Consider the vectors $w_1=(1,2,2),\ w_2=(-1,0,2), \ w_3= (0,0,1)$. Compute the Gram matrix $G$ with entries $G_{ij}$ given by the scalar products of pairs of vectors
+$$
+G_{ij} = w_i \cdot w_j \ ,
+$$
+you can simplify the computation by noticing that $G$ is a symmetric matrix. Show that the vectors $w_i$ are linearly independent, by showing that the Gram determinant $\det G\neq 0$.
+The vectors then form a basis of $\Rmath^3$. Show that the basis is not orthogonal. Then, apply the Gram-Schmidt process
+to contruct an orthonormal basis $v_1,v_2,v_3$.
+
+\item A matrix $A$ is {\em normal}, if $A^\dagger A = AA^\dagger$. Show that the matrix 
+$$
+M = \left( \begin{array}{cc} 1 & 0 \\ 1 & 1 \end{array} \right) 
+$$
+is not normal. Show that a {\em Hermitian} matrix $A$ (satisfying $A^\dagger =A$) is normal.
+
+
+\item  Show by using the Cauchy-Schwarz inequality that the norm given by the inner product $||x||=\sqrt{\langle x | x\rangle}$ satisfies the triangle inequality: every pair of vectors $x,y$ satisfies
+$$
+||x+y || \leq ||x||+||y|| \ .
+$$
+
+\item (Exercise 2.11 of the book): Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X,Y,Z$.
+
+\item {Exercise 2.18 of the book:} Show that all eigenvalues $\lambda$ of a unitary matrix satisfy $|\lambda|=1$, that is, they can be written in the form $e^{i\theta}$ for some real $\theta$. (In other words, they belong
+to the origin-centered unit circle in the complex plane).
+
+\item (Exercise 2.22 of the book): Show that the eigenvectors of a Hermitian operator with different eigenvalues are necessarily orthogonal.
+
+
+\end{enumerate}
+
+
+\end{document}
+
