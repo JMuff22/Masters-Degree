@@ -1,0 +1,397 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 \ \  Answers to Problem Set 1}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{04/09/2020}
+\end{center}
+
+
+%Problems 3 and 4 are from J. J. Sakurai: {\em Modern Quantum Mechanics}, numbers 3.2 and 3.8, respectively.
+
+\begin{enumerate}
+
+\item Suppose $V$ is a vector space with basis vectors $\ket{0}$ and $\ket{1}$, and $A$ is a linear operator from $V$ to $V$ such that 
+$$
+A\ket{0} = \ket{1} \ ; \ A\ket{1} = \ket{0} \ .
+$$
+Give a matrix representation for $A$, with respect to the input and output basis $\ket{0},\ket{1}$. Find input and output bases which give rise to a different 
+matrix representation of $A$. (For example, you can use the states $\ket{\pm}$ appearing in problem 5.)
+
+%Question 1 Answer here
+\begin{enumerate}
+    \item \underline{\textbf{\emph{Answer.}}}
+    From
+    $$
+    A\ket{v_j} = \sum_{i} A_{ij} \ket{w_i}
+    $$
+    We get
+    $$
+    A\ket{0} = A_{11}\ket{0}+A_{21}\ket{1} = \ket{1}
+    $$
+    $$
+    A\ket{1} = A_{12}\ket{0}+A_{22}\ket{1} = \ket{0}
+    $$
+    $$ 
+    A_{11} = 0, A_{21}=1,A_{12}=1,A_{22}=0
+    $$
+    $$ 
+    A=
+    \begin{bmatrix}
+        0 & 1\\
+        1 & 0
+    \end{bmatrix}
+    $$
+    Input $ (\ket{0},\ket{1})$ with output $ (\ket{1},\ket{0})$
+    \item For a different matrix representation of A
+    $$
+    A\ket{0} = A_{11}\ket{1}+A_{21}\ket{0} = \ket{1}
+    $$
+    $$
+    A\ket{1} = A_{12}\ket{1}+A_{22}\ket{0} = \ket{0}
+    $$
+    $$ 
+    A_{11} = 1, A_{21}=0,A_{12}=0,A_{22}=1
+    $$
+    $$ 
+    A=
+    \begin{bmatrix}
+        1 & 0\\
+        0 & 1
+    \end{bmatrix}
+    $$
+    Input $ (\ket{0},\ket{1})$ with output $ (\ket{0},\ket{1})$
+\end{enumerate}
+
+\item Let the basis of $V$ be $\{\ket{0},\ket{1}\}\equiv \{e_1,e_2\} $. The tensor product vector space $V\otimes V$ has the basis
+\begin{eqnarray}
+&&\{e_1\otimes e_1, e_1\otimes e_2, e_2\otimes e_1, e_2\otimes e_2\} = \{\ket{0}\ket{0}, \ket{0}\ket{1},\ket{1}\ket{0},\ket{1}\ket{1} \} \nonumber \\
+&&\equiv \{\ket{00}, \ket{01},\ket{10},\ket{11} \} \ .
+\end{eqnarray}
+Let us use the two-component notation
+\bea
+\ket{0} = \left(\begin{array}{c} 1 \\ 0 \end{array}\right) \ ; \ \ket{1} = \left(\begin{array}{c} 0 \\ 1 \end{array}\right) \ .
+\eea
+In the component notation, the tensor product of vectors becomes the Kronecker product,
+\bea
+ \left(\begin{array}{c} a \\ b \end{array}\right)  \otimes \left(\begin{array}{c} c \\ d \end{array}\right) =  \left(\begin{array}{c} a  \left(\begin{array}{c} c \\ d \end{array}\right)  \\ b  \left(\begin{array}{c} c \\ d \end{array}\right)  \end{array}\right) =  \left(\begin{array}{c} ac \\ ad \\  bc \\ bd \end{array}\right) \ .
+\eea
+Show that 
+\bea
+\ket{00} =\left(\begin{array}{c} 1 \\ 0 \\  0 \\ 0 \end{array}\right)  \ ; \ \ket{01} =\left(\begin{array}{c} 0 \\ 1 \\  0 \\ 0 \end{array}\right)  \ ; \ \ket{10} =\left(\begin{array}{c} 0 \\ 0 \\  1 \\ 0 \end{array}\right)  \ ; \ \ket{11} =\left(\begin{array}{c} 0 \\ 0 \\  0 \\ 1 \end{array}\right)  \ .
+\eea
+
+
+
+%Question 2
+\begin{enumerate}
+    \item \underline{\textbf{\emph{Answer.}}}
+    $$
+    \ket{00} = \ket{0}\ket{0} 
+    $$
+    \bea
+ \left(\begin{array}{c} 1 \\ 0 \end{array}\right)  \otimes \left(\begin{array}{c} 1 \\ 0 \end{array}\right) =  \left(\begin{array}{c} 1 \times 1 \\ 1 \times 0 \\  0 \times 0 \\ 0 \times 1 \end{array}\right) =  \left(\begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \end{array}\right) \ .
+    \eea
+    $$
+    \ket{01} = \ket{0}\ket{1} 
+    $$
+    \bea
+ \left(\begin{array}{c} 1 \\ 0 \end{array}\right)  \otimes \left(\begin{array}{c} 0 \\ 1 \end{array}\right) =  \left(\begin{array}{c} 1 \times 0 \\ 1 \times 1 \\  0 \times 0 \\ 0 \times 1 \end{array}\right) =  \left(\begin{array}{c} 0 \\ 1 \\ 0 \\ 0 \end{array}\right) \ .
+    \eea
+    $$
+    \ket{10} = \ket{1}\ket{0} 
+    $$
+    \bea
+ \left(\begin{array}{c} 0 \\ 1 \end{array}\right)  \otimes \left(\begin{array}{c} 1 \\ 0 \end{array}\right) =  \left(\begin{array}{c} 0 \times 1 \\ 0 \times 0 \\  1 \times 1 \\ 1 \times 0 \end{array}\right) =  \left(\begin{array}{c} 0 \\ 0 \\ 1 \\ 0 \end{array}\right) \ .
+    \eea
+    $$
+    \ket{11} = \ket{1}\ket{1} 
+    $$
+    \bea
+ \left(\begin{array}{c} 0 \\ 1 \end{array}\right)  \otimes \left(\begin{array}{c} 0 \\ 1 \end{array}\right) =  \left(\begin{array}{c} 0 \times 0 \\ 0 \times 1 \\  1 \times 0 \\ 1 \times 1 \end{array}\right) =  \left(\begin{array}{c} 0 \\ 0 \\ 0 \\ 1 \end{array}\right) \ .
+    \eea
+\end{enumerate}
+
+
+
+\item Using the above 4-component notation, show that the CNOT operator
+\be
+ U_{CN} = \left(\begin{array}{cccc} 1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\  0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{array}\right)
+\ee
+acts on the (computational) basis states as 
+\bea
+ U_{CN}\ket{00} = \ket{00} \ ; \   U_{CN}\ket{01} = \ket{01} \ ; \   U_{CN}\ket{10} = \ket{11} \ ; \   U_{CN}\ket{11} = \ket{10} \ . 
+\eea
+
+%Question 3
+\begin{enumerate}
+    \item \underline{\textbf{\emph{Answer.}}} Simply use matrix multiplication.
+    $$
+ U_{CN}\ket{00} = 
+    $$
+    
+    \bea
+U_{CN} \cdot \left(\begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \end{array}\right) =  \left(\begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \end{array}\right) = \ket{00}.
+    \eea
+    $$
+ U_{CN}\ket{01} = 
+    $$
+    
+    \bea
+U_{CN} \cdot \left(\begin{array}{c} 0 \\ 1 \\ 0 \\ 0 \end{array}\right) =  \left(\begin{array}{c} 0 \\ 1 \\ 0 \\ 0 \end{array}\right) = \ket{01}.
+    \eea
+
+    $$
+ U_{CN}\ket{10} = 
+    $$
+    
+    \bea
+U_{CN} \cdot \left(\begin{array}{c} 0 \\ 0 \\ 1 \\ 0 \end{array}\right) =  \left(\begin{array}{c} 0 \\ 0 \\ 0 \\ 1 \end{array}\right) = \ket{11}.
+    \eea
+
+    $$
+ U_{CN}\ket{11} = 
+    $$
+    
+    \bea
+U_{CN} \cdot \left(\begin{array}{c} 0 \\ 0 \\ 0 \\ 1 \end{array}\right) =  \left(\begin{array}{c} 0 \\ 0 \\ 1 \\ 0 \end{array}\right) = \ket{10}.
+    \eea
+
+\end{enumerate}
+
+
+\item Recall that (from Mathematical Methods of Physics IIIa or equivalent) the abelian group $\Zmath_2$ can be realized as the set $\{0,1\}$ with addition modulo two as the product.
+The latter is the same as the XOR operation of bits, and we denote it with the symbol $\oplus$:
+\be
+0\oplus 0 = 1\oplus 1 = 0 \ ; \ 0\oplus 1 = 1\oplus 0 = 1 \ .
+\ee
+Note that $x\oplus x=0$. Recall also that we can define a product group 
+\be
+\Zmath^n_2 = \underbrace{\Zmath_2 \times \Zmath_2 \times \cdots \times \Zmath_2}_{n\ times} = \{0,1\}^n
+\ee
+with elements $x = (x_1,x_2,\ldots ,x_n)$ with each $x_i\in \Zmath_2$, with the product
+\be
+x\oplus y = (x_1\oplus y_1, x_2\oplus y_2,\ldots , x_n\oplus y_n) \ .
+\ee
+Next we shorten the notation and write
+\be
+x = x_1x_2\cdots x_n = (x_1,x_2,\ldots ,x_n) \ .
+\ee
+You notice that $x$ is a binary number with $n$ bits, e.g. $x= 011011$ for $n=6$. The above rule then extends the XOR operation for $n$-bit binary numbers. Converting
+the binary numbers to decimal numbers and back gives fun results, e.g. $3\oplus 5 = 011\oplus 101 = 110 = 6$. Practise this by
+calculating the results (in binary form) of
+\begin{enumerate}
+\item $01011\oplus 10001$
+\item $10001  \oplus 01111$
+\item $(01101\oplus 10101)\oplus 11100$
+\end{enumerate}  
+
+%Question 4
+\begin{enumerate}
+    \item \underline{\textbf{\emph{Answer.}}} Use the XOR operation on binary numbers and convert to decimal
+    \emph{Example: $3\oplus 5 = 011\oplus 101 = 110 = 6$} $$ 
+        \begin{tabular}{cccc}
+            & 0 & 1 & 1 \\
+            $\oplus$ &  1 & 0 & 1 \\
+          \hline
+            & 1 & 1 & 0 \\
+          \end{tabular}
+          = 6_{10}
+        $$
+    \emph{(a)$01011\oplus 10001$} $$ 
+        \begin{tabular}{cccccc}
+            & 0 & 1 & 0 & 1 & 1 \\
+             $\oplus$ & 1 & 0 & 0 & 0 & 1 \\
+        \hline
+            & 1 & 1 & 0 & 1 & 0\\
+        \end{tabular}
+        = 26_{10} 
+        $$
+    \emph{(b)$10001\oplus 01111$} $$ 
+        \begin{tabular}{cccccc}
+            & 1 & 0 & 0 & 0 & 1 \\
+            $\oplus$ & 0 & 1 & 1 & 1 & 1 \\
+            \hline
+            & 1 & 1 & 1 & 1 & 0\\
+            \end{tabular}
+            = 30_{10} 
+        $$
+    \emph{(b)$(01101\oplus 10101) \oplus 11100$} $$ 
+    \begin{tabular}{cccccc}
+        & 0 & 1 & 1 & 0 & 1 \\
+        $\oplus$ & 1 & 0 & 1 & 0 & 1 \\
+        \hline
+        & 1 & 1 & 0 & 0 & 0\\
+        \end{tabular}
+        \implies 
+        \begin{tabular}{cccccc}
+            & 1 & 1 & 0 & 0 & 0 \\
+            $\oplus$ & 1 & 1 & 1 & 0 & 0 \\
+            \hline
+            & 0 & 0 & 1 & 0 & 0\\
+            \end{tabular}
+            =4_{10}
+        $$
+\end{enumerate}
+
+\item The Hadamard  gate is represented by
+\be
+ H = \frac{1}{\sqrt{2}}  \left(\begin{array}{cc} 1 & 1 \\ 1 & -1 \end{array}\right) \ .
+\ee
+Define the states
+\be
+ \ket{+} =  \frac{1}{\sqrt{2}} (\ket{0}+\ket{1}) = H\ket{0}\ ; \  \ket{+} =  \frac{1}{\sqrt{2}} (\ket{0}-\ket{1}) = H\ket{1}\ .
+\ee
+Let $H$ act on them, what are the resulting states $H\ket{+},H\ket{-}$?
+
+%Question 5
+\begin{enumerate}
+    \item \underline{\textbf{\emph{Answer.}}} $H\ket{+}$
+    $$ 
+    H\ket{+} = H(\frac{1}{\sqrt{2}} (\ket{0}+\ket{1})) $$
+    $$
+    = \frac{1}{\sqrt{2}}  \left(\begin{array}{cc} 1 & 1 \\ 1 & -1 \end{array}\right) \ (\frac{1}{\sqrt{2}} (\ket{0}+\ket{1})$$
+    $$
+    = \frac{1}{2} \ket{0} + \frac{1}{2} \ket{1} + \frac{1}{2}\ket{0} - \frac{1}{2} \ket{1} $$
+    $$
+    = \frac{1}{2} (\ket{0}+\ket{1}) + \frac{1}{2}(\ket{0}-\ket{1}) = \ket{0} $$
+    $$
+    H\ket{+} = \ket{0} $$
+    \item $ H\ket{-} $
+    $$ 
+    H\ket{-} = H(\frac{1}{\sqrt{2}} (\ket{0}-\ket{1})) $$
+    $$
+    = \frac{1}{\sqrt{2}}  \left(\begin{array}{cc} 1 & 1 \\ 1 & -1 \end{array}\right) \ (\frac{1}{\sqrt{2}} (\ket{0}-\ket{1})$$
+    $$
+    = \frac{1}{2} \ket{0} + \frac{1}{2} \ket{1} - \frac{1}{2}\ket{0} + \frac{1}{2} \ket{1} $$
+    $$
+    = \frac{1}{2} (\ket{0}+\ket{1}) + \frac{1}{2}(-\ket{0}+\ket{1}) = \ket{1} $$
+    $$
+    H\ket{-} = \ket{1} $$
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
+
