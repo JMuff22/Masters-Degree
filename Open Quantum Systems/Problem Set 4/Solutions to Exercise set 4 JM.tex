@@ -1,0 +1,265 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newtheorem{theorem}{Theorem}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \ Fall 2020 \ \  Answers to Exercise Set 4}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{15/10/2020}
+\end{center}
+
+
+\section{Answers}
+\begin{enumerate}
+
+\item \textbf{Exercise 1}
+\begin{enumerate}
+    \item Nielsen and Chaung Exercise 2.57\\
+    $$ \{ L_l \} \rightarrow \{ M_m \} = \{ N_{lm} \} $$
+    Suppose we have a state $\ket{\phi}$, the sttate of the system after measurement is given by 
+    $$ \ket{\phi} = \frac{L_l \ket{\psi}}{\sqrt{\langle \psi|L_l^\dagger L_l | \psi \rangle}} $$
+    We then have another set of measurements such that 
+    $$ \langle \phi | M_m^\dagger M_m | \phi \rangle = \frac{\langle \psi | L_l^\dagger M_m^\dagger M_m L_l | \psi \rangle}{\langle \psi | L_l^\dagger L_l | \psi \rangle }$$
+    So totally we have 
+    $$ \frac{M_m \ket{\phi}}{\sqrt{\langle \phi | M_m^\dagger M_m | \phi \rangle}} = \frac{M_m L_l \ket{\psi}}{\sqrt{\langle \psi | L_l^\dagger L_l | \psi \rangle}} \cdot \frac{\sqrt{\langle \psi | L_l^\dagger L_l | \psi \rangle}}{\sqrt{\langle \psi | L_l^\dagger M_m^\dagger M_m L_l | \psi \rangle}} $$
+    $$ = \frac{M_m L_l \ket{\psi}}{\sqrt{\langle \psi | L_l^\dagger M_m^\dagger M_m L_l | \psi \rangle}} $$
+    $$ = \frac{N_{lm} \ket{\psi}}{\langle \psi | N_{lm}^\dagger N_{lm}  | \psi \rangle } $$
+
+    \item State after the second measurement is performed \\
+    \item Last measurement unrecorded 
+\end{enumerate}
+
+\item \textbf{Exercise 2}
+\begin{enumerate}
+    \item Equations of motion for the components $\psi_{\pm}(t)$ \\
+    
+    \item Equations of motion for $\xi_{-}(t)$
+    
+    \item Probability $P(t)$ that it is $- \hbar /2$. When is $P(t)$ a maximum? 
+
+\end{enumerate}
+
+\item \textbf{Exercise 3} 
+
+\begin{enumerate}
+    \item Rotating $n$ times with angle $\theta$ is the same as rotating with an angle $n \theta$\\
+    $$U(\theta)^n = \left(\begin{array}{cc} cos(\theta) & sin(\theta) \\ -sin(\theta) & cos(\theta) \end{array}\right)^n $$
+    We can trivially show that for $n=2$ we have 
+    $$ U(\theta)^2 = \left(\begin{array}{cc} cos^2(\theta)-sin^2(\theta) & 2sin(\theta)cos(\theta) \\ -2sin(\theta)cos(\theta) & cos^2(\theta)-sin^2 (\theta) \end{array}\right) $$
+    Which, using trig identities simplifies down to 
+    $$ U(\theta)^2 = \left(\begin{array}{cc} cos(2\theta) & sin(2\theta) \\ -sin(2\theta) & cos(2\theta) \end{array}\right) $$
+    And this applies for integer values of $n$. This follows from De Moivre's theorem such that 
+    $$ (cos(x) + isin(x))^n = cos(nx) + isin(nx) $$
+    Which is related to matrix representation in Group Theory 
+    $$ z = x + iy \in \mathbbm{C} \rightarrow \left(\begin{array}{cc} x & -y \\ y & x \end{array}\right) \in GL(2)  $$
+    And $(cos(x) + isin(x))^n$ is an isomorphism from $\mathbbm{C}$ to $GL(2)$. Notice how the $y's$ is the above matrix are swapped. In this case the unitary transformation representation a clockwise rotation or a $-\theta$ rotation as opposed to the convention. Rotations will have this same property rotating clockwise or anticlockwise. \\
+    In summary this property $U(\theta)^n = U(n \theta)$ is a direct consequence of the fact that for matrices of this type are isomorphic to the space of complex number $\mathbbm{C}$ which I why De Moivre's theorem can be used here. 
+    
+    \item Projector on a photon state with polarisation rotated $\pi /4$ from the horizontal? \\
+    The horizontal polarisation is $\ket{h}$ and the vertical polarisation is $\ket{v}$. The projector onto $\ket{h}$ and $\ket{v}$ is 
+    $$ P_h = \ket{h} \bra{h} $$
+    $$ P_v = \ket{v} \bra{v} $$
+    When the polarisation is rotated by $\pi /4$ which si the same as 45 degrees the projector onto the photon state will be 
+    $$ P_{\frac{\pi}{4}} = \frac{\ket{h + v} \bra{h+v}}{2} $$
+    Additionally the state after going through polarisation is 
+    $$ \frac{\ket{h+v}}{\sqrt{2}} $$ 
+    With probability equal to $\frac{1}{2}$ 
+    
+    \item Probability of finding the photon in the horizontal state after rotation from horizontal by $\theta$ \\
+    After a rotation of $\theta$ from the horizontal, the projector will be 
+    $$ P_{\theta} = (cos(\theta) \ket{h} + sin(\theta)\ket{v})(cos(\theta) \bra{h} + sin(\theta) \bra{v}) $$
+    With a probability 
+    $$ p(\theta) = |(cos(\theta) \bra{h} + sin(\theta) \bra{v}) \ket{h} |^2 $$
+    $$ p(\theta) = cos^2(\theta) $$
+    
+\end{enumerate}
+
+\item \textbf{Exercise 4} 
+\begin{enumerate}
+    \item Calculate $\ket{\phi} = M_n \ket{h}$\\
+    After $n$ rotations the photon is rotated 
+    $$ U(\theta)^n \ket{h} = U(n \theta) \ket{h} = cos(n \theta) \ket{h} + sin(n \theta) \ket{v} $$
+    Such that 
+    $$\ket{\phi}_n = cos(n \theta) \ket{h} + sin(n \theta) \ket{v}$$
+   
+    
+    \item Probability of the probability for the photon to have horizontal polarisation after applying $M_n$ to $\ket{h}$\\
+    Probability to get horizontal polarisation is simply 
+    $$ p_n = cos^{2n} (\theta) $$
+    
+    \item What happens to probability for small $\theta$? \\
+    For small $\theta$ the probability tends to 1 with state $\ket{h}$
+\end{enumerate}
+
+\item \textbf{Exercise 4} 
+\begin{enumerate}
+    \item Show that 
+    $$ e^A e^B = e^{A+B} $$
+    For commuting matrices \\
+    From definition 
+    $$ e^A = \sum_{k=0}^\infty \frac{A^k}{k!} $$
+    So we have 
+    $$ e^A e^B = \Big(\sum_{k=0}^\infty \frac{A^k}{k!} \Big) \Big(\sum_{k=0}^\infty \frac{B^k}{k!} \Big) $$
+    $$ = \sum_{k=0}^\infty \sum_{j=0}^\infty \frac{A^k B^j}{k! j!} = \sum_{l=0}^\infty \sum_{k=0}^l \frac{A^k B^{l-k}}{k! (l-k)!} $$
+    $$ = \sum_{l=0}^\infty \frac{1}{l!} \sum_{k=0}^l \frac{l!}{k!(l-k)!}A^k B^{l-k} $$
+    $$ = \sum_{l=0}^\infty \frac{(A+B)^l}{l!} = e^{A+B} $$
+    Which only works if we can use the fact that $AB = BA$ and they commute. \\
+    \item 
+    As a counter example for non-commuting matrices we have the Pauli matrices which have the property 
+    $$ [ \sigma_j, \sigma_k ] = 2i \sum_{l=1}^3 \epsilon_{jkl} \sigma_l $$
+    Lets use the $\sigma_1$ and $\sigma_2$ pauli matrices and calculate $e^A e^B$ and $e^{A+B}$ 
+    $$ e^{\sigma_1} e^{\sigma_2} = \Big(\sum_{k=0}^\infty \frac{1}{k!} \sigma_1^k \Big) \Big(\sum_{k=0}^\infty \frac{1}{k!} \sigma_2^k \Big) $$
+    $$ = \left(\begin{array}{cc} \frac{e^2 +1}{2e} & \frac{e^2 -1 }{2e} \\ \frac{e^2 -1}{2e} & \frac{e^2 +1}{2e} \end{array}\right) \cdot \left(\begin{array}{cc} e & 0 \\ 0 & \frac{1}{e} \end{array}\right) $$
+    $$ = \left(\begin{array}{cc} \frac{e^2 +1}{2} & \frac{e^2 -1 }{2e^2} \\ \frac{e^2 -1}{2} & \frac{e^2 +1}{2e^2} \end{array}\right) $$
+
+    On the other side we have 
+    $$ e^{\sigma_1 + \sigma_2} = \exp \left(\begin{array}{cc} 1 & 1\\ 1 & -1 \end{array}\right) $$
+    $$ = \left(\begin{array}{cc} \frac{e^{2 \sqrt{2}} + \sqrt{2} e^{2 \sqrt{2}} -1 + \sqrt{2}}{2 \sqrt{2} e^{\sqrt{2}}} & \frac{e^{2 \sqrt{2}}-1}{2 \sqrt{2} e^{\sqrt{2}}} \\ \frac{e^{2 \sqrt{2}} -1}{2 \sqrt{2} e^{\sqrt{2}}} & \frac{-e^{2 \sqrt{2}}(- \sqrt{2}+1) +1 + \sqrt{2}}{2 \sqrt{2} e^{\sqrt{2}}} \end{array}\right) $$
+    Clearly 
+    $$ e^{\sigma_1} e^{\sigma_2} \neq e^{\sigma_1 + \sigma_2} $$
+
+
+\end{enumerate}
+
+\end{enumerate}
+\section{Appendix}
+\begin{enumerate}
+    \item I didn't fully understand what the notation with $M_n$ meant in exercise 4 as I computed this and my answer didn't make sense. The answer i've given makes sense conceptually to me so thats why I gave it. Here is what I got using the notation in the exercise \\
+    \\
+    We know that 
+    $$ P_h = \ket{h} \bra{h} = \left(\begin{array}{cc} 0 \\ 1\end{array}\right) \left(\begin{array}{cc} 1 &0\end{array}\right) = \left(\begin{array}{cc} 0 & 0 \\ 1 & 0\end{array}\right)$$
+    Such that 
+    $$ P_h U^n (\theta) P_h = P_h U(n \theta) P_h $$
+    $$ = \left(\begin{array}{cc} 0 & 0 \\ sin(n \theta) & 0\end{array}\right) $$
+    And 
+    $$ U^n (\theta) P_h U^n (\theta) = \left(\begin{array}{cc} sin(n \theta)cos(n \theta) & sin^2(n \theta) \\ cos^2 (n \theta) & cos(n \theta)sin(n \theta)\end{array}\right)$$
+    So that 
+    $$ M_n = \left(\begin{array}{cc} 0 & 0 \\ sin^2 (n \theta)cos(n \theta) & sin^3(n \theta) \end{array}\right)$$
+    And 
+    $$ \ket{\phi } = \left(\begin{array}{cc} 0 & 0 \\ sin^3 (n \theta) & 0 \end{array}\right)$$
+    \\
+    This didn't make sense as the probably given using this answer wouldn't tend to 1 as I know it should as I've studied the Quantum Zeno effect previously. 
+\end{enumerate}
+
+\end{document}
+

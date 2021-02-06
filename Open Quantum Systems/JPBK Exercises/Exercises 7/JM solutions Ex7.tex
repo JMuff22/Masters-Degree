@@ -1,0 +1,178 @@
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{graphicx}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \  Answers to Problems 6.1 \& 7.1 - JPBK }}\\
+{\large { Jake Muff}}\\
+jake.muff@helsinki.fi \\
+{Student number: 015361763}\\
+{28/11/2020}
+\end{center}
+
+
+\section{Problem 6.1}
+I didn't quite understand this question and how to answer it. From my understanding, the circuit in the problem would have a bias current applied to it through one of the resisitors probably $T_1$. The two capacitors would shield the noise from the other resistor at low frequencies but at high frequencies I am not sure. I can see how to answer the question for a 1 capacitor 2 resisitor circuit but not sure how to answer with 2 capacitors as I'm not sure what effect they would have together on the noise. 
+
+\section{Problem 7.1}
+\emph{Derive the master equation for $\rho_{ge}$ Eq. (18) in the similar way as for $\rho_{gg}$ in the lecture.}
+We want to evaluate 
+$$ \dot{\rho}_{ge} = \langle g | \dot{\rho} | e \rangle $$
+As in the lecture we have 4 equations 
+$$ \text{\RomanNumeralCaps{1}}=  - \gamma^2 \rho e^{iH_0 t'/\hbar } (a - a^{\dagger}) e^{i H_0 (t-t')/\hbar } (a-a^{\dagger}) e^{-i H_0 t/\hbar } \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ \text{\RomanNumeralCaps{2}}= \gamma^2 e^{i H_0 t'/ \hbar } (a-a^{\dagger}) e^{-iH_0 t'/\hbar } \rho e^{i H_0 t/ \hbar } (a-a^{\dagger} ) e^{-i H_0 t' / \hbar } \langle \nu_n (t) \nu_n (t') \rangle $$
+$$ \text{\RomanNumeralCaps{3}}= \gamma^2 e^{i H_0 t/ \hbar} (a-a^{\dagger}) e^{-i H_0 t / \hbar} \rho e^{i H_0 t' / \hbar } )a-a^{\dagger}) e^{-i H_0 t' / \hbar } \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ \text{\RomanNumeralCaps{4}}= - \gamma^2 e^{i H_0 t/ \hbar} (a-a^{\dagger}) e^{i H_0 (t'-t) / \hbar} (a-a^{\dagger}) e^{-i H_0 t' / \hbar} \langle \nu_n (t) \nu_n (t') \rangle $$
+We also have the follow facts which will prove useful 
+$$ a^* \ket{g} = \ket{e}, a^* \ket{e} = \ket{g} $$
+$$ a \ket{g} = 0, a^* \ket{g} = 0 $$
+So now we evaluate $ \langle g | \text{\RomanNumeralCaps{1}} \ldots \text{\RomanNumeralCaps{4}} | e \rangle$ to get 
+$$ \langle g | \text{\RomanNumeralCaps{1}} | e \rangle =  - \gamma^2 \sum \langle g | \rho | i \rangle \langle i | e^{i H_0 t'/ \hbar} (a-a^{\dagger}) e^{i H_0 (t-t') / \hbar} (a-a^{\dagger})e^{-i H_0 t / \hbar} \ket{e} \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ = \gamma^2 \langle g | \rho | i \rangle \langle i | e^{-i H_0 t' / \hbar } (a-a^{\dagger} ) e^{i H_0 (t-t') / \hbar} \ket{e} e^{-i E_g t/ \hbar } \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ = \underbrace{\gamma^2 \langle g | \rho | i \rangle \langle i | e \rangle}_{\rho_{ge}} e^{i E_e t' / \hbar} e^{i E_g (t-t') / \hbar} e^{-i E_e t/ \hbar} \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ \langle g | \text{\RomanNumeralCaps{1}} | e \rangle = \gamma^2 \rho_{ge} e^{i \omega_0 (t-t') } \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ \langle g | \text{\RomanNumeralCaps{2}} | e \rangle = - \gamma^2 \rho_{ge} e^{i \omega_0 (t-t')} \langle \nu_n (t) \nu_n (t') \rangle $$
+$$\langle g | \text{\RomanNumeralCaps{3}} | e \rangle = - \gamma^2 \rho_{ge} e^{i \omega_0 (t-t') } \langle \nu_n (t') \nu_n (t) \rangle $$
+$$ \langle g | \text{\RomanNumeralCaps{4}} | e \rangle = \gamma^2 \rho_{ge} e^{i \omega_0 (t'-t) } \langle \nu_n (t) \nu_n (t') \rangle $$
+Now to get $\dot{\rho_{ge}}$ we use the following formula 
+$$ \dot{\rho_{ge}} (t) = - \frac{1}{\hbar}^2 \int_{-\infty}^{t} dt' \Big( \sum_{k = \text{\RomanNumeralCaps{1}} \ldots \text{\RomanNumeralCaps{4}} } \langle g | k | e \rangle \Big) $$ 
+$$ \dot{\rho_{ge}} = \frac{- \gamma^2}{\hbar} \rho_{ge} \int_{- \infty}^{t} dt' e^{i \omega_0 (t-t')} \langle \nu_n (t') \nu_n (t) \rangle + e^{i \omega_0 (t'-t)} \langle \nu_n (t) \nu_n (t') \rangle $$
+$$ - \frac{\gamma^2}{\hbar^2} \rho_{ge} \int_{- \infty}^t dt' e^{-i \omega_0 (t-t')} \langle \nu_n (t') \nu_n (t) \rangle + e^{-i \omega_0 (t' -t) } \langle \nu_n (t) \nu_n (t') \rangle $$ 
+Double change of variables $u = t'-t$, $v=t-t'$ 
+$$ \dot{\rho_{ge}} = \frac{-2 \gamma^2}{\hbar^2} \rho_{ge} \int_{- \infty}^0 du e^{i \omega_0 u} e^{-i \omega_0 u} \underbrace{\langle \nu_n (u +t) \nu_n (t) \rangle}_{= \langle \nu_n (u) \nu_n (0) \rangle } $$
+$$ + \int_0^{\infty} dv e^{-i \omega_0 v} e^{i \omega_0 v} \langle \nu_n (t) \nu_n (t-v) \rangle $$
+Combining the integrals 
+$$ \dot{\rho_{ge}} = - \frac{1}{2} \Big( \frac{\gamma^2}{\hbar^2} \int_{- \infty}^{\infty} du e^{-i \omega_0 u} \langle \nu_n (u) \nu_n (0) \rangle + \frac{\gamma^2}{\hbar^2} \int_{- \infty}^{\infty} du e^{-i \omega_0 u} \langle \nu_n (u) \nu_n (0) \rangle \Big) \rho_{ge} $$
+$$ = - \frac{1}{2} \Big( \frac{\gamma^2}{\hbar^2} S_{\nu} (\omega_0 ) + \frac{\gamma^2}{\hbar^2} S_{\nu} (- \omega_0 ) \Big)\rho_{ge} $$
+$$ = - \frac{1}{2} \big( \Gamma_{\downarrow} + \Gamma_{\uparrow} \big) \rho_{ge} $$
+Where I have used the following facts 
+$$ \omega_0 = \frac{E_e - E_g}{\hbar} $$
+$$ S_{\nu} (\omega_0) = \int_{- \infty}^{\infty} dt e^{i \omega_0 t} \langle \nu (t) \nu (0) \rangle  $$
+$$ S_{\nu} ( - \omega_0 ) = \int_{- \infty}^{\infty} dt e^{-i \omega_0 t} \langle \nu (t) \nu (0) \rangle  $$
+$$ \Gamma_{\downarrow} = \frac{\gamma^2}{\hbar^2} S_{\nu} (\omega_0) $$
+$$ \Gamma_{\uparrow} = \frac{\gamma^2}{\hbar^2} S_{\nu} (- \omega_0) $$
+
+
+\end{document}
+

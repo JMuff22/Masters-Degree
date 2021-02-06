@@ -1,0 +1,174 @@
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{graphicx}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \  Answers to Problems 5.1 \& 5.2 - JPBK }}\\
+{\large { Jake Muff}}\\
+jake.muff@helsinki.fi \\
+{Student number: 015361763}\\
+{15/11/2020}
+\end{center}
+
+
+\section{Answers}
+\begin{enumerate}
+    \item Problem 5.1. If the microscopic energy conservation is assumed then 
+    $$ H_0 = H_e + H_p = 0 $$
+    Therefore 
+    $$ \dot{H}_e = - \dot{H}_p $$
+    So we can see 
+    $$ ( \varepsilon_k - \varepsilon_{k-q}) = \hbar \omega_q $$
+    Because if substituted into $\dot{H}_e$ we get $\dot{H}_p$ as
+    $$ \omega_q^{1/2} \times \omega_q = \omega_q^{3/2} $$
+    And the extra $\hbar$ factor is canceled through the prefactor before the sum 
+    $$ \frac{-i \gamma}{\hbar} $$
+    So $\dot{H}_e$ is 
+    $$ \dot{H}_e = \frac{-i \gamma}{\hbar} \sum_{k,q} \omega_q^{1/2} ( \varepsilon_k - \varepsilon_{k-q} ) (a^{\dagger}_k a_{k-q} c_q - a^{\dagger}_{k-q} a_k c_q^{\dagger} ) $$
+    \textbf{N.B} Is equation 4 in the lecture notes correct? In the reference in the lecture notes it gives a different equation for $\dot{H}_p$. 
+
+
+    \item Problem 5.2. The classical Jospheson junction current is given by 
+    $$ F_J = E_J (1- cos(\phi)) $$
+    With 
+    $$ E_J = \frac{I_c}{2e} $$
+    Apply a bias current which is just $E_J$ at a non critical current so we get 
+    $$ F_J = E_J (1 - \cos \phi) - \frac{\hbar I}{2e} \phi $$
+    This forms a washboard potential 
+
+    \begin{figure}[h]
+        \includegraphics[width=15cm]{washboard.png}
+        \centering
+        \caption{Plot of the Potential as a function of $\phi$. The angle of tilt is given by $\frac{I}{I_c}$}
+    \end{figure}
+    $$ U(\phi) = E_J (1-cos \phi) - \phi \frac{I}{I_c} $$
+    Where $ \frac{I}{I_c}$ is the normalized bias current. The first Josphenson relation describes the AC Josphenson effect 
+    $$ \hbar \dot{\phi} = 2eV $$
+    $$ \hbar \frac{d \phi}{dt} = 2eV $$
+    From this we see that the critical current of the junction is when this is maximised so we can rearrange $E_J$ so that 
+    $$ I_c = \frac{E_J 2e}{\hbar} = \frac{2e}{\hbar} E_J $$
+
+
+
+\end{enumerate}
+\end{document}
+

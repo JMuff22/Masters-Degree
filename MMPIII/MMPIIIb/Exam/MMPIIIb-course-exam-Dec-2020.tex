@@ -1,0 +1,360 @@
+
+\documentclass[12pt]{article}
+
+
+\usepackage{latexsym}
+\usepackage[english,finnish]{babel}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{ifthen}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+% AMS packages:
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsxtra}
+% for comments to work
+\usepackage{verbatim}
+\usepackage{graphicx}
+
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+%\newcommand{\Tr}{{\rm Tr}}
+%\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% misc
+\newcommand{\vc}[1]{\mathbf{#1}}
+\newcommand{\defem}[1]{{\em #1\/}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\wto}{\overset{{\rm w}}{\to}}
+\newcommand{\sto}{\overset{{\rm s}}{\to}}
+\DeclareMathOperator{\wlim}{w-lim}
+\DeclareMathOperator{\slim}{s-lim}
+\DeclareMathOperator{\tr}{Tr}
+
+\newcommand{\qand}{\quad\text{and}\quad}
+
+% To define sets:
+\newcommand{\defset}[2]{ \left\{ #1 \left|\, #2\makebox[0pt]{$\displaystyle\phantom{#1}$}\right.\!\right\} }
+
+\newcounter{alplisti}
+\renewcommand{\thealplisti}{\alph{alplisti}}
+\newenvironment{alplist}[1][(\thealplisti)]{\begin{list}{{\rm #1}\ }{ %
+      \usecounter{alplisti} %
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}  %
+%    \setlength{\leftmargin}{5em} %
+%    \setlength{\labelwidth}{5em} %
+%    \setlength{\labelsep}{1em} %
+%    \settowidth{\labelwidth}{(DR2)}
+     \setlength{\topsep}{0pt} %
+}}{\end{list}}
+
+% Norms:
+\newcommand{\abs}[1] {\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\floor}[1] {\lfloor {#1} \rfloor}
+\newcommand{\ceil}[1]  {\lceil  {#1} \rceil}
+
+% Basic spaces
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\C} {{\mathbb{C}}}
+\newcommand{\Rd} {{\mathbb{R}^{d}}}
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\K} {\mathbb{K}}
+\newcommand{\T} {\mathbb{T}}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf FYMM/MMP IIIb \ \ \ \  Solutions to Exam Homework\ \  Dec 15 2020}} \\
+Jake Muff
+Student number: 015361763
+\end{center}
+
+\bigskip
+
+\enlargethispage*{2cm}
+
+\section*{Exercise 1}
+\begin{enumerate}
+  \item $M_1 = \mathbb{R}^2 \backslash \{ (0,0) \} $. \\
+  For this $S^1$ is a retract of $M_1$. A topological group is simple connected if and only if $X$ is path connected and the fundamental group is trivial, $\pi_1 (X) = \{ e \}$ \\
+  For $M_1$ we are on a 2D space. $\mathbb{R}^2$ is contractible and its fundamental group is $\{ e \}$, i.e trivial. But for $M_1$ we have $\mathbb{R}^2$ minus a point at $(0,0)$. The $\mathbb{R}^2 \backslash \{ (0,0) \} $ deformation retracts on $S^1$ via the homotopy $H: (\mathbb{R}^2 \backslash \{ (0,0) \} \times [0,1] ) \rightarrow S^1$. As a result 
+  $$ \Pi_1 (\mathbb{R}^2 \backslash \{ (0,0) \}) = \Pi_1 (S^1) = \mathbb{Z} $$
+  
+  \item $M_2 = \mathbb{R}^2 \backslash \{ (0,0), (1,0), (0,1) \} $ \\
+  If we consider some standard coordinates in $\mathbb{R}^2$ i.e $(x_1 \ldots x_n) \in \mathbb{R}^3 $ and that $(0,0) \in \{ x_1 > 0 \}$ and $ (1,0) \in \{ x_1 < 0 \} $. And we have a variable $\varepsilon >0$ such that 
+  $$ H = \{ (x_1 \ldots x_3) \in \mathbb{R}^2 : |x_1| < \varepsilon \} $$
+  Which is disjoint from the points. Consider the open subsets of $\mathbb{R}^2 \backslash \{ (0,0), (1,0), (0,1) \} $
+  $$ A = \{ (x_1, x_2) \in \mathbb{R}^2 : x_1 > - \varepsilon \} \backslash \{ (0,0), (1,0), (0,1) \} $$
+  $$ B = \{ (x_1, x_2) \in \mathbb{R}^2 : x_1 < \varepsilon \} \backslash \{ (0,0), (1,0), (0,1) \} $$
+  Clearly the union of these two subsets is $\mathbb{R}^2 \backslash \{ (0,0), (1,0), (0,1) \}$. If we denote the points in $A$ and $B$ as $k_A, k_B$ since none of the points is contained in $A \cap B$ so $k_A + k_B = k$. We can now use Van Kampen's theorem for fundamental groups to say that 
+  $$ \Pi_1 (\mathbb{R}^2 \backslash \{ (0,0), (1,0), (0,1) \} ) = \mathbb{Z} \times \mathbb{Z} \times \mathbb{Z} $$
+
+  \item $M_3 = S^2$. On a sphere we can continuously deform a loop around it so 
+  $$ \Pi_1 (S^2) = \{ e \} $$ 
+  
+  \item $M_4 = S^2 \backslash \{ (1,00) \} $. This is a sphere with a point removed at the equator. A sphere and a point are simply connected. 
+  Removing a point doesn't change the fact that you can go around the hole as there are two directions for the band to move across so it can be made into a single point thus 
+  $$ \Pi_1 (S^2 \backslash \{ (1,0,0) \} ) = \{ e \} $$
+
+  \item $M_5 = S^2 \backslash \{ (0,0,-1), (0,0,1) \} $
+  $$ \Pi_1 (M_5) = \mathbb{Z} $$
+  This manifold is simply connected. 
+\end{enumerate}
+
+
+\section*{Exercise 2}
+Assuming $f$ is a smooth function. A tensor of type (0,1) is a vector field. Applying $\nabla_X$ to a tensor yields a tensor of the same type. The exterior derivative is a map $\Omega^r (M) \rightarrow \Omega^{r+1} (M)$ and has the property that $d^2 =0 \rightarrow d_{r+1} d_r = 0 $
+$$ T = \nabla_X (df) \rightarrow (1,1) q=1, r=1 $$
+$$ U = d( \nabla_X f) \rightarrow (1,1) q=1, r=1 $$
+$$ V = d( L_X (df)) = L_X (d^2 f) = L_X 0 = 0 \rightarrow (0,0), q=0, r=0 $$
+$$ W = L_X (d(df)) = L_x (0f) = 0 \rightarrow (0,0), q=0, r=0 $$
+
+
+\section*{Exercise 3}
+\begin{enumerate}
+  \item $X$ is a smooth vector field on $M$ because we can assign a vector $v (p)$ to every point on the manifold i.e $X$ is a linear map 
+  $$ X: C^{\infty} (M) \rightarrow C^{\infty} (M) $$ 
+  However, byy adding the (removal of) North and South pole points to the manifold, we cannot have a smooth vector field as we no longer have continuous derivatives i.e it is not differentiable everywhere now. $M$ is of course a smooth manifold. 
+
+  \item To compute the flow generated by the vector field we need to solve  an ODE in coordinates. So, suppose we have some points $p = (\theta \sigma, \phi \sigma)$ and we want the integral curve $y$ with $y (\sigma) = p$, i.e $y(t) = (\theta (t), \phi (t) )$. The condition that $y$ be an integral curve gives us 
+  $$ y' (t) = X_{y(t)} $$
+  Therefore 
+  $$ \theta' (t) = 0 $$
+  And 
+  $$ \phi' (t) = \frac{1}{\sin(\theta (t))} $$
+  Now $\theta$ must be constant $\theta \sigma$ so 
+  $$ \phi' (t) = \frac{1}{\sin(\theta \sigma)} $$
+  is constant. And 
+  $$ \phi (t) = \frac{t}{\sin(\theta \sigma) + \phi \sigma} $$
+  This means that the integral curve at $p = (\theta \sigma, \phi \sigma)$ is 
+  $$ y(t) = (\theta \sigma, \frac{t}{\sin (\theta \sigma) } + \phi \sigma) $$
+  The flow is then 
+  $$ F(p, t) = (\theta, \frac{t}{\sin(\theta)} + \phi ) $$
+  I belive this is the maximal flow if $y(t,p) =  \phi_p (t)$ for $(t,p)$ in an open subset of $\mathbb{R} \times M$, which we have. The vector field is well defined for $\sin (\theta \sigma) = \sigma $, therefore the maximal flow is not complete. 
+\end{enumerate}
+
+\section*{Exercise 4}
+\begin{enumerate}
+  \item $$ M = \{ (u,v) | uv <1 \} $$
+  $$ ds^2 = - \frac{1}{1-uv)^2} ( du \otimes dv + dv \otimes dv ) $$
+  A pseudo-Riemannian manifold has a pseudo-Riemannian metric which is a metric which is symmetric and non-degenerate. As we can see this is a manifold with signature 0 and therefore is pseudo-riemannian. I think it may actually be Lorentizan as it is 2 dimensional. 
+
+  \item The Levi-Civita connection $\nabla$ associated with the metric has the property that $\nabla_g g = 0$ and the non-zero Christoffel symbols are 
+  $$ \Gamma^u_{uu} = - \frac{v}{1-uv} $$
+  $$ \Gamma^u_{uv} = - \frac{u}{1-uv} $$
+  $$ \Gamma^u_{vv} = \frac{v}{1-uv} $$
+  $$ \Gamma^v_{uu} = \frac{u}{1-uv} $$
+  $$ \Gamma^v_{uv} = - \frac{v}{1-uv} $$
+  $$ \Gamma^v_{vv} = - \frac{u}{1-uv} $$
+  I have skipped those that can be deduced by symmetry. 
+  \item Which of the following curves are geodesics 
+  $$ c(t) = (0,t), c(t) = (t, -t), c(t) = (e^t, -e^{-t}) $$
+  For this I calculated the associated tangent vector fields for each curve w.r.t the manifold and checked to see if 
+  $$ \nabla_V V = 0 $$
+  $$ \frac{d \nu^i}{dt} + \Gamma^i_{jk} \nu^i \nu^k = 0 $$
+  The curve is a geodesic if $\gamma (t) =0$. 
+  $$ c(t) = (0,t) \Rightarrow  \gamma'_1= \frac{\partial}{\partial v} $$
+  $$ c(t) = (t, -t) \Rightarrow \gamma'_2 = \frac{\partial}{\partial u} - \frac{\partial}{\partial v} $$
+  $$ c(t) = (e^t, -e^{-t}) \Rightarrow \gamma'_3 = e^t \frac{\partial}{\partial u} + e^{-t} \frac{\partial}{\partial v} $$
+  So we have 
+  $$ \gamma_1 (t) = -t \frac{\partial}{\partial u} $$
+  $$ \gamma_2 (t) = (- \frac{2t}{t^2 +1} ) \frac{\partial}{\partial u} + (\frac{2t}{t^2 +1}) \frac{\partial}{\partial v} $$
+  $$ \gamma_3 (t) = (\frac{1}{2} e^{-3t} + \frac{3}{2} e^t) \frac{\partial}{\partial u} + ( - \frac{1}{2} e^{3t} - \frac{3}{2} e^{-t} ) \frac{\partial}{\partial v} $$
+  From my calculations, none of these are geodesics. For this question I heavily used Mathematica referencing the Problem Set 5 solutions to calculate the coefficients and various derivatives. 
+\end{enumerate}
+
+
+
+\section*{Exercise 5}
+Describe the classifications of all irreducible unitary finite-dimensional representations of the simple Lie algebra $\mathfrak{su}$(3) (or $\mathfrak{su}$(2)) of the simple connected compact simple Lie group $SU(3)$ or $SU(2)$. I am not entirely sure what the classifications are, however, I will attempt to answer as best I can, after reading appendix A.4 in the lecture notes. I am not sure but I believe the theorem of the highest weight plays a substantial part, however this may be for semi-simple Lie groups. 
+\\
+% We can build  $\mathfrak{su}$(2) irreducible representations  (denoted $D$) with tensor products by expressing the heighest weight $\vec{\mu}$ of the lie algebra, which can be expanded 
+% $$ \vec{\mu} = q_1 \vec{\mu_1} + \ldots q_m \vec{\mu_m} $$
+% Where $q_i$ are integers and the components $\vec{\mu_1}$ are often denoted as "fundamental weights". For the lie algebra $\mathfrak{su}$(2), this corresponds to the spin $\frac{1}{2}$ representation, thus, we have 
+% $$ j = q \cdot \frac{1}{2} $$
+% where $j$ is the highest weight of the spin $J$ representation. From the fundamental representation we can build other representations using tensor products. Consider the two irreducible representations spin $j_1$ and $j_2$
+% $$ \ket{j_1,\alpha_1}, \ket{j_2, \alpha_2} $$
+% For $\alpha_1 = \alpha_1 \ldots - \alpha_1$ and $\alpha_2 = \alpha_2 \ldots - \alpha_2$. With tensor product 
+% $$ \ket{j_1, \alpha_1} \otimes \ket{j_2, \alpha_2} $$
+% If we now let the $\mathfrak{su}$(2) generators act on these we get 
+% $$ J_a = J^1_a \otimes \mathbb{I}_2 + \mathbb{I}_1 \otimes J^2_a $$
+% $$ J_a = J^1_a + J^2_a $$
+
+
+% Let us build the irreducible representations with tensor products. The fundamental representations are the 3 (1,0) representations with 3 weights $\ket{1/2, 1/2\sqrt{3}}, \ket{-1/2, 1/2 \sqrt{3} }, \ket{0, -1/\sqrt{3}}$ and the $\bar{3}$ antifundamental (0,1) representation with weights $\ket{-1/2, -1/2 \sqrt{3}}, \ket{1/2, -1/2 \sqrt{3}}, \ket{0, 1/ \sqrt{3}}$. The $\mathfrak{su}$(3) generators use upper and lower indices given by 
+% $$ (T_a)^i_j = \frac{1}{2} ( \lambda_a)_{ij} $$
+% Where $\lambda_a$ are the Gell-Mann matrices. These act on the fundamental basis vector as 
+% $$ (T^a)^j_i \ket{j} $$
+% And on the anti fundamental basis vectors 
+% $$ - (T^a)^i_j \ket{j} $$
+% Using the summation convention a generic vector in the fundamental representation acts on the generators by 
+
+To describe the classifications of all the irreducible representations we first need the Cartan matrix. As the defining representation of $\mathfrak{su}$(3) consists of 3x3 trace 0 unitary matrices we can easily find the cartan matrix. The basis of generators $T^a$ is normalzied such that $Tr (T^a T^b) = \frac{1}{2} \delta^{ab}$ for $a = 1 \ldots 8$. The Cartan generators $H_m$ are easily found 
+$$ H_1 = \frac{1}{2}\begin{pmatrix}
+  1&0&0\\0&-1&0\\0&0&0
+\end{pmatrix} = \frac{1}{2} \lambda_3 $$
+Where $\lambda_a$ are the Gell-Mann matrices. 
+$$ H_2 = \frac{1}{2 \sqrt{3}}\begin{pmatrix}
+  1&0&0\\0&1&0\\0&0&2
+\end{pmatrix} = \frac{1}{2 \sqrt{3}} \lambda_8 $$
+In the definining representation we have basis vectors 
+$$ \begin{pmatrix}
+  1\\0\\0
+\end{pmatrix}, \begin{pmatrix}
+  0\\1\\0
+\end{pmatrix}, \begin{pmatrix}
+  0\\0\\1
+\end{pmatrix} $$
+To find the weights $\mu$ we find the eigenvalues of the Cartan generators in the basis of the defining representation, giving 
+$$ \mu^1 = (\frac{1}{2}, \frac{1}{2 \sqrt{3} }) $$
+$$ \mu^2 = (-\frac{1}{2}, \frac{1}{2 \sqrt{3} }) $$
+$$ \mu^3 = (0, - \frac{1}{\sqrt{3} }) $$
+The raising and lowering operators of SU(3) 
+$$ E^1_{\alpha} = i(\lambda_1 + i \lambda_2 ) = \begin{pmatrix}
+  0&1&0 \\ 0&0&0 \\ 0&0&0 
+\end{pmatrix} $$
+$$ E^2_{\alpha} = i(\lambda_4 + i \lambda_5 ) = \begin{pmatrix}
+  0&0&1 \\ 0&0&0 \\ 0&0&0 
+\end{pmatrix} $$
+$$ E^3_{\alpha} = i(\lambda_6 + i \lambda_7 ) = \begin{pmatrix}
+  0&0&0 \\ 0&0&1 \\ 0&0&0 
+\end{pmatrix} $$
+$$ E^1_{- \alpha} = i(\lambda_1 - i \lambda_2 ) = \begin{pmatrix}
+  0&0&0 \\ 1&0&0 \\ 0&0&0 
+\end{pmatrix} $$
+$$ E^2_{- \alpha} = i(\lambda_4 - i \lambda_5 ) = \begin{pmatrix}
+  0&0&0 \\ 0&0&0 \\ 1&0&0 
+\end{pmatrix} $$
+$$ E^3_{- \alpha} = i(\lambda_6 - i \lambda_7 ) = \begin{pmatrix}
+  0&0&0 \\ 0&0&0 \\ 0&1&0 
+\end{pmatrix} $$
+To find the roots (denoted $\alpha$ ) of SU(3) we find the weight states of the adjoint representation 
+$$ [ H_1, E^1_{\alpha} ] = E^1_{\alpha} $$
+$$ [H_2, E^1_{\alpha}] = 0 $$
+Therefore the roots for $\alpha^1_+ = (1,0)$ and $\alpha_-^1 = (-1,0) $. For the second generator 
+$$ [H_1, E_{\alpha}^2] = \frac{1}{2} E^2_{\alpha} $$
+$$ [H_2, E_{\alpha}^2 ] = \frac{\sqrt{3}}{2} E^2_{\alpha} $$
+Therefore the roots are $\pm \alpha^2 = \pm (\frac{1}{2}, \frac{\sqrt{3}}{2} ) $ and $\pm \alpha^3 = \pm (- \frac{1}{2}, \frac{\sqrt{3}}{2})$. From these we can find the simple roots (denoted $\vec{\alpha}$) 
+$$ \vec{\alpha}^1 = (\frac{1}{2}, \frac{\sqrt{3}}{2} ) $$
+$$ \vec{\alpha}^2 = (\frac{1}{2}, - \frac{\sqrt{3}}{2} ) $$
+The fundamental weights (denoted $\vec{q}$) are found from 
+$$ 2 \frac{\alpha^i \vec{q}^j}{|\alpha|^2} = \delta^{ij}  $$
+On SU(3) these represent the $3$and $\bar{3}$ irreducible representations so we have 
+$$ (\frac{1}{2}, \frac{1}{2 \sqrt{3}} ), (\frac{1}{2}, - \frac{1}{2 \sqrt{3}} ) $$
+From these the cartan matrix can be found 
+$$ 2 \vec{\alpha}_1 \vec{\alpha}_1 = -2 $$
+$$ 2 \vec{\alpha}_1 \vec{\alpha}_2 = -1 $$
+$$ 2 \vec{\alpha}_2 \vec{\alpha}_2 = -2 $$
+The cartan matrix is then 
+$$ C = \begin{pmatrix}
+  2 & -1 \\ -1 & 2 
+\end{pmatrix} $$
+We can build another unitary representation from this by choosing another $H_m$ and $E_{\pm \alpha}$ such that 
+$$ H_1 = \frac{1}{2} \begin{pmatrix}
+  1&-&0 \\ 0&-1&0\\0&0&0
+\end{pmatrix} $$
+$$ H_2 = \frac{1}{2} \begin{pmatrix}
+  0&0&0 \\ 0&1&0 \\ 0&0&-1
+\end{pmatrix} $$
+$$ E_{\alpha_1} = \begin{pmatrix}
+  0&1&0 \\ 0&0&0 \\ 0&0&0 
+\end{pmatrix}, E_{\alpha_2} = \begin{pmatrix}
+  0&0&1 \\ 0&0&0 \\ 0&0&0 
+\end{pmatrix}, E_{\alpha_3} = \begin{pmatrix}
+  0&0&0 \\ 0&0&1 \\ 0&0&0 
+\end{pmatrix} $$
+WIth weights 
+$$ \mu^1 = (\frac{1}{2}, 0), \mu^2 = (- \frac{1}{2}, \frac{1}{2} ), \mu^3 = (0, - \frac{1}{2} ) $$
+And roots 
+$$ \alpha_1 = (1, - \frac{1}{2} ), \alpha_2 = (\frac{1}{2}, \frac{1}{2} ), \alpha_3 = (- \frac{1}{2}, 1) $$
+The simple roots are 
+$$ \alpha^{12} = \alpha_1 - \alpha_2 = (\frac{1}{2}, 1), \alpha^{23} = \alpha_2 - (- \alpha_3) = (0, - \frac{3}{2} ) $$
+The fundamental highest weights $q^j$ are given by 
+$$ q^1 = (\frac{1}{2}, 0), q^2 = (0, - \frac{1}{2} ) $$
+In terms of the classification theorem (Appendix A.4) I believe these are represented by the $A_n$ and this corresponds to the same Dynkin diagram given in the notes. 
+
+
+\end{document}
+

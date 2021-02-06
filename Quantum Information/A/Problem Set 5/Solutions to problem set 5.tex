@@ -1,0 +1,330 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 \ \  Solutions to Problem Set 5}} \\
+Jake Muff \\
+04/10/20
+\end{center}
+
+\bigskip
+\section{Answers}
+
+
+
+\begin{enumerate}
+    \item Exercise 3.13 from Nielsen and Chaung. Show that $c^n$ is $\Omega (n^{log n})$ for any $c > 1$ but that $n^{log n} $ is never $\Omega(c^n)$. We need to show that as in the book $f(n)$ is $\Omega (g(n)) $ if $c g(n) \leq f(n)$ for all $n \geq n_0$, so 
+    $$ c n^{log n} \leq c^n $$ 
+    For this I used a very rudimentary and brute force method python script to check 
+    \begin{lstlisting}[language=Python]
+        import numpy as np
+
+        n = 100000
+        c = 2
+        count =0
+
+        #r is right hand side
+        #l is left hand side
+        for c in range(0,1000):
+            l = c * (n**np.log(n))
+            r = c**n 
+            if l <= r:
+                print('c = %d, YES'%(c))
+                count +=1
+            else:
+                print('c = %d, NO'%(c))
+        print(count)
+        #Outputs YES for all values c > 1
+    \end{lstlisting}
+    And to prove that $n^{log n}$ is never $\Omega (c^n)$ 
+    \begin{lstlisting}[language=Python]
+        import numpy as np
+
+        n = 100000
+        c = 2
+        count =0
+
+        #r is right hand side
+        #l is left hand side
+        for c in range(0,1000):
+            l = c * c**n
+            r = n**(np.log(n)) 
+            if l <= r:
+                print('c = %d, YES'%(c))
+                count +=1
+            else:
+                print('c = %d, NO'%(c))
+        print(count)
+        #Outputs NO for all values c > 1
+    \end{lstlisting}
+    I know this can be shown graphically I just didn't really know how to represent the processing time with the function to show that the lower bound is $\Omega (n^{log n})$ 
+
+    \item Exercise 4.4 from Nielsen-Chaung. Express the Hadamard gate H as a product of $R_x$ and $R_z$ rotation and $e^{i \psi}$ for some $\psi$. 
+    \\
+    If $\hat{n} = (n_x, n_y, n_z) \in \mathbb{R}^3$ such that 
+    $$ R_{\hat{n}} (\theta) = \exp (-i \theta \hat{n} \cdot \vec{\sigma}/2) $$
+    $$ = cos(\theta /2)\textbf{I} - isin(\theta /2 )(n_x \textbf{X} + n_y \textbf{Y} + n_z \textbf{Z}) $$
+    Where $\vec{\sigma}$ are the Pauli Matrices with associated gates. 
+    $$  \textbf{X} = \left(\begin{array}{cc} 0 & 1 \\  1 & 0\end{array}\right), \textbf{Y} = \left(\begin{array}{cc} 0 & -i \\  i & 0\end{array}\right)$$
+    $$ \textbf{Z} = \left(\begin{array}{cc} 1 & 0 \\  0 & -1\end{array}\right), \textbf{I} = \left(\begin{array}{cc} 1 & 0 \\  0 & 1\end{array}\right) $$
+    The Pauli matrices have eigenvectors which are 
+    $$ \ket{\textbf{X}} = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 \\  1\end{array}\right), \frac{1}{\sqrt{2}} \left(\begin{array}{cc} -1 \\  1\end{array}\right)$$
+    $$ \ket{\textbf{Y}} = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 \\  i\end{array}\right), \frac{1}{\sqrt{2}} \left(\begin{array}{cc} i \\  1\end{array}\right)$$
+    $$ \ket{\textbf{Z}} = \left(\begin{array}{cc} 1 \\  0\end{array}\right), \left(\begin{array}{cc} 0 \\  1\end{array}\right)$$
+    Where the eigenvectors are the different poles of the bloch sphere. The Hadamard gate has the effect on the Pauli gates of 
+    $$ \ket{\textbf{Z}; +} \rightarrow \ket{\textbf{X}; +} $$
+    $$ \ket{\textbf{Z}; -} \rightarrow \ket{\textbf{X}; -} $$
+    $$ \ket{\textbf{Y}; +} \rightarrow \ket{\textbf{Y}; -} $$
+    In terms of the bloch sphere or geometrically these can be seen as rotations
+    $$ H = R_x (\pi) R_y(\frac{\pi}{2}) e^{i \psi} $$
+    Where 
+    $$ R_x (\pi) = cos(\frac{\pi}{2})\textbf{I} - isin(\frac{\pi}{2})(n_x \textbf{X} + n_y \textbf{Y} + n_z \textbf{Z}) $$
+    $$ = \left(\begin{array}{cc} cos(\frac{\pi}{2}) & -isin(\frac{\pi}{2}) \\  -isin(\frac{\pi}{2}) & cos(\frac{\pi}{2})\end{array}\right) $$
+    $$ R_y(\frac{\pi}{2}) = cos(\frac{\pi}{4}) \textbf{I} - isin(\frac{\pi}{4})(n_y \textbf{Y}) $$
+    $$ = \left(\begin{array}{cc} cos(\frac{\pi}{4}) & -isin(\frac{\pi}{4}) \\  -isin(\frac{\pi}{4}) & cos(\frac{\pi}{4})\end{array}\right) $$
+    So 
+    $$ R_x (\pi) R_y (\frac{\pi}{2}) = \left(\begin{array}{cc} -i \frac{\sqrt{2}}{2} & -i \frac{\sqrt{2}}{2} \\  -i \frac{\sqrt{2}}{2} & i \frac{\sqrt{2}}{2}\end{array}\right) $$
+    $$ = -i \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 & 1 \\  1 & -1\end{array}\right) $$
+    Where $e^{i \psi} = e^{-i 3 \pi /2} $
+
+
+    \item Exercise 4.9 from Nielsen-Chaung. Explain why any single qubit unitary operator may be written in the form 
+    $$ U = e^{i(\alpha - \beta /2 - \delta /2)} cos(\frac{\gamma}{2}) $$
+    \\
+    A Unitary operator is such that 
+    $$ U U^\dagger = U^\dagger U = \textbf{I} $$ 
+    If we have 
+    $$ U =  \left(\begin{array}{cc} a & b \\  c & d\end{array}\right)$$
+    And 
+    $$ U^\dagger = \left(\begin{array}{cc} a^* & b^* \\  c^* & d^*\end{array}\right)$$
+    Then 
+    $$ U^\dagger U = \left(\begin{array}{cc} aa^* + bb^* & (a \vec{i}+ b \vec{j}) \cdot (c \vec{i} + d \vec{j})  \\ (c \vec{i}+ d \vec{j}) \cdot (a \vec{i} + b \vec{j})   & cc^* + dd^*\end{array}\right)$$
+    $$ =  \left(\begin{array}{cc} 1 & 0 \\  0 & 1\end{array}\right) = \textbf{I} $$
+    So it can be shown that 
+    $$ aa^* + bb^* = e^0 sin^2 (\frac{\gamma}{2}) + e^0 cos^2 (\frac{\gamma}{2}) = 1$$
+    With this and the fact that any single qubit operator will have the form 
+    $$ U = e^{ia} R_{\hat{n}} (\theta) $$
+    Expanded gives 
+    $$ U = e^{ia}  \left(\begin{array}{cc} cos(\frac{\theta}{2})-isin(\frac{\theta}{2})(n_x + n_z) & -n_y sin(\frac{\theta}{2})  \\  n_y sin(\frac{\theta}{2}) & cos(\frac{\theta}{2}) -isin(\frac{\theta}{2})(n_x - n_z)\end{array}\right)$$
+    We can show that this equals eq 4.12 by making substitutions such as $a = \alpha, \theta = \gamma /2, n_y = cos(\beta /2 - \delta /2 )$
+
+    \item Exercise 4.15 from Nielsen-Chaung. 
+    \begin{equation}
+        c_{12} = c_1 c_2 - s_1 s_2 \hat{n}_1 \cdot \hat{n}_2 
+    \end{equation}
+    \begin{equation}
+        s_{12}\hat{n}_{12} = s_1 c_2 \hat{n}_1 + c_1 s_2 \hat{n}_2 + s_1 s_2 \hat{n}_2 \times \hat{n}_1 
+    \end{equation}
+    We have a rotation around $\hat{n}_1$ through $\theta = \beta_1$ \emph{then} a rotation around $\hat{n}_2$ through $\theta = \beta_2$. Need to find the rotation around $\hat{n}_{12}$ through $\beta_{12}$ or the equations (1) and (2). The book makes the substitution that $c_i = cos(\beta_i /2), s_i = sin(\beta_i /2), c_{12} = cos(\beta_{12}/2), s_{12} = sin(\beta_{12} /2)$ 
+    An important indentity is needed which expands out a double dot product in terms of the cross product. 
+    \begin{equation} \label{iden}
+         (\vec{a} \cdot \vec{\sigma}) \cdot (\vec{b} \cdot \vec{\sigma}) = \vec{a} \cdot \vec{b} + i(\vec{a} \times \vec{b}) \cdot \vec{\sigma} 
+    \end{equation}
+    We have 
+    $$ U_{\hat{n}_2} (\beta_1) U_{\hat{n}_1}(\beta_1) = e^{-i \frac{\beta_2}{2} \hat{n}_2 \cdot \vec{\sigma}} e^{-i \frac{\beta_1}{2} \hat{n}_1 \cdot \vec{\sigma}} $$
+    $$ = \Big[ cos(\frac{\beta_2}{2}) - i(\hat{n}_2 \cdot \vec{\sigma}) sin(\frac{\beta_2}{2})\Big]\Big[cos(\frac{\beta_1}{2}) -i(\hat{n}_1 \cdot \vec{\sigma})sin(\frac{\beta_1}{2})\Big] $$
+    $$ = cos(\frac{\beta_1}{2}) cos(\frac{\beta_2}{2}) - sin(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) (\hat{n}_1 \cdot \vec{\sigma})(\hat{n}_2 \cdot \vec{\sigma}) $$
+    $$ -i \Big[ cos(\frac{\beta_1}{2}) sin(\frac{\beta_2}{2})(\hat{n}_2 \cdot \vec{\sigma}) + sin(\frac{\beta_1}{2}) cos(\frac{\beta_2}{2}) (\hat{n}_1 \cdot \vec{\sigma})\Big] $$
+    Using the identity in equation (\ref{iden}) 
+    $$ U_{\hat{n}_2} (\beta_2) U_{\hat{n}_1}(\beta_1) = cos(\frac{\beta_1}{2}) cos(\frac{\beta_2}{2}) -sin(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) \hat{n}_1 \cdot \hat{n}_2 $$
+    $$ -i \Big[ sin(\frac{\beta_1}{2})cos(\frac{\beta_2}{2}) \hat{n}_1 + cos(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) \hat{n}_2 - sin(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) \hat{n}_1 \times \hat{n}_2 \Big] \cdot \vec{\sigma} $$
+    The overall rotation is simply just 
+    $$ U_{\hat{n}_{12}}(\beta_{12}) = e^{-i \frac{\beta_{12}}{2} \hat{n}_{12} \cdot \vec{\sigma}} $$
+    $$ = cos (\frac{\beta_{12}}{2}) - isin(\frac{\beta_{12}}{2}) \hat{n}_{12} \cdot \vec{\sigma} $$
+    Now we set $U_{\hat{n}_2} (\beta_2) U_{\hat{n}_1} (\beta_1) = U_{\hat{n}_{12}} (\beta_{12}) $. Which gives us
+    $$ cos(\frac{\beta_{12}}{2}) = cos(\frac{\beta_{1}}{2})cos(\frac{\beta_2}{2})-sin(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) \hat{n}_1 \cdot \hat{n}_2 $$
+    $$ sin(\frac{\beta_{12}}{2}) \hat{n}_{12} = sin(\frac{\beta_1}{2}) cos (\frac{\beta_2}{2}) \hat{n}_1 + cos(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) \hat{n}_2 + sin(\frac{\beta_1}{2})sin(\frac{\beta_2}{2}) \hat{n}_1 \times \hat{n}_2 $$
+    Which is equivalent to equations (1) and (2). 
+    \\
+    For the second part we can simply set $\beta_1 = \beta_2 = \beta$ and $\hat{n}_1 = \hat{z}$ and $\hat{n}_2 = \hat{n}_2$ to subsitute and expand out so we get 
+    $$ cos (\frac{\beta_{12}}{2}) = cos^2(\beta) - sin^2 (\beta) \hat{z} \cdot \hat{n}_2 $$
+    $$ sin (\frac{\beta_{12}}{2}) \hat{n}_{12} = sin(\beta) cos(\beta) (\hat{z} + \hat{n}_2 ) - sin^2 (\beta) \hat{n}_2 \times \hat{z} $$
+    
+    \item Exercise 4.20 from Nielsen-Chaung. 
+    $$ \ket{\pm} \equiv (\ket{0} \pm \ket{1}) / \sqrt{2} $$
+    $CNOT $ with 2nd qubit as control and 1st qubit as the target can be labelled as $CNOT_{2,1}$. A $CNOT$ with the 1st qubit as control and the 2nd qubit as the target can be labelled $CNOT_{1,2}$. The LHS of the diagram shows 
+    $$ (H \otimes H) (\ket{0} \bra{0} \otimes \textbf{I} + \ket{1} \bra{1} \otimes \textbf{X}) (H \otimes H) $$
+    With 
+    $$ H \otimes H = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} H & H \\  H & -H\end{array}\right) =\frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 & 1 \\  1 & -1\end{array}\right) $$
+    $\ket{0}\bra{0} \otimes \textbf{I} + \ket{1}\bra{1} \otimes \textbf{X}$ has matrix representation 
+    $$ =  \left(\begin{array}{cc} \textbf{I} & 0 \\  0 & \textbf{X} \end{array}\right)$$
+    So we have 
+    $$ \frac{1}{\sqrt{2}} \left(\begin{array}{cc} H & H \\  H & -H\end{array}\right)\left(\begin{array}{cc} \textbf{I} & 0 \\  0 & \textbf{X} \end{array}\right)\frac{1}{\sqrt{2}} \left(\begin{array}{cc} H & H \\  H & -H\end{array}\right) $$
+    $$ = \frac{1}{2} \left(\begin{array}{cccc} 1 & 1 & 1 & 1 \\  1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1\end{array}\right) $$
+    $$ =  \left(\begin{array}{cccc} 1 & 0 & 0 & 0 \\  0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0\end{array}\right) $$
+    Which is $CNOT_{2,1}$. 
+    \\ 
+    As we know from the previous exercises 
+    $$ H \ket{0} = \ket{+}, H \ket{0} = \ket{-} $$
+    And 
+    $$ H^2 = \textbf{I} $$
+    So 
+    $$ CNOT_{1,2} \ket{++} = (H \otimes H)^2 CNOT_{1,2} (H \otimes H) \ket{00} $$
+    $$ = (H \otimes H) CNOT_{2,1} \ket{00} $$
+    $$ = (H \otimes H) \ket{00} = \ket{++} $$
+    $$ CNOT_{1,2} \ket{-+} = (H \otimes H)^2 CNOT_{1,2} (H \otimes H) \ket{10} $$ 
+    $$ = (H \otimes H) CNOT_{2,1} \ket{10} $$
+    $$ = (H \otimes H) \ket{10} = \ket{-+} $$
+    $$ CNOT_{1,2} \ket{+-} = (H \otimes H)^2 CNOT_{1,2} (H \otimes H) \ket{01} $$
+    $$ = (H \otimes H) CNOT_{2,1} \ket{01} $$
+    $$ (H \otimes H) \ket{11} = \ket{--} $$
+    $$ CNOT_{1,2} \ket{--} = (H \otimes H)^2 CNOT{1,2} (H \otimes H) \ket{11} $$ 
+    $$ = (H \otimes H) CNOT_{2,1} \ket{11} $$
+    $$ = (H \otimes H) \ket{01} = \ket{+-} $$
+
+    \item Exercise 4.23 from Nielsen-Chuang. Constructing the $C^1(U)$ gate for $U = R_x (\theta)$ and $U = R_y (\theta)$ using $CNOT$ and single qubit gates. 
+    $$ ABC = \textbf{I} $$
+    $$ U = \exp(i \alpha) AXBXC$$ 
+    So $\exp (i \alpha) AXBXC = R_x (\theta) \ or \ R_y (\theta) $
+    \begin{figure}
+        \includegraphics[width = 20cm]{Photo 05-10-2020, 20 13 16.jpg}
+        \centering
+        \caption{Page of notes for Question 6 or Ex 4.23 from NC. Circuit diagram shown.}
+    \end{figure}
+The determinant of $U$ is $e^{i \alpha}$. Starting with $U = R_y (\theta)$ 
+$$ U = R_y (\theta) = e^{i \theta \textbf{Y}} \rightarrow \alpha =0 $$
+If $A = \textbf{I}$ then $B = e^{-i \theta \textbf{Y} /2}$ and $C = e^{-i \theta \textbf{Y} /2}$ so that $ABC = BC = \textbf{I}$ so $AXBXC = XBXC = e^{i \theta \textbf{Y}}$. This means that we can represent this as 2 single qubit gates.
+\\
+However if we have 
+$$ U = R_x (\theta) $$
+Then it seems like the minimum number of 1 qubit gates needed is 3 if we set 
+$$ A = H, B = e^{-i \theta \textbf{Z}/2}, C = e^{i \theta \textbf{Z}/2}H $$
+And $ABC$ cannot be reduced. 
+\end{enumerate}
+\pagebreak
+\section{Comments}
+\begin{enumerate}
+    \item I understand what Big $O, \Omega,\Theta$ notation is and how it is used but I have never applied it or showed how it works before. I hope that a simple rudimentary python script is enough. I wish I could have shown it graphically but I couldn't figure out a good way to do this for an exponential function
+    \item Question 2 was alright I just needed to recognise that I'm trying to get back to the Hadamard gate to see how the rotations have changed it, which I hope I have. 
+    \item Question 3. I think this was the question which I struggled with the most as I couldn't figure out a way to create a substantial argument for this. 
+    \item Question 4 was long but not that difficult once youve found the correct identity to get rid of that double dot product and include the cross product that is in the answer. 
+    \item Question 5 was alright once I understood the circuit notation and what the question was actually asking me. 
+    \item Question 6 confused me a little bit as the way I understood it the answer was already in the text above the question. The difficult bit was the second part which I've not fully sure I understand why you can only reduce for one type of rotation. 
+\end{enumerate}
+
+
+
+
+\end{document}
+

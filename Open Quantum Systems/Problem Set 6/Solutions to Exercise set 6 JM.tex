@@ -1,0 +1,280 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newtheorem{theorem}{Theorem}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \ Fall 2020 \ \  Answers to Exercise Set 6}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{12/11/2020}
+\end{center}
+
+
+
+\section{Exercise 1}
+\begin{equation}
+     A = \begin{pmatrix}
+     a_{11}&a_{12}\\ a_{21}&a_{22}
+    \end{pmatrix}
+    \end{equation}
+Note that the restriction $|a_{12}|^2 < a_{11} a_{22}$ also restricts $a_{22} \geq 0$. So we have 
+$$ a_{11}\geq 0,\ a_{22} \geq 0 ,\, a_{21}=\bar{a}_{12}\,\, \textrm{and} \,\, |a_{12}|^2\leq a_{11}a_{22} $$
+ A positive matrix is a self adjoint matrix with positive eigenvalues. The self adjoint property is contained in the constraint that $a_{21} = \bar{a_{12}}$ with the diagonals being real. The determinant of the matrix is 
+$$ det(A) = a_{11}a_{22} - a_{12}a_{21} $$
+$$ = a_{11} a_{22} - |a_{12}|^2 $$
+If $a_{11}$ and $a_{22}$ are positive and $|a_{12}|^2 < a_{11}a_{22}$ then $det(A)$ is positive. The trace of A shows the sum of the eigenvalues which is simply 
+$$ \Tr (A) = a_{11} + a_{22} $$ 
+Which is positive if $a_{11}$ and $a_{22} $ are positive. 
+
+\section{Exercise 2} 
+\begin{enumerate}
+    \item \begin{equation}
+        \Gamma:\begin{pmatrix}
+        a_{11}&a_{12}\\ a_{21}&a_{22}
+        \end{pmatrix}\rightarrow\begin{pmatrix}
+        \delta a_{11}+(1-\delta)a_{22}&\mu a_{12}\\ \bar{\mu} a_{21}&\delta' a_{22}+(1-\delta')a_{11}
+        \end{pmatrix}
+        \end{equation}
+    
+    From exercise 1, the diagonal values must be positive: 
+    $$ \delta a_{11} + (1-\delta) a_{22} \geq 0 $$
+    Which means that $0 \leq \delta \leq 1$ and for 
+    $$ \delta' a_{22} + (1+ \delta') a_{11} \geq 0 $$
+    Meaning $ 0 \leq \delta' \leq 1$. The determinant of $\Gamma$ must also be positive 
+    $$ det(\Gamma) = (\delta a_{11} + (1- \delta) a_{22}) \cdot (\delta' a_{22} + (1+ \delta')a_{11}) - ( \mu a_{12} \cdot \bar{\mu}a_{21} ) $$
+    $$ = (\delta a_{11} + (1- \delta')a_{22})(\delta' a_{22} + (1+ \delta') a_{11}) - (|\mu|^2 |a_{12}|^2) $$
+    If $|\mu| \leq \sqrt{\delta \delta'} + \sqrt{(1-\delta)(1-\delta')} $ then this restricts $\Gamma$ such that 
+    $$ \Gamma \geq 0 $$ 
+
+    \item The Choi Matrix for $\Gamma$ is
+    \begin{equation}
+        C=\sum_{i,j=1}^2\Gamma(e_{ij})\otimes e_{ij},
+        \end{equation}
+
+    The elementary matrices are such that depending on if they are applied before or after an operator they either swap the columns or rows. Taking the tensor product into account we have a $4x4$ matix for C 
+    $$C = \begin{pmatrix}
+        \delta&0&0&\mu\\ 0&(1-\delta')&0&0\\0&0&(1- \delta)&0\\ \bar{\mu}&0&0&\delta'
+        \end{pmatrix} $$
+    Also note that $e_{ij}^2 =1$ and $e_{ii}e_{ij}=0, e_{ij}e_{ji}=0$. The eigenvalues of $C$ are then calculated such that 
+    $$ \lambda_1 = 1-\delta $$
+    $$ \lambda_2 = 1-\delta'$$ 
+    Therefore, for $C \geq 0$, $\lambda_{1,2} \geq 0$ and as such $\delta, \delta' \leq 1$. For $\mu$ to be more restrictive but still positive with $\delta, \delta' \leq 1$ they must also have restriction $\delta, \delta' \geq 0$ so the second term in the previous equation for $|\mu|$ goes to 0. 
+    $$ \sqrt{(1-\delta)(1-\delta')} \Rightarrow 0 $$
+    $$ |\mu| \leq \sqrt{\delta \delta'} $$
+
+    \section{Exercise 3} 
+    \begin{equation}\label{G}
+        \Gamma(A)=\sum_j^{4}W_j AW_j^\dagger,
+        \end{equation}
+        \begin{equation}
+        W_j=\begin{pmatrix}
+        a_j&b_j\\c_j &d_j
+        \end{pmatrix}.
+        \end{equation}
+    \begin{enumerate}
+        \item For this first part we substitute the elementary matrices for $A$ using the map in the exercise above for the left side of  \eqref{G} and for the right side we perform the row/column swapping operations on the matrix for $W_j$ for each elementary matrix. 
+        $$ \Gamma(e_{11}) = \begin{pmatrix}
+            \delta&0\\0 &1-\delta'
+            \end{pmatrix} $$
+        Using the previous exercise with $a_{11} = e_{11}$. For the right side this is a little more complicated 
+        $$ \sum_j^4 A_j e_{11} A_j^{\dagger} $$
+        $$ A = \begin{pmatrix}
+            a_j&b_j\\c_j &d_j
+            \end{pmatrix} $$
+        $$ A^{\dagger} =  \begin{pmatrix}
+            a_j^*&c_j^*\\b_j^* &d_j^*
+            \end{pmatrix} $$
+        So we have $A \cdot e_{11}$ (swap columns) $\cdot A^{\dagger}$ (swap rows) 
+        $$ \begin{pmatrix}
+            b_j&a_j\\d_j &c_j
+            \end{pmatrix}
+            \cdot  \begin{pmatrix}
+                    b_j^*&d_j^*\\a_j^* &c_j^*
+                    \end{pmatrix} = \begin{pmatrix}
+                        b_j b_j^* + a_j a_j^*&b_j d_j^* + a_j c_j^*\\d_j b_j^* + c_j a_j^*&d_j d_j^* + c_j c_j^* 
+                        \end{pmatrix} $$
+        $b$ and $d \rightarrow 0$ so 
+        $$ \sum_j \begin{pmatrix}
+          |a_j|^2&a_j c_j^*\\ c_j a_j^*& |c_j|^2 
+            \end{pmatrix} $$
+        So for $e_{11}$ 
+        $$ \Gamma(e_{11}) = \begin{pmatrix}
+            \delta&0\\0 &1-\delta'
+            \end{pmatrix} = \sum_j \begin{pmatrix}
+                |a_j|^2&a_j c_j^*\\ c_j a_j^*& |c_j|^2 
+                  \end{pmatrix} $$ 
+
+        Applying this for $e_{12}, e_{21}$ and $e_{22}$ we have 
+        $$ \Gamma(e_{12}) = \begin{pmatrix}
+            0&\mu\\0 &0
+            \end{pmatrix} = \sum_j \begin{pmatrix}
+                b_j^* a_j&a_j d_j^*\\ c_j b_j^*& d_j^* c_j 
+                  \end{pmatrix} $$ 
+         $$ \Gamma(e_{21}) = \begin{pmatrix}
+            0&0\\\bar{\mu} &0
+            \end{pmatrix} = \sum_j \begin{pmatrix}
+                a_j^* b_j&b_j c_j^*\\ d_j a_j^*& c_j^* d_j 
+                  \end{pmatrix} $$ 
+     $$ \Gamma(e_{22}) = \begin{pmatrix}
+            (1-\delta)&0\\0 &\delta'
+            \end{pmatrix} = \sum_j \begin{pmatrix}
+                |b_j|^2&d_j b_j^*\\ b_j d_j^*& |d_j|^2 
+                  \end{pmatrix} $$ 
+    \textbf{N.B} I may have abused notation a little bit here as both $a^*$ and $\bar{a}$ denote complex conjugates.
+
+    \item If $W_1$ and $W_2$ are the diagonal matrices these will correspond to $e_{11}$ and $e_{22}$ and as such for the off diagonal $W_3$ and $W_4$ correspond to $e_{12}$ and $e_{21}$. The sum expanded is simply just 
+    $$ W_1 A W_1^{\dagger} + W_2 A W_2^{\dagger} + W_3 A W_3^{\dagger} + W_4 A W_4^{\dagger} $$
+    The multiple solutions for each individual element will consist of expanding out through the summation or the above formula. We have 
+    $$ \Gamma (e_{11}): a_j = a_1 + a_2 \Rightarrow |a_j|^2 = |a_1|^2 + |a_2|^2 $$
+    $$ \Gamma (e_{11}): d_j = d_3 + d_4 \Rightarrow |c_j|^2 = |c_3|^2 + |c_4|^2 $$ 
+    Clearly the off diagonal terms go to zero because the left side of equation (4) has 0 on the off diagonal elements. So we have 
+    $$ \Gamma (e_{11}) = \sum_j \begin{pmatrix}
+            |a_1|^2 + |a_2|^2 &0\\ 0& |c_3|^2+|c_4|^2 
+              \end{pmatrix} $$ 
+    The same applies for $\Gamma (e_{22})$ as well, however because the left side of equation (4) has opposite diagonal elements the the solutions for $a_j, d_j$ are switched
+    $$ \Gamma(e_{22}) = \sum_j \begin{pmatrix}
+            |b_3|^2 + |b_4|^2 &0\\ 0& |d_1|^2 + |d_2|^2  
+              \end{pmatrix} $$ 
+    
+    For $\Gamma (e_{12})$ and $\Gamma (e_{21})$ now the off diagonal elements have multiple solutions. Applying the same principles we have 
+    $$ \Gamma(e_{12}) = \sum_j \begin{pmatrix}
+            0&a_1 d_1^* + a_2 d_2^*\\ c_3 b_3^* + c_4 b_4^*&0 
+              \end{pmatrix} $$ 
+    $$ \Gamma(e_{21})= \sum_j \begin{pmatrix}
+            0&b_3 c_3^*+ b_4 c_4^*\\ d_1 a_1^*+ d_2 a_2^*&0
+                \end{pmatrix} $$ 
+
+    \item For the solutions of $W_1, W_2, W_3, W_4$ we can rearrange the hint given to us so that 
+    $$ |\mu| \leq \sqrt{\delta \delta'} $$
+    $$ \frac{|\mu|^2}{\delta} = \delta' \ ; \ \frac{|\mu|^2}{\delta'} = \delta $$
+    Substituting for $\mu$ 
+    $$ \delta = \frac{|\sqrt{\delta \delta'} \sin(\theta) e^{i \phi}|^2}{\delta'} $$
+    $$ \delta' = \frac{|\sqrt{\delta \delta'} \sin(\theta) e^{i \phi}|^2}{\delta} $$
+    $W_1$ and $W_2$ need to have values in both diagonal elements and $W_3$ needs to have element in the bottom left off diagonal, $W_4$ needs to have element in the top right off diagonal. 
+    \\
+    I am not sure how to make these matrices nice. Clearly $W_1$ takes elements $|a_1|^2$ and $|d_1|^2$ and $W_{2,3,4}$ follow the same trend however I am unsure how to tie in the hint with this fact in order to get the solution. 
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
+

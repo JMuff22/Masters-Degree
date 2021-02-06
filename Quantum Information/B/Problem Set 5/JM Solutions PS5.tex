@@ -1,0 +1,230 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\usepackage{qcircuit}
+\usepackage{graphicx}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information B \ \ Fall 2020 \ \  Solutions to Problem Set 5}} \\
+Jake Muff \\
+27/11/20
+\end{center}
+
+\bigskip
+\section{Answers}
+
+\begin{enumerate}
+    \item Exercise 10.5. The Shor code codewords are given by 
+    $$ \ket{0} \rightarrow \ket{0_L} \equiv \frac{(\ket{000} + \ket{111}) (\ket{000}+\ket{111} )( \ket{000} +\ket{111} )}{2 \sqrt{2} } $$
+    $$ \ket{1} \rightarrow \ket{1_L} \equiv \frac{(\ket{000} - \ket{111}) (\ket{000}- \ket{111} )( \ket{000} - \ket{111} )}{2 \sqrt{2} } $$
+    If we measure observables $X_1 X_2 X_3 X_4 X_5 X_6$ and $X_4 X_5 X_6 X_7 X_8 X_9$, noticing that the last three in the first one is also the first 3 in the second part. Each 3 qubits will produce a phase flip measurement 
+    $$ \underbrace{X_1 X_2 X_3 }_{\text{1 or -1}} \underbrace{X_4 X_5 X_6 }_{\text{-1 or 1}} \equiv -1 $$
+    The $\pm 1 \ \text{or}\ \pm 1$ in the underbrace represents eigenvalues. This shows that the signs will always be different. On the other hand 
+    $$ \underbrace{X_4 X_5 X_6 }_{\text{-1 or 1}} \underbrace{X_7 X_8 X_9 }_{\text{-1 or 1}} \equiv 1 $$
+    Showing that the signs will be the same. In conclusion in this example the first 3 qubits (triplet) $X_1 X_2 X_3$ underwent a phase flip and we can correct for it. The shor code allows us to protect against bit flip or phase flip at the same time using two levels of correction instead of one. 
+    In general a phase flip or error occuring in any one of the qubits in either of the 2 6 qubit observables will change the value of either the first or last 3 qubits in the other obseravles allowing us to identify the location of the flip when measuring the observables and once identified one can correct by applying a $Z$. 
+    \\
+    \textbf{N.B}. To answer this question I tried to explain my thought process using an example situation for the shor codes.  
+
+
+    \item Exercise 10.10. The error set is 
+    $$ \{ I, X_j, Y_j, Z_j \} $$
+    For $i=1 \ldots i=9$. To satisfy the Quantum error correction conditions we have 
+    $$ P E_i E^{\dagger} E_j P = \alpha_{ij} P $$
+    For the pauli matrices this reduces to 
+    $$ P \sigma^1_i \sigma_j^1 P = \alpha_{ij} P $$
+    Even though in the book it says the calculation is quite simple I could not see it. I Do not see what the projectors onto the shor code would be
+    $$ P = \ket{0_L} \bra{0_L} + \ket{1_L} \bra{1_L} $$
+    If I could verify the projectors then I would apply the above formulae. I have seen other examples of the shor code correcting errors given by any linear combination of the pauli group, however is this what the question is asking us to show? 
+
+    
+    \item Exercise 10.16. Adding one row to the parity check matrix does not change the code as the matrix will still span the same space. The code space is the kernel of $H$ and the kernel does not change when adding rows. Thus, Gaussian elimination and swapping of bits will give a standard form for the parity matrix. 
+    
+    \item Exercise 10.19. 
+    $$ H = [A|I_{n-k}] $$
+    If $G$ is the generator matrix for the parity check matrix then 
+    $$ H G = 0 $$
+    From Ex 10.18. So 
+    $$ HG = [A|I_{n-k}] \begin{bmatrix}
+        I_k \\ \hline -A 
+    \end{bmatrix} = A-A = 0 $$
+    Therefore 
+    $$ G = \begin{bmatrix}
+        I_k \\ \hline -A 
+    \end{bmatrix} $$
+
+    \item Exercise 10.21. $H$ is a $n-k$ by $n$ matrix. The rank of this matrix is $n-k$. From Ex 10.20 the weight is at most $n-k +1$. Therefore, $[n,k,d]$ code satisfies $d \leq n-k +1 \equiv n-k \geq d -1$ .
+    
+    \item Exerice 10.32. The 7 qubit Steane given is given by 
+    $$ H = \begin{bmatrix}
+        0&0&0&1&1&1&1 \\ 0&1&1&0&0&1&1 \\ 1&0&1&0&1&0&1 
+    \end{bmatrix} $$
+    With codewords 
+    $$ \ket{0_L} = \frac{1}{\sqrt{8}} \Big[ \ket{0000000} + \ket{1010101} + \ket{0110011} + \ket{1100110} $$
+    $$ + \ket{0001111} + \ket{1011010} + \ket{0111100} + \ket{1101001} \Big] $$
+    $$ \ket{1_L} = \frac{1}{\sqrt{8}} \Big[ \ket{1111111} + \ket{0101010} + \ket{1001100} + \ket{0011001} $$
+    $$ \ket{1110000} + \ket{0100101} + \ket{1000011} + \ket{0010110} \Big] $$
+    To make the notation easier lets make some changes 
+    $$ \ket{0000000} = \ket{a} $$
+    $$ \ket{1010101} = a_1 $$
+    $$ \ket{0110011} = a_2 $$
+    $$ \ket{0001111} = a_3 $$
+    Now notice that we can write the remaining terms for $\ket{0_L}$ as combinations of $a_1, a_2, a_3$
+    $$ \ket{1100110} = a_1 + a_2 $$
+    $$ \ket{1011010} = a_1 + a_3 $$
+    $$ \ket{0111100} = a_2 + a_3 $$
+    $$ \ket{1101001} = a_1 + a_2 + a_3 $$
+    So that 
+    $$ \ket{0_L} = \frac{1}{\sqrt{8}} \Big[ \ket{a} + a_1 + a_2 + (a_1 + a_2) + a_3 + (a_1 + a_3) + (a_2 + a_3) + (a_1 + a_2 +a_3) ] $$
+    The table from the textbook can be rewritten with 2 additional rows for $\bar{Z}$ and $\bar{X}$
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ll}
+        \hline
+        \multicolumn{1}{l|}{Name}  & Operator \\
+        \multicolumn{1}{l|}{$g_1$} & IIIXXXX  \\
+        \multicolumn{1}{l|}{$g_2$} & IXXIIXX  \\
+        \multicolumn{1}{l|}{$g_3$} & XIXIXIX  \\
+        \multicolumn{1}{l|}{$g_4$} & IIIZZZZ  \\
+        \multicolumn{1}{l|}{$g_5$} & IZZIIZZ  \\
+        \multicolumn{1}{l|}{$g_6$} & ZIZIZIZ  \\ \hline
+        $\bar{X}$                  & XXXIIII  \\
+        $\bar{Z}$                  & ZZZIIII 
+        \end{tabular}
+        \caption{Table shown in the book with two additional rows added to denote the column changes}
+        \label{tab:my-table}
+        \end{table}
+    By applying the generators $g_i$ to the codewords we see that we can get all 16 parts. Using $X: \ket{0} \rightarrow \ket{1}, \ket{1} \rightarrow \ket{0}$ and $Z: \ket{0} \rightarrow \ket{0}, \ket{1} \rightarrow \ket{-1}$.
+    $$ g_1 \ket{a} = \ket{0001111} = a_3 $$
+    $$ g_2 \ket{a} = \ket{0110011} = a_2 $$
+    $$ g_3 \ket{a} = \ket{1010101} = a_1 $$
+    $$ g_3 \ket{a} + g_2 \ket{a} = \ket{1100110} = a_1 + a_2 $$
+    $$ g_3 \ket{a} + g_1 \ket{a} = \ket{1011010} = a_1 + a_3 $$
+    $$ g_2 \ket{a} + g_1 \ket{a} = \ket{0111100} = a_2 + a_3 $$
+    $$ g_3 \ket{a} + g_2 \ket{a} + g_1 \ket{a} = \ket{1101001} = a_1 + a_2 + a_3 $$
+    The other 8 parts from $\ket{1_L}$ simply following from these noting that $\ket{1_L} = \bar{X} \ket{a}$, meaning that it is these 8 states flipped and the generators follow like before. 
+\end{enumerate}
+
+\end{document}
+

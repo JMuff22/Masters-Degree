@@ -1,0 +1,12 @@
+Jake Muff Numerical Methods in Scientific Computing III
+2/2/2021
+Exercise 2
+
+Files use LAPACK through gfortran with c front end, therefore to run the 
+'make all' command the MAKEFILE needs to be edited to change the directory
+to where the LAPACK src file is. 
+
+Or
+
+Keep make file as it currently is as LAPACK is packed into this folder. 
+

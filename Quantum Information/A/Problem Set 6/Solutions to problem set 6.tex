@@ -1,0 +1,372 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\usepackage{qcircuit}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 \ \  Solutions to Problem Set 6}} \\
+Jake Muff \\
+11/10/20
+\end{center}
+
+\bigskip
+\section{Answers}
+
+
+
+\begin{enumerate}
+    \item Exercise 4.24 from Nielsen and Chaung. Verify that figure 4.9 implements the Toffoli gate.
+    \\
+    %\[
+%\Qcircuit @C=.5em @R=0em @!R {
+%\qw \qw \qw \qw \qw \ctrl{1} \qw \qw \qw \ctrl{1} \qw \ctrl{1} \qw \ctrl{1} \gate{T} \qw
+%\qw \qw \ctrl{1} \qw \qw \qw \ctrl{1} \qw \qw \qw \gate{T^\dagger} \targ \qw \gate{T^\dagger} \targ \gate{S} \qw
+%\qw \gate{H} \targ \gate{T^\dagger} \qw \targ \gate{T} \targ \gate{T^\dagger} \targ \gate{T} \gate{H} \qw \qw \qw
+%}
+%\]
+
+%\[
+%\Qcircuit @C=.5em @R=0em @!R {
+%& \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \ctrl{2} & \qw\\
+%& \qw & \ctrl{1} & \qw  & \qw & \targ & \ctrl{1} & \targ & \qw & \qw\\
+%& \gate{H} & \targ & \gate{T^\dagger} & \targ & \gate{T} & \targ & \gate{T^\dagger} & \targ & \gate{T} & \gate{H}
+%}
+%\]
+    $$ T = e^{i \pi / 8} e^{i \pi Z /8} $$
+    Where $Z$ is the Pauli $Z$ gate. Circuits read left to right but matrix operators read right to left. Couple of useful identities
+    $$ T T^\dagger = ST^\dagger T^\dagger = \textbf{I} $$
+    $$XT^\dagger X = e^{i \pi /4} T $$
+    As $XZX = \textbf{I}$. The first qubit is set to 0 so $T \ket{0} = \ket{0}$, so nothing happens to the first qubit. For the other two we have 
+    %insert figure 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{424.jpg}
+        \caption{Circuit for Ex 4.24}
+    \end{figure}
+    Which effectively does nothing as the $CNOT$ gates cancel out. \\
+    If the first of these qubits is set to 0, the second qubit is 
+    $$ HTXT^\dagger T X T^\dagger H = HTXXT^\dagger H = HTT^\dagger H = HH = I $$
+    And for the first qubit 
+    $$ e^{i \pi /4} S X T^\dagger X T^\dagger \ket{0} = e^{i \pi /4} SXT^\dagger X \ket{0} $$
+    $$ = e^{i \pi /4} SXT^\dagger \ket{1} $$
+    $$ = e^{i \pi /4} SX e^{i \pi /4} \ket{1} $$
+    $$ = S \ket{0} = \ket{0} $$ 
+    First of the two remaining qubits is set to 1. The first qubit is 
+    $$ e^{i \pi /4} SXT^\dagger XT^\dagger \ket{1} = SXT^\dagger X \ket{1} = SXT^\dagger \ket{0} $$
+    $$ = SX \ket{0} = S \ket{1} = i \ket{1} $$
+    The second qubit is 
+    $$ HTXT^\dagger XT XT^\dagger XH $$
+    As we know 
+    $$ XT^\dagger X = e^{i \pi /4} $$
+    So we have 
+    $$ HTXT^\dagger XT XT^\dagger XH = e^{i \pi /2} HTTTTH = e^{i \pi /2} HZH = -iX $$
+    The phase factor here cancels with the other qubits phase factor. 
+    \\
+    \textbf{Alternate method}:
+    \\
+    We can also verify that it by considering the circuit gate by gate labelling the operations $1 \rightarrow 14$ denoted $O_1 \rightarrow O_{14}$. In this case the initial process is 
+    $$ O_1 = \ket{x,y,z} $$
+    %insert figure (drawing of the red lines denotes gate operations)
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{49.jpg}
+        \caption{Circuit for 4.9}
+    \end{figure}
+    Where $x,y,z$ denotes the 3 qubits as inputs. Then, using the identities listed before, we can skip to effectively the 9th gate in the figure 2. Reading from right to left we have 
+    $$ O_9 = \ket{x,y} \otimes X^x T^\dagger X^y T X^x T^\dagger X^y H \ket{z} $$
+    $$ O_{10} = \ket{x} \otimes T^\dagger \ket{y} \otimes TX^x T^\dagger X^y T X^x T^\dagger X^y H \ket{z} $$
+    $$ O_{11} = \ket{x} \otimes X^x T^\dagger \ket{y} \otimes HTX^x T^\dagger X^y T X^x T^\dagger X^y H \ket{z} $$
+    $$ O_{12} = \ket{x} \otimes T^\dagger X^x T^\dagger \ket{y} \otimes HTX^x T^\dagger X^y T X^x T^\dagger X^y H \ket{z} $$
+    $$ O_{13} = \ket{x} \otimes X^x T^\dagger X^x T^\dagger \ket{y} \otimes HTX^x T^\dagger X^y TX^x T^\dagger X^y H \ket{z} $$
+    $$ O_{14} = e^{i \pi /4} \ket{x} \otimes SX^x T^\dagger X^x T^\dagger \ket{y} \otimes HTX^x T^\dagger X^y T X^x T^\dagger X^y H \ket{z} $$
+So we have $T \ket{x} = e^{i \pi /4} \ket{x} $.
+\\ 
+If we set $x =0$ i.e the first qubit to 0, then the outcome will be 
+$$ \ket{0} \otimes \ket{y} \otimes \ket{z} = TOFFOLI \ket{0,y,z} $$
+If $x=1$ then, 
+$$ e^{i \pi x /4} SX^x T^\dagger X^x T^\dagger \ket{S} = e^{i \pi /4} SXT^\dagger XT^\dagger \ket{y} $$
+$$ = S \ket{y} = (i)^y \ket{y} $$
+So when $y = 0$ the outcome is 
+$$ \ket{1} \otimes \ket{0} \otimes HTXT^\dagger TXT^\dagger H \ket{z} = \ket{1,0,z} $$
+If both $x$ and $y=1$ the outcome will be 
+$$ \ket{1,1} \otimes iHTXT^\dagger XTXT^\dagger XH\ket{z} $$
+$$ = TOFFOLI \ket{1,0,z} $$
+with 
+$$ (TXT^\dagger X)^2 = \left(\begin{array}{cc} e^{i \pi /4} & 0 \\  0 & e^{i \pi /4} \end{array}\right)^2 = -i Z $$
+Which leads us to 
+$$ \ket{1,1} \otimes HZH \ket{z} = \ket{1,1} \otimes X \ket{z} = TOFFOLI \ket{1,1,z} $$ 
+
+
+
+    \item Exercise 4.27 from Nielsen-Chaung.
+    \\
+    Need to implement the permutation 
+    $$ U = (1234567) $$ 
+    Using cycle notation we can be broken down into products of 2-cycles 
+    $$ U = (12)(23)(34)(45)(56)(67) $$
+    We can write the actions of the $CNOT$ and $TOFFOLI$ gate as permutations shown by the table 
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        Gate      & Control Qubit & Target Qubit & Permutations \\ \hline
+        $C_{1,2}$ & 1             & 2            & (46)(57)     \\ \hline
+        $C_{1,2}$ & 2             & 1            & (26)(37)     \\ \hline
+        $C_{1,2}$ & 1             & 3            & (45)(67)     \\ \hline
+        $C_{1,2}$ & 3             & 1            & (15)(37)     \\ \hline
+        $C_{1,2}$ & 2             & 3            & (23)(67)     \\ \hline
+        $C_{1,2}$ & 3             & 2            & (13)(57)     \\ \hline
+        $T_1$     & 2,3           & 1            & (37)         \\ \hline
+        $T_2$     & 1,3           & 2            & (57)         \\ \hline
+        $T_3$     & 1,2           & 3            & (67)         \\ \hline
+        \end{tabular}
+        \caption{Table showing how the $CNOT$ and $TOFFOLI$ gates relate to permutations}
+        \label{tab1}
+        \end{table}
+    \\
+
+    So we see as an example we have 
+    $$ C_{12} T_2 = (46)(57)(57) = (46) $$
+    So the transformation would be 
+    $$ \ket{000} \rightarrow \ket{000} $$
+    $$ \ket{001} \rightarrow \ket{111} $$
+    $$ \ket{010} \rightarrow \ket{001} $$
+    $$ \ket{011} \rightarrow \ket{010} $$
+    $$ \ket{100} \rightarrow \ket{011} $$
+    $$ \ket{101} \rightarrow \ket{100} $$
+    $$ \ket{110} \rightarrow \ket{101} $$
+    $$ \ket{111} \rightarrow \ket{110} $$ 
+   
+
+    \item Exercise 4.31 from Nielsen-Chaung. Prove (4.32), (4.33), (4.34)
+    \\
+    Doing this for computational basis states (each $\rightarrow$ is an operation i.e for $C X_1 C$ there are 3 arrows for $C \rightarrow X_1 \rightarrow C$):\\
+    \begin{enumerate}
+
+    \item (4.32), $C X_1 C$ in computation basis states is 
+    $$ \ket{0} \ket{0} \rightarrow \ket{0} \ket{0} \rightarrow \ket{1} \ket{0} \rightarrow \ket{1}\ket{1} $$ 
+    $$ \ket{0} \ket{1} \rightarrow \ket{0} \ket{1} \rightarrow \ket{1}\ket{0} \rightarrow \ket{1} \ket{0} $$
+    $$ \ket{1} \ket{0} \rightarrow \ket{1}\ket{1} \rightarrow \ket{0} \ket{1} \rightarrow \ket{0} \ket{1} $$
+    $$ \ket{1} \ket{1} \rightarrow \ket{1} \ket{0} \rightarrow \ket{0} \ket{0} \rightarrow \ket{0} \ket{0} $$
+    For $X_1 X_2$ we have:
+    $$\ket{ 0} \ket{0} \rightarrow \ket{1} \ket{0} \rightarrow \ket{1} \ket{1} $$
+    $$ \ket{0} \ket{1} \rightarrow \ket{1} \ket{1} \rightarrow \ket{1}\ket{0} $$
+    $$ \ket{1} \ket{0} \rightarrow \ket{0} \ket{0} \rightarrow \ket{0}\ket{1} $$
+    $$ \ket{1}\ket{1} \rightarrow \ket{0} \ket{1} \rightarrow \ket{0} \ket{0} $$
+    So we see that in computation basis they are the same and $C X_1 C = X_1 X_2$ 
+    
+    \item (4.33), $C Y_1 C = Y_1 X_2 $. For $C Y_1 C$ we have:
+    $$ \ket{0} \ket{0} \rightarrow \ket{0} \ket{0} \rightarrow i \ket{1} \ket{0} \rightarrow i \ket{1} \ket{1} $$
+    $$ \ket{0} \ket{1} \rightarrow \ket{0} \ket{0} \rightarrow i \ket{1} \ket{1} \rightarrow i \ket{1} \ket{0} $$ 
+    $$ \ket{1} \ket{0} \rightarrow \ket{1} \ket{1} \rightarrow -i \ket{0} \ket{1} \rightarrow -i \ket{0} \ket{1} $$
+    $$ \ket{1} \ket{1} \rightarrow \ket{1} \ket{0} \rightarrow -i \ket{0} \ket{0} \rightarrow -i \ket{0} \ket{0} $$
+    And for $Y_1 Y_2 $
+    $$ \ket{0} \ket{0} \rightarrow i \ket{1} \ket{0} \rightarrow i \ket{1} \ket{1} $$
+    $$ \ket{0} \ket{1} \rightarrow i \ket{1} \ket{1} \rightarrow i \ket{1} \ket{0} $$
+    $$ \ket{1} \ket{0} \rightarrow -i \ket{0} \ket{0} \rightarrow -i \ket{0} \ket{1} $$
+    $$ \ket{1} \ket{1} \rightarrow -i \ket{0} \ket{1} \rightarrow -i \ket{0} \ket{0} $$
+    And the LHS = RHS so $C Y_1 C = Y_1 Y_2 $
+    \item (4.34), $C Z_1 C = Z_1$: \\
+    For $C Z_1 C$ 
+    $$ \ket{0} \ket{0} \rightarrow \ket{0} \ket{0} \rightarrow \ket{0} \ket{0} \rightarrow \ket{0}\ket{0} $$
+    $$ \ket{0} \ket{1} \rightarrow \ket{0} \ket{0} \rightarrow  \ket{0} \ket{1} \rightarrow \ket{0} \ket{1} $$
+    $$ \ket{1} \ket{0} \rightarrow \ket{1} \ket{1} \rightarrow - \ket{1} \ket{1} \rightarrow - \ket{1} \ket{0} $$
+    $$ \ket{1}\ket{1} \rightarrow \ket{1} \ket{0} \rightarrow - \ket{1} \ket{0} \rightarrow - \ket{1} \ket{1} $$
+    And for $Z_1$ 
+    $$ \ket{0} \ket{0} \rightarrow \ket{0} \ket{0} $$
+    $$ \ket{0} \ket{1} \rightarrow \ket{0} \ket{1} $$
+    $$ \ket{1} \ket{0} \rightarrow - \ket{1} \ket{0} $$
+    $$ \ket{1} \ket{1} \rightarrow - \ket{1} \ket{1} $$
+    Therefore, $C Z_1 C = Z_1 $
+
+    \end{enumerate}
+    \item Exercise 4.32 from Nielsen-Chaung. 
+    \\
+    Suppose we have 
+    $$ P_0 = \ket{0} \bra{0} \ ; \ P_1 = \ket{1} \bra{1} $$
+    which are projectors onto $\ket{0}$ and $\ket{1}$, and we denote the density matrix before measurement as $\rho$ and after measurement as $\rho'$. From earlier in N\&C we know that given an outcome $i$, the state of the quantum system is 
+    $$ \frac{P_i \rho P_i}{p(i)} $$
+    Such that, in a computational basis there is probability $p(0)$ that outcome $i=0 \rightarrow \ket{0}$ occurs and $p(1)$ that outcome $i=1 \rightarrow \ket{1}$ occurs so 
+    $$ \rho ' = p(0) \frac{P_0 \rho P_0}{p(0)} + p(1) \frac{P_1 \rho P_1}{p(1)} $$
+    $$ \rho ' = P_0 \rho P_0 + P_1 \rho P_1 $$
+    For the second part of the question where we find the reduced density matrix when the first qubit is not affected by the measurement, i.e $tr_2 (\rho) = tr_2 (\rho')$\\
+    We know that 
+    $$ \rho = \sum_i \ket{\psi_1} \ket{\psi_2} \bra{\psi_1} \bra{\psi_2} $$
+    $$ Tr_2 (\rho) = \sum_i p_i Tr_2 ( \ket{\psi_1} \ket{\psi_2} \bra{\psi_1} \bra{\psi_2}) $$
+    $$ = \sum_i p_1 Tr_2 ( \ket{\psi_1} \bra{\psi_1} \otimes \ket{\psi_2} \bra{\psi_2}) $$
+    $$ = \sum_i p_i ( \ket{\psi_1}\bra{\psi_1}) \langle \psi_2 | \psi_2 \rangle $$
+    Post measurement trace but not after observation, so we use the first part:
+    $$ \rho ' = \sum_i p_i (P_0 \ket{\psi_1} \ket{\psi_2} \bra{\psi_1} \bra{\psi_2} P_0 + P_1 \ket{\psi_1} \ket{\psi_2} \bra{\psi_1} \bra{\psi_2} P_1 ) $$
+    $$ Tr_2 (\rho ') = \sum_i p_i Tr_2 ( \ket{\psi_1} \bra{\psi_1} \otimes P_0 \ket{\psi_2} \bra{\psi_2} P_0) + Tr_2(\ket{\psi_1} \bra{\psi_1} \otimes P_1 \ket{\psi_2} \bra{\psi_2} P_1) $$
+    $$ Tr_2 (\rho ') = \sum_i p_i (\ket{\psi_1} \bra{\psi_1}) ( \langle \psi_2 | P_0 | \psi_2 \rangle + \langle \psi_2 | P_1 | \psi_2 \rangle $$ 
+    We also have that $P_0 + P_1 = I$, therefore, 
+    $$ Tr_2( \rho ') = Tr_2 (\rho) $$
+
+   
+    \item Exercise 4.37 from Nielsen-Chaung. Decomposition of 
+    $$ U =  \frac{1}{2} \left(\begin{array}{cccc} 1 & 1 & 1 & 1 \\  1 & i & -1 & -i \\ 1 & -1 & 1 & -1 \\ 1 & -i & -1 & i \end{array}\right)$$
+    into a product of 2-level unitary matrices. For this question I followed the above example (4.45 - 4.50) and extrapolated for the larger matrix. Using equation (4.45) in N\&C 
+    $$ U_1 = \left(\begin{array}{cccc} \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & 0 & 0 \\  \frac{\sqrt{2}}{2} & - \frac{\sqrt{2}}{2} & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{array}\right)$$
+    Using equation (4.48) 
+    $$ U_2 = \left(\begin{array}{cccc} \frac{\sqrt{6}}{3} & 0 & \frac{\sqrt{3}}{3} & 0 \\  0 & 1 & 0 & 0 \\ \frac{\sqrt{3}}{3} & 0 & - \frac{\sqrt{6}}{3} & 0 \\ 0 & 0 & 0 & 1 \end{array}\right)$$
+    Using equation 4.50 
+    $$ U_3 = \left(\begin{array}{cccc} \frac{\sqrt{3}}{2} & 0 & 0 & \frac{1}{2} \\  0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ \frac{1}{2} & 0 & 0 & -\frac{\sqrt{3}}{2} \end{array}\right)$$
+    Now $U_4$ follows from (4.50) due to $U$ being an extra dimension. 
+    $$ U_4 = \left(\begin{array}{cccc} 1 & 0 & 0 & 0 \\  0 & \frac{\sqrt{3}}{4}(1-i) & \frac{3}{4} - \frac{i}{4} & 0 \\ 0 & \frac{3}{4} + \frac{i}{4} & - \frac{\sqrt{3}}{4}(1+i) & 0 \\ 0 & 0 & 0 & 1\end{array}\right)$$
+    And $U_5$ and $U_6$ come from 4.51 repeating $U = V_1 \ldots V_k$ where $k$ is defined in the text so we have an extra two matrices
+    $$ U_5 = \left(\begin{array}{cccc} 1 & 0 & 0 & 0 \\  0 & \frac{\sqrt{6}}{5} & 0 & - \frac{\sqrt{3}}{3}i \\ 0 & 0 & 1 & 0 \\ 0 & \frac{\sqrt{3}}{3}i & 0 & - \frac{\sqrt{6}}{3} \end{array}\right)$$
+    $$ U_6 = \left(\begin{array}{cccc} 1 & 0 & 0 & 0 \\  0 & 1 & 0 & 0 \\ 0 & 0 & \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}i \\ 0 & 0 & - \frac{\sqrt{2}}{2}  &  \frac{\sqrt{2}}{2}i \end{array}\right)$$
+    So we have 
+    $$ U = U_1 U_2 U_3 U_4 U_5 U_6 $$ 
+
+    \item Exercise 4.39 from Nielsen-Chuang. Find a quantum circuit using single qubit operators and $CNOTS$ to implement 
+    $$ U = \left(\begin{array}{cccccccc} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & a & 0 & 0 & 0 & 0 & c  \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0  \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0  \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0  \\ 0 & 0 & b & 0 & 0 & 0 & 0 & d \end{array}\right)$$
+    Much like in the example in 4.58, however the $a,b,c,d$ complex numbers are in different positions. Working from the example we have gray codes of 
+    $$ \begin{array}{cccc} A & B & C  \\  0 & 1 & 0 \\ 1 & 1 & 0\\ 1 & 1 & 1  \end{array}$$
+    Which, again using figure 4.16 and comparing to equation 4.59 and 4.58 should get 
+    % insert figure picture of circuits 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{439.jpg}
+    \end{figure}
+
+\end{enumerate}
+\pagebreak
+\section{Comments}
+\begin{enumerate}
+    \item The second method I provided I found to be a better example of my thought process which is why it is so messy. I think I managed to answer the question I just found it to be a very lengthy process. I know Esko showed an example way of answering the question in the lecture which I tried to replicate but struggled to understand his thought process. The second method also shows in the notation what each bit is doing at at one point in the circuit, which I found incredibly useful. 
+    \item Question 2 was good as it was good to draw knowledge from MMPIIIa
+    \item Question 3 was lengthy, perhaps there is a better, shorter way of proving the equations. I am unsure. Was not difficult though.
+    \item Question 4 was interesting as it helped my understand of measurement/observation process a lot better. Not sure my proof is that rigorous though, could perhaps be lengthened. 
+    \item Question 5 was extremely lengthy and seemed somewhat pointless to use such a large matrix. The question was incredibly useful in understand the content but the most difficult part of the question was its length which was due to the size of the matrix. I just hope I am right in my extrapolation for a large matrix, because apart from that you could follow the previous example. 
+    \item Question 6 was similar to question 5 in sense that there was an example to follow which was slightly different. I enjoyed this question though because it was a different way of constructing quantum circuits compared to Question 1.
+    \item Overall I think this Problem Set was easily the most length/difficult. For the sake of brevity I excluded a lot of my notes I took whilst doing this Problem Set, particularly for Question 5 and 6 in which the notes got a bit messy. 
+    \\
+    I did try to use a \LaTeX Quantum circuit package, however it was such a lengthy process for the quantum circuits I had drawn I found it easier just to attach photos of them.
+
+\end{enumerate}
+
+
+
+\end{document}
+

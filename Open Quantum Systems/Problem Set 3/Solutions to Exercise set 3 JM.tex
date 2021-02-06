@@ -1,0 +1,400 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newtheorem{theorem}{Theorem}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \ Fall 2020 \ \  Answers to Exercise Set 3}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{1/10/2020}
+\end{center}
+
+
+
+\begin{enumerate}
+
+\item \textbf{\underline{Exercise 1}}
+%Question 1 Answer here
+$$ \rho = \psi \psi^\dagger $$
+Let $\rho$ be a density operator. From spectral decomposition of $\rho$ we know:
+$$ \rho = \sum_i p_i \ket{\psi_i} \bra{\psi_i} $$
+For $p_i \geq 0 $ with $\sum_i p_i =1$. So 
+$$ \rho^2 = \sum_{i,j} p_i p_j \ket{i} \langle i | j \rangle \bra{j} $$
+$$ = \sum_{i,j} p_i p_j \ket{i} \bra{j} \delta_{ij} $$
+$$ = \sum_i p_i^2 \ket{i} \bra{i} $$
+So 
+$$ Tr(\rho^2) = Tr\Big( \sum_i p_i^2 \ket{i} \bra{i}\Big) $$
+$$ = \sum_i p_i^2 Tr(\ket{i} \bra{i}) $$
+$$ = \sum_i p_i^2 \langle i | i \rangle $$ 
+$$ = \sum_i p_i^2 = 1$$
+And we have 
+$$ \sum_i p_i^2 \leq \sum_i p_i  $$
+So, therefore, 
+$$ p_i^2 \leq p_i $$
+Now if $\rho$ is assumed to be pure then $\rho = \ket{\psi} \bra{\psi}$ and we have 
+$$ Tr(\rho^2) = Tr(\ket{\psi} \langle \psi | \psi \rangle \bra{\psi}) $$
+$$ = Tr(\ket{\psi} \bra{\psi}) = \langle \psi | \psi |\rangle = 1$$ 
+
+\item \textbf{\underline{Exercise 2: Qubit State Operator}}
+\begin{theorem} \label{2.5}
+    An operator $\rho$ is the density operator associated to some ensemble $\{p_i, \ket{\psi_i}\}$ if and only if it satisfies
+    \begin{enumerate}
+        \item $Tr(\rho) = 1$
+        \item $\rho$ is a positive operator 
+    \end{enumerate}
+\end{theorem}
+
+
+
+$\rho$ can be represented in matrix form as 
+$$ \left(\begin{array}{cc} a & b \\ b^* & d\end{array}\right)$$
+%\left( \begin{array}{cc} 1 & 0 \\ 1 & 1\end{array} \right) $$
+Where $a,d \in \mathbbm{R}$ and $b \in \mathbbm{C}$. From theorem \ref{2.5} then $Tr(\rho) = a + d = 1$. 
+$$ a = \frac{1+v_3}{2} \ ; \ d = \frac{1 -v_3}{2} $$
+$$ b = \frac{v_1 - iv_2}{2}$$
+Where $v_i \in \mathbbm{R}^3$.We then have 
+$$ \rho =  \left(\begin{array}{cc} a & b \\ b^* & d\end{array}\right) = \frac{1}{2}  \left(\begin{array}{cc} 1+v_3& v_1 - iv_2 \\ v_1 + iv_2 & 1-v_3 \end{array}\right) $$
+$$ = \frac{1}{2} (\mathbbm{I} + \vec{v}\cdot \vec{\sigma}) $$
+where $\vec{\sigma}$ are the pauli matrices. 
+
+
+A pure state has $Tr(\rho^2) = 1$. 
+$$ \rho^2 = \frac{1}{2} (\mathbbm{I} + \vec{v} \cdot \vec{\sigma}) \cdot \frac{1}{2} (\mathbbm{I} + \vec{v} \cdot \vec{\sigma}) $$
+$$ = \frac{1}{4} ( \mathbbm{I} + 2 \vec{v} \cdot \vec{\sigma} + |\vec{v}|^2 \mathbbm{I}) $$
+Now 
+$$ Tr(\rho^2) = Tr \Big( \frac{1}{4} ( \mathbbm{I} + 2 \vec{v} \cdot \vec{\sigma} + |\vec{v}|^2 \mathbbm{I}) \Big) = 1$$
+Recognising that $Tr(\mathbbm{I}) = 2$ and $Tr(\vec{\sigma}) = 0 $ we get 
+$$ Tr(\rho^2) = \frac{1}{4}(2+2|\vec{v}|^2 ) = 1 $$
+And solved gives 
+$$ |\vec{v}| = 1 $$ 
+Conversely, if $|\vec{v}| = 1$ then
+$$ Tr(\rho^2) =  \frac{1}{4}(2+2|\vec{v}|^2 ) = 1 $$
+
+
+\item \textbf{\underline{Exercise 3}} \\
+\begin{enumerate}
+    \item The qubit has 2 basic states spanning $\mathbbm{C}^2$ which are $\ket{0}$ and $\ket{1}$. Every unit vector in the space $\mathbbm{C}^2$  is a state vector so we have states that are linear combinations of $\ket{0}$ and $\ket{1}$ of the form 
+    $$ \ket{\psi} = \alpha \ket{0} + \beta \ket{1} $$ 
+    Where $\alpha, \beta$ are complex numbers with the property 
+    $$ |\alpha|^2 + |\beta |^2 = 1 $$
+    For the bloch sphere we can express $\ket{\psi}$ as 
+    $$ \ket{\psi} = r_{\alpha} e^{i \phi_{\alpha}} \ket{0} + r_{\beta} e^{i \phi_{\beta}} \ket{1} $$
+    Where $r_{\alpha}, r_{\beta}, \phi_{\alpha},\phi_{\beta}$ are real. We can multiply this by a global phase factor $e^{i \gamma}$ which has no observable consequences as 
+    $$ |e^{i \gamma} \alpha | ^2 = (e^{i \gamma} \alpha)^* (e^{i \gamma} \alpha) = (e^{-i \gamma}\alpha)(e^{i \gamma} \alpha) = \alpha^* \alpha = |\alpha|^2 $$
+    So we have 
+    $$ \ket{\psi '} = r_{\alpha} \ket{0} + r_{\beta} e^{i(\phi_{\beta}- \phi_{\alpha})} \ket{1} $$
+    $$ = r_{\alpha} \ket{0} + r_{\beta} e^{i \phi} \ket{1} $$
+    Which in cartesian coordinates is 
+    $$ \ket{\psi '} = r_{\alpha} \ket{0} + (x + iy) \ket{1} $$
+    This is constrained by $\langle \psi ' | \psi ' \rangle =1$ . So 
+    $$ |r_{\alpha}|^2 + |x+iy|^2 = r_{\alpha}^2 + x^2 + y^2 = 1 $$
+    Which is the equation for a unit sphere in 3D. 
+    \\
+    In spherical polar coordinates we have 
+    $$ x = r sin(\theta) cos(\phi) $$
+    $$ y = r sin(\theta) sin(\phi) $$
+    $$ z = rcos(\theta) $$ 
+    Writing $r_{\alpha}$ to $z$ and $r =1$ 
+    $$ \ket{\psi '} = z \ket{0} + (x+iy) \ket{1} $$
+    $$ = cos(\theta) \ket{0} + sin(\theta)\Big(cos(\phi) + isin(\phi)\Big) \ket{1} $$
+    $$ = cos(\theta) \ket{0} + e^{i \phi} sin(\theta) \ket{1} $$
+    Using half angle relations and splitting the bloch sphere is half we get 
+    $$ \ket{\psi} = cos(\frac{\theta}{2}) \ket{0} + e^{i \phi} sin(\frac{\theta}{2}) \ket{1} $$ 
+    The reasons why the half angle relation can be used here is in the appendix. 
+
+    \item To show that orthonormal bases correspond to antipodal points on the bloch sphere, consider $\ket{\chi}$ correspodning to the opposite point on the bloch sphere 
+    $$ \ket{\chi} = cos(\frac{\pi - \theta}{2}) \ket{0} + e^{i(\phi + \pi)} sin(\frac{\pi - \theta}{2}) \ket{1} $$
+    $$ = cos(\frac{\pi - \theta}{2}) \ket{0} - e^{i \phi} sin(\frac{\pi - \theta}) \ket{1} $$
+    So 
+    $$ \langle \chi | \psi \rangle = cos(\frac{\theta}{2}) cos(\frac{\pi - \theta}{2}) - sin(\frac{\theta}{2})sin(\frac{\pi - \theta}{2}) $$
+    Using the relation $cos(a+b) = cos(a)cos(b) -sin(a)sin(b) $ we have 
+    $$ \langle \chi | \psi \rangle = cos(\frac{\pi}{2}) = 0 $$ 
+    And opposite points correspond to orthgonal qubit states with orthonormal bases. 
+
+    \item In the bloch sphere representation, in terms of probability we can think of pure states occupying the edge or surface of the bloch sphere with mixed states occupying between the centre and the edge of the sphere. 
+    \\
+    A quantum state where $\rho$ is in a mixed state is a statistical emsemble $\{p_k, \psi_k\}$ where $k \in \mathbbm{Z}^+$. Each pure state $\ket{\psi_k}$ occured with probability $ 0 \leq p_k \leq 1$.
+    The probabilities $p_k$ and the pure states are the eigenvalues and eigenvectors of $\rho$ respectively and can be written as 
+    $$ \rho = \sum_k p_k \ket{\psi_k}\bra{\psi_k} $$
+\end{enumerate}
+
+
+
+%Question 4
+\item \textbf{\underline{Exercise 4}} \\
+To check if $\rho$ is an acceptable state operator we need to see if the operators are normalizable, Hermitian and positive semi definite. For the case of $\rho_1$ we have 
+$$ \rho_1 = \left(\begin{array}{cc} \frac{1}{4} & \frac{3}{4} \\ \frac{3}{4} & \frac{3}{4} \end{array}\right)$$
+$$ \rho_1^2 = \left(\begin{array}{cc} \frac{5}{8} & \frac{3}{4} \\ \frac{3}{4} & \frac{9}{8} \end{array}\right)$$
+So $\rho_1^T = \rho_1$ And the trace $Tr(\rho_1^2) = \frac{7}{4} \neq 4$. $\rho_1$ is a hermitian matrix and normalizable but not positive definite as it has a negative eigenvalue 
+$$ \lambda_1 = \frac{- \sqrt{10} +2}{4} $$
+$Tr(\rho_1^2)$ also $\neq 1$ so it is not an acceptable operator. For $\rho_2$ 
+$$ \rho_2 = \left(\begin{array}{cc} \frac{9}{25} & \frac{12}{25} \\ \frac{12}{25} & \frac{16}{25} \end{array}\right)$$
+$$ \rho_2^2 = \left(\begin{array}{cc} \frac{9}{25} & \frac{12}{25} \\ \frac{12}{25} & \frac{16}{25} \end{array}\right)$$
+So $\rho_2^T = \rho_2 $ and $\rho_2 = \rho_2^2$. The eigenvalues are $\lambda_1 =0, \lambda_2 = 1$ so this is an acceptable operator and a pure state as it is hermitian, normalizable and positive definite. Also $Tr(\rho_2^2) =1$ so it is pure (and $\rho_2 = \rho_2^2$). Because we have 
+$$ |\alpha| ^2 + |\beta |^2 = 1 $$
+The state vector is 
+$$ \ket{\psi} = \left(\begin{array}{cc} \frac{3}{5} \\ \frac{4}{5} \end{array}\right)$$
+For $\rho_3$ 
+$$ \rho_3 = \frac{1}{3} \ket{u}\bra{u} + \frac{2}{3} \ket{v}\bra{v} + \frac{\sqrt{2}}{3} \ket{v}\bra{u} + \frac{\sqrt{2}}{3} \ket{u}\bra{v} $$
+The outer product of two orthonormal vectors is the delta function so 
+$$\langle u | u \rangle = \langle v | v \rangle =1, \langle u | v \rangle = 0$$
+This is normalizable, hermitian and is postitive definite. It also has $Tr(\rho_3^2) =1$ as 
+$$ (\frac{1}{3})^2 + (\frac{2}{3})^ + (\frac{\sqrt{2}}{3})^2 + (\frac{\sqrt{2}}{3})^2 = 1$$
+So it is a pure state. The state vector is 
+$$ \ket{\psi} = \frac{1}{\sqrt{3}} ( \ket{u} + \sqrt{2}\ket{v}) $$
+\\
+$\rho_4$ has negative eigenvalues so it is not positive definite. It is also not pure as $Tr(\rho_4^2) = \frac{5}{8} \neq 1$ 
+\\
+$\rho_5$ is normalizable, hermitian and positive definite. The eigenvalues are 
+$$ \lambda_1 = \frac{1}{4}, \lambda_2 = \frac{- \sqrt{5} +3}{8} > 0, \lambda_3 = \frac{\sqrt{5} +3}{8} $$ 
+$$  \rho_5^2 = \left(\begin{array}{ccc} \frac{5}{16} & 0 & \frac{3}{16} \\ 0 & \frac{1}{16} & 0 \\ \frac{3}{16} & 0 & \frac{1}{8} \end{array}\right)$$
+With 
+$$ Tr(\rho_5^2) = \frac{1}{2} \neq 1$$
+So it is not pure. 
+
+
+
+\item Exercise 5
+
+%Question 5
+$$ H = \frac{\hbar w}{2} \sigma_z + \frac{\Omega}{2} \sigma_x $$
+\begin{enumerate}
+    \item Find the eigenvalues and eigenvectors
+    \\
+    The hamiltonian can be written in matrix form as 
+    $$ H = \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right)$$
+    The eigenvalues of this equation can be determined from $det(H - EI)$ where $E$ is the discrete energies or eigenvalues of the hamiltonian. For this system they are 
+    $$ E_{\pm} = \pm \sqrt{\Big(\frac{\hbar w}{2} \Big)^2 + \Big(\frac{\Omega}{2} \Big)^2}$$
+    The eigenvectros are then 
+    $$ \ket{E_+} = \left(\begin{array}{ccc} \hbar w + E \\ \frac{\Omega}{2}  \end{array}\right)$$
+    $$ \ket{E_-} =  \left(\begin{array}{ccc} \hbar w - E \\ \frac{\Omega}{2}  \end{array}\right)$$
+    Normalizing these to get the normalized eigenvectors 
+    $$ \ket{E_+} = \frac{1}{\Big(\frac{\hbar w}{2} \Big)^2 + E \hbar w + \Big(\frac{\Omega}{2}\Big)^2} \left(\begin{array}{ccc} \hbar w + E \\ \frac{\Omega}{2}  \end{array}\right)$$
+    $$ \ket{E_-} =  \frac{1}{\Big(\frac{\hbar w}{2} \Big)^2 - E \hbar w + \Big(\frac{\Omega}{2}\Big)^2} \left(\begin{array}{ccc} \hbar w - E \\ \frac{\Omega}{2}  \end{array}\right)$$
+    
+    \item To solve the schrodinger equation 
+    $$ i \hbar \frac{d \psi}{dt} (t) = H \psi (t) $$
+    The solution is given by 
+    $$ \ket{\psi(t)} = \exp(-i \hat{H} t / \hbar) \ket{\psi (t=0)} $$
+    Where in our case the initial state is $\psi_0 \in \mathbbm{C}^2 $. For a qubit state an example initial state could be $\psi_0 = \left(\begin{array}{ccc} 1 \\ 0 \end{array}\right)$, however this is ignored as it is not explicitly stated in the question. 
+    \\
+    We need to find $\exp(-i \hat{H} t / \hbar)$ which we can do using the \emph{Cayley-Hamilton} theorem, since $E_+ \neq E_-$ where $E_+ = E$ and $E_- = -E$, so we solve the system of equations 
+    $$ e^{-i Et / \hbar} = c_0 + c_1 E $$
+    $$ e^{i Et / \hbar} = c_0 -c_1 E$$
+    Then 
+    $$ e^{-i \hat{H} t/ \hbar} = c_0 + c_1 \hat{H} $$
+    $$ =  \left(\begin{array}{ccc} c_0 + c_1\frac{\hbar w}{2} & c_1\frac{\Omega}{2} \\ c_1\frac{\Omega}{2} & c_0 -c_1\frac{\hbar w}{2} \end{array}\right)$$
+    So 
+    $$ c_0 = cos(Et / \hbar) \ ; \ c_1 = \frac{-isin(Et / \hbar)}{E} $$
+    And 
+    $$ e^{-i \hat{H} t/ \hbar} = \left(\begin{array}{ccc} cos(Et / \hbar) - \frac{isin(Et / \hbar)}{E} \frac{\hbar w}{2} & \frac{-isin(Et / \hbar)}{E} \frac{\Omega}{2} \\ \frac{-isin(Et / \hbar)}{E} \frac{\Omega}{2} & cos(Et / \hbar) + \frac{isin(Et / \hbar)}{E} \frac{\hbar w}{2} \end{array}\right)$$
+    This is then placed in 
+    $$ \ket{\psi(t)} = e^{-i \hat{H} t/ \hbar} \ket{\psi_0} $$
+    For the example state above $ \psi_0 = \left(\begin{array}{ccc} 1 \\ 0 \end{array}\right)$ this would correspond to 
+    $$ \ket{\psi(t)} = \left(\begin{array}{ccc} cos(Et / \hbar)-\frac{isin(Et / \hbar)}{E} \frac{\hbar w}{2} \\ \frac{-isin(Et / \hbar)}{E}\frac{\Omega}{2} \end{array}\right)$$
+
+    \item The von neumann equation for a qubit density matrix is 
+    $$ i \hbar \frac{\partial \rho}{\partial t} = \Big[ H, \rho \Big] $$
+    Where the RHS denotes the communtation relation. With 
+    $$ \rho (t) = e^{-i \hat{H} t} \rho (0) e^{i \hat{H} t} $$
+    At this point we can see that the commutation relation between $H$ and $\rho$ can be broken down into individual $\vec{v} \cdot \vec{\sigma} $ to find the differential equations for each.
+    \\
+    For $v_1 (t)$ with $\sigma_x$ 
+    $$ i \hbar \frac{\partial v_1 (t) \sigma_x}{\partial t} = \Big[H, v_1 (t) \sigma_x \Big] $$
+    The RHS or the commuation relation is 
+    $$ \Big[H, v_1 (t) \sigma_x \Big] = \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right) \left(\begin{array}{ccc} 0 & v_1 (t) \\ v_1 (t) & 0 \end{array}\right)  - \left(\begin{array}{ccc} 0 & v_1 (t) \\ v_1 (t) & 0 \end{array}\right) \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right) $$
+    $$ =  \left(\begin{array}{ccc} 0 & \hbar w v_1 (t) \\ -\hbar w v_1 (t) & 0 \end{array}\right) = \hbar w  \left(\begin{array}{ccc} 0 & v_1 (t) \\ -v_1 (t) & 0 \end{array}\right) $$
+    $$ = i \hbar w v_1 (t) \sigma_y $$ 
+    So the von neumann equation is 
+    $$ i \hbar \frac{\partial v_1 (t) \sigma_x}{\partial t} = i \hbar w v_1 (t) \sigma_y $$ 
+    $$  \frac{\partial v_1 (t) \sigma_x}{\partial t} = wv_1 (t) \sigma_y $$ 
+    $$ \frac{\partial v_1 (t)}{\partial t} = -i w v_1 (t) \sigma_z $$
+
+
+    For $v_2 (t)$ with $\sigma_y$ 
+    $$ i \hbar \frac{\partial v_2 (t) \sigma_y}{\partial t} = \Big[H, v_2 (t) \sigma_y \Big] $$
+    The RHS or the commuation relation is 
+    $$ \Big[H, v_2 (t) \sigma_y \Big] = \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right) \left(\begin{array}{ccc} 0 & -iv_2 (t) \\ iv_2 (t) & 0 \end{array}\right)  - \left(\begin{array}{ccc} 0 & -iv_2 (t) \\ iv_2 (t) & 0 \end{array}\right) \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right) $$
+    $$ =  \left(\begin{array}{ccc} i \Omega v_2 (t) & -i \hbar w v_2 (t)\\ -i \hbar w v_2 (t) & -i \Omega v_2 (t) \end{array}\right) = i \Omega v_2 (t) \sigma_z - i \hbar w v_2 (t) \sigma_x $$
+    So the von neumann equation is 
+    $$ i \hbar \frac{\partial v_2 (t) \sigma_y}{\partial t} = i \Omega v_2 (t) \sigma_z - i \hbar w v_2 (t) \sigma_x $$ 
+    $$  \frac{\partial v_2 (t) \sigma_y}{\partial t} = v_2 (t) \Big( \frac{\Omega}{\hbar} \sigma_z - w \sigma_x \Big) $$ 
+    $$ \frac{\partial v_2 (t)}{\partial t} = \frac{-i}{\hbar} \Omega v_2 (t) \sigma_x - iw v_2(t) \sigma_z $$
+
+    For $v_3 (t)$ with $\sigma_z$ 
+    $$ i \hbar \frac{\partial v_3 (t) \sigma_z}{\partial t} = \Big[H, v_3 (t) \sigma_z \Big] $$
+    The RHS or the commuation relation is 
+    $$ \Big[H, v_3 (t) \sigma_z \Big] = \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right) \left(\begin{array}{ccc} v_3 (t) &  0 \\ 0 & -v_3 (t) \end{array}\right)  - \left(\begin{array}{ccc} v_3 (t) & 0\\ 0 & -v_3 (t) \end{array}\right) \left(\begin{array}{ccc} \frac{\hbar w}{2} & \frac{\Omega}{2} \\ \frac{\Omega}{2} & -\frac{\hbar w}{2} \end{array}\right) $$
+    $$ =  \left(\begin{array}{ccc} 0 & -\Omega v_3 (t) \\ \Omega v_3 (t) & 0 \end{array}\right) = -i \Omega v_3 (t) \sigma_y $$
+    So the von neumann equation is 
+    $$ i \hbar \frac{\partial v_3 (t) \sigma_z}{\partial t} = -i \Omega v_3 (t) \sigma_y $$ 
+    $$  \frac{\partial v_3 (t) \sigma_z}{\partial t} = \frac{-\Omega}{\hbar} v_3 (t) \sigma_y$$ 
+    $$ \frac{\partial v_1 (t)}{\partial t} = \frac{-i}{\hbar} \Omega v_3 (t) \sigma_x$$
+    \\
+    In summary we have 
+    $$ \frac{\partial v_1 (t)}{\partial t} = -i w v_1 (t) \sigma_z $$
+    $$ \frac{\partial v_2 (t)}{\partial t} = \frac{-i}{\hbar} \Omega v_2 (t) \sigma_x - iw v_2(t) \sigma_z $$
+
+    $$ \frac{\partial v_1 (t)}{\partial t} = \frac{-i}{\hbar} \Omega v_3 (t) \sigma_x$$
+    If we had an initial state given or initial conditions, these differential equations could be solved.
+
+\end{enumerate}
+
+\end{enumerate}
+\section{Appendix}
+\begin{enumerate}
+    \item Alternate to Question 3:
+    Showing that for pure states the descriptions of the Bloch vector we have given coincides with 
+$$ \ket{\psi} = cos(\frac{\theta}{2}) \ket{0} + e^{i \phi} sin(\frac{\theta}{2}) \ket{1} $$ 
+$$ \rho = \ket{\psi}\bra{\psi} $$
+$$ \rho = \left(\begin{array}{cc} cos^2(\theta / 2) & e^{-i \phi} cos(\theta /2) sin(\theta /2)  \\ e^{i \phi} cos(\theta /2 )sin(\theta /2) & sin^2 (\theta /2)\end{array}\right)$$
+$$ = \footnotesize{\left(\begin{array}{cc} cos^2(\theta / 2) & cos(\phi) cos(\theta /2)sin(\theta /2) -isin(\phi)cos(\theta /2)sin(\theta /2)  \\ cos(\phi) cos(\theta /2 )sin(\theta /2) +isin(\phi) cos(\theta /2) sin(\theta /2) & 1-cos^2 (\theta /2)\end{array}\right)}$$
+Like in Exercise 2  place into the same form so that 
+$$ 1 + v_3 = 2 cos^2 (\theta /2 ) \ ; \ v_1 = 2cos(\phi) cos(\theta /2 ) sin(\theta /2) $$ 
+$$ v_3 = 2cos^2 (\theta /2 ) \ ; \ v_2 = 2sin(\phi) cos(\theta /2) cos(\theta /2) sin(\theta /2) $$ 
+So 
+$$ |\vec{v}|^2 = 4 cos(\theta /2 ) (cos^2 (\theta /2 ) - cos^2(\theta /2)) + 1 = 1 $$
+This is not really necessary as it pretty much works the same as in exercise 2, however it is good to know this it works. 
+\item \textbf{\underline{Half angles on the Bloch Sphere}} 
+\\
+$$ \ket{\psi} = cos(\theta') \ket{0} + e^{i \phi} sin (\theta ') \ket{1} $$
+For $\theta ' = 0, \ket{\psi} = \ket{0} $ and if $\theta' = \frac{\pi}{2}$ then $ket{\psi} = e^{i \phi} \ket{1}$ so that $0 \leq \theta ' \leq \frac{pi}{2}$. This allows us to generate all the points within the bloch sphere.
+\\
+Now we consider a state vector $\ket{\psi '} $ which corresponds to the opposite point on the bloch sphere with polar coordinates $(1, \pi - \theta ', \phi + \pi)$ such that 
+$$ \ket{\psi '} = cos(\pi - \theta ') \ket{0} + e^{i(\phi + \pi)} sin(\pi - \theta ') \ket{1} $$
+$$ = -cos(\theta ') \ket{0} + e^{i \phi} e^{i \pi} sin(\theta ') \ket{1} $$
+So we can see that 
+$$ \ket{\psi '} = -\ket{\psi} $$
+Therefore, we only have to consider the upper hemisphere of the bloch sphere from $ 0 \leq \theta ' \leq \frac{\pi}{2}$ as antipodal points in the lower hemisphere only different by a factor or -1. 
+\\
+We can map the point on the upper hemisphere onto points on a sphere by stating the definition 
+$$ \theta = 2\theta' \ s.t \ \theta ' = \frac{\theta}{2} $$
+Which gives us the equation we were aiming for. This is for $0 \leq \theta \leq \pi$ and $0 \leq \phi \leq 2\pi$ 
+
+\item \textbf{Note}:
+\\
+Many of these questions were questions I have come across before and I have referred to course notes done at University of Helsinki and previous teaching. Question 5 was particularly hard I found. 
+
+\end{enumerate}
+
+\end{document}
+

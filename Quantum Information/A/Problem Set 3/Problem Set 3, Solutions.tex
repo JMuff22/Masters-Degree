@@ -1,0 +1,345 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 }} \\
+{\Large Solutions to Problem Set 3} \\
+Jake Muff
+
+\end{center}
+
+
+\begin{enumerate}
+
+\item What is the Polar Decomposition of a positive matrix P? Of a Unitary Matrix U? Of a Hermitian Matrix H? \\
+
+\begin{enumerate}
+    \item A positive matrix, P,  is diagonalizable, meaning
+    $$ P = \sum_i \lambda_i \ket{i} \bra{i} $$
+    Where $\lambda_i \geq 0$. A matrix J can be viewed as 
+    $$ J = \sqrt{P^\dagger P}  = \sqrt{PP} = \sqrt{P^2} $$
+    $$ = \sum_i \sqrt{\lambda_i^2} \ket{i} \bra{i} = \sum_i \lambda_i \ket{i} \bra{i} =P $$
+    So the polar decomposition is therefore 
+    $$ P = UP ;\ \forall P $$ 
+    Since U is a unitary matrix i.e $ U^\dagger U = I$ and $U=I$ then $P=P$ 
+    \item For a unitary matrix U
+    \\ 
+    Lets say that U is decomposed such that $U = KJ$ where K is unitary and J is a positive operator such that $J= \sqrt{U^\dagger U} = \sqrt{I} = I$.\\
+    Unitary matrices/operators are invertible such that $K = UJ^{-1} = U I^{-1} = UI = U$.
+    \\
+    The polar decomposition of U is then $U=U$ 
+    \item For a Hermitian matrix H such that $H=UJ$ where $J= \sqrt{H^\dagger H} = \sqrt{HH} = \sqrt{H^2} $, which can be re-written as 
+    $$ H = U\sqrt{H^2} $$ 
+    From spectral decomposition we know that $H \neq \sqrt{H^2} $, the proof is as follows
+    $$ H = \sum_i \lambda_i \ket{i} \bra{i} $$
+    Where $\lambda \in \mathbbm{R}$ :
+    $$ \sqrt{H^2} = \sqrt{\sum_i \lambda_i^2 \ket{i} \bra{i}} = \sum_i \sqrt{\lambda_i^2} \ket{i} \bra{i} = \sum_i | \lambda_i | \ket{i} \bra{i} \neq H$$
+\end{enumerate}
+
+
+\item Find the left and right Polar Decompositions of the matrix 
+$$ A =  \left( \begin{array}{cc} 1 & 0 \\ 1 & 1\end{array} \right) $$
+$$ A^\dagger A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 1\end{array} \right)  \left( \begin{array}{cc} 1 & 0 \\ 1 & 1\end{array} \right) =  \left( \begin{array}{cc} 2 & 1 \\ 1 & 1\end{array} \right) $$
+The left polar decomposition is 
+$$ A = UJ $$
+And the right polar decomposition 
+$$ A = KU $$
+Where $J$ and $K$ are positive operators. 
+\\
+To find the matrices for $K$ and $J$ we use spectral decomposition and notice that $U=AJ^{-1} $
+\\
+Lets find the eigenvalues for $A^\dagger A $:
+$$ det(A^\dagger A - \lambda I ) = |  \left( \begin{array}{cc} 2- \lambda & 1 \\ 1 & 1- \lambda \end{array} \right) = 0 $$
+$$ = (2- \lambda ) (1- \lambda) - 1 $$
+$$ = 2- 2\lambda -\lambda + \lambda^2 -1 $$
+$$ 1 - 3\lambda + \lambda^2 =0 $$
+So $$\lambda_{\pm} = \frac{3 \pm \sqrt{5}}{2}$$
+With associated eigenvectors 
+$$ \ket{\lambda_+} = \left( \begin{array}{cc} \frac{\sqrt{5}+1}{2} \\ 1\end{array} \right)$$
+$$ \ket{\lambda_-} = \left( \begin{array}{cc} -\frac{\sqrt{5}+1}{2} \\ 1\end{array} \right)$$
+Now the spectral decomposition of $A^\dagger A$ is 
+$$ A^\dagger A = \lambda_+ \ket{\lambda_+}\bra{\lambda_+} + \lambda_- \ket{\lambda_-}\bra{\lambda_-} $$
+So when $J = \sqrt{A^\dagger A} $ the spectral decomposition is
+$$ \sqrt{A^\dagger A} = \sqrt{\lambda_+} \ket{\lambda_+}\bra{\lambda_+} + \sqrt{\lambda_-} \ket{\lambda_-}\bra{\lambda_-} $$
+Which works out to be 
+$$ J = \left( \begin{array}{cc} 5.854 & 1.618 \\ 1.618 & 2.236 \end{array} \right) $$ 
+Now $U = AJ^{-1} $, where 
+$$J^{-1} = \left( \begin{array}{cc} 0.214 & -0.155 \\ -0.155 & 0.559 \end{array} \right) $$ 
+So that 
+$$ U = \left( \begin{array}{cc} 0.214 & -0.155 \\ 0.059 & 0.405 \end{array} \right) $$ 
+$K$ is calculated from the spectral decomposition of $\sqrt{AA^\dagger}$  such that
+$$ K = \left( \begin{array}{cc} 4.227 & 1.618 \\ 3.611 & 3.851 \end{array} \right) $$ 
+The left polar decomposition is then 
+$$ A = UJ = \left( \begin{array}{cc} 0.214 & -0.155 \\ 0.059 & 0.405 \end{array} \right) \left( \begin{array}{cc} 5.854 & 1.618 \\ 1.618 & 2.236 \end{array} \right) $$
+And the right polar decomposition is 
+$$ A = KU = \left( \begin{array}{cc} 4.227 & 1.618 \\ 3.611 & 3.851 \end{array} \right)\left( \begin{array}{cc} 0.214 & -0.155 \\ 0.059 & 0.405 \end{array} \right) $$
+These values may be a little off as the calculator had some rounding error when it came to the surds and couldn't represent some decimals as fractions or surds. To keep thinks consistent I kept to 3 decimal places. 
+\item Show that $\vec{v} \cdot \vec{\sigma} $ has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm} = \frac{I \pm \vec{v} \cdot \vec{\sigma}} {2} $
+\\
+This question is similar to exercise 2.35 from the book. 
+\\
+We know $\vec{v} \cdot \vec{\sigma}$ is hermitian and that $(\vec{v} \cdot \vec{\sigma})^2 = I$. So we can say
+$$ (\vec{v} \cdot \vec{\sigma})^2 \ket{\lambda} = I \ket{\lambda} = \lambda $$
+Where $\ket{\lambda}$ is the eigenvector with $\lambda$ eigenvalue. Therefore we have 
+$$ \lambda^2 \ket{\lambda} = \ket{\lambda} $$ 
+Thus $\lambda^2 =1 ; \ \lambda = \pm 1$
+Or using the determinant. 
+$$\vec{v} \cdot \vec{\sigma} = \sum_i^3 v_i \sigma_i $$
+$$ = \left( \begin{array}{cc} v_3 & v_1 -iv_2 \\ v_1 + iv_2 & -v_3 \end{array} \right)$$
+Computing the determinant 
+$$| \left( \begin{array}{cc} v_3-\lambda & v_1 -iv_2 \\ v_1 + iv_2 & -v_3-\lambda \end{array} \right)|$$
+$$ = \lambda^2 -1 =0 $$
+Note that $|\vec{v} | =1 $.
+\\ 
+So $\lambda = \pm 1$.
+\\
+Now we know from eq 2.35 in the book that the projector is equal to $P = \sum_i \ket{i} \bra{i} $. To answer the second part of the question we can show that the outer products of the eigenvectors will be what we're looking for. However, I will also provide a proof the projector is related to this outer product, thus tying them together to show that $P_{\pm} = \frac{I \pm \vec{v} \cdot \vec{\sigma}} {2} $.
+\\
+For $\lambda = 1$ the outer product is 
+$$ \ket{\lambda_1}\bra{\lambda_1} = \frac{1+v_3}{2} \left( \begin{array}{cc} 1  \\ \frac{1-v_3}{v_1 -iv_2} \end{array} \right)\left( \begin{array}{cc} 1 & \frac{1-v_3}{v_1 -iv_2} \end{array} \right) $$
+$$ = \frac{1}{2} \Big(I +  \left( \begin{array}{cc} v_3 & v_1-iv_2  \\ v_1+iv_2 & -v_3 \end{array} \right)\Big) $$
+$$ = \frac{I+ \vec{v}\cdot \vec{\sigma}}{2} $$
+For $\lambda = -1$ 
+$$ \ket{\lambda_{-1}}\bra{\lambda_{-1}} = \frac{1-v_3}{2} \left( \begin{array}{cc} 1  \\ -\frac{1+v_3}{v_1 -iv_2} \end{array} \right)\left( \begin{array}{cc} 1 & -\frac{1+v_3}{v_1 -iv_2} \end{array} \right) $$
+$$ = \frac{1}{2} \Big(I -  \left( \begin{array}{cc} v_3 & v_1-iv_2  \\ v_1+iv_2 & -v_3 \end{array} \right)\Big) $$
+$$ = \frac{I- \vec{v}\cdot \vec{\sigma}}{2} $$
+Now we need to prove that 
+$$ P_{\pm} = \ket{\lambda_{\pm 1}} \bra{\lambda_{\pm 1}} $$ 
+And thus 
+$$ P_{\pm} = \frac{I\pm \vec{v}\cdot \vec{\sigma}}{2} $$
+Suppose that $\ket{\phi} \in \mathbbm{C}^2$ such that
+$$ \bra{\phi} (P_{\pm} - \ket{\lambda_{\pm 1}} \bra{\lambda_{\pm 1}}) \ket{\phi} = 0 $$
+As $\vec{v} \cdot \vec{\sigma}$ is hermitian (proven previously) thus the eigenvectors are orthonormal, $\ket{\phi}$ can be written as a linear combination 
+$$ \ket{\phi} = A \ket{\lambda_{\pm 1}} + B \ket{\lambda_{\pm 1}} $$
+Where $|A|^2 + |B|^2 =1 $ and theyre both in $\mathbbm{C}$ (Seen this before) we can write 
+$$ \bra{\phi} (P_{\pm} - \ket{\lambda_{\pm}} \bra{\lambda_{\pm}}) \ket{\phi} $$
+$$ = \bra{\phi} P_{\pm} \ket{\phi} - \langle \phi | \lambda_{\pm} \rangle \langle \lambda_{\pm} | \phi \rangle $$
+So 
+$$ \bra{\phi} P_{\pm} \ket{\phi} = \bra{\phi} \frac{1}{2} ( I \pm \vec{v} \cdot \vec{\sigma}) \ket{\phi} $$
+$$ = \frac{1}{2} \pm \frac{1}{2} \bra{\phi} \vec{v} \cdot \vec{\sigma} \ket{\phi} $$
+$$ = \frac{1}{2} \pm \frac{1}{2} (|A|^2 - |B|^2 ) = \frac{1}{2} \pm \frac{1}{2} (2|A|^2 - 1) $$
+Where subsituting the previous values $\langle \phi | \lambda_1 \rangle \langle \lambda_1 | \phi \rangle = |A|^2 $ and $\langle \phi | \lambda_{-1} \rangle \langle \lambda_{-1} | \phi \rangle = |B|^2 $
+\\
+So we have that 
+$$ \langle \phi | P_{\pm} - \ket{\lambda_{\pm 1}} \bra{\lambda_{\pm 1}} | \phi \rangle  =0 $$
+And 
+$$ P_{\pm} = \ket{\lambda_{\pm 1}} \bra{\lambda_{\pm 1}}.$$
+So that the projector is equal to the outer product of the eigenvectors. 
+
+\item Calculate the probability of obtaining the result $+1$ for a measurement of $\vec{v} \cdot \vec{\sigma}$, given that the state prior to measurement is $\ket{0}$. What is the state of the system after measurement if $+1$ is obtained? 
+\\
+Probability of $+1$ state after measurement 
+$$ P(+1 | \ket{0})$$
+$+1$ state corresponds to $\lambda_1$ therefore we have 
+$$ P(\langle \lambda_1  \ket{0}) = \langle \lambda_1 | 0 \rangle \langle 0 | \lambda_1 \rangle $$ 
+$$ = \langle 0 | \lambda_1 \rangle \langle \lambda_1 | 0 \rangle $$
+$$ = \langle 0 | \frac{1}{2} ( I + \vec{v} \cdot \vec{\sigma}) | 0\rangle $$
+$$ = \frac{1}{2} (1 + v_3) $$
+Given that outcome $m$ occured, the state after measurement is 
+$$ \frac{P_m \ket{\psi}}{\sqrt{P(m)}} $$
+So we get 
+$$ \frac{\ket{\lambda_1} \langle \lambda_1 | 0 \rangle}{\sqrt{\langle 0 | \lambda_1 \rangle \langle \lambda_1 | 0 \rangle}} $$
+$$ = \frac{1}{\sqrt{\frac{1}{2}(1+v_3)}} \cdot \frac{1}{2} \left( \begin{array}{cc} 1+v_3 \\ v_1+iv_2 \end{array} \right)$$
+$$ = \sqrt{\frac{1+v_3}{2}} \left( \begin{array}{cc} 1 \\ \frac{1-v_3}{v_1 -iv_2} \end{array} \right)$$
+$$ = \ket{\lambda_1} $$ 
+From the previous exercise. 
+\item If you have an orthonormal basis ${e_1,\ldots ,e_n}$ of a vector space $V$ chosen so that the first $1\leq k<n$ vectors are a basis of a $k$-dimensional subspace $W$,
+a projection operator $P$ that projects to W is simply
+$$
+P = \sum^k_{i=1} e_i e^\dagger_i \ .  
+$$
+(In ket notation with $e_i = \ket{i}$, $P = \sum^k_{i=1} \ket{i}\bra{i}$.)  What if you have a basis which is not even orthogonal? Consider the vectors
+$$
+u_1 = \left( \begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right) \ ;  \  u_2 = \left( \begin{array}{c} 1 \\ 1 \\ 0 \end{array} \right) 
+$$
+spanning a two-dimensional subspace $W$ (the xy-plane) of $\Rmath^3$. Note that $u_1,u_2$ are not orthogonal. In this case one can construct a projection operator $P$ which
+projects to $W$ as follows. Construct a $3\times 2$ matrix
+$$
+A = [u_1 u_2] \ , 
+$$ 
+the notation means that the two vectors $u_1,u_2$ are the columns of $A$. Then 
+$$
+P = A (A^TA)^{-1} A^T
+$$
+is a projection operator to $W$. Verify this:  show that in general the above $P^2=P$, and by using the given $u_1,u_2$ calculate the matrix $P$ explicitly and verify that
+it projects to $W$ by showing that the vector $Pv$ with an arbitrary 
+$$
+v= \left( \begin{array}{c} v_x \\ v_y \\ v_z \end{array} \right) 
+$$
+is in $W$.  Next, show that the matrix $G\equiv A^TA$ is in fact a Gram matrix with $G_{ij}=u_i\cdot u_j$.
+\\
+\underline{\emph{\bf{Answer}}}: 
+\\
+$$ A = \left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right)$$
+$$ P = A(A^T A)^{-1} A^T $$
+In general (for any $P$), P satisfies 
+$$ P^2 = P $$ 
+Because 
+$$P = \sum_i \ket{i} \bra{i} $$ 
+$$ P^2 = (\sum_i \ket{i} \bra{i}) (\sum_j \ket{j} \bra{j} )$$
+$$ = \sum_{i,j} \ket{i} \bra{i} \ket{j} \bra{j} $$
+$$ = \sum_{i,j} \ket{i} \bra{j} \delta_{i,j} $$
+$$ = \sum_i \ket{i} \bra{i} = P $$
+Calculating the matrix $P$ explicitly 
+$$ P = \left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right) \Bigg[ \left( \begin{array}{ccc} 1 & 0 & 0 \\ 1 & 1 & 0 \end{array} \right)\left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right)\Bigg]^{-1} \left( \begin{array}{ccc} 1 & 0 & 0 \\ 1 & 1 & 0 \end{array} \right) $$
+$$ = \left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right) \left( \begin{array}{ccc} 1 & 1 \\ 1 & 2 \end{array} \right)^{-1} \left( \begin{array}{ccc} 1 & 0 & 0 \\ 1 & 1 & 0 \end{array} \right) $$
+$$ = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{array} \right)$$
+Vector $Pv$ with 
+$$ v = \left( \begin{array}{ccc} v_x \\ v_y \\ v_z \end{array} \right)$$
+Such that 
+$$ Pv = \left( \begin{array}{ccc} v_x \\ v_y \\ 0 \end{array} \right)$$
+$v_2$ spans the 2D subspace $W$ of $\mathbbm{R}^3$ so $Pv$ is in $W$
+$$ G = A^T A $$
+$$ G = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 1 & 1 & 0 \end{array} \right) \left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right)$$
+$$ = \left( \begin{array}{ccc} 1 & 1 \\ 1 & 2 \end{array} \right) $$
+$$ G_{ij} = u_i \cdot u_j $$
+$$ G_{ij} = u_i^\dagger u_j $$
+$$ =  \left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right)^\dagger  \left( \begin{array}{ccc} 1 & 1 \\ 0 & 1 \\ 0 & 0 \end{array} \right) $$
+$$ = \left( \begin{array}{ccc} 1 & 1 \\ 1 & 2 \end{array} \right) $$
+With inner product $\langle u_i , u_j \rangle$ so that $G_{12} = 1$ verifies it. 
+
+
+\item Suppose Bob is given a quantum state chosen from a set $\ket{\psi_1} \ldots \ket{\psi_m}$ of linearly independent states. Construct a POVM $\{E_1, E_2, \ldots , E_{m+1}\}$ such that if outcome $E_i$ occurs, $1 \leq i \leq m$, then Bob knows with certainty that he was given the state $\ket{\psi_i}$. The POVM must be such that $\langle \psi_i | E_i | \psi_i \rangle > 0$ for each $i$. 
+\\
+\\
+To construct the POVM we want that $\langle \psi_i | E_j | \psi_i \rangle = 0$ for every $i \neq j$ and we have a condition that $\langle \psi_i | E_i | \psi_i \rangle > 0$. We're looking to find $\langle u_j | \phi_i \rangle = 0 \ i \neq j$ for such $E_j = a \ket{u_j}\bra{u_j}$, which as we know can be rewritten in the form of a projector as $E_j = a P_j$ where $P_j$ is the projector onto an orthogonal complement $U_j$ of the set of linearly independent states. 
+For all $j$ from $j = 1, \ldots , m$ we know that the sum $\sum_j E_j = I$, which is called the completeness condition. Pulling these two facts together we can construct $E_{m+1}$ 
+$$ E_{m+1} = I - a \sum_{j=1}^m P_j = I - a \sum_{j=1}^m \ket{j} \bra{j}  = I - \sum_{j=1}^m E_j$$ 
+As the states are linearly independent the trace must be greater than 0, $Tr(P_j \psi_j) > 0$ and that $E_{m+1}$ is positive. 
+\\
+Our POVM elements are then 
+$$ E_j = a P_j = a \ket{j}\bra{j} = \frac{1}{m} P_j $$
+$$ E_{m+1} = I - a \sum_{j=1} \ket{j} \bra{j} = I - \sum_{j=1}^m E_j $$
+\\
+If we take $a = 1/m$  we can prove that this satisifies the condition that $\langle \psi_i | E_i | \psi_i \rangle > 0$ 
+$$ \langle \psi_i | E_{m+1} | \psi_i \rangle = \langle \psi_i | (I - a \sum_{j=1}^m \ket{u_j}\bra{u_j}) | \psi_i \rangle $$
+$$ = \langle \psi_i | \psi_i \rangle - \frac{1}{m} \sum_{j=1}^m \langle \psi_i | u_j \rangle \langle u_j | \psi_i \rangle $$ 
+$$ \geq 1 - \frac{1}{m} \sum_{j=1}^m 1 $$
+$$ \geq 1- \frac{1}{m} (m \times 1) = 0 $$
+Therefore $ E_{m+1} \geq 0$ 
+
+
+\end{enumerate}
+
+
+\end{document}
+

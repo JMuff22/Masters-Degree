@@ -1,0 +1,230 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{amsfonts}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newtheorem{theorem}{Theorem}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \ Fall 2020 \ \  Answers to Exercise Set 7}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{20/11/2020}
+\end{center}
+
+
+
+\section{Exercise 1}
+\begin{enumerate}
+    \item Because $A$ is invertible and square the determinant $det A \neq 0$ and because the determinant is the product of eigenvalues, the eigenvalues must be positive which means that $A \geq 0$, thus $A^{\dagger} A$ is positive. 
+    \\
+    Since $A^{\dagger} A$ is positive definite, it must be invertible as it does not have any eigenvalues equal to 0. 
+
+    \item If we set 
+    $$ (A^{\dagger} A) ^{1/2} = \sqrt{A^{\dagger} A} = P $$ 
+    This is useful later on. Since $A$ is invertible and $A^{\dagger} A$ is positive definite, meaning all the eigenvalues of $A^{\dagger} A$ are positive, therefore all the eigenvalues of $P$ must be positive so $P$ is positive definite. 
+    
+    \item $$ \frac{A}{\sqrt{A^{\dagger} A}} = \frac{A}{P} = AP^{-1} = U $$
+    To prove this is unitary we can use spectral decomposition. 
+    $$ A(A^{\dagger} A)^{-1/2} = A V D^{-1/2} V^{\dagger} $$
+    Where $V$ is unitary and thus $V^{\dagger}$ is unitary. If we use SVD we can show that 
+    $$ A = W D^{1/2} V^{\dagger} $$
+    Such that 
+    $$ A V D^{-1/2} = W D^{1/2} V^{\dagger} V D^{-1/2} = W $$
+    Therefore $U$ is unitary. 
+
+    \item Using the definitions given for $U$ and $P$ we can write out $UP$ and show that this is equal to $A$
+    $$ UP = A(A^{\dagger} A )^{-1/2} (A^{\dagger} A)^{1/2} = A $$
+    $$ A = UP $$
+\end{enumerate}
+
+\section{Exercise 2: Invertibility of a Quantum Channel}
+$$ \Gamma (\rho ) = \sum_i M_i \rho M_i^{\dagger} $$
+Where $\rho$ and $M_i$ are square and $\sum_i M_i^{\dagger} M_i = \mathbb{I} $.
+\begin{enumerate}
+    \item Assuming that the Quantum channel is completely positive and trace preserving (CPTP), then the left side would be a sum of positive terms and each must be proportional to $\psi \psi^{\dagger} $. 
+    $$ \Gamma' ( \Gamma ( \psi \psi^{\dagger} ))= \sum_{i,j} N_j M_i \psi \psi^{\dagger} M_i^{\dagger} N_j^{\dagger} $$
+    Where $\Gamma' (\rho) = \sum_j N_j \rho N_j^{\dagger}$ and that this also obeys completeness. 
+    So for each $i$ and $j$ we would have 
+    $$ N_j M_i =\lambda_j \mathbb{I}  $$
+    This is also true if we follow Nielsen and Chaung \emph{Theorem 8.3: Unitary freedom in the operator sum representation}, which states that there must be complex numbers $\lambda_{ji}$ that satisfy the answer. 
+
+    \item Using the completeness relation as well as results from (a) we would have 
+    $$ M_b^{\dagger} M_a = M_b^{\dagger} \Big( \sum_j N_j^{\dagger} N_j \Big) M_a $$
+    $$ = \sum_j \lambda_{jb}^* \lambda_{ja} \mathbb{I} = \beta_{ba} \mathbb{I} $$
+    Where we have substituted $\beta_{ba}$ for $ \sum_j \lambda^*_{jb} \lambda_{ja}$ and used the fact that $\sum_j N_j^{\dagger} N_j = \mathbb{I}$
+
+    \item Since $\Gamma$ is a linear map where $M_i$ are $d \times d$ matrcies, a system would have dimension $d$ and as such we can use the results from Exercise 1 to see that a polar decomposition of $M_a$ s.t $A^{\dagger} A \equiv M_a^{\dagger} M_a$ would give 
+    $$ M_a = \sqrt{M_a^{\dagger} M_a} U_a = \sqrt{\beta_{aa}} U_a $$
+
+    \item From the previous 2 results we can say that 
+    $$ M_b^{\dagger} M_a = \sqrt{\beta_{aa} \beta_{bb}} U_b^{\dagger} U_a = \beta_{aa} \mathbb{I} $$
+    Which, rearranged gives 
+    $$ U_a = \frac{\beta_{ba}}{\sqrt{\beta_{aa} \beta_{bb}}} U_b $$
+
+    \item These results show that each $M_a$ us proportional to a unitary matrix $U_a$ and $\Gamma (\rho)$ is a unitary map meaning that it can be written as 
+    $$ \Gamma (\rho) = U \rho U^{\dagger} $$
+\end{enumerate}
+
+\section{Exercise 3}
+$$ H = \sum_{j=1}^N \hbar \omega_j b_j^{\dagger} b_j $$
+\begin{equation}
+     H | i_1, i_2 \ldots i_N \rangle = \Big( \sum_{j=1}^N i_j \hbar \omega_j \Big) | i_1, i_2 \ldots i_N \rangle 
+\end{equation}
+\begin{enumerate}
+    \item  Using equation (1) for the thermal state $\rho_{th} = e^{-\beta H}$  i.e sub $H = e^{- \beta H} $ gives 
+    $$ e^{-\beta H} | i_1, i_2 \ldots i_N \rangle = e^{ \sum_j - \beta i_j \hbar \omega_j  } | i_1, i_2 \ldots i_N \rangle $$
+    From the orthonormal basis of $H$ (eq 2 in Ex) we can write the elements of $e^{- \beta H}$ in that basis such that 
+    $$ e^{-\beta H} = \langle k_1, k_2, \ldots k_N | e^{-\beta H} | i_1, i_2, \ldots, i_N \rangle $$
+    The basis is orthonormal so it can be written in terms of kronecker delta 
+    $$ e^{- \beta H} = e^{\sum_j - \beta i_j \hbar \omega_j } \delta_{k_1} \ldots \delta_{k_N}, \delta_{i_1} \ldots \delta_{i_N} $$
+    So the thermal state can be given by 
+    $$ \sum_{i_1,i_2, \ldots i_N}^{+ \infty} = | i_1, i_2 \ldots i_N \rangle \langle i_1, i_2 \ldots i_N | e^{\sum_j - \beta i_j \hbar \omega_j} $$
+
+    \item Find a purification of the thermal state. Because we have $ \mathbb{H} \otimes \mathbb{H}$, $\psi$ will be of the form 
+    $$ H | i_1, i_2, \ldots i_N \rangle \otimes H | i'_1, i'_2, \ldots i'_N \rangle $$
+    Where $\ket{i'}$ denotes the orthonormal eigenbasis of the second hilbert space.
+    $\rho_{th}$ can be diagonalized and written as $\rho = \sum_{i=1}^N p_i \ket{i} \bra{i} $ for the basis $\ket{i}$. Because we have another copy of the hilbert space $\mathbb{H}$, denoted by $\mathbb{H}_D$ which has an orthonormal eigenbasis as discussed in the previous question then $\ket{\psi} $ can be defined by $\mathbb{H} \otimes \mathbb{H}$ as in the question 
+    $$ \ket{\psi} = \sum_i \sqrt{p_i} \ket{i} \otimes \ket{i'} $$
+    In terms of the question this would give 
+    $$ \ket{\psi} = \sum_i \sqrt{e^{\sum_j - \beta i_j \hbar \omega_j }} | i_1, i_2, \ldots i_N \rangle \otimes |i'_1, i'_2, \ldots i'_N \rangle $$
+    This is verified by solving the trace 
+    $$ \Tr_2 (\ket{\psi} \bra{\psi} ) = \Tr_2 (\psi \psi^{\dagger}) $$
+    $$ = \Tr_2 \Big[ \Big(  \sum_i \sqrt{e^{\sum_j -\beta i_j \hbar \omega_j}} | i_1, i_2, \ldots i_N \rangle \otimes | i'_1, i'_2, \ldots i'_N \rangle  \Big) $$
+    $$  \Big( \sum_k \sqrt{e^{\sum_j - \beta k_j \hbar \omega_j }} \langle k_1, k_2, \ldots k_N | \otimes \langle k'_1, k'_2, \ldots k'_N | \Big)\Big] $$
+    $$ = \Tr_2 \Big( \sum_{i,k} \sqrt{e^{\sum_j - \beta i_j \hbar \omega_j } e^{\sum_j - \beta k_j \hbar \omega_j}} |i_1, i_2, \ldots i_N \rangle \langle k_1, k_2, \ldots k_N | \otimes | i'_1, i'_2, \ldots i'_N \rangle \langle k'_1, k'_2, \ldots k'_N |  \Big) $$
+    $$ = \delta_{ik} \sqrt{e^{\sum_j - \beta i_j \hbar \omega_j } e^{\sum_j - \beta k_j \hbar \omega_j}} |i_1, i_2, \ldots i_N \rangle \langle k_1, k_2, \ldots k_N | $$
+    $$ = \sum_i \sqrt{\big( e^{\sum_j - \beta i_j \hbar \omega_j}\big)^2} |i_1, i_2, \ldots i_N \rangle \langle i_1, i_2, \ldots i_N | $$
+    $$ = e^{\sum_j - \beta i_j \hbar \omega_j } = \rho_{th} $$
+
+\end{enumerate}
+\section{Exercise 4}
+\begin{enumerate}
+    \item Because $b_j^{\dagger}$ and $b_j$ are ladder operators I can apply ladder operator properties derived in many resources. For this question I particularly referenced Chapter 7 of Nielsen and Chaung: QIQC. 
+    $$ a^{\dagger} a \ket{n} = n \ket{n} $$
+    From this I applied the right part of the equation to get 
+    $$ b_j^{\dagger} b_j' \psi =  b_j^{\dagger} b_j' \sum_i \sqrt{e^{\sum_j - \beta i_j \hbar \omega_j }} | i_1, i_2, \ldots i_N \rangle \otimes |i'_1, i'_2, \ldots i'_N \rangle $$
+    And the left side 
+    $$ \psi^{\dagger} b_j^{\dagger} b_j' \psi = \sum_j \sum_i \sqrt{e^{\sum_j - \beta i_j \hbar \omega_j }} \sqrt{e^{\sum_j - \beta j_k \hbar \omega_j }} |i_1, i_2, \ldots i_N \rangle \langle j_1, j_2, \ldots j_N | \otimes | i'_1, i'_2, \ldots i'_N \rangle \langle j'_1, j'_2, \ldots j'_N |  \Big) $$
+    I am not sure how this comes out at 0. I'm sure that the ladder operators play a larger part in this question but I'm not quite sure how. As such, I did not answer the second part of this question. 
+\end{enumerate}
+
+\end{document}
+

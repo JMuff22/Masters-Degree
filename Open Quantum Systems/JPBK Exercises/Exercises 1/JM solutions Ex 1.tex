@@ -1,0 +1,217 @@
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \  Answers to Exercise Set 1 - JPBK }}\\
+{\large { Jake Muff}}\\
+jake.muff@helsinki.fi \\
+{Student number: 015361763}\\
+{25/09/2020}
+\end{center}
+
+
+
+\begin{enumerate}
+
+\item Problem 1.1
+%Question 1 Answer here
+\begin{enumerate}
+    \item Obtain 
+    $$ I = \frac{1}{eR_T} \int d \epsilon \ n_L (\epsilon) n_R (\epsilon + eV)[f_l (\epsilon) - f_R (\epsilon + eV)]$$
+    To do this we subsititute in the forward and backward tunneling rates into 
+    \begin{equation} \label{19}
+        I = e(\Gamma_f - \Gamma_b) 
+    \end{equation}
+    Noticing that the "transparancy" value is equal\cite{1} to 
+    $$ |\tau | ^2 = \frac{1}{e^2 R_T} $$
+    $$ I = e(|\tau|^2 \int d \epsilon \ n_L (\epsilon) f_L (\epsilon) n_R(\epsilon +eV)[1-f_R (\epsilon +eV)] $$
+    $$ - |\tau |^2 \int d \epsilon \ n_R (\epsilon +eV) f_R (\epsilon +eV) n_L (\epsilon) [1-f_L (\epsilon)] ) $$ 
+    $$ I = e |\tau|^2 \int n_L (\epsilon) f_L(\epsilon) n_R(\epsilon + eV) - n_L(\epsilon) n_R (\epsilon + eV) f_R(\epsilon + eV) d \epsilon $$
+    $$ = e |\tau | ^2 \int d \epsilon \ n_L(\epsilon) n_R(\epsilon +eV)[f_L (\epsilon) - f_R (\epsilon + eV)] $$
+    $$ = \frac{1}{eR_T} \int d \epsilon \ n_L(\epsilon) n_R(\epsilon +eV)[f_L (\epsilon) - f_R (\epsilon + eV)] $$
+
+    
+
+    
+\end{enumerate}
+
+\item Problem 1.2 \\
+The left and right electrode temperatures have occuptation of energy levels as describes by the fermi distribution 
+\begin{equation}
+    f_{L,R} (\epsilon) = \frac{1}{1+ \exp ((\epsilon - \epsilon_{f,L(R)} ) / k_B T_{L,R}) } 
+\end{equation}   
+
+    So that we define 
+    $$ \epsilon_{F,L(R)} = 0 \ \text{and} \ \epsilon_{f,R} = \epsilon - eV$$ 
+    Applying electron hole symmetry we get equation 18 in the lecture notes. The density of states is approximately constant close to the fermi energy so we have $n_{L,R} (\epsilon) = 1$. \\
+    Using the fermi distribution above and equations 18 from the lecture notes for the forward and backward tunneling rates we get 
+    $$ \Gamma_{f,b} (V) = \frac{1}{e^2 R_T} \frac{\pm eV}{1-\exp (\mp eV / k_B T)} $$
+    Which is the same as 
+    $$ \Gamma = \frac{1}{e^2 R_T} \frac{ eV}{1-\exp (- eV \beta)} $$
+    Assuming of course that $T_L = T_R = T = \frac{1}{k_B \beta}$ \\
+    Subsituting the above equation with these assumptions into (\ref{19}) gives a linear relationship such that $I(V) = \frac{V}{R_T} $ showing that the junction is ohmic.
+
+
+
+
+
+\item Problem 1.3
+For problem 1.3 we are looking at a NIS junction at low temperatures where $eV, k_B T << \Delta $. For this we can use the Bardeen-Cooper-Schrieffer theory of superconductors where electrons form a condensate of cooper pairs that occupy the ground state below the critical temperature. Single electron excitations in the superconductor are seperated from the ground state by a gap labelled $\Delta$ such that 
+\[ n_s (\epsilon) = n_s (0)
+\begin{cases}
+\frac{|\epsilon|}{\sqrt{\epsilon^2 - \Delta^2}}&\text{for $|\epsilon| > \Delta $}\\
+0&\text{$|\epsilon| < \Delta$}\\
+\end{cases}
+\]
+Where $n_s(0)$ is constant and equivalent to $n_R (\epsilon)$ in the notes. \\
+To answer this lets change some notation and introduce \cite{2} a new factor $G_{NIN} $ to represent the conductance for the NIN junction that is independent of V. 
+$$ I_{NIN} = \frac{1}{eR_T} \int d \epsilon \ n_L(\epsilon) n_R(\epsilon +eV)[f_L (\epsilon) - f_R (\epsilon + eV)] $$
+$$ I_{NIN} = G_{NIN} V $$
+We can make this relation as it is ohmic. Such that we can now write the tunnelign current for NIS as 
+$$ I_{NIS} = \frac{G_{NIN}}{e} \int d \epsilon \ n_s (\epsilon) [f_s (\epsilon) - f_N (\epsilon + eV)] $$
+And our conductance $G_{NIS}$ for the NIS junction is 
+$$ G_{NIS} = \frac{d I_{NIS}}{d V} = G_{NIN} \int n_s (\epsilon) \Big[ -\frac{\partial f_N ( \epsilon + eV)}{\partial (eV)}\Big] d \epsilon $$
+The conductance at $V=0$ is related to the width of the gap $\Delta$ through evaluating the derivatives over each other. We can now introduce our low temperature conditions. \\
+For $k_B T << \Delta $ 
+$$ \frac{G_{NIS}}{G_{NIN}} \Big|_{V=0} = \sqrt{\frac{2 \pi \Delta}{k_B T}} e^{- \Delta / k_b T} $$
+For voltages $eV << \Delta$ this changes to 
+$$ \sqrt{2 \pi \Delta k_B T } e^{-(\Delta - eV)/ k_B T} $$
+Where $I_0 = \sqrt{2 \pi \Delta k_B T }$\\
+We could take this further if we introduced the Dynes density of states, however I have kept to using the BCS DoS 
+
+
+
+
+\end{enumerate}
+
+\begin{thebibliography}{9}
+    \bibitem{1}
+    Anna Feshchenko
+    \textit{Electron Themometry, refrigeration and heat transport in nanostructures at sub-kelvin temperatures}
+    Doctoral Thesis, Department of Applied Physics, Low Temperature Laboratory, Aalto University
+    \bibitem{2}
+    M. Tinkham 
+    Introduction to Superconductivity
+    Dover Publications, 2004
+
+\end{thebibliography}
+\end{document}
+

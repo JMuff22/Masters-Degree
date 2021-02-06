@@ -1,0 +1,242 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\usepackage{qcircuit}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information B \ \ Fall 2020 \ \  Solutions to Problem Set 3}} \\
+Jake Muff \\
+15/11/20
+\end{center}
+
+\bigskip
+\section{Answers}
+
+
+
+\begin{enumerate}
+    \item Exercise 8.26: Circuit model for Phase damping. Suppose the qubit is in a state 
+    $$ \ket{\psi} = a \ket{0} b \ket{1} $$
+    So that initially we have 
+    $$ \ket{\psi_0} = (a \ket{0} + b \ket{1} ) \otimes \ket{0} $$
+    The circuit does the operation so that 
+    $$ \ket{\psi}_{out} = a \ket{0} \otimes \ket{0} + b \ket{1} \otimes ( \cos ( \frac{\theta}{2}) \ket{0} + \sin (\frac{\theta}{2}) \ket{1}) $$
+    The rotation $R_y$ is 
+    $$ R_y (\theta) = \cos (\frac{\theta}{2})I - i \sin (\frac{\theta}{2}) Y $$
+    So we have 
+    $$ \ket{\psi}_{out} = (a \ket{0} + b \cos (\frac{\theta}{2} ) \ket{1} ) \otimes \ket{0} + (b \sin (\frac{\theta}{2} ) \ket{1} ) \otimes \ket{1} $$
+    Tracing over the environment gives operation elements $E_k = \langle k_b | U | 0_b \rangle = \langle k_E | U | 0_E \rangle $
+    $$ \Tr ( \rho \otimes \ket{\psi_0} \bra{\psi} ) $$ 
+    $$ = (a \ket{0} + b \cos (\frac{\theta}{2} ) \ket{1} ) \otimes \ket{0} ( a^* \bra{0} + b^* \cos (\frac{\theta}{2}) \bra{1} ) \otimes \bra{0} $$
+    $$  + (b \sin (\frac{\theta}{2} ) \ket{1} ) \otimes \ket{1} (b \sin (\frac{\theta}{2}) \bra{1} ) \otimes \bra{1} $$
+    $$ = |a|^2 + ab^* \cos (\frac{\theta}{2} ) \ket{0} \bra{0} + ba^* \cos (\frac{\theta}{2}) \ket{1} \bra{0} + |b|^2 $$
+    $$ = \left(\begin{array}{cc} |a|^2 & ba^* \cos (\frac{\theta}{2}) \\  ab^* \cos (\frac{\theta}{2}) & |b|^2 \end{array}\right)$$
+    For amplitude damping in the book it has $E_0$ and $E_1$ and then applied equation 8.107 
+    $$ \varepsilon_{AD} (\rho) = E_0 \rho E_0^{\dagger} + E_1 \rho E_1^{\dagger}$$
+    But for Phase Damping we have a new set of operation elements $\tilde{E}_0$ and $\tilde{E}_1$
+    $$ \varepsilon (\rho) = \tilde{E}_0 \rho \tilde{E}^{\dagger}_0 + \tilde{E}_1 \rho \tilde{E}_1^{\dagger} $$
+    Where 
+    $$ \tilde{E}_0 = \sqrt{\alpha} \left(\begin{array}{cc} 1 & 0 \\  0& 1 \end{array}\right),\tilde{E}_1 = \sqrt{1-\alpha} \left(\begin{array}{cc} 1 & 0 \\  0& -1 \end{array}\right)$$
+    $$ \varepsilon (\rho) =  \sqrt{\alpha} \left(\begin{array}{cc} 1 & 0 \\  0& 1 \end{array}\right) \left(\begin{array}{cc} |a|^2 & ba^*  \\  ab^*  & |b|^2 \end{array}\right)  \sqrt{\alpha} \left(\begin{array}{cc} 1 & 0 \\  0& 1 \end{array}\right) $$
+    $$ + \sqrt{1-\alpha} \left(\begin{array}{cc} 1 & 0 \\  0& -1 \end{array}\right)   \left(\begin{array}{cc} |a|^2 & ba^*  \\  ab^*  & |b|^2 \end{array}\right)    \sqrt{1-\alpha} \left(\begin{array}{cc} 1 & 0 \\  0& -1 \end{array}\right) $$
+    $$ =  \left(\begin{array}{cc} |a|^2  & 2ba^* \alpha - ba^* \\  2ab^* \alpha -ab^*& |b|^2 \end{array}\right) $$
+    Comparing we have 
+    $$ 2 ba^* \alpha - ba^* = ba^* \cos (\frac{\theta}{2}) $$
+    $$ ba^* (2 \alpha -1) = ba^* \cos (\frac{\theta}{2}) $$
+    $$ 2 \alpha -1 = \cos (\frac{\theta}{2}) $$
+    $$ \alpha = \frac{\cos(\frac{\theta}{2} ) +1 }{2} $$
+    Doing the same for $2ab^* \alpha -ab^* = ab^* \cos (\frac{\theta}{2}) $ yields the same result. This matches the previous Phase Damping quantum operation so the circuit can be used to model it given that $\theta$ is chosen appropriately. 
+
+    \item Ex 8.29. 
+    $$ \varepsilon (\rho) \sum_{\alpha} M_{\alpha} \rho M_{\alpha}^{\dagger} $$
+    $$ \varepsilon(I) = \sum_{\alpha} M_{\alpha} I M_{\alpha}^{\dagger} $$
+    which is equivalent to 
+    $$ \sum_{\alpha} M_{\alpha} M_{\alpha}^{\dagger} = I $$
+    For the de polarizing channel: 
+    $$ \varepsilon (\rho) = \frac{p I}{2} + (1-p)\rho $$
+    From Exercise 8.17 which we did before 
+    $$ \varepsilon (I) = \frac{I + \sum_{i=1}^3 \sigma_i I \sigma_i}{4} = \frac{4 I}{4} = I $$
+    For Phase Damping: 
+    $$ \varepsilon (I) = (1- \frac{1}{2} p) I + \frac{1}{2} p  \left(\begin{array}{cc} 1  & 0 \\  0& -1 \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& -1 \end{array}\right) $$
+    $$ = I$$
+    Alternatively 
+    $$ \varepsilon (I) = \tilde{E}_0 I \tilde{E}_0^{\dagger} + \tilde{E}_1 I \tilde{E}_1^{\dagger} $$
+    $$ = \sqrt{\alpha} \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right)\sqrt{\alpha} \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right) $$
+    $$ + \sqrt{1-\alpha} \left(\begin{array}{cc} 1  & 0 \\  0& -1 \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right)\sqrt{1-\alpha} \left(\begin{array}{cc} 1  & 0 \\  0& -1 \end{array}\right) $$
+    $$ = I $$
+    For Amplitude Damping: 
+    $$ \varepsilon (I) = E_0 I E_0^{\dagger} + E_1 I E_1^{\dagger} $$
+    $$ = \left(\begin{array}{cc} 1  & 0 \\  0& \sqrt{1-\gamma} \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& \sqrt{1-\gamma} \end{array}\right) $$
+    $$ + \left(\begin{array}{cc} 0  & \sqrt{\gamma} \\  0& 0 \end{array}\right) \left(\begin{array}{cc} 1  & 0 \\  0& 1 \end{array}\right) \left(\begin{array}{cc} 0  & 0 \\  \sqrt{\gamma}& 0 \end{array}\right) $$
+    $$ = \left(\begin{array}{cc} 1+\gamma  & 0 \\  0& 1-\gamma \end{array}\right) \neq I $$
+
+    \item Exercise 8.31. This descrives the interaction between 2 harmonic oscillators where $a^{\dagger} a$ is the system and $bb^{\dagger}$ is the environment. 
+    $$ H = \chi a^{\dagger} a(b+b^{\dagger} ) $$
+    $$ \rho_{nm} = \langle n | \rho | m \rangle $$
+    $$ U = \exp (-i \chi a^{\dagger} a(b+b^{\dagger} ) \Delta t)$$
+    So we need to apple $U$ to $\ket{\psi} $ where 
+    $$ \ket{\psi} = C \ket{n} + D \ket{m} \otimes \ket{0} $$
+    So that we get 
+    $$ U \ket{\psi} = C \cdot U \ket{n} + D \cdot U \ket{m} \otimes \ket{0} $$
+    Then trace over the environment i.e
+     $$ \Tr(U \ket{\psi} \bra{\psi} U^{\dagger} ) $$
+    $$ = |C|^2 U \ket{n} U^{\dagger} \bra{n} + |D|^2 U \ket{m} U^{\dagger} \bra{m} + CD^* U \ket{n} U^{\dagger} \bra{m} + C^* D U \ket{m} U^{\dagger} \bra{n} $$
+    \textbf{N.B} At this point I did not know how to get $U, U^{\dagger}$ into a state where the trace gives an exponential with a $(n-m)^2$ factor in. 
+    \item Problem 8.1. Solve 
+    $$ \dot{\rho} = - \frac{\lambda}{2} ( \sigma_+ \sigma_- \rho + \rho \sigma_+ \sigma_- - 2 \sigma_- \rho \sigma_+) $$
+    In the notation from the book (which I found a confusing approach to master equations and didn't fully understand. Also "from bloch vector representation for $\tilde{\rho}$" where is this in the book?). I express the solution to the differential equation as 
+    $$ \rho (t) = \varepsilon (\rho (0)) = E_0 \rho(0) E_0^{\dagger} + E_1 \rho (0) E_1^{\dagger} $$
+    With the $\gamma = -\frac{\lambda}{2}$ variable in the book such that 
+    $$ \gamma' = 1- e^{\lambda t} $$
+    $$ \rho (t) = \left(\begin{array}{cc} 1  & 0 \\  0& \sqrt{1-\gamma'} \end{array}\right) \rho (0) \left(\begin{array}{cc} 1  & 0 \\  0& \sqrt{1-\gamma'} \end{array}\right) + \left(\begin{array}{cc} 0  & \sqrt{\gamma'} \\  0& 0 \end{array}\right) \rho (0) \left(\begin{array}{cc} 0  &  0\\  \sqrt{\gamma'}& 0 \end{array}\right) $$
+    $$ = \left(\begin{array}{cc} \rho (0) + \rho(0)\gamma'  & 0 \\  0& \rho (0) ( 1-\gamma') \end{array}\right) $$
+    $$ = \left(\begin{array}{cc} \rho (0) ( 2-e^{\lambda t}) & 0 \\  0& \rho (0) e^{\lambda t} \end{array}\right) $$
+
+    \item Exercise 9.1. Trace distance between probability distribution (1,0) and probability distribution $(\frac{1}{2}, \frac{1}{2})$
+    \begin{enumerate}
+        \item $$ D((1,0), (\frac{1}{2}, \frac{1}{2})) $$
+        $$ = \frac{1}{2} ( |1-\frac{1}{2} | + | 0 - \frac{1}{2} | ) $$
+        $$ = \frac{1}{2} $$
+
+        \item $(\frac{1}{2}, \frac{1}{3}, \frac{1}{6}) $ and $(\frac{3}{4}, \frac{1}{8}, \frac{1}{8})$ 
+        $$ D((\frac{1}{2}, \frac{1}{3}, \frac{1}{6}), (\frac{3}{4}, \frac{1}{8}, \frac{1}{8})) $$
+        $$ = \frac{1}{2} ( | \frac{1}{2} - \frac{3}{4}| + |\frac{1}{3} - \frac{1}{8}| + |\frac{1}{6} - \frac{1}{8}|) $$
+        $$ = \frac{1}{4} $$
+
+
+    \end{enumerate}
+    \item Exercise 9.2. Trace distance between $(p,1-p)$ and $(q, 1-q)$ 
+    $$ D((p,1-p), (q,1-q)) $$
+    $$ = \frac{1}{2} ( |p-q| + |(1-p)-(1-q)| ) $$
+    $$ = \frac{1}{2} ( |p-q| + |-p +q| ) $$
+    $$ = \frac{1}{2} (2 |p-q|) $$
+    $$ = |p-q| $$
+
+
+
+\end{enumerate}
+
+
+\end{document}
+

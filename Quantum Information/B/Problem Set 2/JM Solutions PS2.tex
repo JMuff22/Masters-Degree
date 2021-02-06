@@ -1,0 +1,252 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\usepackage{qcircuit}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information B \ \ Fall 2020 \ \  Solutions to Problem Set 2}} \\
+Jake Muff \\
+8/11/20
+\end{center}
+
+\bigskip
+\section{Answers}
+
+
+
+\begin{enumerate}
+    \item Exercise 8.3. \\
+    System AB in state $\rho_{AB}$ brought into contact with system CD in state $\ket{0}$. Two systems interact with $U$. After interactions discard A and D so we have a state $\rho'$ of system BC. So intially we have 
+    $$ \rho_{AB} \otimes \ket{0}_{CD} \bra{0}_{CD} $$
+    Then after 
+    $$ \rho'_{BC} = \sum_{ij} \bra{i_A} \bra{j_D} ( U \rho_{AB} \ket{0}\bra{0} U^{\dagger} ) \ket{j_D} \ket{i_A} $$
+    $$ = \sum_{i,j} \bra{i_A} \bra{j_D} ( U \rho_{AB} \otimes \ket{0}_C \otimes \ket{0}_D \bra{0}_C \otimes \bra{0}_D U^{\dagger}) \ket{j_D} \ket{i_A} $$
+    $$ = \sum_{i,j} \bra{i_A} \otimes \bra{j_D} U \ket{0}_C \otimes \ket{0}_D \cdot \rho_{AB} \cdot \bra{0}_C \otimes \bra{0}_D U^{\dagger} \ket{j_D} \ket{i_A} $$
+    The first term in the above equation is $E_{ij}$ because of the general equation $E_k \equiv \langle e_k | U | e_0 \rangle $ from the book. So 
+    $$ E_{ij} = \sum_{i,j} \bra{i_A} \otimes \bra{j_D} U \ket{0}_C \otimes \ket{0}_D $$
+    The second term is simply just $\rho$ and the third term is the hermitian of $E_{ij}$. If we collect $i,j$ into $k$ so we have 
+    $$ \rho'_{BC} = \sum_k E_k \rho_{AB} E_k^{\dagger} $$
+    For the second part we have 
+    $$ \sum_k E_k^{\dagger} E_k = \sum_{i,j} \bra{0}_C \otimes \bra{0}_D U^{\dagger} \ket{i_A} \otimes \ket{j_D} \cdot \bra{i_A} \otimes \bra{j_D} U \ket{0}_C \otimes \ket{0}_D $$
+    $$ = \bra{0}_C \bra{0}_D U^{\dagger} U \ket{0}_C \ket{0}_D = I = I_{AB} $$
+
+    \item Exercise 8.4. 
+    $$ U = P_0 \otimes I + P_1 \otimes X$$ 
+    With $P_0 \equiv \ket{0} \bra{0}, P_1 \equiv \ket{1} \bra{1} $. So we have 
+    $$ \varepsilon(\rho) = \Tr(U ( \rho \otimes \ket{0} \bra{0} ) U^{\dagger} ) $$
+    $$ = \sum_k \bra{k} U ( \rho \otimes \ket{0} \bra{0} ) U^{\dagger}  \ket{k} $$
+    $$ \sum_k \bra{k} ( P_0 \otimes I + P_1 \otimes X) \rho \otimes \ket{0} \bra{0} P_0 \otimes I + P_1 \otimes X \ket{k} $$
+    $U^{\dagger} U$ can be shown to be unitary through 
+    $$ U = P_0 \otimes I + P_1 \otimes X$$
+    $$ U^{\dagger} U = ( P_0 \otimes I + P_1 \otimes X)^{\dagger} ( P_0 \otimes I + P_1 \otimes X) $$
+    $$ = P_0 \otimes I + P_1 \otimes X^2 $$
+    $$ (P_0 + P_1) \otimes I $$
+    $$ = I $$
+    Making use of $X^2 = I$, $P_0 P_1 = \ket{0} \bra{0} \otimes \ket{1} \bra{1} = 0 $ and $P_1 P_0 = \ket{1} \bra{1} \otimes \ket{0} \bra{0} = 0$ 
+    So we can write 
+    $$ \varepsilon (\rho) = \sum_k P_0 \rho P_0 \otimes \bra{k} I \ket{0} \bra{0} I \ket{k} $$
+    $$ + P_0 \rho P_1 \otimes \bra{k} I \ket{0} \bra{0} X \ket{k} $$ 
+    $$ + P_1 \rho P_0 \otimes \bra{k} X \ket{0} \bra{0} I \ket{k} $$
+    $$ + P_1 \rho P_1 \otimes \bra{k} X \ket{0} \bra{0} X \ket{k} $$
+    $$ = P_0 \rho P_0 + P_1 \rho P_1 $$
+
+    \item Exercise 8.9. We have a set of quantum operations $\{ \varepsilon_m \} $ where
+    $$ U \ket{\psi} \ket{e_0} = \sum_{mk} E_{mk} \ket{\psi} \ket{m,k} $$
+    With projector 
+    $$ P_m \equiv \sum_k \ket{m,k} \bra{m,k} $$
+    Performing $U$ on $ \rho \otimes \ket{e_0} \bra{e_0}$ then measuring $P_m$ gives $m$ with probability $\Tr( \varepsilon_m (\rho))$ with post measurement state 
+    $$ \varepsilon_m (\rho) / \Tr(\varepsilon_m (\rho)) $$
+    So we have 
+    $$ \rho = \sum_i p_i \ket{\psi} \bra{\psi} $$ 
+    And from the bottom of p365 we have 
+    $$ \rho'_{\psi} = \frac{1}{p(m)} \Tr(P_m U ( \rho \otimes \ket{e_0} \bra{e_0} ) U^{\dagger}) $$
+    $$ = \frac{1}{p(m)} \Tr ( \sum_k \ket{m,k} \bra{m,k} U ( \rho \otimes \ket{e_0} \bra{e_0} ) U^{\dagger} ) $$
+    $$ = \frac{1}{p(m)} \sum_{k,i} p_i \bra{m,k} U ( \ket{\psi} \otimes \ket{e_0})( \bra{\psi} \otimes \bra{e_0} ) U^{\dagger} \ket{m,k} $$
+    $$ = \frac{1}{p(m)} \sum_{k,i} p_i E_{m,k} \ket{\psi} \bra{\psi} E^{\dagger}_{m,k} $$
+    $$ = \frac{1}{p(m)} \sum_k E_{mk} \rho E^{\dagger}_{mk} = \frac{\varepsilon_m (\rho)}{p(m)} $$
+    $$ \rho'_{\psi} = \frac{\varepsilon_m (\rho)}{p(m)} $$ 
+    Where $p(m)$ is 
+    $$ p(m) = \Tr( P_m U ( P \otimes \ket{e_0} \bra{e_0}) U^{\dagger} ) $$
+    $$ = \sum_{i,m,k} p_i \bra{\psi_i} E_{mk}^{\dagger} E_{mk} \ket{\psi_i} \otimes \bra{m,k} \ket{m,k} $$
+    $$ = \sum_{i,m,k} p_i \bra{\psi_i} E^{\dagger}_{mk} E_{mk} \ket{\psi_i} $$
+    $$ = \Tr( \sum_{i,m,k} E_{mk} \ket{\psi_i} p_i \bra{\psi_i} E^{\dagger}_{mk}) $$
+    $$ = \Tr( \sum_k E_{mk} \rho E_{mk}^{\dagger}) $$
+    $$ = \Tr( \varepsilon_m (\rho)) $$
+    So probability to get $m$ when measuring $P_m$ is 
+    $$ p(m) = \Tr( \varepsilon_m (\rho)) $$
+    And the post measurement state is 
+    $$ \rho'_{\psi} = \frac{\varepsilon_m (\rho)}{p(m)} = \frac{\varepsilon_m (\rho)} {\Tr( \varepsilon_m (\rho)) }$$
+
+    \item Exercise 8.17. Verfying 
+    $$ \frac{I}{2} = \frac{\rho + X \rho X + Y \rho Y + Z \rho Z}{4} $$
+    Through 
+    $$ \varepsilon (A) \equiv \frac{A + X A X + Y A Y + Z A Z}{4} $$
+    $$ = \frac{1}{4} ( A + \sum_i^3 \sigma_i A \sigma_i) $$
+    We know that pauli matrices have the property that $\sigma_i^2 = I$ so 
+    $$ \varepsilon (I) = \frac{1}{4} ( I + XIX + YIY + ZIZ) $$
+    $$ = \frac{1}{4} (I+ 3I) = I $$
+    And for $\varepsilon(\sigma_i) $ 
+    $$ \varepsilon (\sigma_i) = \sum_i \frac{1}{4} ( \sigma_i + \sum_{i \neq j} \sigma_j \sigma_i \sigma_j + \sigma_i) $$
+    $$ = \frac{1}{4} ( 2 \sigma_i - 2 \sigma_i) = 0 $$
+    In the bloch sphere representation this is 
+    $$ \rho = \frac{1}{2} ( I + \vec{r} \cdot \vec{\sigma}) $$ 
+    $$ \varepsilon (\rho) = \frac{1}{4} ( \rho + \sum_i \sigma_i \rho \sigma_i) $$
+    $$ = \frac{1}{2} I = \frac{\rho + X \rho X + Y \rho Y + Z \rho Z}{4} $$
+
+    \item Exercise 8.21. This exercise relies heavily on chapter 7 which we skipped in lectures and I am reading for the first time for this exercise so my answer to this question may miss some bits out. 
+    $$ H = \chi ( a^{\dagger} b + b^{\dagger} a) $$
+    We have a system that interacts with the environment, so the intitial state of the whole system would be ( I am answering this like I have answered a similar question on another course)
+    $$ \rho (0) = \rho_S (0) \otimes \rho_E (0) $$
+    Where $\rho_S$ is the density operator for the system and $\rho_E$ is for the environment. This evolves with time evolution according to 
+    $$ \rho (t) = U(t) \rho_S (0) \otimes \rho_E (0) U^{\dagger} $$
+    Where $U(t) \equiv \exp (-i H t/ \hbar) = \exp (-i Ht) $ where $\hbar =1$. The partial trace over the environment gives us the reduced density operator 
+    $$ \rho_S (t) = \Tr_E \Big( U(t) \rho_S (0) \otimes \rho_E (0) U^{\dagger} (t) \Big) $$
+    $$ = \sum_{k_i} \bra{k_i} U(t) \rho_S (0) \otimes \rho_E (0) U^{\dagger} (t) \ket{k_i} $$
+    Where $\ket{k_i}$ satisfies $\sum_{i=1}^{\infty} k_i = k$ so this can be written in the operator notation as 
+    $$ E_k = \sum_{k_i}^k \bra{k_i} U(t) \ket{0_i} $$
+    $$ = \bra{k_b} U \ket{0_b} $$ 
+    That last part is in the context of the question. This can be wirtten in its Krauss representation as 
+    $$ \rho_S (t) = \sum_{k=0}^{\infty} E_k \rho_S (0) E_K^{\dagger} $$
+    Which satisfies completeness i.e $\sum_k E^{\dagger}_k E_k = I$. From previous exercises we can write 
+    $$ E_k = \sum_{m,n} E_{m,n}^k \ket{m} \bra{n} $$ 
+    Where $\ket{n}$ is an eigenstate of $a^{\dagger} a$ and as such is an orthonormal basis of the system. 
+    $$ E_{m,n}^k = \sum_{k_i}^k \bra{m} \bra{k_i} U \ket{0_i} \ket{n} $$
+    $$ = \bra{m} \bra{k_b} U \ket{0_b} \ket{n} $$
+    Now using Exercise 7.4 from the book 
+    $$ U \ket{0_b} \ket{n} $$ 
+    Can be written as 
+    $$ \frac{U (a^{\dagger})^n}{\sqrt{n!}} \ket{0_b} \ket{0} $$
+    $$ = \frac{(a^{\dagger} (-t) )^n}{\sqrt{n!}} \ket{0_b} \ket{0} $$
+    Using this we can define 
+    $$ E^k_{m,n} (E^k_{m,n})^{\dagger} = \binom{n}{k}(\cos^2(\chi \Delta t)^{(n-k)}) (1-\cos^2(\chi \Delta t))^k \delta_{m,n-k} $$
+    This comes from expanding out the Hamiltonian in $U$ and using the commutation relation. ( I admit I worked a little backwards here as I knew I needed it to be of the form where it includes the binomial expansion)
+    $$ [a,a^{\dagger}] = 1 $$
+    We can divide by $(E^k_{m,n})^{\dagger}$ noting that if we impose the condition that the state $\ket{n}$ satisfies $n \geq k$ then elements of $E^k_{m,n}$ must be real so we get 
+    $$ E_k = \sum_n \sqrt{\binom{n}{k}} \sqrt{(1- \gamma)^{n-k} \gamma^k} \ket{n-k} \bra{n} $$
+    Where $\gamma = 1 - \cos^2(\chi \Delta t)$
+\end{enumerate}
+
+
+\end{document}
+

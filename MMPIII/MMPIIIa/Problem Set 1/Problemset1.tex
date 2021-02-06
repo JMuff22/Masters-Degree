@@ -1,0 +1,344 @@
+
+\documentclass[12pt]{article}
+\usepackage[english,finnish]{babel}
+\usepackage{t1enc}
+
+% AMS packages:
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsxtra}
+% for comments to work
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Equilateral Triangle 
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, positioning}
+\newcommand{\mytri}[2]{%}
+   \begin{tikzpicture}[baseline=(a.south)]
+      \node[
+        draw,
+        regular polygon,
+        regular polygon sides=3,
+        text width=.2em
+        ] (a) {};
+         \node[above=0pt of a] {$#1$};
+         \node[below=0pt of a] {$#2$};
+    \end{tikzpicture}}
+
+% Hilbert spaces:
+\newcommand{\hilb}{\mathcal{H}}
+\newcommand{\banH}{\mathcal{B}(\hilb)}
+\newcommand{\fock}{\mathcal{F}}
+
+% Products:
+\newcommand{\scalpr}[2]{( #1, #2 )}
+\newcommand{\dualpr}[2]{\langle #1, #2 \rangle}
+
+% Fonts
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\banach}{\mathcal{B}}
+\newcommand{\id}[1]{\mathbbm{1}\!\left({#1}\right)}
+
+\newcommand{\ci}{{\rm i}}
+\newcommand{\rmd}{{\rm d}}
+\newcommand{\rme}{{\rm e}}
+
+\newcommand{\re}{{\rm Re\,}}
+\newcommand{\im}{{\rm Im\,}}
+
+% misc
+\newcommand{\defem}[1]{{\em #1\/}}
+\newcommand{\vep}{\varepsilon}
+
+
+\newcommand{\qand}{\quad\text{and}\quad}
+
+% To define sets:
+\newcommand{\defset}[2]{ \left\{ #1 \left|\, #2\makebox[0pt]{$\displaystyle\phantom{#1}$}\right.\!\right\} }
+
+\newcounter{alplisti}
+\renewcommand{\thealplisti}{\alph{alplisti}}
+\newenvironment{alplist}[1][(\thealplisti)]{\begin{list}{{\rm #1}\ }{ %
+      \usecounter{alplisti} %
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}  %
+%    \setlength{\leftmargin}{5em} %
+%    \setlength{\labelwidth}{5em} %
+%    \setlength{\labelsep}{1em} %
+%    \settowidth{\labelwidth}{(DR2)}
+     \setlength{\topsep}{0pt} %
+}}{\end{list}}
+
+% Norms:
+\newcommand{\abs}[1] {\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\floor}[1] {\lfloor {#1} \rfloor}
+\newcommand{\ceil}[1]  {\lceil  {#1} \rceil}
+
+% Basic spaces
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\C} {{\mathbb{C}}}
+\newcommand{\Rd} {{\mathbb{R}^{d}}}
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\K} {\mathbb{K}}
+\newcommand{\T} {\mathbb{T}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\selectlanguage{english}
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+     {\Large {\bf FYMM/MMP III\ \  Answers to Problem Set 1}}\\
+     {\large { Jake Muff}}\\
+     {Student number: 015361763}\\
+     {05/09/2020}
+     \end{center}
+
+\noindent
+
+\begin{enumerate}
+\item Consider the following constructions; check each one whether it is a semigroup, monoid, group or
+none of them. Why?
+\begin{itemize}
+\item The set of real numbers $\R$, with raising to power as multiplication:
+$x\cdot y \equiv x^y$, $x,y\in \R$.
+\item The set of positive natural numbers $\N_+=\{1,2,3,\ldots \}$ with the greatest common
+divisor of $m,n\in \N_+$ as their product: $m,n\in \N_+$.
+\item The set of nonzero rational numbers $\Q\setminus\{0\}$, with the usual product
+as multiplication: $(m/n) \cdot (p/q)
+= (mp/nq)$.
+\end{itemize}
+
+%Question 1 Answer here
+\begin{enumerate}
+     \item \underline{\textbf{\emph{Answer.}}} Set of Reals $\R$ with multiplication $\circ$
+     $$ x \cdot y \equiv x^{y}; x,y \in \R$$
+     Meaning $$ \circ : x \cdot y \equiv x^{y} $$
+     This has no classification, not even a magma as to be a magma it requires that for all $a,b \in G$, $a \cdot b$ must also be in $G$.
+     As such, there are some $x,y \in \R$ to which this does not apply, e.g, 
+     $$ (-1) \circ \frac{1}{2} = i;  (-1)^{\frac{1}{2}} = \sqrt{-1} = i \rightarrow i \notin \R $$
+     $$ 0 \circ 5 = 0^5 = Undefined \rightarrow \notin \R $$
+
+     
+     \item $\N_+=\{1,2,3,\ldots \}$ ;$m,n\in \N_+$ ; $ m \cdot n \equiv \gcd(m,n)$
+     e.g $$ \gcd(8,12) = 4 $$
+     This is a magma because the GCD of any two numbers in $\N_+$ is in $\N_+$ since the set of of common divisors is always a subset of $\N_+$ for every $m,n \in \N_+$ and is always less than or equal to the lowest number of $m,n$.
+     \\ The set is a semigroup due to associativity holding:
+     $$ a,b,c \in G; a \cdot (b \cdot c) = (a \cdot b) \cdot c $$
+     In our case For any $ m,n,p \in \N_+$
+     $$   
+     (m \circ n) \circ p = \gcd(\gcd(m,n),p) $$
+     $$ \gcd(\gcd(4,8), 12) = \gcd(\gcd(8,12), 4) $$
+     \\ The set, however, is not a monoid as there is no existence of the unit element. 
+     For example, say there exists an element $e \in \N_+$ and there exists a natural positive number such that $e +1 \in \N_+ $ then, assuming $e$ is a unit element, the $\gcd(e,e+1) = e+1$ (with $e+1 > e$) which doesn't make any sense as the divisor of the number should at a minimum be the size of the number. Proof that the unit element doesn't exist by contradiction.  
+
+\item $\Q \setminus {0}$ with $\circ : (\frac{m}{n}) \cdot (\frac{p}{q}) = \frac{mp}{nq} $
+This is closed and a magma, with $m,n,r,s \in \Q \setminus {0}$: 
+$$ (p,q) = (\frac{m}{n}, \frac{r}{s}) \rightarrow \frac{mr}{ns} $$
+For associativity: 
+$$ (p \circ q) \circ a = (\frac{mr}{ns}) \frac{b}{c} = \frac{mrb}{nsc} $$
+$$ p \circ (q \circ a) = \frac{m}{n} (\frac{r}{s} \frac{b}{c}) = \frac{mrb}{nsc} $$
+Existence of the unit element: 
+$$ e \circ p = \frac{em}{en} = \frac{m}{n} = p $$
+Existence of the inverse:
+$$ p^{-1} \circ p = \frac{n}{m} \circ p = \frac{nm}{mn} = e $$ and $m$ must $\neq 0$ 
+\\ Communitivity:
+$$ p \circ q = \frac{mr}{ns} = \frac{r}{s} \circ \frac{m}{n} = q \circ p $$ 
+Therefore it is an Abelian Group. 
+\end{enumerate}
+\item Show that $|S_N|=N!$.
+
+%Question 2 Answer here
+\begin{enumerate}
+     \item \underline{\textbf{\emph{Answer.}}}
+     $|S_N|$ means the order of the group and is the smallest number $n$ such that $g^n \equiv e$. 
+     In a symmetric group of $N$ elements there are $N$ ways to choose the position of the first element, $N-1$ ways to choose the position of the second element, $N-2$ for the third, and so on. 
+     $$ \therefore N \times (N-1) \times (N-2) \times \ldots 1 = N! $$
+     This is one-to-one mapping (injection) as well as being onto (surjection) meaning they are all bijections. The sum of all of these elements in $N!$ and thus the order 
+
+
+
+\end{enumerate}
+
+\item Consider the group $G=\{e,x_1,x_2,x_3,x_4,x_5\}$, where
+\begin{eqnarray*}
+e=\left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+\end{array}\right) \ ; \
+x_1 = \left( \begin{array}{ccc} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1
+\end{array}\right) \\
+x_2 = \left( \begin{array}{ccc} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0
+\end{array}\right) \ ; \
+x_3 = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0
+\end{array}\right) \\
+x_4 = \left( \begin{array}{ccc} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0
+\end{array}\right) \ ; \
+x_5 = \left( \begin{array}{ccc} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0
+\end{array}\right) \ ,
+\end{eqnarray*}
+and the law of composition is the matrix multiplication.
+Show that $G$ is isomorphic to a known group, give an explicit
+construction of the isomorphism.
+
+%Question 3 Answer here
+\begin{enumerate}
+     \item \underline{\textbf{\emph{Answer.}}}
+     \\ The Group 
+     $$ G=\{e,x_1,x_2,x_3,x_4,x_5\} $$ 
+     can be shown to be isomorphic to $S_3$ by defining a map $i: G \rightarrow S_3$
+     $$ i(e) = (); i(x_1) = (12); i(x_2)=(13); i(x_3)=(23); i(x_4) = (132); i(x_5)=(123) $$ 
+     Using one line notation these are bijections. 
+     \\ This can be shown through the Cayley table to match $S_3$ using matrix multiplication and matching to the above matrices.
+     $$ 
+     \left( \begin{array}{cccccc} e & x_1 & x_2 & x_3 & x_4 & x_5 \\ x_1 & e & x_4 & x_5 & x_2 & x_3 \\ x_2 & x_5 & e & x_4 & x_3 & x_1 \\ x_3 & x_4 & x_5 & e & x_1 & x_2 \\ x_4 & x_3 & x_1 & x_2 & x_5 & e \\ x_5 & x_2 & x_3 & x_1 & e & x_4 \\
+     \end{array}\right) \
+     $$
+     $$
+     \left( \begin{array}{cccccc} 0 & 1 & 2 & 3 & 4 & 5 \\ 1 & 0 & 4 & 5 & 2 & 3 \\ 2 & 5 & 0 & 4 & 3 & 1 \\ 3 & 4 & 5 & 0 & 1 & 2 \\ 4 & 3 & 1 & 2 & 5 & e \\ 5 & 2 & 3 & 1 & 0 & 4 \\
+     \end{array}\right) \
+     $$
+     Which shows that the map $i$ is a group homomorphism. As there is a bijection and group homomorphism it can be said that $G \cong S_3$ and $i$ is an isomorphism. 
+
+\end{enumerate}
+
+
+\item An equilateral triangle is symmetric under reflections, with
+the line passing through the center and one of the vertices as the
+reflection axis; and symmetric under 120 degree counterclockwise rotations
+(with the center as the fixed point). Let $e$ be the identity
+map (do nothing), $a$ a rotation by 120 degrees, and $b$ the above
+mentioned reflection. Consider the group generated by
+$e,a$ ja $b$ with composition of symmetry operations as the multiplication
+rule.
+What is the order of the group? (Hint: greater than three.)
+Construct the multiplication table (Cayley table) of the group.
+
+%Question 4 Answer here
+\begin{enumerate}
+     \item \underline{\textbf{\emph{Answer.}}}
+     \\ By looking at the operations on the equilateral triangle we can see that the order of the group is at least 6 as there are 6 operations which give a unique triangle. 
+     The order of the group is also at a maximum, 6 as $3! = 6$ through permutations of different vertices. 
+     The difference transformations are 
+     $$ 
+     e = \text{identity map} $$
+     $$ a = \text{rotation of } 120^{\circ}
+     $$
+     $$
+     b = \text{Reflection down the symmetrical line} $$
+     With operations $e,a,a^2,b,ab,ba$
+     \\ The original triangle is labelled
+     $$e = \mytri{1}{3 \ldots 2}$$
+     The configurations of the triangle are then
+     $$ae = \mytri{3}{2 \ldots 1}$$
+     $$a^2 e = \mytri{2}{1 \ldots 3}$$
+     $$be = \mytri{1}{2 \ldots 3}$$
+     $$abe = \mytri{2}{3 \ldots 1}$$
+     $$bae = \mytri{3}{1 \ldots 2}$$
+     All other products simplify to these operations, shown in the Cayley table.
+     For example $$  a^3 = \mytri{1}{3 \ldots 2} \rightarrow \mytri{3}{2 \ldots 1} \rightarrow \mytri{2}{1 \ldots 3} \rightarrow \mytri{1}{3 \ldots 2} = e$$
+     Also $b^2=e, (ab)^2 = e, (ba)^2 = e, a^2 b = ba, ba^2 = ab, aba = b, ba^2=ab, a^4 =a, a^3b=b, aba^2 = ba, ba^3 = b, ab^2 =a, bab = a^2, (ab)(ba) = a^2, (ba)(ab) = a, b^2 a=a, a^2 ba = ab. $
+     \\ Note that $abe \neq bae$ and is not abelian, thus $S_3$.
+     \\ The Cayley table is:
+     $$
+     \left( \begin{array}{cccccc} e & a & a^2 & b & ab & ba \\ a & a^2 & e & ab & ba & b \\ a^2 & e & a & ba & b & ab \\ b & ba & ab & e & a^2 & a \\ ab & b & ba & a & e & a^2 \\ ba & ab & b & a^2 & a & e \\
+     \end{array}\right) \
+     $$
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+\end{document}

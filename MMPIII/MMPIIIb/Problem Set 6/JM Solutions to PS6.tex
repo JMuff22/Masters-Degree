@@ -1,0 +1,341 @@
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\beas}{\begin{eqnarray*}}
+\newcommand{\eeas}{\end{eqnarray*}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf FYMM/MMP IIIb 2020 \ \ \  Solutions to Problem Set 6}}
+Jake Muff
+\end{center}
+
+\bigskip
+
+\begin{enumerate}
+  \item Calculating the Riemann tensor, the Ricci tensor and the scalar curvature for unit sphere $S^2$
+  $$ ds^2 = dr^2 + r^2 d \theta^2 + r^2 \sin^2 \theta d \phi^2 $$
+  $$ ds^2 = R^2 d \theta^2 + R^2 \sin^2 \theta d \phi^2 $$
+  $$ g = d \theta \otimes d \theta + \sin^2 \theta d \phi \otimes d \phi $$
+  The metric from the previous exercise is 
+  $$ g_{\mu \nu} = \begin{pmatrix}
+    1 & 0 \\ 0 & \sin^2 \theta
+  \end{pmatrix} $$
+  With inverse 
+  $$ g^{\mu \nu} = \begin{pmatrix}
+    1 & 0 \\ 0 & \frac{1}{\sin^2 \theta} 
+  \end{pmatrix} $$
+  The connection coefficients are calculated from 
+  $$ \Gamma^{\lambda}_{\alpha \beta} = g^{\lambda \mu} \Gamma_{\mu \beta \alpha} $$
+  Where 
+  $$ \Gamma_{\mu \beta \alpha} =\frac{1}{2}  ( \partial_{\alpha} g_{\beta \mu} + \partial_{\beta} g_{\mu \alpha} - \partial_{\mu} g_{\alpha \beta} ) $$
+  Therefore we have 
+  $$ \Gamma_{\phi \phi \theta} = \Gamma_{\phi \theta \phi} = \frac{1}{2} ( \partial_{\theta} g_{\phi \phi} + \partial_{\phi} g_{\phi \theta} - \partial_{\phi} g_{\phi \theta} ) $$
+  $$ = \frac{1}{2} \partial_{\theta} g_{\phi \phi} $$
+  $$ \sin \theta \cos \theta $$
+  $$ \Gamma_{\theta \phi \phi} = \frac{1}{2} ( \partial_{\phi} g_{\theta \phi} + \partial_{\phi} g_{\theta \phi} - \partial_{\theta} g_{\phi \phi} ) $$
+  $$  = - \sin \theta \cos \theta $$
+  I have neglected to show 0 terms. And 
+  $$ \Gamma^{\phi}_{\phi \theta} = \Gamma^{\phi}_{\theta \phi} = g^{\phi \phi} \Gamma_{\phi \phi \theta} $$
+  $$ = \frac{1}{\sin^2 \theta} \sin \theta \cos \theta $$
+  $$ = \frac{\cos \theta}{\sin \theta} $$
+  $$ \Gamma^{\theta}_{\phi \phi} = g^{\theta \theta} \Gamma_{\theta \phi \phi} $$ 
+  $$ = - \sin \theta \cos \theta $$
+  The Riemann tensor is given by 
+  $$ R^{\kappa}_{\lambda \mu \nu} = \partial_{\mu} \Gamma^{\kappa}_{\nu \lambda} - \partial_{\nu} \Gamma^{\kappa}_{\mu \lambda} + \Gamma^{\eta}_{\mu \eta} \Gamma^{\kappa}_{\mu \eta} - \Gamma^{\eta}_{\mu \lambda} \Gamma^{\kappa}_{\nu \eta} $$
+  In the case of this question this is 
+  $$ R^{\theta}_{\phi \theta \phi} = \partial_{\theta} \Gamma^{\theta}_{\phi \phi} - \partial_{\phi} \Gamma^{\theta}_{\phi \theta} + \Gamma^{\eta}_{\phi \phi} \Gamma^{\theta}_{\eta \theta} - \Gamma^{\eta}_{\phi \theta} \Gamma^{\theta}_{\eta \phi} $$
+  $$ = \partial_{\theta} (- \sin \theta \cos \theta ) - 0 + 0 \cdot \Gamma^{\eta}_{\phi \phi} - \Gamma^{\theta}_{\phi \phi} \Gamma^{\phi}_{\phi \theta} $$ 
+  $$ = (- \cos^2 \theta + \sin^2 \theta ) - ( - \sin \theta \cos \theta ) \Big( \frac{\cos \theta}{\sin \theta} \Big) $$
+  $$ = \sin^2 \theta $$
+  The Ricci Tensor 
+  $$ ( \textrm{Ric})_{\mu \nu} = R^{\lambda}_{\mu \lambda \nu} $$
+  $$ g^{ab} R_{a \mu b \nu} $$
+  So we have 
+  $$ R_{\theta \theta} = g^{ab} R_{a \theta b \theta} = g^{\theta \theta} R_{\theta \theta \theta \theta} + g^{\phi \phi} R_{\phi \theta \phi \theta} $$
+  $$ = (1 \cdot 0) + \Big( \frac{1}{\sin^2 \theta} \sin^2 \theta \Big) $$
+  $$ = 1 $$
+  And 
+  $$ R_{\phi \phi} = g^{ab} R_{a \phi b \phi} = g^{\theta \theta} R_{\theta \phi \theta \phi} + g^{\phi \phi} R_{\phi \phi \phi \phi} $$
+  $$ = (1 \cdot \sin^2 \theta ) + \Big( \frac{1}{\sin^2 \theta} \cdot 0 \Big) $$
+  $$ = \sin^2 \theta $$
+  $$ R_{\theta \phi} = g^{ab} R_{a \theta b \phi} = g^{\theta \theta} R_{\theta \theta \theta \phi} + g^{\phi \phi} R_{\phi \theta \phi \phi} $$
+  $$ =( 1 \cdot 0) + \Big( \frac{1}{\sin^2 \theta }\cdot 0 \Big) $$
+  $$ =0 $$
+  This is also the same for $R_{\phi \theta} = 0$. The Scalar curvature denoted by $R_S$ is 
+  $$ R_S = g^{\mu \nu} ( \textrm{Ric} )_{\mu \nu} = g^{\mu \nu} R_{\mu \nu} $$
+  $$ R_S = g^{\theta \theta}R_{\theta \theta} + g^{\phi \phi} R_{\phi \phi} $$
+  $$ = ( 1 \cdot 1) + \Big( \frac{1}{\sin^2 \theta} \cdot \sin^2 \theta \Big) $$
+  $$ = 2 $$
+  \item Symmetry of a sphere
+  $$ g = d \theta \otimes d \theta + \sin^2 \theta d \phi \otimes d \phi $$
+  Killing vector fields given by 
+  $$ X^{\xi} \partial_{\xi} g_{\mu \nu} + \partial_{\mu} X^{\alpha} g_{\alpha \nu} + \partial_{\nu} X^{\beta} g_{\mu \beta} = 0 $$
+  The metric is diagonal so we can write 
+  $$ X^{\xi} \partial_{\xi} g_{\mu \nu} + \partial_{\mu} X^{\nu} g_{\nu \nu} + \partial_{\nu} X^{\mu} g_{\mu \mu} = 0 $$
+  The $L_i$ killing vectors can replace $X^j$ in the above equation for different $\mu, \nu$ as either $\theta$ or $\phi$. So we have 
+  Beginning with $ \mu, \nu = \theta, \theta$
+
+  $$ L_1^{\xi} \partial_{\xi} g_{\theta \theta} + \partial_{\theta} L_1^{\theta} g_{\theta \theta} + \partial L_1^{\theta} g_{\theta \theta} = 0 $$
+  $$ L_1^{\xi} \cdot 0 + 0 \cdot g_{\theta \theta} = 0 $$
+  \\
+  $$ L_2^{\xi} \partial_{\xi} g_{\theta \theta} + \partial_{\theta} L_2^{\theta} g_{\theta \theta} + \partial_{\theta} L_2^{\theta} g_{\theta \theta} = 0 $$
+  $$ L_2^{\xi} \cdot 0 + 0 \cdot g_{\theta \theta} = 0 $$
+  \\
+  $$ L_3^{\xi} \partial_{\xi} g_{\theta \theta} + \partial_{\theta} L_3^{\theta} g_{\theta \theta} + \partial_{\theta} L_3^{\theta} g_{\theta \theta} = 0 $$
+  $$ L_3^{\xi} \cdot 0 + 0 \cdot g_{\theta \theta} = 0 $$
+
+  Now with $\mu ,\nu = \phi ,\phi$
+  $$ L_1^{\xi} \partial_{\xi} g_{\phi \phi} + \partial_{\phi} L_1^{\phi} g_{\phi \phi} + \partial_{\phi} L_1^{\phi} g_{\phi \phi} = 0 $$
+  $$ - \cos \phi \partial_{\theta} \sin^2 \theta + ( \partial_{\phi} \sin \phi \cot \theta ) \sin^2 \theta + ( \partial_{\phi} \sin \phi \cot \theta ) \sin^2 \theta = 0 $$
+  $$ - 2 \cos \phi \cos \theta \sin \theta + 2 \cos \phi \cot \theta \sin^2 \theta = 0 $$
+  \\
+  $$ L_2^{\xi} \partial_{\xi} g_{\phi \phi} + \partial_{\phi} L_2^{\phi} g_{\phi \phi} + \partial_{\phi} L_2^{\phi} g_{\phi \phi} = 0 $$
+  $$ \sin \phi \partial_{\theta} \sin^2 \theta + ( \partial_{\phi} \cos \phi \cot \theta ) \sin^2 \theta + ( \partial_{\phi} \cos \phi \cot \theta) \sin^2 \theta = 0 $$ 
+  $$ 2 \sin \phi \cos \theta \sin \theta - 2 \sin \phi \cot \theta \sin^2 \theta = 0 $$
+  \\
+  $$ L_3^{\xi} \partial_{\xi} g_{\phi \phi} + \partial_{\phi} L_3^{\phi} g_{\phi \phi} + \partial_{\phi} L_3^{\phi} g_{\phi \phi} = 0 $$
+  $$ 0 \cdot \partial_{\theta} g_{\phi \phi} + 0 \cdot g_{\phi \phi} = 0 $$
+  \\
+  Now with $\mu, \nu = \phi \theta$ 
+  $$ \underbrace{L_1^{\xi} \partial_{\xi} g_{\phi \theta} }_{=0} + \partial_{\theta} L_1^{\phi} g_{\phi \phi} + \partial_{\phi} L_1^{\theta} g_{\theta \theta} = 0 $$
+  $$ \frac{- \sin \phi g_{\phi \phi} }{\sin^2 \theta} + \cos \phi = 0 $$
+  \\
+  $$ \underbrace{L_2^{\xi} \partial_{\xi} g_{\phi \theta} }_{=0} + \partial_{\theta} L_2^{\phi} g_{\phi \phi} + \partial_{\phi} L_2^{\theta} g_{\theta \theta} = 0 $$
+  $$ - \frac{ \cos \phi g_{\phi \phi}}{\sin^2 \theta} + \sin \phi = 0 $$
+  \\
+  $$ \underbrace{L_3^{\xi} \partial_{\xi} g_{\phi \theta} }_{=0} + \partial_{\theta} L_3^{\phi} g_{\phi \phi} + \partial_{\phi} L_3^{\theta} g_{\theta \theta} = 0 $$
+  $$ (0 \cdot 0) + (0 \cdot 0) = 0 $$
+  And so, $L_{1,2,3}$ are the killing vectors of $g$. Now to calculate the commutators $[L_a, L_b]$ 
+  $$ [L_1, L_2] = [- \cos \phi \partial_{\theta} + \cot \theta \sin \phi \partial_{\phi}\ , \ \sin \phi \partial_{\theta} + \cot \theta \cos \phi \partial_{\phi} ] $$
+  $$ = \cos \phi \partial_{\theta} \Big( - \sin \phi \partial_{\theta} - \cot \theta \cos \phi \partial_{\phi} \Big) - \cot \theta \sin \phi \partial_{\phi} \Big( - \sin \phi \partial_{\theta} - \cot \theta \cos \phi \partial_{\phi} \Big) $$
+  $$ + \sin \phi \partial_{\theta} \Big( \cos \phi \partial_{\theta} - \cot \theta \sin \phi \partial_{\phi} \Big) + \cot \theta \cos \phi \partial_{\phi} \Big( \cos \phi \partial_{\theta} - \cot \theta \sin \phi \partial_{\phi} \Big) $$
+  $$ = - \cos \phi \cos \phi \partial^2_{\theta} - \cos^2 \phi ( \partial_{\theta} \cot \theta ) \partial_{\phi} - \cot \theta \cos^2 \phi \partial_{\theta} \partial_{\phi} + \cot \theta \sin \phi \cos \phi \partial_{\theta} + \cot \theta \sin^2 \phi \partial_{\phi} \partial_{\theta}$$
+  $$ - \cot^2 \theta \sin^2 \phi \partial_{\phi}  + \cot^2 \theta \sin \phi \cos \phi \partial^2_{\phi} + \sin \phi \cos \phi \partial^2_{\theta} - \sin^2 \phi ( \partial_{\theta} \cot \theta) \partial_{\phi} - \cot \theta \sin^2 \phi \partial_{\theta} \partial_{\phi} $$
+   $$  - \cot \theta \sin \phi \cos \phi \partial_{\theta} + \cot \theta \cos^2 \phi \partial_{\phi} \partial_{\theta} - \cos^2 \theta \cos^2 \phi \partial_{\phi} - \cot^2 \theta \sin \phi \cos \phi \partial^2_{\phi} $$
+  $$ = - \cot^2 \theta \partial_{\phi} - ( \partial_{\theta} \cot \theta) \partial_{\phi} $$
+  $$ = \partial_{\phi} = \frac{\partial}{\partial \phi} = L_3 $$
+  This is then repeated for $[L_2, L_3]$ and $[L_3, L_1]$ so we have 
+  $$ [L_1, L_2] = L_3 $$
+  $$ [L_2, L_3] = L_1 $$
+  $$ [L_3, L_1] = L_2 $$
+  I think this represents the angular momentum operator.
+
+  \item $T_a$ are $N \times N$ matrices 
+  $$ [T_a, T_b] = i f_{abc} T_c $$
+  $$ \chi_a = \sum_{i, j = 1 }^N (T_a)_{ij} b_i^{\dagger} b_j $$
+  $$ \chi_b = \sum_{k,l = 1}^N (T_b)_{kl} b_k^{\dagger} b_l $$ 
+  $$ [\chi_a, \chi_b] = \Big[ \sum_{i,j = 1 }^N (T_a)_{ij} b_i^{\dagger} b_j \Big] \Big[ \sum_{k,l = 1}^N (T_b)_{kl} b_k^{\dagger} b_l \Big] $$
+  $$ - \Big[ \sum_{k,l =1}^N (T_b)_{kl} b_k^{\dagger} b_l \Big] \Big[ \sum_{i,j=1}^N (T_a)_{ij} b_i^{\dagger} b_j] $$
+  $$ = (T_a)_{ij} (T_b)_{kl} [b_i^{\dagger} b_j, b_k^{\dagger} b_l ] $$
+  $$ = (T_a)_{ij} (T_b)_{kl} (b_i^{\dagger} b_j b_k^{\dagger} b_l - b_k^{\dagger} b_l b_i^{\dagger} b_j ) $$
+  $$ = (T_a)_{ij} (T_b)_{kl} (b_i^{\dagger} [b_j, b_k^{\dagger} b_l] + [ b_i^{\dagger}, b_k^{\dagger} b_l ] b_j ) $$ 
+  $$ = (T_a)_{ij} (T_b)_{kl} (b_i^{\dagger} [b_j, b_k^{\dagger} ] b_l + b_k^{\dagger} [ b_i^{\dagger}, b_l ] b_j ) $$
+  $$ (T_a)_{ij} (T_b)_{kl} ( b_I^{\dagger} \delta_{jk} b_l - b_k^{\dagger} \delta_{il} b_j ) $$
+  $$ (T_a T_b)_{il} b_i^{\dagger} b_l - (T_a T_b)_{kj} b_k^{\dagger} b_j $$
+  $$ [T_a, T_b]_{ij} b_i^{\dagger} b_j = i f_{abc} \chi_c $$
+
+  \item \begin{enumerate}
+    \item The Gell-Mann matrices are 
+    $$ \lambda_1 = \begin{pmatrix}
+      0&1&0 \\ 1&0&0 \\ 0&0&0 
+    \end{pmatrix} \ \ \lambda_2 = \begin{pmatrix}
+      0&-i&0 \\ i&0&0 \\ 0&0&0 
+    \end{pmatrix} \lambda_3 = \begin{pmatrix}
+      1&0&0 \\ 0&-1&0 \\ 0&0&0 
+    \end{pmatrix} \ \ \lambda_4 = \begin{pmatrix}
+      0&0&1 \\ 0&0&0 \\ 1&0&0  
+    \end{pmatrix}  $$
+    $$ \lambda_5 = \begin{pmatrix}
+      0&0&-i \\ 0&0&0 \\ i&0&0 
+    \end{pmatrix} \ \ \lambda_6 = \begin{pmatrix}
+      0&0&0 \\ 0&0&1 \\ 0&1&0 
+    \end{pmatrix} \lambda_7 = \begin{pmatrix}
+      0&0&0 \\ 0&0&-i \\ 0&i&0 
+    \end{pmatrix} \ \ \lambda_8 = \frac{1}{\sqrt{3} }\begin{pmatrix}
+      1&0&0 \\ 0&1&0 \\ 0&0&-2  
+    \end{pmatrix}  $$
+    The generators of SU(3) are 
+  
+  
+    $$ T_1 = \frac{1}{2} \begin{pmatrix}
+      0&1&0 \\ 1&0&0 \\ 0&0&0 
+    \end{pmatrix} \ \ T_2 = \frac{1}{2} \begin{pmatrix}
+      0&-i&0 \\ i&0&0 \\ 0&0&0 
+    \end{pmatrix} T_3 = \frac{1}{2} \begin{pmatrix}
+      1&0&0 \\ 0&-1&0 \\ 0&0&0 
+    \end{pmatrix} \ \ T_4 = \frac{1}{2} \begin{pmatrix}
+      0&0&1 \\ 0&0&0 \\ 1&0&0  
+    \end{pmatrix}  $$
+    $$ T_5 = \frac{1}{2} \begin{pmatrix}
+      0&0&-i \\ 0&0&0 \\ i&0&0 
+    \end{pmatrix} \ \ T_6 = \frac{1}{2} \begin{pmatrix}
+      0&0&0 \\ 0&0&1 \\ 0&1&0 
+    \end{pmatrix} T_7 = \frac{1}{2} \begin{pmatrix}
+      0&0&0 \\ 0&0&-i \\ 0&i&0 
+    \end{pmatrix} \ \ T_8 = \frac{1}{2 \sqrt{3} }\begin{pmatrix}
+      1&0&0 \\ 0&1&0 \\ 0&0&-2  
+    \end{pmatrix}  $$
+  
+  The generators $T_1, T_2, T_3$ form a SU(2) subgroup of SU(3) and since they are orthogonal for $a,b = \{1,2,3\}$, $c=\{4,5,6,7\}$,  $f_{abc} = 0$ and the only other values are 
+  $$ f_{147} = \frac{1}{2} $$
+  and $$ f_{458} = \frac{\sqrt{3}}{2} $$
+  Note that this also applies for other structure constants which aren't 0. The structure constants can also be calculated by the commutators of the generators as shown 
+  $$ [T_1, T_4] = \frac{1}{2} T_7 \ , \ \Tr([T_1, T_4] T_c) = \delta^{c7} \rightarrow f_{147} = \frac{1}{2} $$
+
+  \item As with page 81 of the lecture notes we just need to show that $[J_a, J_b] = i \epsilon_{abc} J_c$, so we have 
+  $$ [\lambda_2, \lambda _5] = i \lambda_7 $$
+  $$ [\lambda_5, \lambda_2 ] = i \lambda_2 $$
+  $$ [ \lambda_7, \lambda_2 ] = i \lambda_5 $$
+  Thus, $\lambda_2 = J_1, \lambda_5 = J_2, \lambda_7 = J_3$ and clearly 
+  $$ [\lambda_a, \lambda_b] = i \epsilon_{abc} \lambda_c $$
+  \end{enumerate}
+\end{enumerate}
+% Please submit your solutions for grading by 
+% \textbf{Monday 7.12.} in Moodle.
+
+% \bigskip
+
+% \begin{enumerate}
+
+
+% \item 
+% Calculate the Riemann
+% tensor, the Ricci tensor, and the scalar curvature using the Levi-Civita connection of the standard metric $g$
+% of the unit sphere $S^2$.  In local spherical coordinates, the metric reads
+% \be g=d\theta \otimes d\theta +\sin^2\theta~d\phi \otimes d\phi \ .
+% \label{s} \ee
+
+% \item {\bf Symmetry of a sphere}.
+% Consider the metric $g$ given in the previous exercise.
+%  Show that
+% \bea
+% L_1 &=& -\cos\phi \frac{\pat}{\pat \theta}+\cot\theta \sin\phi
+% \frac{\pat}{\pat\phi} \nonumber \\
+% L_2 &=& \sin\phi \frac{\pat}{\pat \theta}+\cot\theta \cos\phi
+% \frac{\pat}{\pat\phi} \nonumber \\
+% L_3 &=& \frac{\pat}{\pat\phi} \label{kil}
+% \eea
+% are its Killing vectors. Calculate the commutators
+% $[L_a,L_b]$ and identify the associated symmetry.
+
+% \item
+% Suppose $T_a$ are $N\times N$ matrices satisfying the commutation relation 
+% \be
+% [T_a,T_b]=if_{abc} T_c
+% \ee
+% and $b^\dagger_i$ $(b_i)$, $i=1,\ldots ,N$ are a set of creation (annihilation) operators
+% satisfying
+% \be
+%  [b_i,b^\dagger_j]=\delta_{ij} \ ; \ [b_i,b_j]= [b^\dagger_i,b^\dagger_j]= 0 \ .
+% \ee
+% Show that the operators
+% \be
+%   \chi_a \equiv \sum^N_{i,j=1} (T_a)_{ij} b^\dagger_i b_j
+% \ee
+% satisfy
+% \be
+%   [\chi_a,\chi_b]= if_{abc} \chi_c \ .
+% \ee
+
+
+
+
+% \item Before beginning this exercise, you will need to read the previous exercise and the beginning of section 6.3 of the lecture notes to find all the necessary definitions.
+% \begin{enumerate} 
+% \item Calculate the structure constants
+% $f_{147}$ and $f_{458}$  in SU(3).
+
+% \item Show that the Gell-Mann matrices $\lambda_2,\lambda_5$ and $\lambda_7$ generate an SU(2) subalgebra of SU(3).
+% \end{enumerate}
+
+% \end{enumerate}
+
+
+
+\end{document}
+

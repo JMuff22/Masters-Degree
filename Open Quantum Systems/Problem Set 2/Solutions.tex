@@ -1,0 +1,252 @@
+\documentclass[10pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage[dvipsnames]{xcolor}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\DeclareMathOperator{\tr}{Tr}
+\bibliographystyle{plain} 
+\title{Open Quantum Systems: Solutions to Exercise Session 2}
+\author{Jake Muff}
+\begin{document}
+\maketitle
+\subsection*{Exercise 1: Brownian Motion in a Harmonic Oscillator Heat Bath}
+\begin{enumerate}
+    \item The equations of Motion for the combined Hamiltonian $H_s + H_B$ come from the equations of motion for a hamiltonian systems i.e
+    $$ \dot{x} = \frac{\partial H}{\partial p} \ ;\ -\dot{p} = \frac{\partial H}{\partial x}$$
+    $$ \dot{q_j} = \frac{\partial H}{\partial p_j} \ ;\ -\dot{p_j} = \frac{\partial H}{\partial q_j}$$
+    Therefore the equations of motion for the combined system are 
+    $$ \frac{dx}{dt} = \frac{p}{m} \ ; \ \frac{dp}{dt} = - U'(x) + \sum_j \gamma_j(q_j - \frac{\gamma_j}{\omega_j^2}x) $$
+    $$ \frac{dq_j}{dt} = p_j \ ;\ \frac{dp_j}{dt} = - \omega_j^2 q_j + \gamma_j x $$
+
+    \item For the bath with position coordinates $\{q_j\}$ we can solve the equations of motion, first by introducing a time dependence on the system with coordinate $x(t)$. Then we integrate the position equations of the using using methods to solve linear first order ordinary differential equations with an inhomogenity of $\gamma_j x$ as well as the Green's function method. 
+    \\ So we get
+    $$ \int_0^t dq_j = \int_0^t p_j dt $$
+    $$ q_j(t) - q_j(0)cos(\omega_j t) = \int_0^t p_j dt $$
+    Now using the solved equation of motion for the momentum and substituting:
+    $$ \int_0^t p_j dt = p_j(0) \frac{sin(\omega_j t)}{\omega_j} + \gamma_j \int_0^t \frac{sin(\omega_j(t-s))}{\omega_j} x(s) ds $$
+    Where we have used variation of parameters to find the integral on the end of the equation. 
+
+    \item Integration by parts of the above answer leads to:
+    $$ \int u dv = uv - \int v du \ ; \ u = x(s), dv = \frac{sin (\omega_j(t-s))}{\omega_j} $$
+    $$ du = \dot{x}(s) = \frac{p(s)}{m} $$
+    $$ v = \int \frac{sin(\omega_j(t-s))}{\omega_j} = \frac{cos(\omega_j(t-s))}{\omega_j^2}$$
+    Evaluated at the limits gives
+    $$ \frac{x(t)}{\omega_j^2} - \frac{x(0)cos(\omega_j t)}{\omega_j^2} - \int_0^t \frac{cos(\omega_j (t-s))}{\omega_j^2}\dot{x}(s) ds  $$
+    And substituting back in:
+    $$ q_j(t) = q_j(0)cos(\omega_j t) + p_j(0)\frac{sin(\omega_j t)}{\omega_j} + \gamma_j \Big[\frac{x(t)}{\omega_j^2} - \frac{x(0)cos(\omega_j t)}{\omega_j^2} - \int_0^t \frac{cos(\omega_j (t-s))}{\omega_j^2}\dot{x}(s)ds \Big]$$
+    $$ q_j(t) = (q_j(0)-\gamma_j \frac{x(0)}{\omega_j^2})cos(\omega_j t) + p_j(0)\frac{sin(\omega_j t)}{\omega_j} + \gamma_j \frac{x(t)}{\omega_j^2} - \gamma_j \int_0^t \frac{cos(\omega_j (t-s))}{\omega_j^2} \frac{p(s)}{m} ds$$
+    $$ q_j(t) - \gamma_j \frac{x(t)}{\omega_j^2} = \Big(q_j(0)-\gamma_j \frac{x(0)}{\omega_j^2}\Big)cos(\omega_j t) + p_j(0)\frac{sin(\omega_j t)}{\omega_j} - \gamma_j \int_0^t ds \frac{p(s)}{m} \frac{cos(\omega_j (t-s))}{\omega_j^2}  $$
+
+    \item Put the above equation into $dt/dt$ so that
+    $$ \frac{dp(t)}{dt} = -U'(x(t)) + \sum_j \gamma_j ( q_j(t) - \frac{\gamma_j}{\omega_j^2}x(t))$$
+    Looking at the second term $\sum_j \gamma_j ( q_j(t) - \frac{\gamma_j}{\omega_j^2}x(t))$ and subbing in $q_j(t)$ 
+    $$ \sum_j \gamma_j ( q_j(t) - \frac{\gamma_j}{\omega_j^2}x(t)) = \sum_j \gamma_j \Big[ (q_j(0) - \frac{\gamma_j}{\omega_j^2} x(0))cos(\omega_j t) + p_j(0) \frac{sin(\omega_j t)}{\omega_j} + \frac{\gamma_j x(t)}{\omega_j^2} $$
+    $$- \Big(\gamma_j \int_0^t \frac{cos(\omega_j (t-s))}{\omega_j^2} \frac{p(s)}{m} ds\Big)-\frac{\gamma_j}{\omega_j^2}x(t)\Big] $$
+    The two $\frac{\gamma_j}{\omega_j^2} x(t)$ cancel and it can be rewritten as 
+    $$ \sum_j \gamma_j (q_j(0) - \frac{\gamma_j}{\omega_j^2} x(0))cos(\omega_j t) + \sum_j \gamma_j p_j(0) \frac{sin(\omega_j t)}{\omega_j} - \sum_j \gamma_j \gamma_j \frac{1}{\omega_j^2} \int_0^t cos(\omega_j(t-s)) \frac{p(s)}{m} ds $$
+    Now substitute $K(t=s)$ and $F_p(t)$ where
+    $$ K(s) = \sum_j \frac{\gamma_j^2}{\omega_j^2}cos(\omega_j s) $$
+    And the integral can be rearranged so that
+    $$ \int_0^t cos(\omega_j(t-s)) \frac{p(s)}{m} ds = \int_0^t cos(\omega_j s) \frac{p(t-s)}{m} ds $$
+    So that we get  
+    $$ \frac{dp(t)}{dt} = -U'(x(t)) - \int_0^t ds K(s) \frac{p(t-s)}{m} + F_p(t) $$
+
+    \item $$\sum_j \rightarrow \int dw (gw) $$
+    So $K(t)$ becomes a Fourier integral 
+    $$ K(t) = \int_0^t dw g(w) \frac{\gamma^2(\omega)}{\omega^2} cos(\omega t) $$
+    If $g(w) \propto \omega^2$ and $\gamma(\omega) = C $ (equals a constant). 
+    \\
+    From the fourier integral theorem 
+    $$ f(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} da f(a) \int_{-\infty}^{\infty} d \omega cos(\omega x - \omega a) $$
+    Which can be written in the dirac delta function form 
+    $$ \delta (x-a) = \frac{1}{2\pi} \int_{-\infty}^{\infty} d \omega cos(\omega x - \omega a) $$
+    So $K(t)$ can be written as 
+    $$ K(t) \propto \int_0^\infty d \omega C^2 cos(\omega t) $$
+    Which is like the dirac delta function with $a=0$ and $x=t$ 
+    $$ \therefore  K(t) \propto \delta(t)$$
+
+    \item The distribution looks pretty similar to a Gibbs distribution which is a form of gaussian distribution.
+    $$ E(q_j(0) - \frac{\gamma_j}{\omega_j^2} x(0) ) = \frac{1}{Z} \int_{-\infty}^{\infty} q_j(0) - \frac{\gamma_j}{\omega_j^2} x(0) \exp(\frac{-H_B}{k_b T}) dq_j(0)$$
+    Noticing that this is of the form 
+    $$ \frac{1}{Z} \int_{-\infty}^{\infty} q_j(0) P(q_j(0)^2) d q_j(0) $$
+    Where $P$ is the probability distrbution function. Because this is a guassian distribution we can see that is is an odd function and the integral will equal 0. The same can be said for $E(p_j(0)) $.
+    \\
+    $-H_B$ relates to $q_j(0)^2$ due to the fact that we are using the baths initial conditions and that the $q_j$ part of the baths hamiltonian is of second order. Essentially we can only consider the $q_j$ or $p_j$ terms in the respective expectation values. 
+
+    \item For the fluctuation-dissipation relation we can use the answers to the second moment expectation values and some trig indentities to solve. 
+    $$ <F_p(t) F_p(t') > = \frac{1}{Z} \int F_p(t) F_p(t') \exp(\frac{-H_B}{k_b T}) dq_j (0) dp_j(0) $$
+    $$ = \frac{1}{Z} \int \Big[ \sum_j \gamma_j p(0) \frac{sin(\omega_j t)}{\omega_j} + \sum_j (q_j(0) - \frac{\gamma_j}{\omega_j^2}x(0))cos(\omega_j t)\Big] \cdot \ldots $$
+    $$ \Big[ \sum_j \gamma_j p(0) \frac{sin(\omega_j t')}{\omega_j} + \sum_j (q_j(0) - \frac{\gamma_j}{\omega_j^2}x(0))cos(\omega_j t')\Big] \cdot \exp(\frac{-H_B}{k_b T}) dq_j(0) dp(0) $$
+    Using the answers in the previous question
+    $$ = \sum_j \Big[ \gamma_j^2 \frac{k_B T}{\omega_j^2} cos(\omega_j t)cos(\omega_j t') + \gamma_j^2 \frac{k_B T}{\omega_j^2} sin(\omega_j t) sin(\omega_j t') \Big] $$
+    Using the identity 
+    $$ cos(a)cos(b) +sin(a)sin(b) = cos(a-b) $$
+    We get 
+    $$ = k_B T \sum_j \frac{\gamma_j^2}{\omega_j^2} cos(\omega_j ( t-t')) $$
+    Which, using the $K$ from before equals
+    $$ = k_B T K(t-t') $$
+\end{enumerate}
+
+    \subsection*{Exercise 2: Stochastic integration}
+    \begin{enumerate}
+        \item $$\sum_{k=0}^{N-1}w_{\theta_k}(w_{t_{k+1}}-w_{t_k}) = $$
+    $$ = \sum_{k=0}^{N-1} \frac{2w_{\theta_k}(w_{t_{k+1}}-w_{t_k})}{2} $$
+    $$ = \sum_{k=0}^{N-1} \frac{2w_{t_{k+1}}w_{\theta_k}-2w_{t_k}w_{\theta_k}}{2}$$
+    Factorising 
+    $$ = \sum_{k=0}^{N-1} \frac{w_{t_{k+1}}^2 - w_{t_k}^2+ (2w_{\theta_k} - w_{t_{k+1}} - w_{t_k} ) ( w_{t_{k+1}} - w_{t_k})}{2}$$
+    $$ = \sum_{k=0}^{N-1} \frac{w_{t_{k+1}}^2 - w_{t_k}^2}{2} + \frac{(2w_{\theta_k} - w_{t_{k+1}} - w_{t_k} ) ( w_{t_{k+1}} - w_{t_k})}{2} $$
+    $$  = \sum_{k=0}^{N-1}  \frac{w_{t_{k+1}}^2 - w_{t_k}^2}{2}+ \frac{(w_{\theta_k} - w_{t_{k+1}} + w_{\theta_k}-w_{t_k}}{2} ( w_{t_{k+1}} - w_{t_k}) $$
+    $$  = \sum_{k=0}^{N-1} \frac{w_{t_{k+1}}^2 - w_{t_k}^2}{2} +  \frac{(w_{\theta_k} - w_{t_{k+1}}) + (w_{\theta_k}-w_{t_k})}{2} ( w_{t_{k+1}} - w_{t_k}) $$
+    
+    \item $$ \sum_{k=0}^{N-1} \frac{w_{t_{k+1}}^2 - w_{t_k}^2}{2} $$
+    Evaluate the first term and add that onto the summation
+    $$ \frac{w_t^2 - 0^2}{2} + \sum_{k=1}^{N-1} $$
+    $$ = \frac{w_t^2}{2} + 0 $$ 
+    $$ = \frac{w_t^2}{2} $$
+
+    \item $$ \sum_{k=0}^{N-1}\frac{(w_{\theta_{k}}-w_{t_{k+1}})+(w_{\theta_k}-w_{t_k})}{2}(w_{t_{k+1}}-w_{t_k}) $$
+    $$ = \frac{1}{2} \sum_{k=0}^{N-1} ((w_{\theta_k} - w_{t_{k+1}}) + (w_{\theta_k}- w_{t_k})) ( w_{t_{k+1}}- w_{t_k}) $$
+    $$ \frac{1}{2} \sum_{k=0}^{N-1} [2w_{\theta_k}w_{t_{k+1}} - 2w_{\theta_k}w_{t_k} - w_{t_{k+1}}^2 + w_{t_k}^2]$$
+    $$  =-\frac{1}{2}\sum_{k=0}^{N-1}[(w_{\theta_{k}}-w_{t_{k+1}})^2-(w_{\theta_k}-w_{t_k})^2] $$
+    
+    \item Not answered
+    
+
+
+    \end{enumerate}
+    
+    \subsection*{Exercise 3: Ito vs Stratonovich}
+
+    \begin{enumerate}
+        \item We expand the equation using a Taylor expansion up to order 2 
+        $$ f(a) + \frac{f'(a)}{1!} (x-a) + \frac{f''(a)}{2!}(x-a)^2 + \ldots $$
+        So that we get 
+        $$ f(\chi_t ) \circ d \chi_t = \frac{\partial f(\chi_t)}{2} \partial t + f(\chi_t) d \chi_t $$
+        And the 2nd order and replace $f$ with $\partial_{\chi_t} f$ 
+        $$ \partial_{\chi_t} f(\chi_t) \circ d \chi_t = \frac{\partial_{\chi_t}^2 f(\chi_t)}{2} \partial t + \partial_{\chi_t} f(\chi_t) d \chi_t $$
+        Using the chain rule we see that 
+        $$ \frac{\partial_{\chi_t}^2 f(\chi_t)}{2} \partial t + \partial_{\chi_t} f(\chi_t) d\chi_t = d f(\chi_t) $$
+        So 
+        $$ d f(\chi_t) = \partial_{\chi_t} f(\chi_t) \circ d \chi_t $$
+        Which is equivalent to 
+        $$ \partial_x f(x) |_{x= \chi_t + d\chi_t /2 } d\chi_t $$
+        \\
+        \textcolor{red}{
+            Better more correct and more succinct way of completing question 1.
+            $$ f(\chi_0) = f(\chi_t + d \chi_{t/2}) - \partial_{\chi_{t}} f(\chi_t + d \chi_{t/2}) \frac{d \chi_t}{2} $$
+            $$  + \frac{1}{2} \partial_{\chi_{t}}^2 f(\chi_t - d \chi_{t/2}) \frac{d^2 \chi_t}{4} + \ldots$$
+            $$ f(\chi_t + d \chi_t ) = f(\chi_t + d \chi_{t/2}) + \partial_{\chi_t} f(\chi_t + d \chi_{t/2})\frac{d \chi_t}{2} $$
+            $$ + \frac{1}{2} \partial_{\chi_t}^2 f(\chi_t + d \chi_{t/2}) \frac{d^2 \chi_t}{4} + \ldots $$ 
+            Now 
+            $$ d f(\chi_t) = f(\chi_t + d \chi_t) - f(\chi_t) $$
+            $$ = \partial_{\chi_t} f(\chi_t + d \chi_{t/2}) d \chi_t $$
+            $$ = \partial_{\chi_t} f(\chi_t) \circ d \chi_t $$
+        }
+
+        \item $$ d \chi_t = b(\chi_t) dt + A(\chi_t) dw_t $$
+        So in the case that $\chi_t = w_t^2 $ 
+        $$ b(\chi_t) = 0 \ ; \ A(\chi_t) =1 $$
+        From equation (5) on the sheet we have then
+        $$ d \chi_t = 2 w_t dw_t + dt $$
+        Recognising that $dw_{t_i} \cdot dw_{t_j} = \delta_{ij} dt = dt $ 
+        \\
+        For the Statonovic representation we have 
+        $$d \chi_t = dt \{b - \frac{A}{2} \partial_{x_t}A \}+ dw_t \circ A $$
+        So 
+        $$ d \chi_t = 2 w_t \circ dw_t $$
+
+        \item A log-normal distrbution is of the form 
+        $$ X = e^{\mu + \sigma Z} $$
+        $$d f(\chi_t) = \partial_{x_t} f(\chi_t ) \circ d \chi_t $$
+        $$ d \xi_t = \mu \xi_t dt + \sigma \xi_t \circ dw_t  $$
+        $$ d \xi_t = \Big\{ \mu - \frac{\sigma^2}{2}\Big\} \xi_t dt + \sigma \xi_t \circ dw_t$$
+
+        \item $$ d \xi_t = \Big\{\mu - \frac{\sigma^2}{2}\Big\}\xi_t dt + \sigma \xi_t dw_t $$
+        To solve this lets multiply by $1/\xi_t$. So we have 
+        $$ \frac{1}{\xi_t} d \xi_t = \frac{1}{\xi_t}\Big\{\mu - \frac{\sigma^2}{2} \Big\} \xi_t dt + \frac{1}{\xi_t} \sigma \xi_t dw_t $$
+        $$ = \frac{1}{\xi_t} d \xi_t = \Big\{\mu - \frac{\sigma^2}{2}\Big\}dt + \sigma dw_t $$
+        Now use Ito's lemma where 
+        $$ \frac{\partial f}{\partial x}(\xi_t, t) = \frac{1}{\xi_t} $$
+        so
+        $$ f(x,t) = ln(x) $$
+        We have 
+        $$ d(ln \xi_t ) = 0 dt + \frac{1}{\xi_t} d \xi_t -\frac{1}{2} \frac{1}{\xi_t} d<\xi_t > $$
+        Where $d <\xi_t > $ is the quadratic variation 
+        $$ d < \xi_t > = \sigma^2 \xi_t^2 $$
+        Solving for $\frac{1}{\xi_t} d \xi_t$ we set 
+        $$ \frac{1}{\xi_t} d \xi_t = d(ln \xi_t ) + \frac{1}{2} \frac{1}{\xi_t^2} d <\xi_t > $$
+        So that 
+        $$ d(ln \xi_t ) = \Big\{ \mu - \frac{\sigma^2}{2}\Big\}dt + \sigma dw_t $$
+        $$ d(ln \xi_t) + \frac{1}{2} \frac{1}{\xi_t} \sigma \xi_t^2 = \Big\{\mu -\frac{\sigma^2}{2} \Big\}dt + \sigma dw_t $$
+        Cancelling and simplfying gives
+        $$ ln \xi_t = ln \xi_0 + \int_0^t \Big[ {\mu - \frac{\sigma^2}{2}}-\frac{\sigma^2}{2}\Big]dt + \int_0^t \sigma dw_t $$
+        $$ \xi_t = \xi_0 exp \Big[ \int_0^t {\mu -\sigma^2} dt + \int_0^t \sigma dw_t \Big] $$
+        \\
+
+        \textcolor{red}{ 
+            Easier and simpler way 
+            $$ \int \frac{d \xi_t}{\xi_t} = \int \Big\{ \mu - \frac{1}{2} \sigma^2 \Big\} dt + \int \sigma \circ dw_t $$
+            $$ \hookrightarrow  \ln(\xi_t) - \in{\xi_0} = \Big\{ /mu - \frac{1}{2} \sigma^2 \Big\}t + \sigma w_t$$
+            $$ \hookrightarrow \xi_t = \xi_0 \exp \Big( \Big\{\mu - \frac{1}{2}\sigma^2\Big\}t + \sigma w_t \Big) $$
+        }
+            
+
+        
+
+        \item Not answered
+        
+    \end{enumerate}
+
+    \subsection*{Exercise 4: Ornstein-Uhlenbeck Process}
+    \begin{enumerate}
+        \item $$ d \xi_t = \theta(\mu - \xi_t)dt + \sigma dw_t $$
+        Multiply both sides by an integrating factor $e^{-\theta t} $ and using the chain rule given by:
+        $$ d(e^{-\theta t} \xi_t) = e^{-\theta t} d \xi_t + \xi_t d(e^{-\theta t}) $$
+        $$ = e^{-\theta t} d \xi_t - \theta e^{-\theta t} \xi_t dt $$
+        And multplying by the integration factor gives 
+        $$ e^{-\theta t} d \xi_t = e^{-\theta t}  \theta(\mu - \xi_t ) dt + e^{-\theta t}  \sigma dw_t $$
+        Using the chain rule:
+        $$ d(e^{-\theta t}  \xi_t )= e^{-\theta t} \theta(\mu-\xi_t)dt + e^{-\theta t} \sigma dw_t + \xi_t d(e^{-\theta t}) $$
+        $$ = e^{-\theta t} \theta(\mu - \xi_t)dt + e^{-\theta t} \sigma dw_t - \theta e^{-\theta t} \xi_t dt $$
+        $$ = e^{-\theta t}(\theta \mu - \theta \xi_t ) dt + e^{-\theta t} \sigma dw_t - \theta e^{-\theta t} \xi_t dt $$
+        $$ = (e^{-\theta t} \theta \mu - e^{-\theta t} \theta \xi_t) dt + e^{-\theta t} \sigma dw_t - \theta e^{-\theta t} \xi_t dt $$
+        $$ = e^{-\theta t} \theta \mu dt - e^{-\theta t} \theta \xi_t dt + e^{-\theta t} \sigma dw_t - \theta e^{-\theta t} \xi_t dt $$
+        $$ d(e^{-\theta t} \xi_t ) = \theta e^{-\theta t} \mu dt - 2 \theta e^{-\theta t} \xi_t dt + e^{-\theta t} \sigma dw_t $$
+        Integrating:
+        $$ e^{-\theta t} \xi_t - \xi_0 = - \mu e^{-\theta t} + 2 \xi_t e^{-\theta t} + \sigma \int e^{-\theta (t-s)} dw_s $$ 
+        Where variation of parameters method has been used
+        $$ \xi_t = \theta(\xi_0 -\mu) e^{-\theta t} + \sigma \int_0^t e^{-\theta (t-s)} dw_s $$
+
+        \item $$\xi_t = \mu(\xi_0 - \mu) e^{-\theta t} + \sigma \int_0^t e^{-\theta (t-s)} dw_s $$ 
+        We can say that 
+        $$ \sigma \int_0^t e^{-\theta (t-s)} dw_s = e^{-\theta t} \cdot \sigma \int_0^t e^{-\theta s} dw_s = Z_t $$
+        Due to being a gaussian integral we can write
+        $$ \xi_t = \mu(\xi_0 - \mu + Z_t) e^{-\theta t} = f(t,Z_t) $$
+        With $dZ_t = \sigma e^{-\theta t} dw_t $ 
+        \\
+        From Ito lemma then we have:
+        $$d \xi_t = \frac{\partial f}{\partial t} dt + \frac{\partial f}{\partial Z_t} d Z_t + ]frac{1}{2} \frac{\partial^2 f}{\partial Z^2} < dZ_t, dZ_t > $$ 
+        $$ = -\theta \mu(\xi_0 -\mu + Z_t) e^{-\theta t} dt + e^{-\theta t} dZ_t + \frac{1}{2} \cdot 0 $$
+        $$ = -\theta \mu(\xi_0 - \mu + Z_t) e^{-\theta t} dt + \sigma dw_t $$
+        $$ = \theta \mu dt - \theta(\mu (\xi_0 - \mu) e^{-\theta t} + \sigma \int_0^t e^{-\theta (t-s)} dw_s) dt + \sigma dw_t $$
+        As you can see the part inside the brackets is equal to $\xi_t$ so we have 
+        $$ d \xi_t = \theta(\mu-\xi_t) dt + \sigma dw_t $$
+    \end{enumerate}
+    
+
+    
+
+
+
+
+\end{document}

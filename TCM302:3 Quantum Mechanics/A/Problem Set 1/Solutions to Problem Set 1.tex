@@ -1,0 +1,261 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Mechanics IIa 2021 \ \ \\ Solutions to Problem Set 1}} \\
+Jake Muff
+22/01/21
+\end{center}
+\section*{Question 1}
+Simple harmonic oscillator subjected to a perturbation 
+$$ \lambda V = bx $$
+\begin{enumerate}
+    \item Energy shift of ground state to lowest non-vanishing order: \\
+    
+    The energy shift for this pertubation is 
+    $$ \Delta_n^{(0)} \equiv E_n - E_n^{(0)} $$
+    $$ = \lambda V_{nn} + \lambda^2 \sum_{k \neq n} \frac{|V_{nk}|^2}{E_n^{(0)} - E_k^{(0)} } + \ldots $$
+    $$ = b \langle n^{(0)} | x | n^{(0)} \rangle + b^2 \sum_{k \neq n} \frac{| \langle n^{(0)} | x| k^{(0)} \rangle |^2}{E_n^{(0)} - E_k^{(0)} } + \ldots $$
+    The first order correction is: 
+    $$ \Delta_n^{(1)} = b \langle n^{(0)} | x | n^{(0)} \rangle $$
+    $$ = b \langle 0 | x | 0 \rangle $$
+    Using the hint we get 
+    $$ = b \sqrt{\frac{\hbar}{2 m \omega} } ( \sqrt{0+1} \delta_{0,0+1} + \sqrt{0} \delta_{0, 0-1} ) $$
+    $$ = 0 $$
+    This didn't work so we go to second order: 
+    $$ \Delta_n^{(2)} = \sum_{k \neq n} \frac{|V_{nk}|^2}{E_n^{(0)} - E_k^{(0)}} $$
+    $$ = b^2 \sum_{k \neq n} \frac{| \langle 0 | x | 1 \rangle |^2 }{E_n^{(0)} - E_k^{(0)} } $$
+    Here we have $k^{(0)} = 1$ as $k \neq n$ so the sum $\rightarrow \sum_{k=1}^{\infty} $. The ground state energy of a simple harmonic oscillator is well known 
+    $$ E_n^{(0)} = (n + \frac{1}{2}) \hbar \omega $$
+    Therefore, 
+    $$ E_0 = \frac{1}{2} \hbar \omega $$
+    $$ E_1 = \frac{3}{2} \hbar \omega $$
+    Using this we can evaluate the second order correction 
+    $$ \Delta_n^{(2)} = b^2 \sum_{k \neq n} \frac{| \langle 0 | x | 1 \rangle |^2}{\frac{1}{2} \hbar \omega - \frac{3}{2} \hbar \omega} = b^2 \sum_{k \neq n} \frac{| \langle 0 | x| 1 \rangle |^2 }{- \hbar \omega} $$
+    From the hint the numerator can be evaluated 
+    $$ \langle 0 | x | 1 \rangle = \sqrt{\frac{\hbar}{2 m \omega}} ( \sqrt{1+1} \delta_{0,1+1} + \sqrt{1}\delta_{0, 1-1} ) $$
+    $$ = \sqrt{\frac{\hbar}{2 m \omega}} $$
+    So we get 
+    $$ \Delta_n^{(2)} = b^2 \frac{|\sqrt{\frac{\hbar}{2 m \omega}}|^2}{- \hbar \omega} = - \frac{b^2}{2 m \omega} $$
+
+    \item To solve this problem exactly we need the perturbed hamiltonian for a simple harmonic oscillator 
+    $$ H = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2 + bx $$
+    By completing the square on this we see that this a simple harmonic oscillator which is shifted 
+    $$ H = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 ( x^2 + \frac{2bx}{m \omega^2} ) $$
+    $$ = \frac{p^2}{2m} + \frac{m \omega^2}{2} ( x+ \frac{b}{m \omega^2})^2 - \frac{b^2}{2 m \omega^2} $$
+    So, clearly, this has the same energy eigenvalues before just with an energy shift of 
+    $$ - \frac{b^2}{2 m \omega^2} $$
+    This is the same as above, so in this case doing pertubation theory up to second order gives the same answer as in the exact case.
+\end{enumerate}
+
+\section*{Question 2}
+From QM1 studies of the Orbital Angular momentum we know that we can write 
+$$ \langle n', l',m' |\hat{z} | n,l,m \rangle = \int \int \int d^3 \vec{x} \psi_{n' l' m'}^* (r, \theta, \phi ) r \cos (\theta) \psi_{nlm} (r, \theta, \phi) $$
+So in our case we have 
+$$ \langle 1 0 0  |\hat{z} | n,l,m \rangle = \int \int \int d^3 \vec{x} \psi_{100}^* (r, \theta, \phi ) r \cos (\theta) \psi_{nlm} (r, \theta, \phi) $$
+Due to spherical symmetry i.e $ \psi_{100} (\vec{x} ) = \psi_{100} (r)$, and $n' l' m' = 100$ , when $l=0$ the matrix elements vanish. This means that the matrix elements must vanish unless $l=1$ which is the same as saying $l \neq 1$. 
+The $\cos (\theta)$ introduced here by the $\hat{z}$ changes the known selection rule to be $l' = l+1$ which shows us what we want. 
+
+
+\section*{Question 3}
+For eigenstates 
+$$ \ket{2, \pm} = \frac{1}{\sqrt{2}} (\ket{200} \pm \ket{210} ) $$
+The energy shifts are
+$$ \Delta_{\pm}^{(1)} = \pm 3 e a_0 | \vec{E} | $$
+To which the energy shift corresponds to the dipole number $\vec{d_{\pm} } $
+$$ - \vec{d} \cdot \vec{E} = \pm 3 e a_0 | \vec{E} | $$
+Taking the dot product 
+$$ - |\vec{d} | \cdot | \vec{E} | \cos(\theta) = \pm 3 e a_0 | \vec{E} | $$
+$$ | \vec{d}| = \mp 3 e a_0 / \cos (\theta) $$
+The dipole moments are orientated parallel or antiparallel to the external field, thus the $\cos$ cancels out and we're left with 
+$$ \mp 3 e a_0 $$
+\section*{Question 4}
+This is a 2D infinite square well, of which the solutions  to the 1D case are well known from QM1, it is easy to extend this to the 2D case. 
+\\
+For the Ground state (n=1), the wavefunction is 
+$$ \psi_1 (x,y) = \frac{2}{L} \sin (\frac{ \pi x}{L}) \sin (\frac{\pi y}{L}) $$
+For the first excited state (n=2), which has 2 fold degeneracy, the wavefunctions are 
+$$ \psi_{2a} (x,y) = \frac{2}{L} \sin (\frac{ 2 \pi x}{L}) \sin (\frac{\pi y }{L}) $$
+$$ \psi_{2b} (x,y) = \frac{2}{L} \sin (\frac{\pi x }{L}) \sin ( \frac{ 2 \pi y}{L} ) $$
+Ground state energy eigenfunctions: The zeroth order energy eigenfunction is simply 
+$$ \psi_1^{(0)}  (x,y) = \frac{2}{L} \sin (\frac{ \pi x}{L}) \sin (\frac{\pi y}{L}) $$
+The first order energy shift when the perturbation $\lambda V_1 = \lambda xy$ is applied can be calculated from 
+$$ \Delta_n^{(1)} = \langle n^{(0)} | V_1 | n^{(0)} \rangle $$
+$$ = \lambda \langle 1^{(0)} | xy | 1^{(0)} \rangle $$
+$$ = \lambda \int_0^L \int_0^L |\psi_1^0 (x,y) |^2 xy dx dy $$
+$$ = \frac{4 \lambda}{L^2} \int_0^L \int_0^L xy \sin^2 (\frac{\pi x}{L} ) dx dy $$
+$$ = \frac{1}{4} \lambda L^2 $$
+For the first excited state: 
+\\
+The 1st order energy shift is 
+$$ \Delta_2^{(1)} = \langle 2^{(0)} | V_1 | 2^{(0)} \rangle $$
+$$ = \lambda \langle 2^{(0)} | xy | 2^{(0)} \rangle $$
+We have 2 fold degeneracy and can be represented through a 2x2 matrix for the different permutations 
+$$ \Delta_2^{(1)} = \lambda \begin{bmatrix}
+    \langle \psi_{2a} | xy | \psi_{2a} \rangle & \langle \psi_{2a} | xy | \psi_{2b} \rangle \\
+    \langle \psi_{2b} | xy | \psi_{2a} \rangle & \langle \psi_{2b} | xy | \psi_{2a} \rangle 
+\end{bmatrix} $$
+We now evaluate the matrix elements 
+$$ \langle \psi_{2a} | xy | \psi_{2a} \rangle = \frac{4}{L^2} \int_0^{L} \int_0^L \sin^2 (\frac{2 \pi x}{L} ) \sin^2 (\frac{ \pi y}{L}) xy dx dy $$
+$$ = \frac{L^2}{4} $$
+Also
+$$ \langle \psi_{2b} | xy | \psi_{2b} \rangle = \frac{L^2}{4} $$
+Due to symmetry. 
+$$ \langle \psi_{2a} | xy | \psi_{2b} \rangle = \frac{4}{L^2} \int_0^L \int_0^L \sin (\frac{2 \pi x}{L}) \sin (\frac{\pi x}{L} ) \sin (\frac{2 \pi y}{L} ) \sin (\frac{\pi y}{L}) xy dx dy $$
+$$ = \frac{256 L^2 }{\pi^4 81} $$
+And 
+$$ \langle \psi_{2b} | xy | \psi_{2a} \rangle = \frac{256 L^2 }{\pi^4 81} $$
+$$ \Delta_2^{(1)} = \lambda \begin{bmatrix}
+    \frac{L^2}{4} & \frac{256 L^2 }{\pi^4 81} \\
+    \frac{256 L^2 }{\pi^4 81} & \frac{L^2}{4} 
+\end{bmatrix} $$
+Finding the eigenvalues  (E) of this matrix gives 
+$$ E = \frac{81 \pi^4 \pm 1024}{324 \pi^4} \lambda L^2 $$
+So we have 
+$$ \Delta_{2a}^{(1)} = 0.282 \lambda L^2 $$
+$$ \Delta_{2b}^{(1)} = 0.218 \lambda L^2 $$
+The normalize eigenvectors are then 
+$$ \psi_{2a}^{(0)} = \frac{1}{\sqrt{2}} \begin{bmatrix}
+    1 \\ 1 
+\end{bmatrix} $$
+$$ \psi_{2b}^{(0)} = \frac{1}{\sqrt{2}} \begin{bmatrix}
+    -1 \\ 1 
+\end{bmatrix} $$
+Thus, the zeroth order energy eigenfunctions are 
+$$ \psi_{2a}^{(0)} = \frac{\sqrt{2}}{L} ( \sin (\frac{ 2 \pi x}{L } ) \sin (\frac{\pi y}{L}) + \sin (\frac{\pi x}{L} ) \sin (\frac{2 \pi y }{L}) ) $$
+$$ \psi_{2a}^{(0)} = \frac{\sqrt{2}}{L} ( \sin (\frac{ 2 \pi x}{L } ) \sin (\frac{\pi y}{L}) - \sin (\frac{\pi x}{L} ) \sin (\frac{2 \pi y }{L}) ) $$
+
+
+To evaluate the integrals and find the eigenvalues I used Maple. I have attached the maple worksheet along with this. 
+
+
+
+\section*{Question 5}
+$$H_0 = \frac{P_x^2 + P_y^2}{2m} + \frac{1}{2} m \omega_0^2 (x^2 + y^2) $$
+$$ = \hbar \omega_0 (a^{\dagger} a + b^{\dagger} b + 1) $$
+$$ x= \frac{1}{\sqrt{2 \beta} } (a + a^{\dagger}) $$
+$$ x= \frac{1}{\sqrt{2 \beta} } (b + b^{\dagger}) $$
+$$ \beta \equiv \frac{m \omega_0}{\hbar} $$
+\begin{enumerate}
+    \item In the level number representation $\ket{nm}$, where $n$ relates to $a(x)$ and $m$ relates to $b (y)$ then the energy eigenvalues are 
+    $$ E = \hbar \omega_0 (n+m +1) $$
+    The degeneracies are determined bu counting the number of different ways that the two integers can be added to give $N$ where $N = n +m$. In this case the degneracy is $N+1$ for each energy level $N$. 
+    So for the lowest energy eigenstate where $\ket{n=0, m=0} = \ket{0,0}, E=\hbar \omega_0$ and the 'degeneracy' is 1. 
+    For the next level we have two combinations for $\ket{nm}$; $\ket{0,1}$ and $\ket{1,0}$ which have energies $E= 2 \hbar \omega_0$. The degeneracy matches the rule $N+1 = 1 +1 = 2$. This is the first excited state.
+    
+    \item If turn on the pertubation 
+    $$ \lambda V = \lambda xy$$ 
+    We get 
+    $$ H = H_0 + \lambda xy $$ 
+    Let's represent the first excited energy level with 2 degenerate energy eigenvalues as $\psi_{10}$ and $\psi_{01}$ for the $\ket{n,m} = \ket{1,0} = \ket{0,1} $. 
+    This can be represented by the 2x2 matrix 
+    $$ \begin{pmatrix}
+        \langle \psi_{10} | xy | \psi_{10} \rangle & \langle \psi_{10} | xy | \psi_{01} \rangle 
+        \\
+        \langle \psi_{01} | xy| \psi_{10} \rangle & \langle \psi_{01} | xy | \psi_{01} \rangle 
+    \end{pmatrix} $$
+    From the question we can represent $xy$ using the creation/annihilation operators 
+    $$ xy = \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 (a + a^{\dagger} ) (b + b^{\dagger} ) $$
+    Which we can use to evaluate the matrix elements 
+    $$  \langle \psi_{10} | xy | \psi_{10} \rangle =  \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 \langle \psi_{1} (x) | a+a^{\dagger} | \psi_{1} (x) \rangle \langle \psi_{0} (y) | b+b^{\dagger} | \psi_{0} (y) \rangle = 0 $$
+    $$  \langle \psi_{10} | xy | \psi_{01} \rangle =  \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 \langle \psi_{1} (x) | a+a^{\dagger} | \psi_{0} (x) \rangle \langle \psi_{0} (y) | b+b^{\dagger} | \psi_{1} (y) \rangle = \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 $$
+    $$  \langle \psi_{01} | xy | \psi_{01} \rangle =  \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 \langle \psi_{0} (x) | a+a^{\dagger} | \psi_{0} (x) \rangle \langle \psi_{1} (y) | b+b^{\dagger} | \psi_{1} (y) \rangle = 0 $$
+    $$  \langle \psi_{01} | xy | \psi_{10} \rangle =  \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 \langle \psi_{0} (x) | a+a^{\dagger} | \psi_{1} (x) \rangle \langle \psi_{1} (y) | b+b^{\dagger} | \psi_{0} (y) \rangle = \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 $$
+
+    We can diagonalize this or solve the eigenvalue problem for this case. Either way we find eigenvalues 
+    $$ \mathcal{E} = \pm \Big( \frac{1}{\sqrt{2 \beta} } \Big)^2 $$
+    Which corresponds to corrections up to first order of the energies of 
+    $$ \pm \frac{\lambda \hbar}{2 m \omega_0} $$
+\end{enumerate}
+
+\end{document}
+
+

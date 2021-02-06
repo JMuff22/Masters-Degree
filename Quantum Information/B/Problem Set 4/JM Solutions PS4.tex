@@ -1,0 +1,237 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\usepackage{qcircuit}
+\usepackage{graphicx}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information B \ \ Fall 2020 \ \  Solutions to Problem Set 4}} \\
+Jake Muff \\
+21/11/20
+\end{center}
+
+\bigskip
+\section{Answers}
+
+\begin{enumerate}
+    \item Exercise 9.7. Show that for any states $\rho$ and $\sigma$, we can write $\rho - \sigma = Q-S$ for positive operators $Q$ and $S$. 
+    \\
+    To answer this question we can use spectral decomposition with the assumption that $\rho - \sigma$ is hermitian.
+    $$ \rho - \sigma = \sum_i \lambda_i \ket{i} \bra{i} $$
+    $$ = \sum_{i (\lambda \geq 0)} \lambda_i \ket{i} \bra{i} + \sum_{i ( \lambda \leq 0)} \lambda_i \ket{i} \bra{i} $$
+    The first part of the equation is for positive eigenvalues and the second part for negative eigenvalues. If we define 
+    $$ Q = \sum_i \lambda_i \ket{i} \bra{i} $$
+    And 
+    $$ S = - \sum_i \lambda_i \ket{i} \bra{i} $$
+    Then $Q$ and $S$ are positive operators s.t 
+    $$ \rho - \sigma = Q-S $$ 
+
+    \item Exercise 9.9. Existence of fixed points. Schauder's fixed point theorem says that every continuous map on a convex compact subset of a Hilbert space has a fixed point. 
+    \\
+    If $A$ is a set of density operators on the Hilbert space and $A$ has the property of being a convex, compact subset. 
+    \\
+    Since $\mathcal{E}$ is a quantum operator, so it is linear and as such, continuous, meaning that it maps positively. As it is trace preserving, $\mathcal{E}$, maps density operators to density operators. From all of these statements we can say that $\mathcal{E} (A)$ is a subset of $A$
+    $$ \mathcal{E} (A) \subseteq A $$
+    So, using Schauder's fixed point theorem, if there exists a density operator $\rho$ then $\mathcal{E} (\rho) = \rho $
+
+    \item Exercise 9.12. De polarizing channel 
+    $$ \mathcal{E} (\rho) = \frac{pI}{2} + (1-p)\rho $$
+    Find $D(\mathcal{E} (\rho), \mathcal{E} (\sigma))$ using Bloch representation. The block representation of $\rho$ and $\sigma$ can be viewed as 
+    $$ \rho = \frac{I + \vec{r} \cdot \vec{\sigma}}{2}, \sigma = \frac{I + \vec{v} \cdot \vec{\sigma}}{2} $$
+    So we can write 
+    $$ \mathcal{E} (\rho) = \frac{pI}{2} + (1-p) \rho $$
+    $$ = \frac{pI}{2} + (1-p) \Big( \frac{I+ \vec{r} \cdot \vec{\sigma}}{2} \Big) $$
+    And 
+    $$ \mathcal{E} (\sigma) = \frac{pI}{2} + (1-p) \Big( \frac{I+ \vec{v} \cdot \vec{\sigma}}{2} \Big) $$
+    So that the distance is 
+    $$ D( \mathcal{E} (\rho), \mathcal{E} (\sigma) ) = \frac{1}{2} \Tr | \mathcal{E} (\rho) - \mathcal{E} (\sigma) | $$
+    $$ = \frac{1}{2} \Tr | \Big( \frac{pI}{2} + (1-p)\rho \Big) - \Big( \frac{pI}{2} + (1-p) \sigma \Big) $$
+    $$ = \frac{1}{2} \Tr | (1-p) (\rho -\sigma) | $$
+    The 2nd line here expanded gives $\rho - p \rho - \sigma - p \sigma$ which doesn't cleanly factor but with the modulus, the sign swap doesn't matter so I factored $\rho - p \rho - \sigma + o \sigma $
+    $$ = \frac{1}{2} (1-p) \Tr | \rho - \sigma | $$
+    $$ = (1-p) D (\rho, \sigma) $$
+    The $D$ here can be seen in equations 9.17, 9.18, 9.20 in the book 
+    $$ D(\rho, \sigma) = \frac{|\vec{r} - \vec{v} |}{2} $$
+    So that 
+    $$ D( \mathcal{E} (\rho), \mathcal{E} (\sigma) ) = (1-p) \frac{|\vec{r} - \vec{v} |}{2} $$ 
+    So $\mathcal{E}$ maps $\vec{r} \to (1-p) \vec{r}$ and is contractive as 
+    $$ D( \mathcal{E} (\rho), \mathcal{E} (\sigma) ) < D (\rho, \sigma) $$
+
+    \item Exericse 9.22. Chaining property for Findelity measures. From equation 9.91 the contractivity of the angle 
+    $$ A(\mathcal{E} (\rho), \mathcal{E} (\sigma) ) \leq A (\rho, \sigma) $$
+    And equation 9.35: trace preserving operators are contractive 
+    $$ D (\mathcal{E} (\rho), \mathcal{E} (\sigma) ) \leq D (\rho, \sigma) $$
+    And the triangle equation $z < x+y$ 
+    $$ E(U, \mathcal{E} ) \equiv \textrm{max $\rho$} \ d(U \rho U^{\dagger}, \mathcal{E}(\rho) ) $$
+    Over all $\rho$ the metric using $U$ and $V$ is 
+    $$ d(VU \rho U^{\dagger} V^{\dagger}, VU \sigma U^{\dagger} V^{\dagger} ) $$
+    So the metric between $U$ and $V$ and $\mathcal{F} \circ \mathcal{E}$ over $\rho$ is less than the metric between $U, \mathcal{E}$, and $V, \mathcal{F}$
+    $$ d \big(VU \rho U^{\dagger} V^{\dagger}, \mathcal{F} \circ \mathcal{E} (\rho) \big) \leq d \big(\mathcal{F} (U \rho U^{\dagger}), \mathcal{F} \circ \mathcal{E} (\rho) \big) + d \big(VU \rho U^{\dagger} V^{\dagger}, \mathcal{F} (U \rho U^{\dagger} )\big)  $$
+    $$ d \big(VU \rho U^{\dagger} V^{\dagger}, \mathcal{F} \circ \mathcal{E} (\rho) \big) \leq d \big( U \rho U^{\dagger}, \mathcal{E} (\rho) \big) + d \big( VU \rho U^{\dagger} V^{\dagger},  \mathcal{F} (U \rho U^{\dagger} ) \big) $$ 
+    $$ \leq E(U, \mathcal{E} ) + E(V, \mathcal{F} ) $$
+
+    \item Exercise 10.1 
+    %insert figure 
+    \begin{figure}[h]
+        
+        \includegraphics[width=5cm]{circ1.jpg}
+        \centering
+    \end{figure}
+    % $$ \ket{\psi} = a \ket{0} + b \ket{1} $$
+    % $$\ket{0} \rightarrow \ket{000} $$
+    % $$ \ket{1} \rightarrow \ket{111} $$
+    % $$ \ket{\psi} \rightarrow a \ket{000} + b \ket{111} $$
+
+    Using the circuit diagram we have 
+    $$ \ket{\psi_0} = a \ket{000} + b \ket{100} $$
+    Flip the $10 \rightarrow 11$ 
+    $$ \ket{\psi_1} = a \ket{000} + b \ket{110} $$
+    Now flip $10 \rightarrow 11$ to 
+    $$ \ket{\psi_2} = a \ket{000} + b \ket{111} $$
+
+    \item Exercise 10.2. 
+    $$ \mathcal{E} (\rho) = (1-p)\rho + pX \rho X $$
+    $P_{\pm}$ are projectors onto +1, -1 eigenstates of X i.e $(\ket{0} + \ket{1} )/\sqrt{2}$ and $(\ket{0} - \ket{1})/\sqrt{2}$ So
+    $$ P_{\pm} = \frac{(\ket{0} \pm \ket{1} ) (\bra{0} \pm \bra{1} )}{2} $$
+    Expanding this gives 
+    $$ P_{\pm} = \frac{1}{2} ( \ket{0} \bra{0} \pm \ket{0} \bra{1} \pm \ket{1} \bra{0} \pm \ket{1} \bra{1} ) $$
+    %$$ = \frac{1}{2} ( \ket{0} \bra{0} \pm \ket{1} \bra{1} ) $$
+    Knowing that 
+    $$ I = \begin{pmatrix}
+        1&0 \\ 0&1
+    \end{pmatrix} = \ket{0} \bra{0} + \ket{1} \bra{1} $$
+    $$ X = \begin{pmatrix}
+        0&1 \\ 1&0
+    \end{pmatrix} = \ket{0} \bra{1} + \ket{1} \bra{0} $$
+    So 
+    $$ P_{\pm} = \frac{1}{2} (I \pm X) $$
+    Meaning that $X = P_+ - P_-$, $I= P_+ + P_-$. Plugging this into $\mathcal{E} (\rho )$ and adding a $P \rho = - P \rho$ to the left of RHS and $p \rho $ to the right by $I \rho I = \rho$ 
+    $$ \mathcal{E} (\rho) = (1-2p) \rho + p(X \rho X + I \rho I ) $$
+    $$ = (1-2p) + p((P_+ - P_-) \rho (P_+ - P_-) + (P_+ + P_- ) \rho (P_+ + P_- )) $$
+    $$ = (1-2p) \rho + p(2P_+ \rho P_+ + 2P_- \rho P_- ) $$
+    $$ = (1-2p) \rho + 2p P_+ \rho P_+ + 2p P_- \rho P_- $$
+    \end{enumerate}
+
+\end{document}
+

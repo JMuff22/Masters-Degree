@@ -1,0 +1,204 @@
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \  Answers to Problems 4.1 \& 4.2 - JPBK }}\\
+{\large { Jake Muff}}\\
+jake.muff@helsinki.fi \\
+{Student number: 015361763}\\
+{21/10/2020}
+\end{center}
+
+
+\section{Answers}
+\begin{enumerate}
+
+    \item Problem 4.1. Derive the backflow of heat due to S being at non-zero temperature. \\
+    \\
+    Because S is now included in the derivation we have 
+    $$ \dot{Q}_{NIS}^N = \frac{1}{e^2 R_T} \int_{-\infty}^{\infty} d \epsilon \ (\epsilon - eV) \ n_s (\epsilon) \{f_N (\epsilon - eV) - f_S (\epsilon)\} $$
+    $$ \dot{Q}^S_{NIS} = \frac{1}{e^2 R_T} \int_{-\infty}^{\infty} d \epsilon  \ \epsilon  \ n_s (\epsilon) \{f_N (\epsilon - eV) - f_S (\epsilon)\} $$
+    So we consider $\dot{Q}^S_{NIS}$ as $\dot{Q}_{NIS}^N$ has already been derived. We also notice that this can be simplified using 
+    $$ f_{N,S} (-\epsilon) = 1- f_{N,S} (\epsilon) \ ; \ n_s (-\epsilon) = \epsilon $$
+    So we can write 
+    $$ \dot{Q}^S_{NIS} = \frac{2}{e^2 R_T} \int_{\Delta}^{\infty} d \epsilon  \ \epsilon \ n_s (\epsilon) \{f_N (\epsilon - eV) - f_S (\epsilon)\} $$
+    The fermi distribution $f_{N,S} (\epsilon)$ gives 
+    $$ f_{N,S} (\epsilon) = \frac{1}{1+e^{\beta( \epsilon - \mu)}} $$
+    And the density of states 
+    $$ n_s (\epsilon) = \frac{\epsilon}{\sqrt{\epsilon^2 - \Delta^2}} $$
+    Where $\beta = \frac{1}{k_B T}$. So we have 
+    $$ \dot{Q}^S_{NIS} =  \frac{2}{e^2 R_T} \int_{\Delta}^{\infty} d \epsilon  \ \frac{\epsilon^2}{\sqrt{\epsilon^2 - \Delta^2}} \Big[ e^{-\beta_N \epsilon} - e^{-\beta_S \epsilon}\Big] $$
+    We can approximate $\frac{\epsilon^2}{\sqrt{\epsilon^2 - \Delta^2}}$ for low temperatures where $\epsilon \approx \delta$
+    $$ \frac{\epsilon^2}{\sqrt{\epsilon^2 - \Delta^2}} \approx \frac{\Delta^2}{\sqrt{2 \Delta( \epsilon - \Delta)}} = \sqrt{\frac{\Delta^3}{2(\epsilon - \Delta)}} $$
+    So now 
+    $$ \dot{Q}^S_{NIS} = \frac{2}{e^2 R_T} \int_{\Delta}^{\infty} d \epsilon \sqrt{\frac{\Delta^3}{2(\epsilon - \Delta)}} \Big[ e^{-\beta_N \epsilon} - e^{-\beta_S \epsilon}\Big] $$
+    $$ = \frac{\Delta \sqrt{2}}{e^2 R_T} \int_{\Delta}^{\infty} d \epsilon \sqrt{\frac{\Delta}{2(\epsilon - \Delta)}} \Big[ e^{-\beta_N \epsilon} - e^{-\beta_S \epsilon}\Big] $$
+    Now introduce a change of variables where 
+    $$ E = \frac{\epsilon}{\Delta} \ ; \ dE = \frac{d \epsilon}{\Delta} $$
+    $$ u = \sqrt{E-1} \ ; \ dE = 2u \ du $$
+    Which transformes the equation into the easily solved integral 
+    $$ \dot{Q}^S_{NIS} = \frac{2 \sqrt{2} \Delta^2}{e^2 R_T} \Big[e^{-\beta_N \Delta}\int_0^{\infty} e^{-\beta_N \Delta u^2} du - e^{\beta_S \Delta} \int_0^{\infty} e^{-\beta_S \Delta u^2} du \Big] $$
+    Easily solved due to 
+    $$ \int_0^{\infty} e^{-\beta \Delta u^2} du = \frac{\sqrt{\pi}}{2 \sqrt{\Delta} \sqrt{\beta}} = \frac{1}{2} \sqrt{\frac{\pi}{\Delta \beta}} $$
+    $$ \dot{Q}^S_{NIS} = \frac{2 \sqrt{2} \Delta^2}{e^2 R_T} \Big[e^{-\beta_N \Delta}\cdot \frac{1}{2} \sqrt{\frac{\pi}{\Delta \beta}} - e^{\beta_S \Delta} \cdot \frac{1}{2} \sqrt{\frac{\pi}{\Delta \beta}} \Big] $$
+    Which simplifies to 
+    $$ \dot{Q}^S_{NIS} = \frac{\sqrt{2 \pi \beta_S \beta_n} \Delta^{\frac{3}{2}}}{e^2 R_T} \Big[ e^{-\beta_N \Delta} - e^{-\beta_S \Delta}\Big] $$
+    Isolating the $T_S$ part gives us the backflow of heat which is 
+    $$ \dot{Q}^S_{NIS} = \frac{\Delta^2}{e^2 R_T} \Big[ \sqrt{\frac{2 \pi k_B T_S}{\Delta}} e^{-\frac{\Delta}{k_b T_S}}\Big]$$
+    So totally for NIS cooling where $S$ is at non-zero temperature we have 
+    $$ \dot{Q}_{NIS} \approx \frac{\Delta^2}{e^2 R_T} \Big[ 0.63\Big(\frac{k_B T_N}{\Delta}\Big)^{\frac{3}{2}} + \sqrt{\frac{2 \pi k_B T_S}{\Delta}} e^{-\frac{\Delta}{k_b T_S}}\Big] $$
+
+    \item Problem 4.2. Derive the coefficient of performance. \\
+    \\
+    The coefficient of performance as stated is the cooling power divided by the power from the source at the optimum cooling point of the NIS cooler. 
+    $$ \eta = \frac{\dot{Q}_{NIS}}{P_{in}} $$
+    The cooling power is 
+    $$ \dot{Q}_{NIS} \approx \gamma \frac{\Delta^2}{e^2 R_T}\Big(\frac{k_B T_N}{\Delta}\Big)^{\frac{3}{2}} $$
+    And the power from source at optimum cooling point is 
+    $$ P_{in} = I(V_{opt}) V = \alpha \frac{\Delta^2}{e^2 R_T} \sqrt{\frac{k_B T}{\Delta}} $$
+    Ignoring the prefactors $\alpha$ and $\gamma$ we have 
+    $$ \eta = \frac{\dot{Q}_{NIS}}{P_{in}} = \frac{\frac{\Delta^2}{e^2 R_T}\Big(\frac{k_B T}{\Delta}\Big)^{\frac{3}{2}}}{\frac{\Delta^2}{e^2 R_T} \sqrt{\frac{k_B T}{\Delta}}} $$
+    $$ \eta = \frac{k_B T}{\Delta} $$
+
+
+\end{enumerate}
+\begin{thebibliography}{9}
+    \bibitem{1}
+    Anna Feshchenko. \\
+    \textit{Electron Themometry, refrigeration and heat transport in nanostructures at sub-kelvin temperatures}
+    Doctoral Thesis, Department of Applied Physics, Low Temperature Laboratory, Aalto University
+    \bibitem{2}
+    \textit{Micrometer-scale refrigerators}. Muhonen et al.,
+    Reports on Progress in Physics 75, 046501 (2012)
+    \url{ http://arxiv.org/abs/1203.5100}
+    \bibitem{3}
+    \textit{Superconducting tunnel junctions
+    and nanorefrigeration using InAs
+    nanowires} Jaakko Mastomäki. Master’s thesis, June 14, 2017
+    \bibitem{4} 
+    \textit{Tunnel-Junction Thermometry Down to Millikelvin Temperatures} A. V. Feshchenko et al 2015.
+    \url{https://arxiv.org/pdf/1504.03841.pdf}
+
+
+\end{thebibliography}
+\end{document}
+

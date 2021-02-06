@@ -1,0 +1,356 @@
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\beas}{\begin{eqnarray*}}
+\newcommand{\eeas}{\end{eqnarray*}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf FYMM/MMP IIIb 2020 \ \ \  Solutions to Problem Set 5}}
+Jake Muff
+\end{center}
+
+\begin{enumerate}
+
+\item Question 1. 
+$$ z = e^{i \phi} \tan(\frac{\theta}{2}) \equiv \xi + i \eta $$
+From the lecture notes we have 
+$$ ds^2 = g_{\mu \nu} dx^{\mu} \otimes dx^{\nu} $$
+In this question we are going from $z,\zbar$ to $\theta, \phi$ to $\xi, \eta$ or complex to polar to real. For the first part we can expand out the above formula as per the lecture notes or Nakahara 
+\begin{equation}
+ ds^2 = g_{\mu \nu} dx^{\mu} \otimes dx^{\nu} = \delta_{\alpha \beta} \frac{\partial f^{\alpha}}{\partial x^{\mu}} \frac{\partial f^{\beta}}{\partial x^{\mu}} dx^{\mu} \otimes dx^{\nu} 
+\end{equation}
+Using this equation we can show that $ds^2$ gives the first line in the PS noting that all we are essentially doing is summing over the partial derivatives in this case with different indices, $\mu, \nu, \alpha, \beta$. This makes it fairly trivial but very lengthy to do by hand and I actually found that it increased the number of errors doing it by hand. I will show the full working out for the first transformation from which it is easier to see how the other to are calculated through use of wolfram alpha 
+$$ ds^2 = \Big[ \big( \frac{\partial f_1}{\partial \theta} \big)^2 + \big( \frac{\partial f_2}{\partial \theta} \big)^2 + \big( \frac{\partial f_3}{\partial \theta} \big)^2 \Big] d \theta \otimes d \theta $$
+$$ + \Big( \frac{\partial f_1}{\partial \theta } \frac{\partial f_1}{\partial \phi} + \frac{\partial f_2}{\partial \theta} \frac{\partial f_2 }{\partial \phi} + \frac{\partial f_3}{\partial \theta} \frac{\partial f_3}{\partial \phi} \Big) d \theta \otimes d \phi $$
+$$ + \Big[ \frac{\partial f_1}{\partial \phi} \frac{\partial f_1 }{\partial \theta} + \frac{\partial f_2}{\partial \phi} \frac{\partial f_2}{\partial \theta} + \frac{\partial f_3}{\partial \phi} \frac{\partial f_3}{\partial \theta} \Big] d \phi \otimes d \theta $$
+$$ + \Big[ \big( \frac{\partial f_1}{\partial \phi} \big)^2 + \big( \frac{\partial f_2}{\partial \phi} \big)^2 + \big( \frac{\partial f_3}{\partial \phi} \big)^2 \Big] d \theta \otimes d \theta $$
+$$ = ( \cos(\theta) \cos (\phi))^2 + (\cos(\theta) sin(\phi) )^2 + (\sin(\theta))^2 d \theta \otimes d \theta $$
+$$ + [ - \cos(\theta) \cos(\phi) \sin(\theta) \cos(\phi) + \cos(\theta) \cos(\phi) \sin(\theta) \cos(\phi) - \sin(\theta) \cdot 0 ] d \theta \otimes d \phi $$
+$$ + [- \sin(\theta) \cos( \phi) \cos(\theta) \sin(\theta) + \sin(\theta) \cos(\phi) \cos(\theta) \sin(\phi) + (\sin(\theta) \cdot 0 ) ] d \phi \otimes d \theta $$
+$$ + \big[ (- \sin(\theta) \sin(\phi) )^2 + (\sin(\theta) \cos(\phi))^2 + 0^2   \big] d \phi \otimes d \phi $$
+$$ = d \theta \otimes d \theta + (- \sin(\theta) \cos(\theta) \cos^2 (\phi) + \sin(\theta) \cos(\theta) \cos^2 (\phi) ) d \theta \otimes d \phi $$
+$$ + (- \sin(\theta) \cos(\theta) \sin(\phi) \cos(\phi) + \sin(\theta) \cos(\theta) \sin(\phi) \cos(\phi) ) d \phi \otimes d \theta $$
+$$ + \sin^2 (\theta) d \phi \otimes d \phi $$
+$$ = d \theta \otimes d \theta + sin^2 (\theta) d \phi \otimes d \phi $$
+As you can see this method was extremely lengthy. This can be made easier by using a computer and noting that 
+$$ z = e^{i \phi} \tan(\frac{\theta}{2}) $$
+$$ \zbar = e^{-i \phi} \tan( \frac{\theta}{2}) $$
+$$ g = \frac{2}{(1 + |z|^2)^2} = \frac{2}{(1+ \tan^2 (\frac{\theta}{2} ))^2} $$
+And just calculating 
+$$ ds^2 = \sum_{\mu = 1}^2 \sum_{\nu=1}^2 g_{\mu \nu} \frac{\partial f^{\mu}}{\partial x^{\alpha}} \frac{\partial f^{\nu}  }{\partial x^{\beta}} $$
+With $f^{mu, \nu} = z, \zbar$ and  $x^{\alpha, \beta }= \theta, \phi$ which gives us the same answer. We can apply this method for the third line with 
+$$ z = \xi + i \eta $$
+$$ \zbar = \xi - i \eta $$ 
+The partial derivatives are also w.r.t different factors now lets call them $y^{\alpha}, y^{\beta}$ such that $y^1 = \xi, y^2 = \eta$.  However, this does not give the answer in the problem set and instead gives 
+$$ \frac{4}{(1 + \xi ^2 + \eta^2)^2} (d \xi \otimes d \xi + d \eta \otimes d \eta) $$
+For the second part of the question the "volume" I used the previous assignments work 
+$$ df^1 \wedge df^2 = \varepsilon^{\mu \nu} \frac{\partial f^1}{\partial x^{\mu}} \frac{\partial f^2}{\partial x^{\nu} } dx^1 \wedge d x^2 $$
+So we have two equations 
+$$ \omega = \frac{2 i }{(1 + |z|^2)^2} ( d z \wedge d \zbar) = \frac{2 i }{(1 + |z|^2)^2} \varepsilon^{\mu \nu} \frac{ \partial f^1}{\partial x^{\mu} } \frac{\partial f^2}{\partial x^{\nu} } d \theta \wedge d \phi $$ 
+$$ = \sin (\theta) d \theta \wedge d \phi $$
+And for the third line 
+$$ \omega = \frac{2 i }{(1 + |z|^2)^2} \varepsilon^{\mu \nu} \frac{ \partial f^1}{\partial y^{\mu} } \frac{\partial f^2}{\partial y^{\nu} } ( d \xi \wedge d \eta )  = \frac{4}{(1 + \xi^2 + \eta^2)^2} ( d \xi \wedge d \eta ) $$
+
+
+
+\item Question 2. $X,Y$ are vector fields with $f$ a function on $M$
+\begin{enumerate}
+  \item $\nabla_X \nabla_Y f$. We know that 
+  $$ \nabla_X f = \frac{\partial f}{\partial X} $$
+  As $X$ is a vector field we can write $X \equiv X^{\mu}$ and $Y \equiv Y^{\mu} \partial_{\mu}$, so we have 
+  $$ \nabla_X f = X^{\mu} \partial_{\mu} f $$
+  $$ \nabla_Y f = Y^{\nu} \partial_{\nu} f $$
+  So that 
+  $$ \nabla_X \nabla_Y = X^{\mu} \partial_{\mu} ( Y^{\nu} \partial_{\nu} f) $$
+  $$ = X^{\mu} \partial_{\mu} Y^{\nu} \partial_{\nu} f + X^{\mu} Y^{\nu} \partial_{\mu} \partial_{\nu} f $$
+  
+  \item  $\nabla_{\mu} \nabla_{\nu} f$ We can write 
+  $$ \nabla_{\nu} = \partial_{\nu} f $$
+  $$ \nabla_{\mu} = \partial_{\mu} f $$
+  Which, using the lecture notes equation 
+  $$(\nabla_X \omega )_{\nu} = X^{\mu} \Big( \frac{\partial \omega_{\nu} }{\partial x^{\mu} } - \Gamma^{\alpha}_{\mu \nu} \omega_{\alpha} \Big) $$ 
+  So that 
+  $$ \nabla_{\mu} \omega_{\nu} = \partial_{\mu} \omega_{\nu} - \Gamma^{\alpha}_{\mu \nu} \omega_{\alpha} $$
+  And the $\omega$ will be $\nabla_{\nu}$
+  $$ \nabla_{\mu} \nabla_{\nu} f = \partial_{\mu} \partial_{\nu} f - \Gamma^{\alpha}_{\mu \nu} \partial_{\alpha} f $$
+  Where I have used some shorthand notation $ \partial_{\mu} \equiv \frac{\partial}{\partial x^{\mu}}$
+
+
+\end{enumerate}
+\item Geodesics on a torus. 
+$$ g = r^2 d \theta \otimes d \theta + (R+ r \cos(\theta) ) ^2 d \phi \otimes d \phi $$
+\begin{enumerate}
+  \item The Euler-Lagrange equation is 
+$$ \frac{d}{dt} \Big( \frac{\partial L}{\partial x'^{\mu}} \Big) - \frac{\partial L}{\partial x^{\mu}} = 0 $$
+Where $x'^{\mu} = \frac{d x^{\mu} }{dt}$. The lagrangian $L$ can be transformed as in the lecture notes 
+$$ F = \frac{1}{2} g_{\mu \nu} \frac{d x^{\mu} }{dt} \frac{ d x^{\nu} }{dt} = \frac{1}{2} L^2 $$
+$$ \frac{d}{dt} \Big( \frac{\partial F}{d x'^{\mu} } \Big) - \frac{\partial F}{\partial x^{\mu} } = 0 $$
+First we solve $F$ then the $E-L$ equation evaulated the derivatives using wolfram alpha and computing the sums 
+$$ F_1 = \frac{1}{2} r^2 \frac{\partial \theta}{\partial t} \frac{\partial \theta}{\partial t} $$
+$$ F_2 = \frac{1}{2} (0) $$
+etc. Totally this looks like 
+$$ F = \sum_{\mu =1}^2 \sum_{\nu=1}^2 \frac{1}{2} g_{\mu \nu} \frac{\partial x^{\mu}}{\partial t} \frac{\partial x^{\nu}}{\partial t} $$
+$$ = \frac{1}{2} g_{11} \frac{\partial x^1}{\partial t} \frac{\partial x^1}{\partial t} + \frac{1}{2} g_{12} \frac{\partial x^1}{\partial t} \frac{\partial x^2}{\partial t} $$
+$$ + \frac{1}{2} g_{21} \frac{\partial x^2}{\partial t} \frac{\partial x^1}{\partial t} + \frac{1}{2} g_{22} \frac{\partial x^2}{\partial t} \frac{\partial x^2}{\partial t} $$
+$$ = \frac{1}{2} r^2 \frac{\partial \theta}{\partial t}\frac{\partial \theta}{\partial t} + \frac{1}{2} (0) \frac{\partial \theta}{\partial t} \frac{\partial \phi}{\partial t} $$
+$$ + \frac{1}{2} (0) \frac{\partial \phi}{\partial t} \frac{\partial \theta}{\partial t} + \frac{1}{2} ( R+ r \cos(\theta))^2 \frac{\partial \phi}{\partial t} \frac{\partial \phi}{\partial t} $$
+$$ = \frac{1}{2} r^2 \frac{\partial \theta}{\partial t} \frac{\partial \theta}{\partial t} + \frac{1}{2} (R + r \cos(\theta))^2 \frac{\partial \phi}{\partial t} \frac{\partial \phi}{\partial t} $$
+
+Where $x^1 \equiv \theta$ and $ x^2 \equiv \phi$. Now lets evaulate the two E-L equations with $F$:
+\begin{enumerate}
+  \item $$ \frac{\partial}{\partial t} \Big( \frac{\partial F}{\partial \dot{\theta} } \Big) - \frac{\partial F}{\partial \theta} = 0 $$
+  \item $$ \frac{\partial }{\partial t} \Big( \frac{\partial F}{\partial \dot{\phi}} \Big) - \frac{\partial F}{\partial \phi} = 0 $$
+\end{enumerate} 
+Note that I have made a slight change in notation $ x' \equiv \dot{x} = \frac{d x}{dt}$. Using wolfram alhpa we get for (i):
+$$ \frac{\partial F}{\partial \dot{\theta} } = r^2 \frac{\partial \theta}{\partial t} $$
+$$ \frac{\partial F}{\partial \theta} = - (R+ r \cos(\theta)) r \sin(\theta) \ddot{\phi}^2 $$
+So we have (i) equals 
+$$ r^2 \ddot{\theta} +r \sin(\theta) ( R+ r \cos(\theta)) \dot{\phi}^2 = 0 $$
+In neater (more standard) form 
+$$ \ddot{\theta} + \frac{1}{r} \sin(\theta) ( R+ r \cos(\theta)) \dot{\phi}^2 = 0 $$
+For part ii: 
+$$ \frac{\partial F}{\partial \dot{\phi} } = (R+ r \cos(\theta))^2 \dot{\phi} $$
+$$ \frac{\partial F}{\partial \phi} = 0 $$
+So ii equals 
+$$ -2( R+ r \cos( \theta)) r \sin(\theta) \dot{\theta} \dot{\phi} + (R+ r \cos(\theta))^2 \ddot{\phi} = 0 $$
+Rearrange and simplifing 
+$$ \ddot{\phi} - \frac{ 2 (R+ r \cos(\theta)) r \sin(\theta) \dot{\theta} \dot{\phi}}{(R + r \cos (\theta)) ^2 } = 0 $$
+$$ \ddot{\phi} - \frac{ 2 r \sin(\theta) \dot{\theta} \dot{\phi}}{R+ r \cos(\theta) } = 0 $$ 
+\item  Christoffel Symbols 
+$$ \Gamma^{\kappa}_{\alpha \beta} = \begin{Bmatrix}
+  \kappa \\ \alpha \beta 
+\end{Bmatrix} $$
+$$ = \frac{1}{2} g^{\kappa \mu} ( \partial_{\alpha} g_{\beta \mu} + \partial_{\beta} g_{\mu \alpha} - \partial_{\mu} g_{\alpha \beta} ) $$
+This, like before can be evaluated as a series of the above question using the fact that 
+$$ g^{\kappa \mu}g_{\mu \nu} = \delta^\kappa_\nu $$
+And $g^{\kappa \mu}$ is the inverse of $g_{\mu\nu}$ 
+$$ \Gamma_1 = \frac{(R+ r \cos(\theta)) \sin(\theta) }{r} $$
+$$ \Gamma_2 = \frac{- r \sin(\theta) }{R + r \cos(\theta) } $$
+$$ \Gamma_3 = \frac{- r \sin(\theta) }{R + r \cos(\theta) } $$ 
+There are also 3, 0 coefficients/symbols. I think if done right the Christoffle symbols method is easier through use of a symbolic programming language or online tool. 
+
+\item Solving the differential equations up until $\dot{\theta} = f(\theta), \dot{\phi} = f(\phi)$
+\begin{enumerate}
+  \item $$ \ddot{\theta} + \frac{1}{r} \sin(\theta) ( R+ r \cos(\theta)) \dot{\phi}^2 = 0 $$
+  \item $$ \ddot{\phi} - \frac{ 2 r \sin(\theta) \dot{\theta} \dot{\phi}}{R+ r \cos(\theta) } = 0 $$ 
+
+\end{enumerate}
+Solving for is not simple but is seperable which makes it easier. So the solution will have the form 
+$$ \dot{\phi} = \frac{C}{(R+r \cos(\theta))^2} $$
+Where $C$ is a integration constant. Cannot solve further without initial conditions but we can use this answer to help solve equation i. 
+$$ \ddot{\theta} + \frac{1}{r} \sin(\theta) ( R+ r \cos(\theta)) \Big( \frac{C}{(R+r \cos(\theta))^2}\Big)^2 = 0 $$
+$$ \ddot{\theta} + \frac{C^2 \sin(\theta)}{(r ( \cos(\theta) r + R) ^3 )} = 0 $$
+If we multiply by $\dot{\theta}$ we get an integrable form which is actually easier to integrate than before as $\ddot{\theta} \dot{\theta} = \frac{d}{dt} \dot{\theta} \times \dot{\theta} = \frac{d}{dt} ( \dot{\theta})^2$ and this integrated gives $\int \frac{d}{dt} ( \dot{\theta})^2 = \frac{1}{2} ( \dot{\theta})^2 $ So we have 
+$$ \frac{1}{2} ( \dot{\theta} )^2 = \frac{-C^2 }{2 r^2 ( r \cos(\theta) + R) ^2 } + f $$
+Where $ f$ is a constant $f = \frac{a}{2}$. So we get 
+$$ \dot{\theta}^2 = \frac{- C^2 }{r^2 ( r \cos(\theta) + R) ^2} + a $$
+$$ \dot{\theta} = \pm \sqrt{\frac{-C^2 }{r^2 ( r \cos(\theta) + R)^2 }+ a} $$
+And again, if we had initial conditions we could solve further (I think?) 
+
+\item Some examples of Geodesics on a torus. From my understanding a geodesic is a curve representing the shortest distance/path between two points on the surface and in the case of Riemannian Geometry, a Riemannian manifold.
+Unfortunately I am no artist so these aren't very good sketches. Better ones can be found online.
+\begin{figure}[h!]
+  
+  \includegraphics[width=5cm]{geodesicsonatorus.jpg}
+  \centering
+  \caption{Some Geodesics on a torus. The bottom one is the meridian lines, the simplest geodesics. The top one is an unbounded geodesic }
+\end{figure}
+\end{enumerate}
+\pagebreak
+\item $\exp ( i \alpha A), \alpha \in \mathbb{R}$ 
+$$ A_3 = \begin{pmatrix}
+  0&0&1 \\ 0&0&0 \\ 1&0&0 
+\end{pmatrix} $$
+$$ A_2 = \begin{pmatrix}
+  0& -i \\ i & 0 
+\end{pmatrix} $$
+An exponential can be represented as a power series 
+$$ \exp (M) = \sum_{n=0}^{\infty} \frac{1}{n!} M^n $$ 
+So we have 
+$$ \exp(i \alpha A) = I + \sum_{n=0}^{\infty} \frac{(i \alpha A)^n}{n!} $$
+Which can be split into odd and even powers 
+$$ = I + \sum_{n=1,3,5 \ldots}^{\infty} \frac{(i \alpha)}{n!} A + \sum_{n = 2,4,6 \ldots}^{\infty} \frac{1}{n!} (i \alpha) A^2 $$
+I did this deliberately as for $A=A_3$ 
+$$ A^2 = \begin{pmatrix}
+  1&0&0 \\ 0&0&0 \\ 0&0&1 
+\end{pmatrix} $$
+$$ A^3 = \begin{pmatrix}
+  0&0&1 \\ 0&0&0 \\ 1&0&0 
+\end{pmatrix} = A $$
+So using wolfram alpha this is explicitly 
+$$ \exp( i \alpha A) = \begin{pmatrix}
+  \cos (\alpha) & 0 & i \sin(\alpha) \\ 0&1&0 \\ i \sin(\alpha) &0& \cos(\alpha) 
+\end{pmatrix}$$
+Which we can easily see by hand if we compare the power series of $\cos$ and $\sin$ to the exponential power series 
+$$ = I - A^2 + \cos(\alpha) A^2 + i \sin (\alpha) A $$
+For $A = A_2$, noticing that this is the pauli y matrix which I am particularly familiar with. 
+$$ \exp (i \alpha A) = \exp \begin{pmatrix}
+  0& \alpha \\ - \alpha & 0 
+\end{pmatrix} = \begin{pmatrix}
+  \cos (\alpha) & \sin(\alpha) \\ - \sin(\alpha) & \cos(\alpha) 
+\end{pmatrix} $$
+Which makes sense and relates to the general exponential of a pauli matrix 
+$$ \exp(i \theta \vec{v} \cdot \vec{\sigma} ) = \cos(\theta)I + i \sin(\theta) \vec{v} \cdot \vec{\sigma} $$
+
+
+
+
+% \item Let $\theta ,\phi$ be the polar coordinates. Introduce the complex numbers $z,\zbar$, where
+% \be
+%   z = e^{i\phi} \tan (\theta / 2) \equiv \xi + i\eta \ \  ,
+% \ee
+% and $\xi ,\eta$ are real numbers. Show that the metric of the two-sphere transforms as
+% \begin{eqnarray*}
+%   ds^2 &=& d\theta \otimes d\theta + \sin^2\theta d\phi \otimes d\phi \\
+%  \mbox{} &=& \frac{2}{(1+|z|^2)^2}(d\zbar\otimes dz + dz \otimes d\zbar ) \\
+%  \mbox{} &=& \frac{2}{(1+\xi^2+\eta^2)^2}(d\xi \otimes d\xi + d\eta \otimes d\eta ) 
+% \end{eqnarray*}
+% and the area ("volume") 2-form $\omega$ transforms as
+% \begin{eqnarray*}
+%   \omega &=& \sin \theta d\theta \wedge d\phi \\
+%  \mbox{} &=& \frac{2i}{(1+|z|^2)^2}(dz \wedge d\zbar ) \\
+%  \mbox{} &=& \frac{4}{(1+\xi^2+\eta^2)^2}(d\xi \wedge d\eta )  \  .
+% \end{eqnarray*}
+
+% \item Let $X,Y$ be vector fields and $f$ a function on $M$. Calculate 
+% the "double covariant derivatives"
+% \begin{description}
+% \item [i)]
+% $
+%  \nabla_X \nabla_Y f  \ ,
+% $
+% \item [ii)]
+% $
+%  \nabla_\mu \nabla_\nu f
+% $
+% \end{description}
+% {\em i.e}, write them as sums of terms that involve partial derivatives and connection coefficients (if needed).
+% \newpage 
+% \item {\bf Geodesics on a torus}. Let the metric of the torus $T^2$ with radii $r$ and $R>r$ be
+% \be
+%   g = r^2 d\theta \otimes d\theta + (R+r\cos\theta)^2 d\phi
+%   \otimes d\phi  \ ,
+% \label{g}
+% \ee
+% where
+% $\theta,\phi\in[0,2\pi]$.
+
+% Find the geodesic equation(s) on a torus with the metric
+% (\ref{g}), by
+% \begin{description}
+% \item [i)] using the variational principle and the action of a free
+% massive point particle (the expression for the length of a curve, see
+% section 5.9 of lecture notes). As a first step, substitute the
+% torus metric into the (suitable) Lagrangian.
+% \item [ii)] calculating the Christoffel symbols using the formula on p. 72 of the notes and
+% substituting them to the general geodesic equation.
+% \end{description}
+% Which method do you think would be easier? Next,
+% \begin{description}
+% \item [iii)] Attempt to solve the equations (this is hard, you probably get stuck at $\dot{\theta}= f(\theta)$), and
+% \item [iv)] sketch some examples of geodesics on a torus.
+% \end{description}
+
+
+
+% \item Find all components of the matrix exponential $\exp (i\alpha A)$, $\alpha\in \mathbb{R}$,
+% for the following two choices of the matrix $A$: do it both for $A=A_3$ and for $A=A_2$, where
+% \bes \label{A}
+%   A_3 = \left( \begin{array}{ccc} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{array} \right )\, , \quad A_2 = \left( \begin{array}{cc} 0 & -i \\ i & 0 \end{array} \right ) \, .
+% \ees
+% (Recall that the matrix exponential can be defined by using matrix product in the series representation of the exponential: $\exp (M) = \sum_{n=0}^{\infty} \frac{1}{n!} M^n$.
+% If $M$ is diagonalizable, it coincides with exponentiation of the eigenvalues.)
+
+% This example will be relevant to both spin in quantum mechanics, and for examples of Lie groups in the last week of the course.
+
+ \end{enumerate}
+
+
+
+\end{document}

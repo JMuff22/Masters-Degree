@@ -1,0 +1,188 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf FYMM/MMP IIIb 2020 \ \ \ Solutions to  Problem Set 2}}
+Jake Muff 
+7/11/20
+\end{center}
+
+
+\begin{enumerate}
+
+\item %\setminus 
+If we have 
+$$ \mathbb{R} \setminus \{p_1\} \  \textrm{and} \ \mathbb{R}^2 \setminus \{ p_2 \} $$
+Which are not homeomorphic as they are connect connected so 
+$$ \mathbb{R} \setminus \{ p \} $$
+is not connected but 
+$$ \mathbb{R}^2 \setminus \{ p \} $$
+is connected. So, from the theorem $\mathbb{R}$ must not be homeomorphic to $\mathbb{R}^2$.
+
+
+\item $\pi_2 (M)$ is a two-loop. Need to find the fundamental groups. 
+\begin{enumerate}
+    \item Not answered. 
+    
+    \item $M=T^2$, $T^2 = S^1 \times S^1$. The fundamental group of $S^1$ is $\{ e\}$ so we have 
+    $$ \pi_2 \{ T^2 \} = \{e \} \times \{ e\} = \{ e\} $$
+    So $\pi_2 (M) = \{ e \} $
+\end{enumerate}
+
+\item $S^1$ in cartesian coordinates is 
+$$ x^2 + y^2 =1 $$
+Such that $(x,y)$ is a point in $\mathbb{R}^2$. So $S^1$ is a subset of $\mathbb{R}^2$: $S^1 = \{ x \in \mathbb{R}^2 | \sum_i^2 (x^i)^2 =1 \} $. 
+So we have 2 sets of coordinate neighbourhoods 
+$$ U_{1+} \equiv \{ (x,y) \in S^1 | x > 0 \} $$
+$$ U_{1-} \equiv \{ (x,y) \in S^1 | x < 0 \} $$
+$$ U_{2+} \equiv \{ (x,y) \in S^1 | y > 0 \} $$
+$$ U_{2-} \equiv \{ (x,y) \in S^1 | y < 0 \} $$
+With coordinate functions 
+$$ V_{1 \pm} (x,y) =y $$
+Where $V_{1 \pm}$ maps $U_{1 \pm} \rightarrow (-1,1)$. And 
+$$ V_{2 \pm} (x,y) = x $$
+Where $V_{2 \pm}$ maps $U_{2 \pm} \rightarrow (-1,1)$. 
+\\
+These are coordinate neighbourhoods and functions if they are open and a homeomorphism. These can be shown to be homeomorphisms by construction onverses from the transistion functions: 
+$ \psi_{U \pm}$ maps $(-1,1) \rightarrow S^1$ 
+$$ \psi_{V_{1 \pm}} (x,y) = ( \pm \sqrt{1-x^2}, x) $$
+$$ = (\pm \sqrt{1-y^2}, y) $$
+$$ \psi_{V_{2 \pm}} (x,y) = (x,\pm \sqrt{1-x^2}) $$
+$$ = (y, \pm \sqrt{1-y^2}) $$
+\item Express the vector field
+$$
+V = \frac{\partial}{\partial x} +  \frac{\partial}{\partial y} +  \frac{\partial}{\partial z}
+$$
+in {\em paraboloidal} coordinates $(u,v,\varphi)$, the coordinate transformation is
+$$
+x = uv\cos \varphi \ , \ y = uv \sin \varphi \ , \ z = \half (u^2 - v^2 ) .
+$$
+So I need to find functions of $u, v$ and $\varphi$. If we divide $y$ by $x$ we get a function of $\varphi$
+$$ \frac{y}{x} = \frac{uv \sin(\varphi)}{uv \cos(\varphi)} = \tan(\varphi) $$
+And that 
+$$ x^2 + y^2 = (uv \cos(\varphi))^2 + (uv \sin(\varphi))^2 $$
+$$ = u^2 v^2 \cos^2 (\varphi) + u^2 v^2 \sin^2 (\varphi) $$
+Because $\sin^2 + \cos^2 =1$ this can be written as
+$$ = u^2 v^2 $$
+Notice that 
+$$ \sqrt{u^2 v^2 + (\frac{1}{2} (u^2 - v^2) )^2} = \frac{u^2 +v^2}{2} $$
+So adding $z$ and taking another square root gives $u$ and adding $-z$ and another square root gives $v$ (derived from wolffram alpha) 
+$$ u = \sqrt{\sqrt{u^2 v^2 + (\frac{1}{2} (u^2 - v^2))^2 }+ (\frac{1}{2} u^2 - v^2)} $$
+$$ = \sqrt{\sqrt{x^2 + y^2 + z^2 } + z} $$
+And 
+$$ v = \sqrt{\sqrt{x^2 + y^2 + z^2 }-z} $$
+From the lecture notes, a general transformation of coordinates is given by 
+$$ X = X^{\mu} \frac{\partial}{\partial x^{\mu}} = Y^{\mu} \frac{\partial}{\partial y{\mu}} $$
+Where 
+$$ X^{\mu} \frac{\partial}{\partial x^{\mu}} = X^{v} \frac{\partial y^{\mu} }{\partial x^{v}} \frac{\partial}{\partial y^{\mu}} $$
+From the chain rule. The version we need is 
+$$ \frac{\partial y^{\mu} }{\partial x^v} \Rightarrow y^{\mu} = (u,v,\varphi) $$
+So that we have 3 partial fractions for $u$, 3 for $v$ and 3 for $\varphi$ for $x,y,z$ 
+$$ \frac{\partial u}{\partial x} = \frac{x}{2 \sqrt{\sqrt{x^2 + y^2 + z^2 } + z} \cdot \sqrt{x^2 + y^2 +z^2}} $$
+Subsituting $u$ and $v$ 
+$$ = \frac{uv \cos(\varphi)}{\sqrt{\sqrt{u^2 v^2 + ( \frac{1}{2} (u^2 - v^2))^2} + \frac{1}{2} (u^2 - v^2) } \sqrt{u^2 v^2 + (\frac{1}{2} (u^2 -v^2))^2}} $$
+$$ = \frac{ v \cos (\varphi)}{u^2 + v^2} $$
+Doing this for the rest then gives 
+$$ \frac{\partial u}{\partial y} = \frac{ v \sin (\varphi)}{u^2 + v^2} $$
+$$ \frac{\partial u}{\partial z} = \frac{ u }{u^2 + v^2} $$
+$$ \frac{\partial v}{\partial x} = \frac{ u \cos (\varphi)}{u^2 + v^2} $$
+$$ \frac{\partial v}{\partial y} = \frac{ u \sin (\varphi)}{u^2 + v^2} $$
+$$ \frac{\partial v}{\partial z} = -\frac{ v }{u^2 + v^2} $$
+$$ \frac{\partial \varphi}{\partial x} = - \frac{ \sin (\varphi)}{uv} $$
+$$ \frac{\partial \varphi}{\partial y} = - \frac{ \cos (\varphi)}{uv} $$
+$$ \frac{\partial \varphi }{\partial z} = 0 $$
+All of which were evaluated using wolffram alpha. So that the vector field in paraboloidal coordinates is 
+$$ X = \frac{u + v( \sin(\varphi) + \cos(\varphi) ) }{u^2 + v^2} \frac{\partial}{\partial u} + \frac{-v + u(\sin(\varphi) + \cos(\varphi) )}{u^2 + v^2} \frac{\partial}{\partial v} + \frac{\cos(\varphi) - \sin(\varphi) }{uv} \frac{\partial}{\partial \varphi} $$
+
+
+\end{enumerate}
+
+
+\end{document}
+
+

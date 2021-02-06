@@ -1,0 +1,351 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{amsfonts}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newtheorem{theorem}{Theorem}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \ Fall 2020 \ \  Answers to Exercise Set 8}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{6/12/2020}
+\end{center}
+
+
+
+\section{Question 1}
+\begin{enumerate}
+    \item $$ \hat{H} = H_E + H_S + H_I $$
+    $$ H_I (t) = \sigma_x (t) B(t) $$
+    In the interaction picture we have, for state vectors 
+    $$ \ket{\psi_I (t)} = e^{i H_S t/ \hbar} \ket{\psi_S (t) } $$
+    And for operators 
+    $$ A_I (t) = e^{i H_S t / \hbar} A_s (t) e^{-i H_S t / \hbar}$$ 
+    For this question operators $\sigma_x (t)$ and $B(t)$ with $\hbar = 1$ so we have 
+    $$ \sigma^I_x (t) = e^{i H_S t} \sigma^S_x e^{-i H_S t} $$
+    $$ B^I (t) = e^{iH_E t} B^S e^{-i H_E t} $$
+    So the Hamiltonian in the interaction picture is 
+    $$ H_I (t) = e^{i (H_S + H_E) t} H_I e^{-i (H_S + H_E) t} $$
+    Meaning 
+    $$ H_I (t) = e^{i H_S t} \sigma_x e^{-i H_S t} e^{i H_E t} B e^{-i H_E t} $$
+    From the second part of this question we have 
+    $$ \sigma_+ = \frac{\sigma_x + i \sigma_y}{2} $$
+    $$ \sigma_- = \frac{\sigma_x - i \sigma_y}{2} $$
+    Rearranging gives 
+    $$ \sigma_x = \sigma_+ + \sigma_- $$
+    And 
+    $$ H_I (t) = e^{i H_S t} (\sigma_+ + \sigma_-)e^{-i H_S t} e^{i H_E t} B e^{-i H_E t} $$
+    Can also expand out $B$ to get it into the form we need due to
+    $$ \sigma_x B = \sigma_x \sum_k g_k (b_k + b_k^{\dagger} ) $$
+    $$ B = \sum_k g_k (b_k + b_k^{\dagger}) $$
+    $$ H_I (t) = e^{i H_S t} (\sigma_+ + \sigma_-)e^{-i H_S t} e^{i H_E t} \Big( \sum_k g_k (b_k + b_k^{\dagger} ) \Big) e^{-i H_E t} $$
+    Again from part 2 the right part of the above equation can be expanded as 
+    $$ [H_S, \sigma_{\pm} ] = \pm \omega_{\alpha} \sigma_{\pm} $$
+    $$ [H_E, b_k] = \omega_k b_k $$
+    Using this and the Baker campbell Hausdorff formula / Hadamard Lemma (I will add a proof in the appendix if it is necessary) and expanding gives 
+    $$ H_I (t) = (\sigma_+ e^{i \omega_{\alpha} t} + \sigma_- e^{-i \omega_{\alpha} t} )\Big(\sum_k g_k ( b_k e^{-i \omega_{k} t} + b_k^{\dagger} e^{i \omega_k t} ) \Big)$$
+    This can be simply rearranged and re-substituted to get the form necessary for the question 
+    $$ H_I (t) = \sum_k g_k \Big( \frac{\sigma_x - i \sigma_y}{2} e^{-i \omega_{\alpha} t} + \frac{\sigma_x + i \sigma_y}{2} e^{\omega_{\alpha} t}\Big) (b_k e^{-i \omega_{k} t} + b_k^{\dagger} e^{\omega_k t} ) $$
+
+    \item Showing that for $\sigma_+ = \frac{\sigma_x + i \sigma_y}{2}, \sigma_- \frac{\sigma_x - i \sigma_y}{2}$
+    $$ [H_s, \sigma_{\pm} ] = \pm \omega_{\alpha} \sigma_{\pm} $$
+    Start by expanding the commutation relation 
+    $$ [H_s, \sigma_{\pm} ] = H_s \sigma_{\pm} - \sigma_{\pm} H_s $$
+    As stated in the question 
+    $$ H_s = \frac{\omega_{\alpha}} {2} \sigma_z $$
+    Therefore 
+    $$ [H_s, \sigma_{\pm} ] = \frac{\omega_{\alpha}}{2} \sigma_z \sigma_{\pm} - \sigma_{\pm} \frac{\omega_{\alpha}}{2} \sigma_z $$
+    $$ = \frac{\omega_{\alpha}}{2} \frac{2i \sigma_y \pm 2 \sigma_x}{2} $$
+    Cancelling and simplfying 
+    $$ = \omega_{\alpha} \frac{i \sigma_y \pm \sigma_x}{2} = \pm \omega_{\alpha} \sigma_{\pm} $$
+    Using the definition for $\sigma_+, \sigma_-$. Note I also used the know commutation relations for Pauli matrices. 
+
+    \item Evolution equation for state operator in the interaction picture 
+    $$ i \hbar \frac{d}{dt} \rho_I (t) = [H_I (t), \rho_I (t) ] $$
+    $\hbar = 1 $ and given in the usual form
+    \begin{equation}\label{eq1}
+        \frac{d}{dt} \rho_I (t) = -i [ H_I (t), \rho_I (t) ]
+    \end{equation}
+
+\end{enumerate}
+
+
+
+\section{Question 2}
+\begin{enumerate}
+    \item At time $t=0$ we have 
+    $$ \rho (0) = \rho_S (0) \otimes \rho_B $$
+    Working from equation \ref{eq1} we integrate w.r.t t and make change of var in rhs integral 
+    $$ \int_0^t \frac{d}{dt} \rho (s) = \rho (0) - \int_0^t [ H_I (s), \rho (s)  ] ds $$
+    $$ \rho (t) = \rho (0) - \int_0^t [H_I (s), \rho(s) ] ds $$
+    Plugging this into the interaction picture we have 
+    \begin{equation} \label{eq2}
+         \frac{d}{dt} \rho (t) = -i[H_i, \rho (0) ] - \int_0^t [ H_I (t), [H_I (s), \rho (s) ]] ds 
+    \end{equation}
+
+    \item Partial trace of the bath dof under assumption that 
+    $$ \Tr_B [H_I (t), \rho (0) ] = 0 $$
+    Taking the trace over (\ref{eq2}) 
+    $$ \Tr_B \Big[ \frac{d}{dt} \rho (t) \Big] = -i \Tr_B [ H_I (t), \rho (0) ] - \int_0^t \Tr_B [ H_I (t) [H_I (s), \rho (s) ]] ds $$
+    Since we have the Born approximation i.e 
+    $$ \rho (t) \approx \rho_S (t) \otimes \rho_B $$
+    We have 
+    $$ \frac{d}{dt} \rho_S (t) = -i [0] - \int_0^t \Tr_B [H_I (t) [H_I (s), \rho (s) ]] ds $$
+    $$ = - \int_0^t \Tr_B [ H_I (t) [H_I (s), \rho_S (s) \otimes \rho_B ]] ds $$
+    Which is the Redfield equation. 
+    \item Now performing the Markov approximation, replacing $\rho_S (s)$ with $\rho_S (t)$ and make a change of variables s.t $s \rightarrow t-s$. Also have $\tau_R >> \tau_B$ so we have
+    $$ \frac{d}{dt} \rho_S (t) = - \int_0^{\infty} \Tr_B [ H_I (t) [H_I (t-s), \rho_S (t) \otimes \rho_B]] ds $$
+    Which is the Markovian quantum master equation. 
+
+\end{enumerate}
+
+
+\section{Question 3}
+\begin{enumerate}
+\item For this question we can either follow Breuer and Petruccione or the lecture notes. I mostly followed the lecture notes but in some cases refered to page 134 of B and P as B and P gives this really annoying "after some algebra" bit. Starting with 2c equation 
+$$ \frac{d}{dt} \rho_S (t) = - \int_0^{\infty} \Tr_B [ H_I (t) [H_I (t-s), \rho_S (t) \otimes \rho_B]] ds $$
+$$ \dot{\rho_S} (t) = - \int_0^{\infty} ds \Tr_B \Big( H_I (t) H_I (t-s) \rho_S (t) \otimes \rho_B - H_I (t) \rho_S (t) \otimes  \rho_B H_I (t-s) \Big) $$
+ $$ + \inf_0^{\infty} ds \Tr_B \Big( H_I (t-s) \rho_S (t) \otimes \rho_B H_I (t) - \rho_S (t) \otimes \rho_B H_I (t-s) H_I (t) \Big) $$
+ In the schrodinger picture we have 
+$$ H_I = \sum_{\alpha} \sigma_- \otimes B_{\alpha} $$
+Such that $\sigma_- = \sigma_-^{\dagger}$, $B_{\alpha} = B_{\alpha}^{\dagger}$. As shown before we also have 
+$$ [H_S, \sigma_{\pm} ] = \pm \omega_a \sigma_{\pm} $$
+So we case $H_I$ into 
+$$ H_I (t) = \sum_{\alpha, \omega} e^{-i \omega t} \sigma_- \otimes B_{\alpha} (t) = \sum_{\alpha, \omega} e^{i \omega t} \sigma_+ \otimes B_{\alpha}^{\dagger} (t) $$
+So we have 
+$$ \dot{\rho_S} (t) = - \sum_{\alpha, \alpha'} \sum_{\omega, \omega'} \sigma_- \sigma_{-}' \rho_S (t) \int_0^{\infty} ds e^{i \omega t + i \omega' s} \Tr \Big( (e^{i H_E t} B_{\alpha} e^{-i H_E t} ) \rho_B ( e^{i H_E s} B_{\alpha]' } e^{-i H_E s} ) \Big) $$
+$$ + \sum_{\alpha, \alpha'} \sum_{\omega, \omega'} \sigma_- \rho_S (t) \sigma_{-}' \int_0^{\infty} ds e^{i \omega t + i \omega' s} \Tr \Big( (e^{i H_E t} B_{\alpha} e^{-i H_E t} ) \rho_B ( e^{i H_E s} B_{\alpha]' } e^{-i H_E s} ) \Big) $$
+$$ + \sum_{\alpha, \alpha'} \sum_{\omega, \omega'} \sigma_{-}' \rho_S (t) \sigma_- \int_0^{\infty} ds e^{i \omega t + i \omega' s} \Tr \Big( (e^{i H_E t} B_{\alpha} e^{-i H_E t} ) \rho_B ( e^{i H_E s} B_{\alpha]' } e^{-i H_E s} ) \Big) $$
+$$ + \sum_{\alpha, \alpha'} \sum_{\omega, \omega'} \rho_S (t) \sigma_{-}' \sigma_-   \int_0^{\infty} ds e^{i \omega t + i \omega' s} \Tr \Big( (e^{i H_E t} B_{\alpha} e^{-i H_E t} ) \rho_B ( e^{i H_E s} B_{\alpha]' } e^{-i H_E s} ) \Big) $$
+The trace is now the full trace and this definitely needs simplfying. 
+$$ \dot{\rho_S} (t) = \sum_{\alpha, \alpha'} \sum_{\omega, \omega'} ( \sigma_-' \rho_S (t) \sigma_+ - \sigma_+ \sigma_- \rho_S (t) ) \int_0^{\infty} ds e^{-i \omega t + i \omega s} \Tr \Big( ( e^{i H_E t} B_{\alpha} e^{-i H_E t} ) \rho_B ( e^{i H_E s} B_{\alpha'} e^{-i H_E s} ) \Big) $$
+$$ + \sum_{\alpha, \alpha'} \sum_{\omega, \omega'} ( \sigma_- \rho_S (t) \sigma_+' - \rho_S (t) \sigma_+' \sigma_- ) \int_0^{\infty} ds e^{i \omega t - i \omega s} \Tr \Big( ( e^{i H_E t} B_{\alpha} e^{-i H_E t} ) (e^{i H_E s} B_{\alpha'} e^{-i H_E s} )  \rho_B \Big) $$
+We have the property that 
+$$ [H_E, \rho_B] = 0 $$ 
+Which fixes the traces 
+$$ \Tr \Big( (e^{i H_E t} B_{\alpha} e^{-i H_E t} ) \rho_B ( e^{i H_E s} B_{\alpha'} e^{-i H_E s}  )\Big) = \Tr \Big( e^i H_E (t-s) B_{\alpha} e^{-i H_E (t-s) } \rho_B B_{\alpha'}  $$
+$$ \Tr \Big( (e^{i H_E t} B_{\alpha} e^{-i H_E t} )  ( e^{i H_E s} B_{\alpha'} e^{-i H_E s}  ) \rho_B \Big) = \Tr \Big( e^-i H_E (t-s) B_{\alpha'} e^{i H_E (t-s) } \rho_B B_{\alpha}  $$ 
+Here (as Paolo introduces in lecture inspired by Rivas and Huelga) 
+$$ C_{\alpha \alpha' } (t-s) = \Tr \Big( e^{i H_E (t-s) } B_{\alpha} e^{-i H_E (t-s) } \rho_B B_{\alpha'} \Big) $$
+Which I think is equivalent to Breuer and Petruccione's \emph{reservoir correlation function} 
+$$ \langle B_{\alpha}^{\dagger} (t) B_{\beta} (t-s) \rangle \equiv \Tr_B \{ B_{\alpha}^{\dagger} B_{\beta} (t-s) \rho_B \} $$
+Rivas and Huelga showed that these are equivalent 
+$$ \dot{\rho_S} (t) \sigma_- \rho_S (t) \sigma_+ - \sigma_+ \sigma_- \rho_S (t) \int_0^{\infty} ds e^{-i \omega t + i \omega' s} C_{\alpha \alpha' } (t-s) $$
+$$ + \overline{\sigma_- \rho_S (t) \sigma_+ - \sigma_+ \sigma_- \rho_S (t) \int_0^{\infty} ds e^{-i \omega t + i \omega' s} C_{\alpha \alpha' } (t-s) } $$
+Now applying the secular approximation where 
+$$ \int_0^{\infty} ds e^{-i \omega t + i \omega s} C_{\alpha \alpha'} (t-s) = e^{-i ( \omega - \omega') t} \int_0^{\infty} ds e^{-i \omega' s} C_{\alpha \alpha'} (s) $$
+And the neat little trick from the lecture notes (omitted from BP) 
+$$  \frac{\Gamma (\omega_a)}{2} = \int_0^{\infty} ds e^{-i \omega s} C_s $$
+So we have 
+$$ \dot{\rho_S}(t) = ( \sigma_- \rho_s (t) \sigma_+ - \sigma_+ \sigma_- \rho_s (t) )   \Gamma (\omega_a) + \Gamma (- \omega_a) ( \sigma_+ \rho_S (t) \sigma_- - \sigma_- \sigma_+ \rho_S (t) ) $$
+$$ \dot{\rho_S} (t) = - \{ \Gamma (\omega_a ) [ \sigma_+ \sigma_- \rho_S (t) - \sigma_- \rho_S (t) \sigma_+ ] + h.c\} $$
+$$ - \{ \Gamma (- \omega_a) [ \sigma_- \sigma_+ \rho_S (t) - \sigma_+ \rho_S (t) \sigma_- ] + h.c \} $$
+
+\item Assuming that $[H_E, \rho_B] = 0$. The one sided fourier transform is decomposed as 
+$$ \Gamma( \omega) = \frac{1}{2} \gamma (\omega) + i S (\omega) $$
+From which we can see that 
+$$ \gamma (\omega) = \Gamma (\omega) + \Gamma^* (\omega) $$
+Because $\Gamma (\omega)$ is defined as 
+$$ \Gamma (\omega) = \int_0^{\infty} ds e^{i \omega s} \Tr_B (B^{\dagger} (s) B \rho_B ) $$
+$\gamma( \omega)$ can be rewritten as 
+$$ \gamma (\omega) = \int_0^{\infty} ds e^{i \omega s} \Tr_B (B^{\dagger} (s) B \rho_B ) + \int_0^{\infty} ds e^{-i \omega s} \Tr_B (\rho_B B B^{\dagger} (s) ) $$
+Now we can make a change of variables in the right integral to make a full integral from $- \infty$ to $+ \infty$ by taking $s \rightarrow - s$ 
+$$ \gamma (\omega) = \int_0^{\infty} ds e^{i \omega s} \Tr_B (B^{\dagger} (s) B \rho_B ) + \int_{-\infty}^0 ds e^{i \omega s} \Tr_B (\rho_B B B^{\dagger} (-s) ) $$
+$$ \gamma (\omega) = \int_{- \infty}^{\infty} ds e^{i \omega s} \Tr_B (B^{\dagger} (s) B \rho_B )  $$
+
+\item Using equation 21 and 18 in the exercise sheet we have 
+$$ \dot{\rho_S}(t) = - \{ \frac{1}{2} \gamma (\omega_a) + i S(\omega_a) [ \sigma_+ \sigma_- \rho_S (t) - \sigma_- \rho_S (t) \sigma_+ ] \} $$
+$$ - \{ \frac{1}{2} \gamma (- \omega_a) + i S(- \omega_a) [ \sigma_- \sigma_+ \rho_S (t) - \sigma_+ \rho_S (t) \sigma_- ] \} $$
+With 
+$$ \Gamma (\omega_a ) = \frac{1}{2} \gamma (\omega_a) + i S (\omega_a) $$
+$$ \Gamma (-\omega_a ) = \frac{1}{2} \gamma (-\omega_a) + i S (-\omega_a) $$
+Expanding gives 
+$$ \dot{\rho_S}(t) = \{ \frac{1}{2} \gamma (\omega_a) \sigma_+ \sigma_- \rho_S(t) - \frac{1}{2} \gamma (\omega_a) \sigma_- \rho_S (t) \sigma_+ + i S (\omega_a) \sigma_+ \sigma_- $$
+$$ - \rho_S (t) - iS (\omega_a) \sigma_- \rho_S (t) \sigma_+ \} $$
+$$ - \{ \frac{1}{2} \gamma ( - \omega_a ) \sigma_- \sigma_+ \rho_S (t) - \frac{1}{2} \gamma (- \omega_a) \sigma_+ \rho_S (t) \sigma_- + i S (-\omega_a) \sigma_- \sigma_+ \rho_S (t) $$
+$$ - i S (- \omega_a ) \sigma_+ \rho_S (t) \sigma_- \} $$
+Using the same trick as in the previous exercises with the Lindblad equation where you take the commutation relation and tack the additional term inside so that when it is expanded it gives the full same equation. We have 3 terms for $\gamma (\omega_a), \gamma (-\omega_a)$ and the $S$ term which includes both $S(\omega_a)$ and $S (-\omega_a)$
+$$ \Rightarrow \frac{1}{2} \gamma ( \omega_a) \sigma_+ \sigma_- \rho_S (t) - \frac{1}{2} \gamma (\omega_a) \sigma_- \rho_S (t) \sigma_+ $$
+Take $\gamma (\omega_a)$ out 
+$$ \gamma (\omega_a ) (\frac{1}{2} \sigma_+ \sigma_- \rho_S (t) - \frac{1}{2} \sigma_- \rho_S (t) \sigma_+ ) $$
+This is clearly a commutation relation but because of the halfs we have an extra term ($\sigma_- \rho_S (t) \sigma_+ $) 
+$$ \gamma (\omega_a) ( \sigma_- \rho_S (t) \sigma_+) - \frac{1}{2} ( \sigma_+ \sigma_- \rho_S (t) - \rho_S (t) \sigma_+ \sigma_-)) $$
+$$ \rightarrow \gamma (\omega_a ) ( \sigma_- \rho_S (t) \sigma_+ - \frac{1}{2} \{ \sigma_+ \sigma_-, \rho_S (t) \}) $$
+The same can be applied for $\gamma (- \omega_a)$. For the third term we have 
+$$ i S( \omega_a) \sigma_+ \sigma_- \rho_S (t) - i S (\omega_a ) \sigma_- \rho_S (t) \sigma_+ - i S (- \omega_a ) \sigma_- \sigma_+ \rho_S (t) + i S (- \omega_a) \sigma_+ \rho_S (t) \sigma_- $$
+Taking the $i$ out 
+$$ -i ( S ( \omega_a ) \sigma_+ \sigma_- \rho_S (t) - S(\omega_a ) \sigma_- \rho_S (t) \sigma_+ - S (- \omega_a) \sigma_- \sigma_+ \rho_S (t) + S(-\omega_a) \sigma_+ \rho_S (t) \sigma_- ) $$
+Rearranging the terms (1st + 4th - (2nd + 3rd) ) we get 
+$$ -i( [ S(\omega_a) \sigma_+ \sigma_- + S(- \omega_a ) \sigma_+ \sigma_- ] \rho_S (t) - \rho_S (t) [ S(\omega_a) \sigma_- \sigma_+ + S(- \omega_a) \sigma_- \sigma_+ ] ) $$
+Which simplfied is 
+$$ -i ( S(\omega_a) \sigma_+ \sigma_- + S ( - \omega_a ) \sigma_- \sigma_+ \rho_S(t) - \rho_S(t) S(\omega_a ) \sigma_+ \sigma_- + S(- \omega_a) \sigma_- \sigma_+ ) $$
+$$ -i [ S(\omega_a) \sigma_+ \sigma_- + S(- \omega_a) \sigma_- \sigma_+, \rho_S (t) ] $$
+Combining this with the other two terms we get the solution as needed 
+$$ \dot{\rho_S}(t) = -i [ S(\omega_a) \sigma_+ \sigma_- + S(- \omega_a) \sigma_- \sigma_+, \rho_S (t) ] $$
+$$ + \gamma (\omega_a ) ( \sigma_- \rho_S (t) \sigma_+ - \frac{1}{2} \{ \sigma_+ \sigma_-, \rho_S (t) \}) $$
+$$ + \gamma (- \omega_a ) ( \sigma_+ \rho_S (t) \sigma_- - \frac{1}{2} \{ \sigma_- \sigma_+, \rho_S (t) \}) $$
+A (fairly) simple yet lengthy calculation.
+
+\item Continuous spectrum in the bath: 
+$$ H_E = \int_0^{\infty} d \omega \ \omega b^{\dagger} (\omega) b (\omega) $$
+$$ B = \int_0^{\infty} d \omega g (\omega) ( b^{\dagger} (\omega) + b (\omega)) $$
+$$ \int_{- \infty}^{\infty} = ds e^{i \omega s} = 2 \pi \delta (\omega) $$
+Using these to expand out 
+$$ \gamma (\omega_a) = \int_{- \infty}^{\infty} ds e^{i \omega s} \Tr_B (B^{\dagger} (s) B \rho_B )  $$
+
+With the B-C-H + Hadamard Lemma we have 
+$$ B(t) = e^{i H_E t} B e^{-i H_E t} $$
+$$ = e^{i H_E t} \Big[\int_0^{\infty} d \omega g (\omega) (b^{\dagger} (\omega) + b (\omega) )\Big] e^{-i H_e t} $$
+$$ = \int_0^{\infty} d \omega g (\omega) ( b^{\dagger} (\omega) e^{i \omega t} + b (\omega) e^{-i \omega t} ) $$
+So 
+$$ \gamma (\omega_a) = \int_{- \infty}^{\infty} ds e^{i \omega_a s} \Tr_B \Big( \int_0^{\infty} d \omega g( \omega) b^{\dagger} (\omega_a) (b^{\dagger} (\omega) e^{i H_E t} + b (\omega) e^{-i H_E t} )  \Big) $$
+$$ = 2 \pi g(\omega_a) \Tr_B \Big( b (\omega_a) \int_0^{\infty} d \omega g (\omega) (b^{\dagger} (\omega) e^{i H_E t} + b (\omega) e^{-i H_E t} ) \Big) $$
+$$ = 2 \pi g(\omega_a) \Tr_B \Big( b (\omega_a) \int_0^{\infty} d \omega g (\omega) (b^{\dagger} (\omega)+ b (\omega) ) \rho_B \Big) $$
+And clearly the same method follows for $\gamma (- \omega_a)$ but with $b^{\dagger} (\omega_a)$ factor in due to 
+$$ \gamma (-\omega_a) = \int_{- \infty}^{\infty} ds e^{-i \omega s} \Tr_B (B B^{\dagger} (s)  \rho_B )  $$
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\section{Appendix}
+\subsection{ Baker-Campbell-Hausdorff Formula / Hadamard Lemma}
+The Baker-Campbell Hausdorff formula gives 
+$$ C = A + B + \frac{1}{2}[A,B] + \frac{1}{12}([A, [A, B]] - [B, [A, B]]) - \frac{1}{24}[B, [A, [A,B]]] \ldots $$
+Using the Hadamard lemma we get solutions to $f(s) = e^{sa} B e^{-sA}$ as 
+$$ f''' (s) = e^{sA} [A,[A,[A,B]]]e^{-sA} $$
+From which a taylor series can be constructed for $f(s)$ to get 
+$$ e^{sA} B e^{-sA} = B + [A,B]s + \frac{1}{2}[A,[A,B]]s^2 + \frac{1}{3!} [A,[A,[A,B]]] s^3 + \ldots $$
+$$ = \sum_{n=0}^{\infty} \frac{s^n}{n!} X^n B $$
+In the case of the interaction picture  ($ s = it$, $A = H$ )this would be equivalent to 
+$$ e^{i H t} \sigma_{\pm} e^{-i H t} $$
+With 
+$$ [H, \sigma_{\pm}] = \pm \omega_{\alpha} \sigma_{\pm} $$
+Which allows the interaction picture to be 
+$$ e^{i H t} \sigma{\pm} e^{-i H t} = \sum_{n=0}^{\infty} \frac{(it)^n}{n!} (\pm \omega_{\alpha})^n \sigma_{\pm} = e^{-i \omega_{\alpha} t} \sigma_{\pm} $$
+Clearly this can be applied to other suhc variables as long as $A, B$ do not commute and in the case of the interaction picture are elements of $M_n ( \mathbb{C} ) $. 
+\end{document}
+

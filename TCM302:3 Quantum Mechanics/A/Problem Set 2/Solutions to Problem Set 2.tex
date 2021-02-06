@@ -1,0 +1,238 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Mechanics IIa 2021 \ \ \\ Solutions to Problem Set 2}} \\
+Jake Muff
+2/02/21
+\end{center}
+\section*{Question 1}
+First order correction to third eigenenergy $E_3^{(0)}$ for a 1D box with infite walls at $x=0$ and $x=L$.
+\begin{enumerate}
+    \item $V= 10^{-3} E_1 x/L$. For a 1D box like this we know the energy eigenvalues 
+    $$ E_n = n^2 \frac{ \pi^2 \hbar^2}{2mL^2} $$
+    With eigenfunctions 
+    $$ \psi (x) = \sqrt{\frac{2}{L}} \sin ( \frac{n \pi}{L} x) $$
+    The first order correction to the nth eigenenergy 
+    $$ E_n^{(1)} = \langle \psi_n^0 | V | \psi_n^0 \rangle $$
+    $$ = \frac{2}{L} \int_0^L \sin^2 (\frac{n \pi x}{L} ) \cdot ( 10^{-3} \cdot E_1 \cdot \frac{x}{L} ) dx $$
+    Evaluate at $n=3$ using Maple 
+    $$ E_3^{(1)} = \frac{E_1}{2000} $$
+    \item Using the same technique as before just with different $V$ we get 
+    $$ E_3^{(1)} = \frac{(6 \pi^2 - 1) E_1}{18000 \pi^2} $$
+    \item $$ E_3^{(1)} = \frac{ - 9\pi^2 E_1 (-1+ \cos(1)) }{250(36 \pi^2 -1)} $$
+\end{enumerate}
+
+\section*{Problem 2} 
+For this problem we have a particle in a box with a bump between $-a/2$ and $a/2$
+\begin{enumerate}
+    \item $$ \Delta_2^{(1)} = \langle n^0 | V | n^0 \rangle = \int_{- \frac{a}{2}}^{\frac{a}{2}} \frac{2}{L} \sin ( \frac{2 \pi ( x + L/2) }{L} ) V_0 \sin ( \frac{2 \pi ( x + L/2) }{L} ) dx $$
+    $$ = \frac{2}{L} V_0 \int_{- \frac{a}{2}}^{\frac{a}{2}} \sin^2 ( \frac{ 2 \pi x}{L} ) dx $$
+    $$ = - \frac{V_0 ( \cos( \frac{\pi a}{L} ) \sin ( \frac{ \pi a}{L} ) L - \pi a ) }{L \pi} $$
+    For the eigenfunction we use 
+    $$ \ket{n} = \ket{n_0} + \lambda \sum_{k \neq n} \ket{k_0} \frac{ V_{kn} }{E_n^{(0)} - E_k^{(0)}}$$ 
+    We want the last part 
+    $$ \sum_{k \neq n} \ket{k_0} \frac{ V_{kn} }{E_n^{(0)} - E_k^{(0)}}$$ 
+    %$$ \psi_2^1 = \sqrt{\frac{2}{L}} \sin(\frac{2 \pi x}{L} ) \frac{\int_{- \frac{a}{2}}^{\frac{a}{2}} \frac{2}{L} \sin( \frac{\pi x}{L}) V_0 \sin(\frac{2 \pi x}{L} )    }{E_2^{(0)} - E_1^{(0)}} dx $$
+    %$$ = \sqrt
+    Evaluating $V_{kn}$ for $n=2$ we get 
+    $$ V_{k2} =  \int_{- \frac{a}{2}}^{\frac{a}{2}} \frac{2}{L} \sin(\frac{k \pi(x + \frac{L}{2})}{L} ) V_0 \sin( \frac{2 \pi (x + \frac{L}{2} ) }{L} ) dx $$
+    $$ = 4 V_0 \cos (\frac{ \pi k}{2} ) \frac{k \sin (\frac{\pi a}{L} ) \cos(\frac{\pi a k}{2L} ) - 2 \cos (\frac{\pi a}{L} ) \sin(\frac{\pi a k }{2L} )}{\pi (k^2 -4)} $$
+    The $\cos (\frac{ \pi k}{2} )$ shows that only the even terms are non-zero. So we can simplify by introducing a new variable $k=2s$ 
+    $$ V_{s} = V_0 \cos (\frac{ \pi k}{2} )  \frac{2s \sin (\frac{\pi a}{L} ) \cos(\frac{\pi a s}{L} ) - 2 \cos (\frac{\pi a}{L} ) \sin(\frac{\pi a s }{L} )}{\pi (s^2 -1)} $$
+    So we have 
+    $$ \ket{n=2} = \ket{n_0 =2} + \lambda \sum_{k=2} \ket{2k} V_0 \cos (\frac{ \pi k}{2} )  \frac{2s \sin (\frac{\pi a}{L} ) \cos(\frac{\pi a s}{L} ) - 2 \cos (\frac{\pi a}{L} ) \sin(\frac{\pi a s }{L} )}{\pi (s^2 -1)} $$
+
+
+    \item The $\frac{a}{L}$ is the dimensionless ratio that should be much smaller than 1, because, otherwise the approximation could be higher than the exact eigenfunction. 
+    
+    \item The first order correction to the nth state is in this case 
+    $$ \int_{- \frac{a}{2}}^{\frac{a}{2}} \frac{2}{L} V_0 \sin^2 (\frac{n \pi x}{L} ) dx $$
+    $$ = \frac{2}{L} V_0 \frac{1}{2} ( a - \frac{L \sin ( \frac{\pi a n }{L} ) }{\pi n} ) $$ 
+    And thus even eigenstates are greater than odd because of the $sin$ dependency
+\end{enumerate}
+
+
+\section*{Problem 3} 
+Periodically driven two state system. The Schrodinger equation is 
+$$ i \hbar \frac{d}{dt} \ket{\psi (t) } = H(t) \ket{\psi (t)} $$
+With time dependent hamiltonian 
+$$ H(t) = H_0 + V(t) $$
+\begin{enumerate}
+    \item Lets use the interaction picture/representation to solve this
+    $$ \ket{\psi (t) } _I = e^{i H_0 t / \hbar} \ket{\psi (t) } _S $$ 
+    Where subscript I meaning interaction, subscript S meaning schrodinger picture/representation. Important to note that we have 
+    $$ \ket{\psi (0) }_I = \ket{ \psi (0)}_S $$
+    Because we are in the interaction picture we know that the wavefunction pbeys the equation of motion 
+    $$ i \hbar \frac{ \partial}{\partial t} \ket{\psi (t)}_I = i \hbar \frac{\partial}{\partial t} ( e^{i H_0 t \hbar} \ket{\psi (t)}_S ) $$ 
+    $$ = - H_0 e^{i H_0 t/ \hbar} \ket{ \psi (t) }_S + i \hbar \frac{\partial}{\partial t} e^{i H_0 t / \hbar} \ket{\psi (t)}_S $$
+    Here we have $\frac{\partial}{\partial t} H_0 = 0$ due to time independence. 
+    $$ = H e^{i H_0 t / \hbar} \ket{\psi (t)}_S - H_0 e^{i H_0 t / \hbar} \ket{ \psi (t)}_S $$
+    $$ = e^{i H_0 t / \hbar} V (t) e^{-i H_0 t / \hbar} \ket{\psi (t) }_I $$
+    Setting 
+    $$ V_I (t) = e^{i H_0 t / \hbar} V (t) e^{-i H_0 t / \hbar} $$
+    We have 
+    $$ i \hbar \frac{\partial}{\partial t} \ket{\psi (t)}_I = V_I (t) \ket{\psi (t)}_I $$
+    We expand out $\ket{\psi (t)}_I = \sum_n c_n (t) \ket{n} $ for $H_0 \ket{n} = E_n \ket{n}$ 
+    $$ i \hbar \frac{ \partial}{\partial t} \sum_n c_n (t) \ket{n} = e^{i H_0 t / \hbar} V(t) e^{-i H_0 t / \hbar} \sum_n c_n (t) \ket{n} $$
+    $$ i \hbar \sum_n \dot{c_n} (t) \ket{n} = \sum_n c_n (t) e^{i H_0 t / \hbar} V(t) e^{-i H_0 t / \hbar} \ket{n} $$
+    We can now swap $e^{-i H_0 t / \hbar} \ket{n} \equiv e^{-i E_n t / \hbar} \ket{n} $. Say we interaction with a general state $\ket{m}$ we have 
+    $$ \sum_n \dot{c_n} (t) \langle m | n \rangle = \sum_n c_n (t) \langle m | e^{i H_0 t / \hbar} V (t) e^{-i E_n t / \hbar} | n \rangle $$
+    Where $\langle m | e^{i H_0 t / \hbar} \equiv \langle m | e^{i E_m t / \hbar}$
+    So now we have 
+    $$ i \hbar \dot{c_m} (t) = \sum_n \langle m | V(t) | n \rangle e^{i (E_m - E_n) t / \hbar} c_n (t) $$
+    And introduce the variables given in the question to get the final answer; $\omega_{mn} = \frac{E_m - E_n}{2}, V_{mn} (t) = \langle m | V(t) | n \rangle$ 
+    $$ i \hbar \dot{c_m} (t) = \sum_n e^{i \omega_{mn} t} V_{mn} (t) c_n (t) $$
+
+    \item From the above we have two differential equations 
+    $$ \dot{c_1} (t) = \frac{-i}{\hbar} V_mn (t) e^{i \omega_{mn} t} c_2 (t) $$
+    $$ \dot{c_2} (t) = \frac{-i}{\hbar} V_mn (t) e^{i \omega_{mn} t} c_1 (t) $$
+    At the zeroth order, due to the intitial condition we have
+    $$ c_1^{(0)} = \delta_{mi}; c_2^{(0)} = \delta_{mi} $$
+    This also means that we are 'preparing' an intitial state $\ket{i}$ at time $t = t_0$, as opposed to before where we have states $\ket{m}, \ket{n}$, hence the change in the subscripts later on.
+    To first order we would then have 
+    $$ \dot{c_2}^{(1)} (t) = \frac{ -i}{\hbar} V_{mn} e^{i \omega_{mn} t} \delta_{mi} $$
+    $$ c_2^{(1)} (t) = \frac{-i}{\hbar} \int_{t_0}^t V_{mi} (t') e^{i \omega_{mi} t'} dt' $$
+    The same applies to $c_1$, thus we have (in general).  
+    $$ c_m (t) = \underbrace{\delta_{mi}}_{c_m^{(0)}}  - \underbrace{\frac{i}{\hbar} \int_{t_0}^t V_{mi} (t') e^{i \omega_{mi} t'} dt' }_{c_m^{(1)}} $$
+    
+    \item $$ c_m (t) = \delta_{mi} - \frac{i}{\hbar} \int_0^t dt' e^{i \omega_{mi}t'} V_{mi}(t') $$
+    $$ c_m^{(0)} = \delta_{m1} $$
+    $$ c_m (t) = \delta_{m1} - \frac{i}{\hbar} \int_0^t dt' e^{i \omega_{m1}t'} V_{m1}(t') $$
+    $$ c_1 (t) = \delta_{11} - \frac{i}{\hbar} \int_0^t dt' e^{i \omega_{11}t'} \underbrace{V_{11}(t')}_{=0} $$
+    $$ \delta_{11} -0 = 1 $$
+    $$ c_2 (t) = \delta_{21} - \frac{i}{\hbar} \int_0^t dt' e^{i \omega_{21}t'} V_{21}(t') $$
+    Via Wolfram ALpha ($ \omega_{21} = \omega \pm \omega_0 $)
+    $$ c_2 (t) = \frac{-\lambda + \lambda e^{i(w + \omega_0)t }}{\omega + \omega_0} + \frac{\lambda - \lambda e^{-i(w - \omega_0)t }}{\omega - \omega_0}  $$
+    $$ c_2 (t) =  \lambda \Big[ \frac{-1 + e^{i(w + \omega_0)t }}{\omega + \omega_0} + \frac{1-  e^{-i(w - \omega_0)t }}{\omega - \omega_0}  \Big] $$
+
+    \item $$ H_0 = \begin{pmatrix}
+        \hbar \omega_0 /2 & 0 \\ 0 & - \hbar \omega_0 /2 
+    \end{pmatrix} $$
+    $$ V(t) = \begin{pmatrix}
+        0 & -2 \hbar \lambda \cos( \omega t) \\ -2 \hbar \lambda \cos( \omega t) & 0 
+    \end{pmatrix} $$
+    $$ H(t) = \begin{pmatrix}
+        \hbar \omega_0 /2 & -2 \hbar \lambda \cos( \omega t) \\ -2 \hbar \lambda \cos( \omega t) & - \hbar \omega_0 /2  
+
+    \end{pmatrix} $$
+    Substituting energy eigenvalues and interaction potiential into equation (2) on the PS gets 
+    $$ i \hbar \dot{c_1} (t) = \sum_n e^{i \omega_{12} t} V_{12} (t) c_2 (t) $$
+    $$ i \hbar \dot{c_2} (t) = \sum_n e^{i \omega_{21} t} V_{21} (t) c_1 (t) $$
+    So we get the two coupled differential equations 
+    $$ \frac{ d c_1}{dt} = i \lambda ( e^{i ( \omega - \omega_0) t} +e^{-i ( \omega + \omega_0) t})c_2 (t) $$
+    $$ \frac{ d c_2}{dt} = i \lambda ( e^{-i ( \omega - \omega_0) t} +e^{i ( \omega + \omega_0) t})c_1 (t) $$
+    Setting $\delta \equiv \omega - \omega_0$ and applying the rotating wave approximation 
+    $$ \frac{d c_1}{dt} = i \lambda e^{i \delta t} c_2 $$
+    $$ \frac{d c_2}{dt} = i \lambda e^{-i \delta t} c_1 $$
+
+    \item We have initial conditions $c_m^{(0)} (0) = \delta_{mi}$ meaning $c_1 (0) = 1, c_2 (0) = 0. $
+    Now we can solve these because we have a linear second order differential equation with constant coefficients of which the general solutions are well knwon for the complex case, thereby getting 
+    $$ c_1 (t) = \cos ( \frac{1}{2} \sqrt{\delta^2 + 4 \lambda^2} t) e^{i \delta t /2} - i \frac{\delta}{\sqrt{\delta^2 + 4 \lambda^2} } \sin ( \frac{1}{2} \sqrt{\delta^2 + 4 \lambda^2} t)e^{i \delta t /2} $$
+    $$ = e^{i \delta t/2} [ \cos(\frac{1}{2} \Omega t) - i \frac{\delta}{\Omega} \sin ( \frac{1}{2} \Omega t) ] $$
+    $$ c_2 (t) = e^{-i \delta t/2} \frac{2i \lambda}{\sqrt{\delta^2 + 4 \lambda^2} } \sin ( \frac{1}{2} \sqrt{ \delta + 4 \lambda^2} t ) $$
+    $$ = e^{-i \delta t/2} \frac{ 2 i \lambda}{\Omega} \sin (\frac{1}{2} \Omega t) $$
+
+    \item Not sure how to get that approximation as applying the RWA to (4) gives 
+    $$ |c_2 (t) |^2 = | \lambda \Big( - \frac{1}{\omega + \omega_0} + \frac{1}{\omega - \omega_0}\Big) |^2 $$
+    However, for the second part 
+    $$ |c_2 (t) |^2 = | e^{-i \delta t/2} \frac{2i \lambda}{\Omega} \sin(\frac{\Omega t}{2}) |^2 $$
+    $$ = e^{-i \delta t} (\frac{2 i \lambda}{\Omega} )^2 \sin^2 ( \frac{\Omega t}{2} ) $$
+    Applying small angle approximation 
+    $$ = -e^{-i \delta t} \frac{4 \lambda^2}{\Omega^2} \frac{\Omega^2 t^2}{4} $$
+    $$ = -e^{-i \delta t} \lambda^2 t^2 $$
+    $$ \approx \lambda^2 t^2 \approx (\lambda t)^2 $$
+\end{enumerate}
+
+
+\end{document}
+
+

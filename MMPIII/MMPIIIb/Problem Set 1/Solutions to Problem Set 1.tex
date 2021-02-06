@@ -1,0 +1,176 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf FYMM/MMP IIIb 2020 \ \ \ Solutions to Problem Set 1}}
+Jake Muff
+28/10/20
+\end{center}
+
+
+\begin{enumerate}
+
+\item Check whether the following $(X,\tau)$  is a topological space or not:
+ $X=\{0,1,2\}$ and $\tau=\{\{0\},\{1\},\{2\},\{0,1\},\{0,2\},\{1,2\},\{0,1,2\} \}$? \\
+\textbf{\underline{Answer}}. \\
+ \textbf{T1}: $\emptyset \in \tau, X \in \tau$
+ \\
+ $X$ is in $\tau$ but $\emptyset$ is not in $\tau$ (as $\emptyset$ is the empty set it is $\emptyset = \{\}$)so this is not a topological space and we stop here ignoring \textbf{T2, T3}
+
+\item $X_1 = (\mathbb{R}, \tau_{disc}), X_2 = (\mathbb{R}, \tau_{triv})$. Show that the identity map 
+$$ id: X_1 \rightarrow X_2, x \mapsto x$$
+Is not a homeomorphism. 
+\\
+$f: X \rightarrow y$ is a homeomorphism if $f$ is continuous and has inverse $f:y \rightarrow X$. If we have a subset of $\mathbb{R}$ e.g $a \subseteq \mathbb{R}$ and $a \neq \emptyset$ then $a$ is not closed (i.e open) in the discrete topology so 
+$$ X_1 \rightarrow X_2 $$
+Is continuous. But in the trivial topology $a$ is closed because $\neq \emptyset$ so the map 
+$$ X_2 \rightarrow X_1$$ 
+Is not continuous. $X_2 \rightarrow X_1$ is the inverse map, which is not continuous so the identity map $id$ is not a homeomorphism. 
+
+
+\item Show that $\mathbb{R}^n$ with the usual topology is Hausdorff
+\\
+All spaces $X$ with metric topology are Hausdorff. From the definition of metric suppose we have 
+$$ x,y \in \mathbb{R}^n, x \neq y $$ 
+Following from \textbf{M2}:
+$$ a = d(x,y) \geq 0 $$
+Which represents an open ball with radius $a/2$ centered around x. We have 2 disjoint neighbourhoods
+$$ N_x(x,a/2) $$
+Which is a neighbour consisting of $x$. And 
+$$ N_y (y, a/2) $$ 
+Which is a neighbourhood consisting of $y$. These are clearly disjoint (I couldn't come up with a clear rigorous mathematical way to show this). The neighbour being disjoint means that $\mathbb{R}^n$ is hausdorff. 
+\\
+\textbf{N.B}: I think a better proof lies in proving $\mathbb{R}^n$ has metric topology equivalent to the usual topology but I understood this method better. 
+
+
+\item 
+Well defined meaning: $gH' = g'H \rightarrow g = g'h, h \in H$. In this question for well definedness the map looks similar to a homotopy group with $\gamma$ as a loop. Following the lecture notes we need to find an equivalence relation such that 
+$$ f \circ \gamma \sim f \circ \gamma' $$
+In $N$. 
+$$ \gamma \sim \gamma' $$
+In $M$. \\
+So, if we have $F$ as a homotopy between $\gamma$ and $\gamma'$ then $f \circ F$ needs to be continuous. From the lecture notes there are 3 to check
+$$ f \circ F(s,0) = f \circ \gamma(s) $$
+$$ f \circ F(0,t) = f \circ F(1,t) = f(x_0)$$
+$$ f \circ F(s,1) = f \cdot \gamma'(s) $$
+As $f$ is continuous then $f \circ \gamma$ must be as well. With $f \circ \gamma$ being continuous and a homotopy then it is well defined. 
+\\
+To be an isomorphism $f_*$ needs to be a homomorphism and bijective. For homomorphism we need 
+$$ f_* (\gamma \gamma') = f_* (\gamma) f_* (\gamma') $$
+$$ f_* (\gamma \gamma') = [f \circ (\gamma \gamma')] $$
+$$ f_*(\gamma) f_*(\gamma') = (f \circ \gamma)(f \circ \gamma') $$
+$$ f \circ (\gamma \gamma') = (f \circ \gamma)(f \circ \gamma') $$
+And there is a homomorphism. \\
+For a bijection we need to show injectiveness and surjectiveness. For injectiveness: We have 
+$$ f \circ \gamma = f \circ \gamma' $$ 
+Which is a homotopy between two loops. As $f$ is a homeomorphism and continuous then $f^{-1}$ is continuous as well. As I showed before there is an equivalence relation between the loops so we can apply 
+$$ f^{-1} \circ F $$ 
+Where $F$ is the homotopy between $\gamma$ and $\gamma'$. $f^{-1} \circ F$ is also a homotopy between $\gamma$ and $\gamma'$ so 
+$$ (\gamma ) = (\gamma') $$
+For surjectiveness (pulling from 4.2.3 in Lecture notes): If we have a loop in the topological invariant such that 
+$$ \alpha \in \pi_1 (M, f(x_0)) $$
+Then, since $f^{-1}$ is a homeomorphism we can take $ f^{-1} \circ \alpha$ like before where we defined well definedness and see that in itself $f^{-1} \circ \alpha$ is a loop in $N$. Following previous work we would also have 
+$$ f_*(f^{-1} \circ \alpha) = \alpha $$ 
+I think this proves that the function maps onto. So $f_*$ is a bijection and thus, an isomorphism. 
+
+\item {\bf Examples of Homotopy groups}. 
+\begin{enumerate}
+\item Suppose $M=\mathbb{R}^3\setminus\{\mbox{point}\}$. Identify $\pi_1(M)$.
+\\
+$M$ is a 3D space with a point cut out such that any loop in $M$ can be deformed. So, the fundamental group must be $\{e\}$ 
+$$ \pi_1 (M) = \{e\}$$ 
+%\item $M=\mathbb{R}P^2\times S^1$. Identify $\pi_1(M)$.
+\item Didn't answer
+\item Didn't answer
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
+
+

@@ -1,0 +1,186 @@
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information B \ \ Fall 2020 \ \  Exam Solutions}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{21/12/2020}
+\end{center}
+
+
+%Problems 3 and 4 are from J. J. Sakurai: {\em Modern Quantum Mechanics}, numbers 3.2 and 3.8, respectively.
+\section{Exercise 8.15}
+A projective measurement is perfomed on a single qubit in the basis $\ket{+}, \ket{-}$, where
+$$ \ket{\pm} = \frac{\ket{0} \pm \ket{1}}{\sqrt{2}} $$
+$$ \rho \rightarrow \mathcal{E} (\rho) = \ket{+} \bra{+} \rho \ket{+} \bra{+} + \ket{-} \bra{-} \rho \ket{-} \bra{-}  $$
+For a pure state (assumption) we would have 
+$$ \ket{\psi} = \cos \frac{\theta}{2} \ket{0} + e^{i \phi} \sin \frac{\theta}{2} \ket{1} $$
+$\rho$ is a projective measurement so 
+$$ \rho = \frac{1}{2} (1 + \cos (\theta) ) \ket{0} \bra{0} + \frac{1}{2} (1- \cos (\theta) ) \ket{1} \bra{1} $$
+$$ + \frac{1}{2} \sin (\theta) (\cos (\theta) - i \sin (\theta) ) \ket{0} \bra{1} + \frac{1}{2} \sin (\theta) (\cos (\theta) + i \sin (\theta) ) \ket{1} \bra{0} $$
+This evolves like the equation above, with 
+$$ \bra{+} \rho \ket{+} = \frac{1}{2} ( \bra{0} + \bra{1} ) \rho ( \ket{0} + \ket{1} ) $$
+$$ = \frac{1}{2} ( 1 + \sin (\theta) \cos(\theta) ) $$
+And 
+$$ \bra{-} \rho \ket{-} = \frac{1}{2} ( \bra{0} - \bra{1}) \rho ( \ket{0} + \ket{1} ) $$
+$$ = \frac{1}{2} ( 1- \sin (\theta) \cos(\theta) ) $$
+$$ \Rightarrow \mathcal{E} (\rho) = \frac{1}{4} ( 1+ \sin(\theta) \cos (\theta) ) ( \ket{0} + \ket{1} ) ( \bra{0} + \bra{1} ) $$
+$$ + \frac{1}{4} ( 1- \sin (\theta) \cos (\theta) ) ( \ket{0} - \ket{1} ) (\bra{0} - \bra{1} ) $$
+$$ = \frac{1}{2} \underbrace{(\ket{0}\bra{0} + \ket{1}\bra{1} )}_{=I} + \frac{1}{2} \sin (\theta) \cos (\theta) ( \ket{0} \bra{1} + \ket{1} \bra{0} )$$
+$$ = \frac{1}{2} ( I + \sin(\theta) \cos (\theta) ( \ket{0} \bra{1} + \ket{1} \bra{0} )) $$
+Which in the form of the geometric picture (eq 8.87) we would have 
+$$ \vec{r} \cdot \vec{\sigma} = \sin(\theta) \cos (\theta) ( \ket{0} \bra{1} + \ket{1} \bra{0} ) $$
+Which has the corresponding map 
+$$ (r_x, r_y, r_z) \rightarrow (r_x, 0, 0) = (\sin (\theta), \cos (\theta), 0, 0) $$
+Therefore, it is projected onto the x axis of the bloch sphere. Illustrated this would be like fig 8.9 but stretched on the x axis as both y and z components of the bloch vector are lost. 
+
+\section{Exercise 10.9}
+The 3 qubit phase flip code, where $P_i, Q_i$ are projectors onto the $\ket{0}, \ket{1}$ states of the $i$th qubit. The 3 qubit phase flip code is given by 
+$$ \ket{0_L} = \ket{+++} $$
+$$ \ket{1_L} = \ket{---} $$
+The projectors are 
+$$ P_i = \ket{0}_i \bra{0}_i $$
+$$ Q_i = \ket{1}_i \bra{1}_i $$
+From Ex 10.8 $P$ must be in total 
+$$ P = \ket{0_L} \bra{0_L} + \ket{1_L} \bra{1_L} $$
+$$ P = \ket{+++} \bra{+++} + \ket{---} \bra{---} $$
+Clearly 
+$$ P I^2 P = P $$
+For $P_1 = \ket{0}_1 \bra{0}_1$, acting on the 1st qubit 
+$$ P P_1^2 P = \frac{1}{2} ( \ket{+++}\bra{0++} + \ket{---}\bra{0--} ) \times (\ket{0++}\bra{+++} + \ket{0--} \bra{---} ) $$
+$$ = \frac{1}{2} P $$
+This is also the same result for $P_2, P_3$. For $P_1 P_2$ we have 
+$$ P P_1 P_2 P = \frac{1}{2} ( \ket{+++}\bra{0++} + \ket{---} \bra{0--} ) \times ( \ket{+0+}\bra{+++} + \ket{-0-} \bra{---} ) $$
+$$ = \frac{1}{4} P $$
+Also, $P P_1 P_3 = \frac{1}{4} P$, $P P_2 P_3 = \frac{1}{4} P$. So we can easily see that for $i \neq j$, $P P_i P_j P = \frac{1}{4} P $. For the Q projectors we have 
+$$ P Q_1^2 P = \frac{1}{2} ( \ket{+++} \bra{1++} - \ket{---} \bra{1--} ) \times ( \ket{1++} \bra{+++} - \ket{1--} \bra{---} ) $$
+$$ = \frac{1}{2} P $$
+$$ P Q_1 Q_2 P = \frac{1}{4} P $$
+$$ P Q_1 Q_3 P = \frac{1}{4} P $$
+So we see that for $i \neq j$ $P Q_i Q_j P = \frac{1}{4} P$ and for $i=j$ $P Q_i Q_j P = \frac{1}{2} P$. We also see that the cross prjector terms 
+$$ P Q_i P_j P = 0 $$
+$$ P P_i Q_j P = 0 $$
+Summarising all this information we can see that the phase flip code protects against the error set as the Quantum error correction conditions hold for a hermitian $\alpha_{ij}$. The components of $\alpha$ are 
+$$ I^2 = 1, P_i^2 = \frac{1}{2}, Q_i^2 = \frac{1}{2}, IP_i = \frac{1}{2}, IQ_i = \frac{1}{2} $$
+$$ P_i P_j = \frac{1}{4}, Q_i Q_j = \frac{1}{4}, P_i Q_j = 0, Q_i P_j = 0 $$
+\end{document}
+

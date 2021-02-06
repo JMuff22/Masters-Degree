@@ -1,0 +1,347 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 \ \  Solutions to Problem Set 4}} \\
+Jake Muff \\
+27/09/20
+\end{center}
+
+\bigskip
+\section{Answers}
+\begin{enumerate}
+
+\item Excercise 2.67 from Nielsen and Chaung.
+$$V=W\oplus W_\perp$$
+Prove that there exists a unitary operator $U': V \rightarrow V$ which extends $U$. 
+$$ U' \ket{w} = U \ket{w} \forall w \in W$$
+Suppose we have 3 orthonormal basis for $W, W_\perp$ and the image of $U_\perp$ is 
+$$ U_\perp = (Image(U))_\perp $$
+And the basis is 
+$$ \ket{w_i}, \ket{w'_j}, \ket{u'_j}$$ 
+So 
+$$ U': V \rightarrow V $$ 
+$$ U' = \sum_i \ket{u_i}\bra{w_i} + \sum_j \ket{u'_j} \bra{w'_j} $$
+Where $\ket{u_i} = U \ket{w_i}$. We now need to prove that $U'$ is an extension of $U$ \\
+For all $\ket{w} \in W$ 
+$$ U' \ket{w} = \Big( \sum_i \ket{u_i} \bra{w_i} + \sum_j \ket{u'_j}\bra{w'_j}\Big)\ket{w} $$ 
+$$ = \sum_i \ket{u_i} \langle w_i | w \rangle + \sum_j \ket{u'_j} \langle w'_j | w \rangle $$ 
+$$ = \sum_i \ket{u_i} \langle w_i | w \rangle $$
+Therefore $\ket{w'_j} \perp \ket{w}$ and 
+$$ = \sum_i U \ket{w_i} \langle w_i | w \rangle $$
+$$ = U \ket{w} $$
+And $U'$ is an extension of $U$ 
+\item Excercise 2.72 from Nielsen and Chuang. Bloch sphere for mixed states. From Theorem 2.5 in the book where an operator $\rho$ is the density operator associated to some ensemble $\{p_i, \ket{\psi_i}\}$ iff it satisfies
+\begin{enumerate}
+    \item $Tr(\rho) = 1$
+    \item $\rho$ is a positive operator 
+\end{enumerate}
+\begin{enumerate}
+\item (1) \\
+$\rho$ can be represented in matrix form as 
+$$ \left(\begin{array}{cc} a & b \\ b^* & d\end{array}\right)$$
+%\left( \begin{array}{cc} 1 & 0 \\ 1 & 1\end{array} \right) $$
+Where $a,d \in \mathbbm{R}$ and $b \in \mathbbm{C}$. From theorem 2.5 then $Tr(\rho) = a + d = 1$. Looking at section 1.2 of Nielsen and Chaung and the Pauli exercises done previously we can show that 
+$$ a = \frac{1+r_3}{2} \ ; \ d = \frac{1 -r_3}{2} $$
+$$ b = \frac{r_1 - ir_2}{2}$$
+Where $r_i \in \mathbbm{R}^3$.We then have 
+$$ \rho =  \left(\begin{array}{cc} a & b \\ b^* & d\end{array}\right) = \frac{1}{2}  \left(\begin{array}{cc} 1+r_3& r_1 - ir_2 \\ r_1 + ir_2 & 1-r_3 \end{array}\right) $$
+$$ = \frac{1}{2} (\mathbbm{I} + \vec{r}\cdot \vec{\sigma}) $$
+where $\vec{\sigma}$ are the pauli matrices. For a 'mixed' state qubit we have to prove that $\rho$ is positive (e.g Ex 2.71). If $\rho$ is positive then eigenvalues will be non negative. Lets find the eigenvalues 
+$$ det(\rho - \lambda \mathbbm{I}) =  \left(\begin{array}{cc} a-\lambda & b \\ b^* & d-\lambda\end{array}\right)$$
+$$ = (a-\lambda)(d-\lambda) - |b|^2 $$ 
+$$ = \lambda^2 - (a+d)\lambda + ad - |b|^2 =0 $$ 
+So the eigenvalues are (from quadratic formula) 
+$$ \lambda_{\pm} = \frac{(a+d) \pm \sqrt{(a+d)^2 - 4(ad-|b|^2)}}{2} $$
+$$ = \frac{1 \pm \sqrt{1-4(\frac{1-r_{3}^2}{4}-\frac{r_1^2 + r_2^2}{4})}}{2} $$
+$$ =\frac{1 \pm \sqrt{|\vec{r}|^2}}{2}$$
+$$ =\frac{1 \pm |\vec{r}| }{2} $$
+Since we assume that $\rho$ is positive then $\frac{1-|\vec{r}|}{2} \geq 0 $ which means that $|\vec{r}|$ must be less than or equal to 1. So 
+$$ \rho = \frac{\mathbbm{I} + \vec{r} \cdot \vec{\sigma}}{2} $$
+\item (2) \\
+If $\rho = \frac{\mathbbm{I}}{2} $ then $\vec{r} = 0$ clearly. Make sense as this is the origin spoint for the bloch sphere. 
+\item (3) \\
+From page 100 and Ex 2.71  a pure state has $Tr(\rho^2) = 1$. 
+$$ \rho^2 = \frac{1}{2} (\mathbbm{I} + \vec{r} \cdot \vec{\sigma}) \cdot \frac{1}{2} (\mathbbm{I} + \vec{r} \cdot \vec{\sigma}) $$
+$$ = \frac{1}{4} ( \mathbbm{I} + 2 \vec{r} \cdot \vec{\sigma} + |\vec{r}|^2 \mathbbm{I}) $$
+Now 
+$$ Tr(\rho^2) = Tr \Big( \frac{1}{4} ( \mathbbm{I} + 2 \vec{r} \cdot \vec{\sigma} + |\vec{r}|^2 \mathbbm{I}) \Big) = 1$$
+Recognising that $Tr(\mathbbm{I}) = 2$ and $Tr(\vec{\sigma}) = 0 $ we get 
+$$ Tr(\rho^2) = \frac{1}{4}(2+2|\vec{r}|^2 ) = 1 $$
+And solved gives 
+$$ |\vec{r}| = 1 $$ 
+\item (4) Showing that for pure states the descriptions of the Bloch vector we have given coincides with section 1.2 i.e 
+$$ \ket{\psi} = cos(\frac{\theta}{2}) \ket{0} + e^{i \phi} sin(\frac{\theta}{2}) \ket{1} $$ 
+$$ P = \ket{\psi}\bra{\psi} $$
+$$ P = \left(\begin{array}{cc} cos^2(\theta / 2) & e^{-i \phi} cos(\theta /2) sin(\theta /2)  \\ e^{i \phi} cos(\theta /2 )sin(\theta /2) & sin^2 (\theta /2)\end{array}\right)$$
+$$ = \footnotesize{\left(\begin{array}{cc} cos^2(\theta / 2) & cos(\phi) cos(\theta /2)sin(\theta /2) -isin(\phi)cos(\theta /2)sin(\theta /2)  \\ cos(\phi) cos(\theta /2 )sin(\theta /2) +isin(\phi) cos(\theta /2) sin(\theta /2) & 1-cos^2 (\theta /2)\end{array}\right)}$$
+Like in (1) place into the same form so that 
+$$ 1 + r_3 = 2 cos^2 (\theta /2 ) \ ; \ r_1 = 2cos(\phi) cos(\theta /2 ) sin(\theta /2) $$ 
+$$ r_3 = 2cos^2 (\theta /2 ) \ ; \ r_2 = 2sin(\phi) cos(\theta /2) cos(\theta /2) sin(\theta /2) $$ 
+So 
+$$ |\vec{r}|^2 = 4 cos(\theta /2 ) (cos^2 (\theta /2 ) - cos^2(\theta /2)) + 1 = 1 $$
+This is not really necessary as it pretty much works the same as (1), however it is good to know this it works. 
+
+
+\end{enumerate}
+\item Exercise 2.73. Let $\rho$ be a density operator. A minimal ensemble for $\rho$ is an ensemble $\{p_i, \ket{\psi_i}\}$ containing a number of elements equal to the rank of $\rho$. Let $\ket{\psi}$ be any state in the support of $\rho$. Show that there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and that in any such ensemble $\ket{\psi}$ must appear with probability 
+$$ p_i = \frac{1}{\langle \psi_i | \rho^{-1} | \psi_i \rangle} $$
+where $\rho^{-1}$ is the inverse of $\rho$. \\
+From theorem 2.6 in Nielsen and Chaung (pg 102) and the density formalism for postulate 2 of QM we can transform this eigen decomposition. Where the eigendecomposition is 
+$$ \rho = \sum_k^N \lambda_k \ket{k}\bra{k} $$ 
+Where $N$ is the dimension of the hilbert space. Suppose we have a variable $p$ such that $p_k > 0$ for $k = 1 \ldots l$ where $l = rank(\rho)$ and $p_k =0$ for $k = l+1 \ldots N$. So we have 
+$$ \rho = \sum_k^N \lambda_k \ket{k}\bra{k} $$
+$$ = \sum_{k=1}^l p_k \ket{k}\bra{k} $$ 
+$$ = \sum_{k=1}^l \tilde{\ket{k}} \tilde{\bra{k}}$$
+Where $\tilde{\ket{k}} = \sqrt{\lambda_k} \ket{k}$ and $\tilde{\bra{k}} = \sqrt{\lambda_k}\bra{k}$
+\\
+Suppose that $\ket{\psi_i}$ is in support of $\rho$, meaning that 
+$$ \ket{\psi_i} = \sum_{k=1}^l a_{ik} \ket{k} $$ 
+Where $\sum_k |a_{ik} | ^2 = 1$. So we have the probability as 
+$$ p_i = \frac{1}{\sum_k \frac{|a_{ik}|^2}{\lambda_k}} $$ 
+We also define a new variable as 
+$$ b_{ik} = \frac{\sqrt{p_i}a_{ik}}{\sqrt{\lambda_k}}$$ 
+Such that 
+$$ \sum_k |b_{ik} | ^2 = \sum_k \frac{p_i |a_{ik}|^2}{\lambda_k} $$
+$$ = p_i \sum_k \frac{|a_{ik}|^2}{\lambda_k} = 1 $$
+Now we can use the Gram-schmidt procedure to construct an orthonormal basis $ \{ u_i \} $ such that a unitary operator $U$ has this basis 
+$$ U = [u_{i1} \ldots u_{ik} \ldots u_{il}] $$
+Another ensemble can then be defined by 
+$$ \Big[ \tilde{\ket{\psi_1}} \ldots \tilde{\ket{\psi_i}} \ldots \tilde{\ket{\psi_l}}\Big] $$ 
+$$ = \Big[ \tilde{\ket{k_1}} \ldots \tilde{\ket{k_l}}\Big] U^T $$
+Noticing that we have subsituted $ \tilde{\ket{\psi_i}} = \sqrt{p_i} \ket{\psi_i} $. Using the theorem above (2.6) we can find $\rho$ in terms of this
+$$ \rho = \sum_k \tilde{\ket{k}} \tilde{\bra{k}} = \sum_k \tilde{\ket{\psi_k}} \tilde{\bra{\psi_k}} $$
+And the inverse 
+$$ \rho^{-1} = \sum_k \frac{1}{\lambda_k} \ket{k}\bra{k} $$ 
+So $ \langle \psi_i | \rho^{-1} | \psi_i \rangle $ is 
+$$ \langle \psi_i | \rho^{-1} | \psi_i \rangle = \sum_k \frac{1}{\lambda_k} \langle \psi_i | k \rangle \langle k | \psi_i \rangle $$
+$$ = \sum_k \frac{|a_{ik}|^2}{\lambda_k} = \frac{1}{p_i} $$
+Take the inverse of this will simply give $p_i$ so 
+$$ p_i = \frac{1}{\langle \psi_i | \rho^{-1} | \psi_i \rangle} = p_i $$
+This question was very difficult but the previous 3 pages in Nielsen Chaung help a lot. 
+
+\item Exercise 2.75 from Nielsen and Chaung. For each of the four Bell states find the reduced density operator for each qubit. 
+\\ 
+The Bell states are 
+$$ 00: \ket{\Phi_+} \rightarrow \frac{\ket{00} + \ket{11}}{\sqrt{2}} $$ 
+$$ 01: \ket{\Phi_-} \rightarrow \frac{\ket{00} - \ket{11}}{\sqrt{2}} $$
+$$ 10: \ket{\psi_+} \rightarrow \frac{\ket{01} + \ket{10}}{\sqrt{2}} $$
+$$ 11: \ket{\psi_-} \rightarrow \frac{\ket{01} - \ket{10}}{\sqrt{2}} $$ 
+To calculate the reduced density operator 
+$$ \ket{\Phi_+}\bra{\Phi_+} = \frac{1}{2} ( \ket{00}\bra{00} + \ket{00}\bra{11} + \ket{11}\bra{00} + \ket{11}\bra{11}) $$
+$$ \ket{\Phi_-}\bra{\Phi_-} = \frac{1}{2} ( \ket{00}\bra{00} - \ket{00}\bra{11} - \ket{11}\bra{00} - \ket{11}\bra{11}) $$
+$$ \ket{\psi_+}\bra{\psi_+} = \frac{1}{2} ( \ket{01}\bra{01} + \ket{01}\bra{10} + \ket{10}\bra{01} + \ket{10}\bra{10}) $$
+$$ \ket{\psi_-}\bra{\psi_-} = \frac{1}{2} ( \ket{01}\bra{01} - \ket{01}\bra{10} - \ket{10}\bra{01} - \ket{10}\bra{10}) $$
+Computing the traces 
+$$ Tr(\ket{\Phi_{\pm}}\bra{\Phi_{\pm}}) = \frac{1}{2} (\ket{0}\bra{0} + \ket{1}\bra{1}) = \mathbbm{I} / 2 $$
+$$ Tr(\ket{\psi_{\pm}}\bra{\psi_{\pm}}) = \frac{1}{2} (\ket{0}\bra{0} + \ket{1}\bra{1}) = \mathbbm{I} / 2 $$
+\item Exercise 2.79 from Nielsen and Chaung. Finding the Schmidt decompositions of the states 
+$$ \frac{\ket{00}+\bra{11}}{\sqrt{2}} \ ; \ \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} $$
+and 
+$$ \frac{\ket{00} + \ket{01} + \ket{10}}{\sqrt{3}} $$
+The Schmidt decomposition is 
+$$ \ket{\psi} = \sum_i \sqrt{\lambda_i} \ket{i_A} \ket{i_B} $$
+With 
+$$ \rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A} $$
+$$ \rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B} $$
+\begin{enumerate}
+    \item $ \frac{\ket{00}+\bra{11}}{\sqrt{2}}$
+    \\
+    We see that it is already decomposed as 
+    $$ \frac{\ket{00}+\bra{11}}{\sqrt{2}} = \sum_{i=1}^2 \frac{1}{\sqrt{2}} \ket{i}\bra{i} = \ket{\psi} $$
+    \item $\frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2}$ can be broken down into 
+    $$ \Big( \frac{\ket{0} + \ket{1}}{\sqrt{2}}\Big) \otimes \Big(\frac{\ket{0} + \ket{1}}{\sqrt{2}}\Big) $$
+    $$ = \ket{\psi} \ket{\psi} $$
+    \item $\ket{\psi} = \frac{\ket{00} + \ket{01} + \ket{10}}{\sqrt{3}} $
+    $$ \rho^A = \frac{1}{\sqrt{3}} (\ket{00} + \ket{01} + \ket{10})\bra{\psi} $$ 
+    $$ = \frac{1}{3} (2 \ket{0}\bra{0} + \ket{0} \bra{1} + \ket{1}\bra{0} + \ket{1}\bra{1})$$
+    $$ = \frac{1}{3} \left(\begin{array}{cc} 2 & 1 \\ 1 & 1\end{array}\right)$$
+    Calculating the eigenvalues gives
+    $$ \lambda_{\pm} = \frac{3 \pm \sqrt{5}}{6} $$
+    Using the notation that 
+    $$ \lambda_+ = \lambda_0 \ ; \ \lambda_- \ \lambda_1 $$ 
+    $$ \lambda_0 = \frac{3 + \sqrt{5}}{6} $$
+    with eigenvector 
+    $$ \ket{\lambda_0} = \sqrt{\frac{2}{5 + \sqrt{5}}} \left(\begin{array}{cc} \frac{1+\sqrt{5}}{2} \\ 1\end{array}\right)$$
+    And 
+    $$ \lambda_1 = \frac{3 - \sqrt{5}}{6} $$
+    with eigenvector 
+    $$ \ket{\lambda_1} = \sqrt{\frac{2}{5 - \sqrt{5}}} \left(\begin{array}{cc} \frac{1-\sqrt{5}}{2} \\ 1\end{array}\right)$$
+    So 
+    $$\rho^A = \lambda_0 \ket{\lambda_0} \bra{\lambda_0} + \lambda_1 \ket{\lambda_1}\bra{\lambda_1} $$
+    And 
+    $$ \ket{\psi} = \sum_{i=0}^1 \sqrt{\lambda_i} \ket{\lambda_i}\ket{\lambda_i} $$
+\end{enumerate}
+
+\item Exercise 2.82 from Nielsen and Chaung. Suppose $\{ p_i, \ket{\psi_i}\}$ is an ensemble of states with $\rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}$ for a Quantum System A. A system R with orthonormal basis $\ket{i}$ 
+\begin{enumerate}
+    \item Show that $\sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$ is a purification of $\rho$. Let $\ket{\psi} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$. The trace is system R is 
+    $$ Tr_R ( \ket{\psi} \bra{\psi}) = \sum_{i,j} \sqrt{p_i} \sqrt{p_j} \ket{\psi_i}\bra{\psi_j} Tr_R (\ket{i}\bra{j}) $$
+    $$ = \sum_{i,j} \sqrt{p_i} \sqrt{p_j} \ket{\psi_i }\bra{\psi_j} \delta_{ij} $$
+    $$ = \sum_i p_i \ket{\psi_i} \bra{\psi_i} = \rho $$
+    And thus $\ket{\psi}$ is a purification of $\rho$ 
+    \item Measure R in basis $\ket{i}$, what is the probability to get $i$ and the corresponding state? 
+    \\
+    A projector $P$ is defined by $P = \mathbbm{I} \otimes \ket{i}\bra{i}$ so that the probability to get $i$ is equal to 
+    $$ Tr \Big[ P \ket{\psi} \bra{\psi}\Big] = \langle \psi | P | \psi \rangle $$
+    $$ = \langle \psi | \mathbbm{I} \otimes \ket{i}\bra{i} | \psi \rangle $$
+    $$ = p_i \langle \psi_i | \psi_i \rangle = p_i $$
+    After measuring, the state will be 
+    $$ \frac{P \ket{\psi}}{\sqrt{p_i}} = \frac{(\mathbbm{I} \otimes \ket{i}\bra{i})\ket{\psi}}{\sqrt{p_i}} $$
+    $$ = \frac{\sqrt{p_i}\ket{\psi_i}\ket{i}}{\sqrt{p_i}} $$
+    $$ = \ket{\psi_i} \ket{i} $$ 
+    System A is the trace of the above state i.e 
+    $$ Tr(\ket{\psi_i}\ket{i}) = \ket{\psi_i} $$ 
+    \item (3) $\ket{AR}$ be any purification of $\rho$ to a system AR. Show that $\ket{i}$ in R can be measured such that the correspodning post measurement state for a system A is $\ket{\psi_i}$ with probability $p_i$. 
+    \\
+    Schmidt decomposition of $\ket{AR}$ is 
+    $$ \ket{AR} = \sum_i \sqrt{\lambda_i} \ket{\phi_i^A} \ket{\phi_i^R} $$
+    As $\ket{AR}$ is a purification of $\rho$ we can write 
+    $$ Tr_R ( \ket{AR}\bra{AR}) = \sum_i \lambda_i \ket{\phi_i^A}\bra{\phi_i^A} $$
+    $$ = \sum_i p_i \ket{\psi_i}\bra{\psi_i} $$
+    Using theorem 2.6 in the book and the proof that follows, where 
+    $$ \sqrt{\lambda_i} \ket{\phi_i^A} = \sum_j u_{ij} \sqrt{p_j} \ket{\psi_j} $$ 
+    We have 
+    $$ \ket{AR} = \sum_i \Big( \sum_j u_{ij} \sqrt{p_j}\ket{\psi_j}\Big) \ket{\phi_i^R} $$
+    $$ = \sum_j \sqrt{p_j} \ket{\psi_j} \otimes \Big( \sum_i u_{ij} \ket{\phi_i^R} \Big) $$
+    $$ = \sum_j \sqrt{p_j} \ket{\psi_j} \ket{j} $$
+    $$ = \sum_i \sqrt{p_i} \ket{\psi_i} \ket{i} $$ 
+    Such that $\ket{i} = \sum_k u_{ki} \ket{\phi_k^R}$. As $u_{ij}$ is unitary $\ket{j}$ is implied to be an orthonormal basis for the system R. So if we measure R with respect to $\ket{j}$ we get $j$ with $P(p_j)$ (probability) and the state after measurement is $\ket{\psi_j}$. So for any purification of $\ket{AR}$ there is an orthonormal basis $\ket{i}$. 
+\end{enumerate}
+
+
+\item Voluntary problem: Exercise 3.2 from the book. Do not hand in a solution, but just think about it. You may wish to google for "Turing number"\ or "Description number + Turing machine"\ for hints. I am not sure how useful the hint in the book is...?
+\section{Appendix}
+\item For Question 1, proving that $U'$ is a unitary operator which is assumed in the answering of the question. 
+$$ (U'^\dagger)U' = \Big( \sum_{i=1}^{dim W} \ket{w_i} \bra{u_i} + \sum_{j=1}^{dim W_\perp}\ket{w_j}\bra{u_j}\Big)\cdot\Big( \sum_i \ket{u_i} \bra{w_i} + \sum_j\ket{u'_j}\bra{w'_j}\Big)$$
+$$ = \sum_i \ket{w_i} \bra{w_i} + \sum_j \ket{w'_j}\bra{w'_j} = \mathbbm{I} $$
+We also calculate $U'(U')^\dagger$ 
+$$ U'(U')^\dagger = \Big(\sum_i \ket{u_i}\bra{w_i} + \sum_j \ket{u'_j}\bra{w'_j}\Big) \cdot \Big(\sum_i \ket{w_i}\bra{u_i} + \sum_j \ket{w'_j}\bra{u'_j}\Big) $$
+$$ = \sum_i \ket{u_i}\bra{u_i} + \sum_j \ket{u'_j}\bra{u'_j} = \mathbbm{I} $$
+Which proves that $U'$ is a unitary operator. 
+
+\end{enumerate}
+
+
+\end{document}
+

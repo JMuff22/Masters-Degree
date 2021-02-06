@@ -1,0 +1,348 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newtheorem{theorem}{Theorem}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Open Quantum Systems \ \ Fall 2020 \ \  Answers to Exercise Set 5}}\\
+{\large { Jake Muff}}\\
+{Student number: 015361763}\\
+{5/11/2020}
+\end{center}
+
+
+
+\section{Random Phases}
+$$ \psi = a \phi_1 + b \phi_2 $$
+$a$ and $b$ have the condition that they must $|a|^2 = |b|^2 =1$. 
+$$ \psi (t) = a e^{i \theta_1} \phi_1 + b e^{i \theta_2} \phi_2 $$
+With probability 
+$$ P(\theta_1, \theta_2) = \frac{1}{\sqrt{2 \pi \lambda_1 t}} \frac{1}{\sqrt{2 \pi \lambda_2 t}} e^{- \frac{\theta_1^2}{2 \lambda_1 t}}e^{- \frac{\theta_2^2}{2 \lambda_2 t}} $$
+The density matrix can be written as an integral from a state vector $\psi (t)$ from the statistical description of the density matrix 
+$$ \rho (t) = \sum_i p_i \ket{\psi_i}\bra{\psi_i} $$
+$$ \rho (t) = \sum_i p_i \psi (t) \psi^{\dagger} (t) $$
+$$ = \int_{- \infty}^{\infty} P(\theta_1, \theta_2) \psi (t) \psi^{\dagger} (t) $$
+So we have 
+$$ \psi (t) \psi^{\dagger} (t) = (ae^{i \theta_1} \phi_1 + be^{i \theta_2} \phi_2) \cdot (a^* e^{-i \theta_1} \phi_1^{\dagger} + b^* e^{-i \theta_2} \phi_2^{\dagger}  ) $$
+$$ = |a|^2 \phi_1 \phi_1^{\dagger} + ab^* e^{i \theta_1 - i\theta_2} \phi_1 \phi_2^{\dagger} + ba^* e^{i \theta_2 - i \theta_1} \phi_2 \phi_1^{\dagger} + |b|^2 \phi_2 \phi_2^{\dagger} $$
+\begin{enumerate}
+    \item The density matrix at time $t$ is 
+    $$ \rho (t) = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty}  P(\theta_1, \theta_2) \psi (t) \psi^{\dagger} (t) d \theta_1 d \theta_2 $$
+    $$ = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty}  \frac{1}{\sqrt{2 \pi \lambda_1 t}} \frac{1}{\sqrt{2 \pi \lambda_2 t}} e^{- \frac{\theta_1^2}{2 \lambda_1 t}}e^{- \frac{\theta_2^2}{2 \lambda_2 t}} \ldots $$
+    $$ \cdot \Big[ |a|^2 \phi_1 \phi_1^{\dagger} + ab^* e^{i \theta_1 - i\theta_2} \phi_1 \phi_2^{\dagger} + ba^* e^{i \theta_2 - i \theta_1} \phi_2 \phi_1^{\dagger} + |b|^2 \phi_2 \phi_2^{\dagger}  \Big] d \theta_1 d \theta_2 $$
+
+    To make this look easier I introduce the substitutions $c = 2 \lambda_1 t$ and $d = 2 \lambda_2 t$ so that the equation looks like 
+    $$ = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty}  \frac{1}{\sqrt{ \pi c}} \frac{1}{\sqrt{ \pi d}} e^{- \frac{\theta_1^2}{ c}}e^{- \frac{\theta_2^2}{d}} \psi (t) \psi^{\dagger} (t) d \theta_1 d \theta_2 $$
+    The gaussian part  of the integral is easily seen now such that the first part of the integral evaluates at 1. Also notice that the parts of $\psi (t) \psi^{\dagger} (t)$ which contribute to $\theta_1, \theta_2$ can be split up as such
+    $$ a b^* (e^{i \theta_1 - i\theta_2}) = a b^* (e^{i \theta_1 }e^{- i\theta_2}) $$
+    $$  ba^* (e^{i \theta_2 - i \theta_1}) = ba^* (e^{i \theta_2} e^{ - i \theta_1}) $$
+    And that split up and evaluated through the integral also $=1$. So the solution is 
+    $$ \rho (t) = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} P(\theta_1, \theta_2) \psi (t) \psi^{\dagger} (t) d \theta_1 d \theta_2 $$
+    $$ = |a|^2 \phi_1 \phi_1^{\dagger} + |b|^2 \phi_2 \phi_2^{\dagger} \ldots $$
+
+    \textbf{N.B} Not sure how the value of $e^{-\frac{1}{2} t(\lambda_1 + \lambda_2)}$ comes into the solution to the integral. 
+
+    \item Show that $\rho (t)$ satisfies the master equation 
+    $$ \rho (t) = |a|^2 \phi_1 \phi_1^{\dagger} + |b|^2 \phi_2 \phi_2^{\dagger} + e^{-\frac{1}{2} t(\lambda_1 + \lambda_2)}(ab^* \phi_1 \phi_2^{\dagger}+ba^*\phi_2 \phi_1^{\dagger}) $$
+    Taking the derivative of this w.r.t $t$ 
+    $$ \frac{d}{dt} \rho (t) = - \frac{(\lambda_1 + \lambda_2)(ba^* \phi_2 \phi_1^{\dagger} + ab^* \phi_1 \phi_2^{\dagger})e^{-\frac{1}{2} t(\lambda_1 + \lambda_2)}}{2} $$
+    $$ = - \frac{1}{2} (\lambda_1 + \lambda_2) \Big[ \rho (t) - (\phi_1 \phi_1^{\dagger} \rho (t) \phi_1 \phi_1^{\dagger} + \phi_2 \phi_2^{\dagger} \rho (t) \phi_2 \phi_2^{\dagger})\Big] $$
+    $$ = - \frac{1}{2} (\lambda_1 + \lambda_2) \Big[ \rho (t) - \sum_i \phi_i \phi_i^{\dagger} \rho (t) \phi_i \phi_i^{\dagger} \Big] $$
+    Expanding and splitting $- \frac{1}{2} (\lambda_1 + \lambda_2)$ so that 
+    $$ \Rightarrow \sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)ß} \phi_i \phi_i^{\dagger} \cdot -\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger} \equiv - \frac{1}{2} (\lambda_1 + \lambda_2)$$
+    So the first term can be written as 
+    $$ \sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger} \ \rho (t) \ (\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger})^{\dagger} $$
+    Where 
+    $$ (\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger})^{\dagger} = -\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i^{\dagger} \phi_i $$
+    The second term can also be written but it has 4 terms in (from $i=1$ to $2$) so we have 
+    $$ \frac{1}{2} (\lambda_1 + \lambda_2) \rho (t) + \rho (t) \frac{1}{2} (\lambda_1 + \lambda_2) $$ 
+    Which is the anti commutation relation with an extra value of 2 included from which the prefactor $\frac{1}{2}$ outside of the commutation brackets to be able to use this simplification. So we have 
+    $$ \frac{d}{dt} \rho (t) = \sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger} \rho (t) \cdot -\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i^{\dagger}\phi_i $$
+    $$ - \frac{1}{2}(\frac{1}{2} (\lambda_1 + \lambda_2) \rho(t) + \rho (t) \frac{1}{2} (\lambda_1 + \lambda_2)) $$
+    $$ = \sum_i \Big[ \sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger} \rho (t) \cdot -\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i^{\dagger}\phi_i $$
+    $$ - \frac{1}{2}\{-\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i^{\dagger} \phi_i \sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i \phi_i^{\dagger}, \rho (t) \} \Big]$$
+    Substituting 
+    $$ L_i = \sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i  \phi_i^{\dagger} $$
+    So 
+    $$ L_i^{\dagger} =  -\sqrt{\frac{1}{2} (\lambda_1 + \lambda_2)} \phi_i^{\dagger} \phi_i $$
+    Gives 
+    $$ \frac{d}{dt} \rho (t) = \sum_i \Big[ L_i \rho (t) L_i^{\dagger} - \frac{1}{2} \{L_i^{\dagger}L_i, \rho (t)\}\Big] $$
+    \\
+    \textbf{Note}. $ \sum_i^2 \phi_i^{\dagger} \phi_i \phi_i \phi_i^{\dagger} = 1$
+
+
+
+\end{enumerate}
+\section{Unitary Jump}
+\begin{enumerate}
+    \item Density operator at $t +dt$. $\psi (t)$ has probability $P= \lambda dt$ to jump to $e^{-i G} \psi (t) $. So it has $1-\lambda dt$ of staying $\psi (t)$.
+    For normal time evolution we have 
+    $$ \rho (t) = P e^{-i Ht} \rho(0) e^{iHt} $$
+    Where $\rho (0)$ is the initial density matrix. For this the initial density matrix is $\rho (t)$ and we need to add on the probability that the state is unchanged to satisfy the total probability.
+    $$ \rho (t +dt) = \mathrm{Probability \ to \ remain \ unchanged} \cdot \rho (t) + \mathrm{Probability\ to \ change} \cdot e^{-iG} \rho (0=t) e^{iG} $$
+    $$ \rho (t +dt) = (1-\lambda dt) \rho (t) + \lambda dt e^{-iG} \rho (t) e^{iG} $$
+
+    \item Show that $\rho (t)$ satisfies the differential equation 
+    $$ \frac{d}{dt} \rho (t) = \frac{d}{dt} \Big[ (1-\lambda dt) \rho (t) + \lambda t e^{-iG} \rho (t) e^{iG} \Big] $$
+    $$ = - \lambda \rho (t) + \lambda e^{-iG} \rho (t) e^{iG} $$ 
+    $$ = - \lambda \Big[ \rho (t) - e^{-iG} \rho (t) e^{iG} \Big] $$
+    To solve the time evolution we use the equation for $\rho (t + dt)$ and set $dt = 0$.
+    
+    \item Finding $L$ in the master equation form given.
+    $$ \frac{d}{dt} \rho (t) = L \rho (t) L^{\dagger} - \frac{1}{2} \{L^{\dagger}L, \rho (t) \} $$
+    Setting this equal to the equation in the previous equation 
+    $$  L \rho (t) L^{\dagger} - \frac{1}{2} \{L^{\dagger}L, \rho (t) \} = - \lambda \Big[ \rho (t) - e^{-iG} \rho (t) e^{iG} \Big] $$
+    By directly comparing :
+    $$ L \rho (t) L^{\dagger} \rightarrow \lambda e^{-iG} \rho (t) e^{iG} $$
+    So that 
+    $$ L = \sqrt{2 \lambda} \cdot e^{-iG} $$
+    Because 
+    $$ L^{\dagger} = (\sqrt{2 \lambda} \cdot e^{-iG} )^{\dagger} = \sqrt{2 \lambda} e^{iG} $$
+    With the 2 being there so that when expanded you get $2 \lambda$ which multiplied by $\frac{1}{2}$ gives just $\lambda$ which we were looking for. 
+    \item Showing that the off diagonal elements satisfy the differential equation. We have 
+    $$ E_1 = g_1 \ , \ E_2 = g_2 $$
+    Where $E_i$ are eigenvalues so $\ket{E_i}$ are eigenvectors. 
+    $$ \ket{E_1} = \ket{g_1} \ , \ \ket{E_2} = \ket{g_2} $$
+    If the diagonals are $g_1$ and $g_2$ so we have 
+    $$ \rho_{ii} (t) = \ket{g_i}^{\dagger} \rho (t) \ket{g_i} $$
+    $$ \frac{d}{dt} \rho_{ii} (t) = 0 $$
+    This is because $\ket{g_i}^{\dagger} \rho (t) \ket{g_i} $ will always equal a constant and the differential of a constant is 0. 
+    For $\rho_{12} (t)$ 
+    $$ \rho_{12} (t) = \ket{g_1}^{\dagger} \rho(t) \ket{g_2} $$
+    From part (b) 
+    $$ \frac{d}{dt} \rho_{12} (t) = -\lambda [ \rho_{12} (t) - e^{-i g_1} \rho_{12} (t) e^{ig_2} ] $$
+    $$ = -\lambda \rho_{12} (t) + \lambda \rho_{12} (t) e^{i(g_2-g_1)} $$
+    $$ = -\lambda \rho_{12} (t) [ 1- e^{i(g2-g1)}] $$
+
+
+
+
+\end{enumerate}
+
+\section{Random Unitary transformation} 
+In a time dt 
+$$ \psi (t +dt ) = e^{-iG \theta} \psi (t) $$
+With probability 
+$$ P(\theta) = \frac{1}{\sqrt{2 \pi \lambda dt}} e^{-\frac{\theta^2}{2 \lambda dt}} $$
+\begin{enumerate}
+    \item Find density matrix at time $t +dt $. First need to show that order $\theta^3$ and higher can be neglected. We can Taylor expand 
+    $$ e^{-iG \theta} \psi(t) $$ 
+    Around $\theta$. So we get 
+    $$ e^{-iG \theta} - iG \theta e^{-i G \theta} - \frac{1}{2} G^2 \theta^2 e^{-iG \theta} + \frac{1}{6} iG^3 \theta^3 e^{-iG \theta} \ldots $$
+    Lets also expand $e^{iG \theta}$ around $\theta$ 
+    $$ e^{iG \theta} + iG \theta e^{iG \theta} - \frac{1}{2} G^2 \theta^2 e^{iG \theta} - \frac{1}{6} i G^3 \theta^3 e^{iG \theta} \ldots $$
+    So $e^{-iG \theta} \rho (t) e^{iG \theta} $ expanded in $\theta$ will have terms of order $\theta^3$ and higher cancel out as the signs will be different. Can also say that that for $t$ we have $e^{-i G \theta}$ and for $dt$ we have $ e^{-iG \theta} \rho (t) e^{iG \theta}$ so naturally $dt$ will always have 1 order higher of $\theta$ past $\theta^3$. 
+    \\
+    For $\rho (t+dt)$ it is then a simpler version of Part 1.
+    $$ \rho (t + dt ) = \int_{-\infty}^{\infty} P(\theta) e^{-iG \theta} \rho (t) e^{-iG \theta} $$ 
+    Using my expansions I used mathematica to evaluate $e^{-iG \theta} \rho (t) e^{-iG \theta}$
+    $$ e^{-iG \theta} \rho (t) e^{-iG \theta} = \frac{4 \rho(t) + G^4 \theta^4 \rho(t) -8 G^2 \theta^2 \rho(t)}{4} + iG^3 \theta^3 \rho (t) - 2iG \theta \rho (t) $$
+    Obviously this ignored the commuatative effect so it needed to be split up as 
+    $$ G \rho (t) G \neq G^2 \rho (t) $$
+    $$ \frac{1}{2} G^2 \theta^2 \rho (t) \neq \rho (t) \frac{1}{2} G^2 \theta^2 $$
+    And ignoring terms $\theta^3$ or higher 
+    $$ = \rho (t) - \frac{1}{2} G^2 \theta^2 \rho (t) - \frac{1}{2}G^2 \theta^2 + G \rho (t) G \theta^2 $$
+    So we have 
+    $$ \rho (t + dt) = \int_{-\infty}^{\infty} P(\theta) \Big[ \rho (t) - \frac{1}{2} G^2 \theta^2 \rho (t) - \rho (t) \frac{1}{2} G^2 \theta^2 + G \rho (t) G \theta^2] $$
+    Like in question 1 we have a guassian integral from $P(\theta)$ so the solution is 
+    $$ \rho (t + dt) = \rho (t) - \frac{\theta^3}{2} \Big[ G^2 \rho(t) + \rho (t) G^2 - 2G \rho (t) G \Big] $$
+    And substituting $\theta^3 = \lambda dt$ 
+    $$ \rho (t +dt ) = \rho (t) - \frac{\lambda dt}{2} \Big[ G^2 \rho (t) + \rho (t) G^2 - 2G \rho (t) G \Big] $$
+
+    \item Finding $L$ so that the derivative satisfies the master equation. Evaluating the derivative like in question 2 we can find the derivative from the equation above with $dt =t$
+    $$ \frac{d}{dt} = \frac{d}{dt} \Big[\rho (0) - \frac{\lambda t}{2} \Big[ G^2 \rho (t) + \rho (t) G^2 - 2G\rho (t) G \Big] \Big] $$
+    $$ = 0 - \frac{\lambda}{2} \Big[ G^2 \rho (t) + \rho (t) G^2 - 2G \rho (t) G \Big] $$
+    Which can be simplified to 
+    $$ = -\frac{\lambda}{2} G \{G, \rho (t) \} + \lambda G \rho (t) G $$
+    As we can taker out a factor of $G$ outside the brackets then inside the brackets is the commutation relation + an extra factor to bring it back to the original. Therefore 
+    $$ L = \sqrt{\lambda} G $$
+
+    \item Showing that the components of density operator in basis of eigenvectors of $G$ satify the differential equation. Lie before in question 2d, for the off diagonal elements they have values of $g_1$ and $g_2$ ($g_i, g_j$). Substituting $g_i$ and $g_j$ into the differential equation above ( $g_i$ is left side multiplier of $G$ and $g_j$ is right side multiplier of $G$)
+    $$ \frac{d}{dt} \rho_{ij} (t) = - \frac{\lambda}{2} \Big[ g_i^2 \rho_{ij} (t) + \rho_{ij} (t) g_j^2 - 2g_i \rho_{ij} (t) g_j  \Big] $$
+    $$ = - \frac{\lambda}{2} \Big[ g_i^2 + g_j^2 - 2g_i g_j \Big] \rho{ij} (t) $$
+    $$ = - \frac{\lambda}{2} (g_i - g_j)^2 \rho{ij} (t) $$
+
+
+\end{enumerate}
+
+\section{State Exchange} 
+Two orthonormal vectors such that 
+$$ \psi (t) = a(t) \phi_1 + b(t) \phi_2 $$
+In time $dt$ with probability $\lambda dt$, $\psi (t)$ undergoes 
+$$ \psi (t) \rightarrow a (t) \phi_2 b(t) \phi_1 $$
+\begin{enumerate}
+    \item Showing that the state operator satisfies the master equation in the canonical pauli $x$ basis. To begin with ( from Unitary Jumpy question) we have 
+    $$ \rho (t + dt) = ( 1- \lambda dt) \rho (t) + \lambda dt \sigma_x \rho (t) \sigma_x $$
+    So the derivative of this is 
+    $$ \frac{d}{dt} \rho (t) = - \lambda \Big[ \rho (t) - \sigma_x \rho (t) \sigma_x \Big] $$
+    $$ = - \lambda \rho (t) + \lambda \sigma_x \rho (t) \sigma_x $$
+    However, this implies that $L = \sqrt{2 \lambda} \sigma_x$, so for $L = \sqrt{ \lambda} \sigma_x$ the differential equation would be 
+    $$ \frac{d}{dt} \rho (t) = - \frac{\lambda}{2} \Big[ \rho (t) - \sigma_x \rho (t) \sigma_x \Big] $$
+    Whiich satisfies the master equation as the master equation expanded gives 
+    $$ \sqrt{\lambda} \sigma_x \rho (t) (\sqrt{\lambda}\sigma_x)^{\dagger} - \frac{1}{2} ( \sqrt{\lambda} \sigma_x (\sqrt{\lambda} \sigma_x )^{\dagger} \rho (t) + \rho(t) \sqrt{\lambda} \sigma_x ( \sqrt{\lambda} \sigma_x)^{\dagger} ) $$
+    And $\sigma_x$ is in the basis $\phi_{1,2}$ such that it is in the same form as the previous lindblad equations.
+
+    \item The Pauli matrices have eigenvalues of $+1$ and $-1$ which implies for that opposite diagonals have different signs. 
+    
+\end{enumerate}
+
+\section{The Lindblad Equation}
+\begin{enumerate}
+    \item Showing that the Lindblad equation is trace preserving. 
+    $$ \frac{d}{dt} \Tr \rho (t) = -i \Tr([H, \rho(t)]) + \sum_i \Big[ \Tr(L_i \rho (t) L_i^{\dagger} ) - \frac{1}{2} \Tr ( \{ L_i^{\dagger} L_i, \rho (t) \}) \Big] $$
+    $$ = -i \Tr ([H, \rho (t)]) + \sum_i \Big[ \Tr(L_i \rho (t) L_i^{\dagger} ) - \frac{1}{2} \Tr ( L_i^{\dagger} L_i \rho (t) ) - \frac{1}{2} \Tr ( \rho (t) L_i^{\dagger} L_i) \Big] $$
+    Using the cyclic property of traces where 
+    $$ \Tr (ABC) = \Tr(ACB) = \Tr(BAC) $$ 
+    The second part of the equation becomes 
+    $$ \ldots + \sum_i \Big[ \Tr (ABC) - \frac{1}{2} \Tr (ACB) - \frac{1}{2} \Tr (BAC) \Big] $$
+    $$ \Rightarrow 0 $$
+    And because $H=0$ 
+    $$ -i \Tr ( [H, \rho (t) ]) = -i \Tr(H, \rho (t) , \rho (t) H) = -i \Tr (0) = 0 $$
+    And we have 
+    $$ \frac{d}{dt} \Tr \rho (t) = 0 $$
+
+    \item Show that the state operator is valid at all times. 
+    \\
+    $\rho (t) $ is hermitian (self adjoint) due to 
+    $$ \rho (t) ^{\dagger} = \Big( \sum_i M_i (t) \rho_0 M_i^{\dagger} (t) \Big)^{\dagger} $$
+    $$ = \sum_i M_i \rho_0^{\dagger} M_i^{\dagger} = \rho (t) $$
+    For a longer (in my opinion more rigorous method) prove the hermicity from the full Lindblad equation 
+    $$ \rho (t + dt )^{\dagger} = \rho (t) ^{\dagger} + dt(\frac{d}{dt} \rho (t)) $$
+    $$ = \rho (t) + dt \Big[  -i [H, \rho(t)] + \sum_i \Big[ L_i \rho (t) L_i^{\dagger}  - \frac{1}{2}   \{ L_i^{\dagger} L_i, \rho (t) \} \Big]  \Big]^{\dagger} $$
+    $$ = \rho (t) + dt \Big[  -i [\rho(t), H] + \sum_i \Big[ (L_i \rho (t) L_i^{\dagger})^{\dagger}  - \frac{1}{2} (L_i^{\dagger} L_i \rho(t))^{\dagger}  - \frac{1}{2} (\rho (t) L_i^{\dagger} L_i)^{\dagger}  \Big] $$
+    $$ = \rho (t) + dt \Big[  -i [H, \rho(t)] + \sum_i \Big[ L_i \rho (t) L_i^{\dagger}  - \frac{1}{2}   \{ L_i^{\dagger} L_i, \rho (t) \} \Big]  \Big]^{\dagger} $$
+    $$ = \rho (t +dt ) $$
+    \\
+    For trace of 1 we have 
+    $$ \Tr \rho (t) = \Tr \Big( \sum_i M_i \rho_0 M_i^{\dagger} \Big) $$
+    $$ = \Tr \Big( \rho_0 \sum_i M_i M_i^{\dagger} \Big) = \Tr(\rho_0) = 1$$
+    \\
+    For semi-positive definite 
+    $$ \rho (t) = \sum_i M_i (t) \rho_0 M_i^{\dagger} (t) $$
+    $$ = \sum_i \rho_0 \langle \psi | M_i \rangle \langle M_i | \psi \rangle $$
+    $$ = \sum_i \rho_0 | \langle \psi | M_i \rangle |^2 \geq 0 $$
+    For an arbitrary vector $\ket{\psi}$ in the state space, using the fact that $\Tr (\rho_0) =1$ 
+
+\end{enumerate}
+
+
+\end{document}
+

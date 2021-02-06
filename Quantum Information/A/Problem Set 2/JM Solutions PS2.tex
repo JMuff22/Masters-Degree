@@ -1,0 +1,334 @@
+
+\documentclass[12pt]{article}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed,amssymb}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Rmath}{\mathbf{R}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Information A \ \ Fall 2020 \ \  Solutions to Problem Set 2}}
+\\
+\large{Jake Muff}
+\\
+14/09/20
+\end{center}
+
+\bigskip
+
+
+%Problems 3 and 4 are from J. J. Sakurai: {\em Modern Quantum Mechanics}, numbers 3.2 and 3.8, respectively.
+
+\begin{enumerate}
+
+\item Question 1.
+\\
+$$ w1=(1,2,2) \ w_2=(-1,0,2) \ w_3=(0,0,1) $$
+Gram Matrix given by $G_{ij} = w_i \cdot w_j $:
+$$ G = w^\dagger w $$
+$$ = \left( \begin{array}{ccc} 1 & -1 &0 \\ 2 & 0 &0 \\ 2 &2&1 \end{array} \right)^\dagger \left( \begin{array}{ccc} 1 & -1 &0 \\ 2 & 0 &0 \\ 2 &2&1 \end{array} \right) $$
+$$ = \left( \begin{array}{ccc} 1 & 2 &2 \\ -1 & 0 &2 \\ 0 &0&1 \end{array} \right)\left( \begin{array}{ccc} 1 & -1 &0 \\ 2 & 0 &0 \\ 2 &2&1 \end{array} \right) $$
+$$ = \left( \begin{array}{ccc} 9 & 3 &2 \\ 3 & 5 &2 \\ 2 &2&1 \end{array} \right)$$
+This resulting matrix is of the form $G^T G$ and therefore symmetric giving the symmetric Gram matrix. 
+\\
+The determinant of $det(G) = 4$ as shown:
+$$ |G| = | \left( \begin{array}{ccc} 9 & 3 &2 \\ 3 & 5 &2 \\ 2 &2&1 \end{array} \right) |$$
+$$ = 9 |\left( \begin{array}{cc} 5 & 2 \\ 2 & 1 \end{array} \right) | - 3|\left( \begin{array}{cc} 3 & 2 \\ 2 & 1 \end{array} \right) | + 2|\left( \begin{array}{cc} 3 & 5 \\ 2 & 2 \end{array} \right) | $$
+$$ = 9(5-4) -3(3-4)+2(6-10) $$
+$$ = 4 \neq 0 $$
+Therefore the vectors $w_i$ are linearly independent. 
+\\
+The bases are orthogonal if every pair has an inner product 0 i.e $\bra{w_i}\ket{w_j} = 0$, therefore proving that every pair doesn't have an inner product equal to 0 shows that the basis is not orthogonal.
+$$ \langle w_1,w_2 \rangle = 3$$
+$$ \langle w_1,w_3 \rangle = 2$$
+$$ \langle w_2,w_3 \rangle = 2$$
+Using the Gram-Schmidt to construct an orthonormal basis $v_1, v_2, v_3$ :
+$$ \ket{v_1} = \frac{\ket{w_1}}{||\ket{w_1}||} $$
+$$ = \frac{\ket{w_1}}{\sqrt{\langle w_1 | w_1 \rangle}} $$
+$$ \langle w_1 | w_1 \rangle = \left( \begin{array}{ccc} 1 & 2 &2 \end{array} \right) \left( \begin{array}{ccc} 1 \\ 2 \\ 2\end{array} \right) = 9 $$
+$$ \therefore \sqrt{\langle w_1 | w_1 \rangle} = 3 $$
+$$ \ket{v_1} = \frac{\ket{w_1}}{3} = \frac{1}{3} \left( \begin{array}{ccc} 1 \\ 2 \\ 2\end{array} \right) $$
+For $\ket{v_2} $ using $\ket{v_1}$: 
+$$ \ket{v_2} = \frac{\ket{w_2} - \sum_i^k \langle v_i | w_2 \rangle \ket{v_i}}{||\ket{w_2} - \sum_i^k \langle v_i | w_2 \rangle \ket{v_i} ||} $$
+$$ = \frac{\ket{w_2} - \langle v_1 | w_2 \rangle \ket{v_1}}{||\ket{w_2} - \langle v_1 | w_2 \rangle \ket{v_1} ||}$$
+$$ \langle v_1 | w_2 \rangle = \left( \begin{array}{ccc} \frac{1}{3} & \frac{2}{3} &\frac{2}{3} \end{array}\right) \left( \begin{array}{ccc} -1 \\ 0 \\ 2\end{array} \right) =1 $$
+$$\ket{v_2} = \frac{\ket{w_2} -  \ket{v_1}}{||\ket{w_2} -  \ket{v_1} ||} $$
+$$ || \ket{w_2} - \ket{v_1} || = \left( \begin{array}{ccc} -1 \\ 0 \\ 2\end{array} \right) - \left( \begin{array}{ccc} 1/3 \\ 2/3 \\ 2/3\end{array} \right) = \left( \begin{array}{ccc} -4/3 \\ -2/3 \\ 4/3\end{array} \right) = \ket{x} $$
+$$ \langle x | x \rangle = \left( \begin{array}{ccc} -\frac{4}{3} & -\frac{2}{3} &\frac{4}{3} \end{array}\right) \left( \begin{array}{ccc} -4/3 \\ -2/3 \\ 4/3\end{array} \right) = 4 $$
+$$ \therefore ||\ket{w_2} - \ket{v_1} || = 2 $$
+So we have
+$$ \ket{v_2} = \frac{\ket{w_2} - \ket{v_1} } {2} $$
+$$ = \frac{\left( \begin{array}{ccc} -4/3 \\ -2/3 \\ 4/3\end{array} \right)}{2} $$
+$$ = \left( \begin{array}{ccc} -2/3 \\ -1/3 \\ 2/3\end{array} \right) $$
+$$ \ket{v_2} = \frac{1}{3} \left( \begin{array}{ccc} -2 \\ -1 \\ 2\end{array} \right) $$ %typo fixed here 16/9/20
+For $\ket{v_3}$ we compute the same thing but now we have multiple terms in our sums ($\sum_i^{k=2}$):
+$$ \ket{v_3} = \frac{\ket{w_3} - \sum_i^{k=2} \langle v_i | w_3 \rangle \ket{v_i}}{||\ket{w_3} - \sum_i^{k=2} \langle v_i | w_3 \rangle \ket{v_i}||} $$
+$$  \sum_i^{k=2} \langle v_i | w_3 \rangle \ket{v_i} = \langle v_1|w_3\rangle\ket{v_1} + \langle v_2|w_3\rangle \ket{v_2} $$
+$$ \langle v_1 | w_3\rangle = \frac{2}{3} $$
+$$ \langle v_2 | w_3 \rangle = \frac{2}{3} $$
+So we have :
+$$ \langle v_1|w_3\rangle\ket{v_1} + \langle v_2|w_3\rangle \ket{v_2} = \frac{2}{3} \ket{v_1} + \frac{2}{3} \ket{v_2} $$
+$$ = \left( \begin{array}{ccc} -2/9\\ 2/9 \\ 8/9\end{array} \right) $$ %typo fixed
+Putting this into our Gram-Schmidt fraction:
+$$ \ket{v_3} = \frac{ \ket{w_3} - \left( \begin{array}{ccc} -2/9\\ 2/9 \\ 8/9\end{array} \right)}{||\ket{w_3} - \left( \begin{array}{ccc} -2/9\\ 2/9 \\ 8/9\end{array} \right)||} = \frac{\left( \begin{array}{ccc} 2/9\\ -2/9 \\ 1/9\end{array} \right)}{1/3} $$ %typo
+$$\ket{v_3} = \left( \begin{array}{ccc} 2/3\\ -2/3 \\ 1/3\end{array} \right) = \frac{1}{3} \left( \begin{array}{ccc} 2\\ -2\\ 1\end{array} \right) $$
+These vectors are orthongonal to each other and it is trivial to find out that they all have length = 1 and are therefore unit vectors, therefore they form an orthonormal basis. 
+
+
+
+
+
+\item Question 2
+
+$$A^\dagger A = AA^\dagger$$
+$$M = \left( \begin{array}{cc} 1 & 0 \\ 1 & 1 \end{array} \right) $$
+$$ M^\dagger M = \left( \begin{array}{cc} 1 & 1 \\ 0 & 1 \end{array} \right) \left( \begin{array}{cc} 1 & 0 \\ 1 & 1 \end{array} \right) = \left( \begin{array}{cc} 2 & 1 \\ 1 & 1 \end{array} \right) $$
+$$ MM^\dagger = \left( \begin{array}{cc} 1 & 0 \\ 1 & 1 \end{array} \right)\left( \begin{array}{cc} 1 & 1 \\ 0 & 1 \end{array} \right)= \left( \begin{array}{cc} 1 & 1 \\ 1 & 2 \end{array} \right) $$
+$$ \left( \begin{array}{cc} 2 & 1 \\ 1 & 1 \end{array} \right) \neq \left( \begin{array}{cc} 1 & 1 \\ 1 & 2 \end{array} \right) $$
+And $M$ is not {\em normal }
+\\
+Showing that a hermitian matrix $A$ is normal:
+\\
+A hermitian matrix has the property
+$$ A^\dagger = A $$
+Therefore
+$$ (A^\dagger)A = A \cdot A = A(A^\dagger) $$
+Hence A is normal. 
+
+\item Question 3 \\
+The Cauchy-Schwarz inequality is:
+$$ |\langle x | y \rangle | ^ 2 \leq \langle x | x \rangle \langle y | y \rangle $$
+Starting with 
+$$||x+y||=\sqrt{\langle x+y | x+y\rangle}$$
+And squaring both sides
+$$ ||x+y||^2 = \langle x+y | x+y \rangle $$
+$$ = ||x||^2 + 2\langle x|y \rangle + ||y||^2 $$
+Now using the Cauchy-Schwarz inequality 
+$$ ||x+y||^2 \leq ||x||^2 +2\langle x|y\rangle +||y||^2 $$
+$$ \leq ||x||^2 +2||x||||y||+||y||^2 $$
+The RHS of which equals (factorising)
+$$ ||x||^2 +2||x||||y||+||y||^2  = (||x|| + ||y||)^2 $$
+So we have 
+$$ ||x+y||^2 \leq (||x||+||y||)^2 $$
+And the square root
+$$ ||x+y|| \leq ||x|| + ||y|| $$
+
+
+
+\item Starting with the $X$ matrix:
+
+$$ X = \left(\begin{array}{cc} 0 & 1 \\ 1 & 0  \end{array}\right) $$
+$$ det(X-\lambda I) = det(\left(\begin{array}{cc} -\lambda & 1 \\ 1 & -\lambda  \end{array}\right) ) = 0 $$
+$$ \lambda = \pm 1 $$ 
+For $\lambda_1 = -1$:
+$$ \left(\begin{array}{cc} 1 & 1 \\ 1 & 1  \end{array}\right) \left(\begin{array}{cc} c_1 \\ c_2 \end{array}\right) = \left(\begin{array}{cc} 0 \\ 0 \end{array}\right) $$
+Eigenvector 
+$$ \ket{\lambda_1} =  \left(\begin{array}{cc} 1 \\ -1\end{array}\right) $$
+Normalized eigenvector: 
+$$  \ket{\lambda_1} = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 \\ -1\end{array}\right) $$
+For $\lambda_2 =1$:
+$$ \left(\begin{array}{cc} -1 & 1 \\ 1 & -1  \end{array}\right) \left(\begin{array}{cc} c_1 \\ c_2 \end{array}\right) = \left(\begin{array}{cc} 0 \\ 0 \end{array}\right) $$
+Eigenvector 
+$$ \ket{\lambda_2} =  \left(\begin{array}{cc} 1 \\ 1\end{array}\right) $$
+Normalized eigenvector: 
+$$  \ket{\lambda_2} = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 \\ 1\end{array}\right) $$
+For the diagonal representation $X$ must satisfy 
+$$ X = \sum_i \lambda_i \ket{i}\bra{i} $$
+$$ \lambda_1 \cdot \ket{\lambda_1}\bra{\lambda_1} + \lambda_2 \cdot \ket{\lambda_2}\bra{\lambda_2} $$
+$$ = \left(\begin{array}{cc} 0 & 1 \\ 1 & 0\end{array}\right) $$
+
+
+
+For the Pauli $Y$ matrix:
+$$ Y = \left(\begin{array}{cc} 0 & -i \\ i & 0  \end{array}\right) $$
+$$ det(Y-\lambda I) = det(\left(\begin{array}{cc} -\lambda & -i \\ -i & -\lambda  \end{array}\right) ) = 0 $$
+$$ \lambda = \pm 1 $$ 
+For $\lambda_1 = -1$:
+$$ \left(\begin{array}{cc} 1 & -i \\ i & 1  \end{array}\right) \left(\begin{array}{cc} c_1 \\ c_2 \end{array}\right) = \left(\begin{array}{cc} 0 \\ 0 \end{array}\right) $$
+Eigenvector 
+$$ \ket{\lambda_1} =  \left(\begin{array}{cc} 1 \\ -i\end{array}\right) $$
+Normalized eigenvector: 
+$$  \ket{\lambda_1} = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 \\ -i\end{array}\right) $$
+For $\lambda_2 =1$:
+$$ \left(\begin{array}{cc} -1 & -i \\ 1 & -1  \end{array}\right) \left(\begin{array}{cc} c_1 \\ c_2 \end{array}\right) = \left(\begin{array}{cc} 0 \\ 0 \end{array}\right) $$
+Eigenvector 
+$$ \ket{\lambda_2} =  \left(\begin{array}{cc} 1 \\ i\end{array}\right) $$
+Normalized eigenvector: 
+$$  \ket{\lambda_2} = \frac{1}{\sqrt{2}} \left(\begin{array}{cc} 1 \\ i\end{array}\right) $$
+The diagonal representation uses the hermitian transpose $\dagger$ therefore we can write 
+$$ -1 \cdot \lambda_1 \lambda_1^\dagger + 1\cdot \lambda_2 \lambda_2^\dagger $$
+So $Y$ has diagonal representation of 
+$$ \left(\begin{array}{cc} 0 & -i \\ i & 0\end{array}\right) $$
+
+For the Pauli $Z$ matrix:
+$$ Z = \left(\begin{array}{cc} 1 & 0 \\ 0 & -1  \end{array}\right) $$
+$$ det(Z-\lambda I) = det(\left(\begin{array}{cc} 1-\lambda & 0 \\ 0 & -1-\lambda  \end{array}\right) ) = 0 $$
+$$ \lambda = \pm 1 $$ 
+For $\lambda_1 = 1$:
+$$ \left(\begin{array}{cc} 0 & 0 \\ 0 & -2  \end{array}\right) \left(\begin{array}{cc} c_1 \\ c_2 \end{array}\right) = \left(\begin{array}{cc} 0 \\ 0 \end{array}\right) $$
+Eigenvector 
+$$ \ket{\lambda_1} =  \left(\begin{array}{cc} 1 \\ 0\end{array}\right) $$
+For $\lambda_2 =-1$:
+$$ \left(\begin{array}{cc} 2 & 0 \\ 0 & 0  \end{array}\right) \left(\begin{array}{cc} c_1 \\ c_2 \end{array}\right) = \left(\begin{array}{cc} 0 \\ 0 \end{array}\right) $$
+Eigenvector 
+$$ \ket{\lambda_2} =  \left(\begin{array}{cc} 0 \\ 1\end{array}\right) $$
+$Y$ has diagonal representation of 
+$$ \left(\begin{array}{cc} 1 & 0 \\ 0 & -1\end{array}\right) $$
+
+\item Question 5
+\\
+Let us say that $\ket{v}$ is an eigenvector with eigenvalue $\lambda_v$ such that
+$$ U \ket{v} = \lambda \ket{v} $$
+So that
+$$ \langle v | v \rangle = 1 $$
+$$ = \langle v | I | v \rangle $$ 
+$$ =\langle | U^\dagger U | v \rangle $$
+$$ = \lambda_v \lambda_v^* \langle v|v\rangle $$
+$$= ||\lambda_v || ^2 = 1$$
+$$ \therefore \lambda = e^{i\theta} $$
+
+
+\item (Exercise 2.22 of the book): Show that the eigenvectors of a Hermitian operator with different eigenvalues are necessarily orthogonal.
+\\
+Let us state a hermitian operator A which has $\ket{v_i}$ eigenvectors and $\lambda_i$ eigenvalues i.e 
+$$ A \ket{v_i} = \lambda_i \ket{v_i} $$
+Or 
+$$ A \ket{v_j} = \lambda_j \ket{v_j} $$
+So we have 
+$$ \bra{v_i} A \ket{v_j} = \lambda_j \langle v_i | v_j \rangle $$
+Or 
+$$ \bra{v_i} A \ket{v_j} = \lambda_i \langle v_i | v_j \rangle $$
+We then have 
+$$ \langle v_i | A | v_j \rangle - \langle v_i|A|v_j \rangle = (\lambda_j  - \lambda_i) \langle v_i|v_j \rangle =0 $$
+So either $\lambda_j = \lambda_i$ or $ \langle v_i | v_j \rangle =0$
+\\
+Meaning that if $\lambda_j \neq \lambda_i$ they are orthogonal to each other. 
+\\
+We can also say that because A is hermitian $A=A^\dagger$ so 
+$$ \langle v_i | A | v_j \rangle = \langle v_i | A^\dagger | v_j \rangle = (\langle v_j | A | v_i \rangle)^* $$
+$$ = \lambda_i^* \langle v_j | v_i \rangle^* = \lambda_i^* \langle v_i | v_j \rangle = \lambda_i \langle v_i | v_j \rangle $$
+Therefore 
+$$ (\lambda_i - \lambda_j)\langle v_i | v_j \rangle = 0 $$
+and the same outcome as above.
+
+
+
+\end{enumerate}
+
+
+\end{document}
+

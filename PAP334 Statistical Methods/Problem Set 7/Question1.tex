@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{delarray,amsmath,bbm,epsfig,slashed}
+\usepackage{bbold}
+\usepackage{listings}
+\usepackage{qcircuit}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zmath}{\mathbf{Z}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+
+% David Weir's macros
+
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\com}[2]{\left[{#1},{#2}\right]}
+\newcommand{\mrm}[1] {{\mathrm{#1}}}
+\newcommand{\mbf}[1] {{\mathbf{#1}}}
+\newcommand{\ave}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\halft}{{\textstyle \frac{1}{2}}}
+\newcommand{\ie}{{\it i.e.\ }}
+\newcommand{\eg}{{\it e.g.\ }}
+\newcommand{\cf}{{\it cf.\ }}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{{\bs{x}}}
+\newcommand{\yv}{{\bs{y}}}
+\newcommand{\pv}{{\bs{p}}}
+\newcommand{\kv}{{\bs{k}}}
+\newcommand{\qv}{{\bs{q}}}
+\newcommand{\bv}{{\bs{b}}}
+\newcommand{\ev}{{\bs{e}}}
+\newcommand{\gv}{\bs{\gamma}}
+\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\nabv}{{\bs{\nabla}}}
+\newcommand{\sigv}{{\bs{\sigma}}}
+\newcommand{\notvec}{\bs{0}_\perp}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+%\newcommand{\xv}{{\bs{x}}}
+%\newcommand{\yv}{{\bs{y}}}
+\newcommand{\Av}{\bs{A}}
+%\newcommand{\lv}{{\bs{\ell}}}
+\newcommand{\Rmath}{\mbf{R}}
+
+
+%\newcommand\bsigma{\vec{\sigma}}
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Problem Set 7 \ \ Statistical Methods}} \\
+Jake Muff \\
+4/11/20
+\end{center}
+
+\section{Question 1}
+
+\begin{enumerate}
+    \item A poisson distributed variable has pmf 
+    $$ f(k, \lambda) = \frac{\lambda^k e^{- \lambda}}{k!} $$
+    Where $\lambda$ is the expectation value. In our case $\lambda = v$ so we have 
+    $$ f(n,v) = \frac{v^n e^{-v}}{n!} $$
+    For m observations we have ($\log =$ natural logarithm here)
+    $$ \log L(v) = \sum^m_{i=1} \log f(n,v) $$
+    $$ = \sum^m_{i=1} \log(v)n_i - mv - \log(n_1 !) $$
+    For 1 observation we will have 
+    $$ \log L(v) = \log(v)n - v - \log(n!) $$
+    We find the maximum by taking the dervative w.r.t v 
+    $$ \frac{\partial}{\partial v} \log L(v) = \frac{n}{v} -1 = 0 $$
+    $$ \hat{v} = n $$ 
+
+    \item To find if $\hat{v}$ is unbiased we need to show that the expectation value of $\hat{v}$ is equal to $\hat{v}$
+    $$ E[\hat{v}] = E[n] = n $$
+    The variance is 
+    $$ E[\hat{v}^2] - E[\hat{v}]^2 = n^2 - n^2 = 0 $$
+    
+    \item The RCF bound is (V[] is variance)
+    $$ V[\hat{v}] \geq (1+ \frac{\partial b}{\partial v})^2 / E[- \frac{\partial^2 log L(v)}{\partial v^2}] $$
+    Where $b$ is 
+    $$ b = E[\hat{v}] - v $$ 
+    $$ b = n-v \rightarrow \frac{\partial b}{\partial v} = -1 $$ 
+    So 
+    $$ (1+ \frac{\partial b}{\partial v})^2 = (1+(-1))^2 = 0 $$
+    Top partial of the fraction is 0 so RCF is 0.
+    $$ RCF \ V[\hat{v}] = 0 $$
+     There is equality so $\hat{v}$ is efficient. 
+
+     \item In the case of $m$ observations we have $n_1, n_2 \ldots n_m$ independent and identicially distributed poisson variables, so we have 
+     $$ \log L(v) = \sum^m_{i=1} (n_i \log(v) - v - log(n_i !)) $$
+     $$ = \log v \sum^m_{i=1} n_i - mv - \sum^m_{i=1} \log(n_i !) $$
+     Maximising by taking the derivative w.r.t $v$ and setting equal to 0
+     $$ \frac{\partial}{\partial v} \log L(v) = \frac{1}{v} \sum^m_{i=1} n_i -m =0 $$
+     So $\hat{v}$ is 
+     $$ \hat{v}_m = \frac{1}{m} \sum^m_{i=1} n_i $$ 
+     Which is essentially the mean so 
+     $$ \hat{v}_m = mean(n) = \overline{n} $$
+
+
+\end{enumerate}
+
+
+\end{document}
