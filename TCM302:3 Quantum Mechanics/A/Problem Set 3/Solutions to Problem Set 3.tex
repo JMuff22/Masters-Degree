@@ -1,0 +1,199 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Mechanics IIa 2021 \ \ \\ Solutions to Problem Set 3}} \\
+Jake Muff
+6/02/21
+\end{center}
+\section*{Problem 1}
+Periodically Driven Harmonic Oscillator where $t < 0$ in the ground state and for $t >0$ we have perturbing potential 
+$$ V(x,t) = F_0 x \cos (\omega t) $$
+With Hamiltonian 
+$$ H = \frac{p^2}{2m} + \frac{1}{2} m \omega_0^2 x^2 $$
+In the interaction picture we have 
+$$ \langle x \rangle = \langle \psi | x | \psi \rangle $$
+$$ = \langle \psi | e^{i H_0 t} x  e^{-i H_0 t} | \psi \rangle $$
+Where 
+\begin{equation} \ket{\psi} = \sum_n c_n (t) \ket{n} \end{equation}
+Starting at $t=0$ we have  $c_n^{(0)} (t) = \delta_{n0} $
+$$ c_n^{(0)} = c_0^{(0)} = c_0 (t) -1 $$
+$$ c_n^{(1)} (t) = \frac{-i}{\hbar} \int_{t_0}^t \langle n | V_I (t') | i \rangle dt' $$
+$$ = \frac{-i}{\hbar} \int_{t_0}^t e^{i \omega_{ni} t'} V_{ni} (t') dt' $$
+$$ = \frac{-i}{\hbar} \int_0^t V_{n0} (t') e^{in \omega_0 t'} $$
+$$ = \frac{-i}{\hbar} \int_0^t e^{i(E_n - E_0)t' / \hbar} \langle n | F_0 x \cos (\omega t') | 0 \rangle dt' $$
+Using the hint 
+$$ \langle n' | x | n \rangle = \sqrt{\frac{\hbar}{2 m \omega}} ( \sqrt{n+1} \delta_{n', n+1} + \sqrt{n} \delta_{n', n-1} ) $$
+So 
+$$ \langle n | F_0 x \cos (\omega t' ) | 0 \rangle \equiv F_0 \langle n | x | 0 \rangle \cos (\omega t' ) $$
+$$ = \sqrt{\frac{\hbar}{2m \omega}} ( \delta_{n,1} ) $$
+Thus,
+$$ c_n^{(1)} (t) = \frac{-i}{\hbar} \int_0^t e^{i \omega_0 t'} F_0 \cos( \omega t') \sqrt{\frac{\hbar}{2 m \omega_0}} \delta_{n1} dt' $$
+$$ = \frac{-i}{\hbar} \sqrt{\frac{\hbar}{2m \omega_0}} F_0 \delta_{n1} \int_0^t e^{i \omega_0 t'} \cos (\omega t') dt' $$
+$$ = \frac{-i}{\hbar} \sqrt{\frac{\hbar}{2m \omega_0}} F_0 \int_0^t e^{i \omega_o t'} \Big( \frac{e^{i \omega t'} + e^{-i \omega t'}}{2} \Big) dt' $$
+$$ = \frac{-i}{\hbar} \sqrt{\frac{\hbar}{2m \omega_0}} F_0 \cdot \text{integral} $$
+The integral is evaluated as 
+$$ \int_0^t e^{i \omega_o t'} \Big( \frac{e^{i \omega t'} + e^{-i \omega t'}}{2} \Big) =  \Big[ \frac{ie^{-it'(\omega - \omega_0)}}{\omega - \omega_0} - \frac{i e^{it' (\omega + \omega_0)}}{\omega + \omega_0} \Big]^t_0 $$
+$$ = -i \Big( \frac{1-e^{-it (\omega - \omega_0) }}{\omega - \omega_0} + \frac{e^{it(\omega + \omega_0) }-1}{\omega + \omega_0} \Big) $$
+For $n>1$, $ c_n^{(1)} =0 $ clearly. 
+Here I changed into the schrodinger picture, because it was easier to calculate (and understand what was going on). I still use the calculations above in the final answer. 
+
+$$ \ket{\psi}_I = \sum_n c_n (t) \ket{n} $$
+$$ = 1 \ket{0} + c_1 (t) \ket{1} $$
+Therefore 
+$$ \ket{\psi}_S = e^{-i H_0 t / \hbar} \ket{\psi}_I $$
+For a simple harmonic Oscillator we have 
+$$ H_0 \ket{0} = \frac{1}{2} \hbar \omega_0 \ket{0} $$
+$$ H_0 \ket{1} = \frac{3}{2} \hbar \omega_0 \ket{1} $$
+Thus 
+$$ \ket{\psi}_S = e^{-i \omega_0 t /2 } \ket{0} + c_1 (t) e^{-3i \omega_0 t/2 } \ket{1} $$
+$$ \langle x \rangle = _S\langle \psi | x | \psi \rangle_S $$
+\begin{equation} = ( e^{i \omega_0 t/2 } \bra{0} + c_1^{\dagger} (t) e^{3i \omega_0 t/2} \bra{1} ) \cdot x \cdot ( e^{-i \omega_0 t / 2 } \ket{0} + c_1 (t) e^{-3i \omega_0 t /2 } \ket{1} ) \end{equation} 
+$x$ here can be represented in ladder operator formalism with 
+$$ x = \sqrt{\frac{\hbar}{2 m \omega_0 }} (a + a^{\dagger}) $$
+Where 
+$$ a = \sqrt{\frac{m \omega_0}{2}} (x + \frac{i}{m} \hat{p}) $$
+$$ a^{\dagger} = \sqrt{\frac{m \omega_0}{2}} (x-\frac{i}{m} \hat{p} ) $$
+Using this equation (2) can be split into two 
+$$ c_1^{\dagger} e^{i \omega_0 t} \langle 1 | x | 0 \rangle = c_1^{\dagger} e^{i \omega_0 t} \sqrt{\frac{\hbar}{2m \omega_0} } $$
+$$ c_1 e^{-i \omega_0 t} \langle 0 | x | 1 \rangle = c_1 e^{-i \omega_0 t} \sqrt{\frac{\hbar}{2 m \omega_0}} $$
+So that 
+$$ \langle x \rangle = \sqrt{\frac{\hbar}{2 m \omega_0 }} ( c_1 e^{-i \omega_0 t } + c_1^{\dagger} e^{i \omega_0 t} ) $$
+We have from before: 
+$$ c_1 (t) = \frac{-i}{\hbar} \sqrt{\frac{\hbar}{2 m \omega_0}} F_0 \Big( -i \Big( \frac{1-e^{-it(\omega - \omega_0)}}{\omega-\omega_0} + \frac{e^{it(\omega + \omega_0) } -1}{\omega+ \omega_0} \Big) \Big) $$
+Substituting this in 
+$$ \langle x \rangle = \frac{1}{\hbar} \frac{\hbar }{2 m \omega_0} F_0 \Big( e^{-i \omega_0 t} \Big( \frac{1-e^{i(\omega+ \omega_0)t }}{\omega+\omega_0} \Big) + e^{-i \omega_0 t} \Big( \frac{1-e^{i(\omega-\omega_0)t}}{\omega-\omega_0}  \Big)\Big) $$
+
+$$ = \frac{1}{\hbar} \frac{\hbar }{2 m \omega_0} F_0 \Big( \Big( \frac{e^{-i \omega_0 t}-e^{i\omega t }}{\omega+\omega_0} \Big) + \Big( \frac{e^{-i \omega_0 t}-e^{-i\omega t}}{\omega-\omega_0}  \Big)\Big) $$
+
+$$ = \frac{1}{\hbar}  \frac{\hbar}{2 m \omega_0 } F_0 \frac{\cos(\omega_0 t) - \cos (\omega t)}{\omega_0^2 - \omega^2} \Big((\omega - \omega_0 )+ (\omega + \omega_0) \Big) $$
+
+$$ = \frac{1}{\hbar} \frac{\hbar}{2 m \omega_0} F_0 2 \omega_0 \Big( \frac{\cos(\omega_0 t) - \cos (\omega t) }{\omega_0^2 - \omega^2} \Big) $$
+
+$$ = \frac{F_0}{m} \frac{\cos(\omega_0 t) - \cos(\omega t)}{\omega_0^2 - \omega^2} $$
+
+Is this valid for $\omega = \omega_0 $ (Needs answering)
+
+
+
+
+\section*{Problem 2} 
+Simple Harmonic Oscillator with 
+$$ V(x,t) = Ax^2 e^{\frac{-t}{\tau}} $$
+Probability that after $t >> \tau $ system transitions to a higher excited state. Transistion probability for $\ket{i} \rightarrow \ket{n}$ with $n \neq i$ is 
+
+$$ P(i \rightarrow n) = | c_n^{(1)} (t) + c_n^{(2)} (t) + \ldots |^2 $$
+For this we need 
+$$ \langle n' | x^2 | n \rangle = \sqrt{\frac{\hbar}{2 m \omega_0}} \Big( \sqrt{n} \langle n' | x | n-1 \rangle + \sqrt{n-1} \langle n' | x | n+1 \rangle \Big) $$
+$$ = \frac{\hbar}{2 m \omega_0} \Big( \sqrt{n(n-1) } \delta_{n-2, n'} + (2n +1 ) \delta_{nn'} + \sqrt{(n+1)(n+2) } \delta_{n+2, n'} \Big) $$
+So 
+$$ \langle n' | x^2 | 0 \rangle = \frac{\hbar}{2m\omega_0} ( \delta_{0n'} + \sqrt{2} \delta_{2n'} ) $$
+Ignoring $\delta_{0n'}$ .
+$$ c_n^{(0)} = \delta_{n0} $$
+$$ c_n^{(1)} = \frac{-i}{\hbar} \int_0^t e^{i(E_n - E_0) t' / \hbar} \langle n' | Ax^2 e^{-t/ \tau} | 0 \rangle dt' $$
+
+$$ = \frac{-i}{\hbar} A \int_0^t e^{i \omega_0 t'} e^{-t / \tau} \langle n' | x^2 | 0 \rangle dt' $$
+
+
+$$ = \frac{-i}{\hbar} A \frac{\hbar}{2m \omega_0} \sqrt{2} \delta_{n2} \int_0^t e^{i \omega_0 t'} e^{-t / \tau} dt' $$
+
+$$ = \frac{-i}{\hbar} A \frac{\hbar}{2 m \omega_0} \sqrt{2} \delta_{n2} \Big[ \frac{e^{i \omega_0 t'} - \frac{t'}{\tau} }{i \omega_0 - \frac{1}{\tau} } \Big]_0^t $$
+
+
+
+\section*{Problem 3} 
+
+
+
+
+\end{document}
+
+
