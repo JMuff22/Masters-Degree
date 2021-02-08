@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="ICG">ICG</a>,
+Next:<a rel=next accesskey=n href="LCG.html#LCG">LCG</a>,
+Previous:<a rel=previous accesskey=p href="EICG.html#EICG">EICG</a>,
+Up:<a rel=up accesskey=u href="Definitions.html#Definitions">Definitions</a>
+<hr><br>
+
+<h4>ICG (inversive congruential generator)</h4>
+
+<ul>
+
+<li>Definition:
+<br><pre>y_n = a * inv(y_{n-1}) + b (mod p)    n &gt; 0
+</pre>
+
+<li>Name (as given to <code>prng_new</code>):
+<code>"icg(p,a,b,y_0)"</code>
+
+<li>Properties:
+<ul>
+<li>Period length  = p.  (for suitable parameters)
+<li>Strong non-linear properties. (e.g. no lattice)
+<li>Parameter selection not sensitive. 
+<li><code>prng_is_congruential</code> is <code>TRUE</code>. 
+<li><code>prng_can_seed</code> is <code>TRUE</code>. <br>
+The parameter of <code>prng_seed</code> will be used as
+<code>y_{n-1}</code> in the next call to <code>get_next</code>. 
+<li><code>prng_can_fast_sub</code> and <code>prng_can_fast_con</code>
+are <code>FALSE</code>. 
+</ul>
+
+<li>Parameter selection:
+To ensure that the period length is p, a and b must be
+chosen in a way that x^2 - bx -a (\in F_p[x]) is a
+primitive polynomial over F_p.
+
+<p>If ICG(p,a,1) has period length p, then ICG(p,a*c^2,c) will
+have period length p, too. 
+For recommended parameters see <a href="Table_ICG.html#Table_ICG">Table_ICG</a>.
+
+</p><li>Introduced in:
+Eichenauer, J. and J. Lehn. "A non-linear congruential
+pseudo random number generator", Stat. Papers 27:315-326, 1986
+</ul>
+
+</body></html>
+

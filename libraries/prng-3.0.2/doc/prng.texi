@@ -1,0 +1,295 @@
+\input texinfo   @c -*-texinfo-*-
+
+@c This is the PRNG-Documentation                 
+@c $Id: prng.texi,v 1.13 2001/03/12 16:04:49 leydold Exp $
+
+@c %**start of header
+@setfilename prng.info
+@settitle    PRNG User Manual
+@iftex
+@afourpaper
+@end iftex
+@paragraphindent 0
+@c %**end of header
+
+@include version.texi
+
+@dircategory Scientific software
+@direntry
+* prng: (prng).  PRNG PseudoRandom Number Generator
+@end direntry
+
+@ifinfo
+This is version @value{VERSION} of the PRNG-manual,@*
+last updated @value{UPDATED}
+@end ifinfo
+
+
+@titlepage
+@title PRNG
+@subtitle Generating random numbers
+@subtitle Version: @value{VERSION}
+@subtitle Date: @value{UPDATED}
+
+@author Otmar Lendl
+@author Josef Leydold
+
+@page
+@vskip 0pt plus 1filll
+Copyright 2001 Otmar Lendl (@email{lendl@@cosy.sbg.ac.at})
+
+Permission is granted to make and distribute verbatim
+copies of this manual provided the copyright notice and
+this permission notice are preserved on all copies.
+     
+Permission is granted to copy and distribute modified
+versions of this manual under the conditions for
+verbatim copying, provided also that the section 
+entitled ``Copying'' and ``GNU General Public License''
+are included exactly as in the original, and provided
+that the entire resulting derived work is distributed
+under the terms of a permission notice identical to this
+one.
+     
+Permission is granted to copy and distribute
+translations of this manual into another language,
+under the above conditions for modified versions,
+except that this permission notice may be stated in a
+translation approved by the Free Software Foundation.
+@end titlepage
+
+@c ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+@contents
+
+@c ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+@c
+@c `Top' Node and Master Menu
+@c
+
+@node Top,       Install,         , (dir)     
+@c    node-name,    next, previous,    up
+@top PRNG -- Pseudo-Random Number Generator
+
+PRNG is a collection of algorithms for generating pseudorandom numbers
+as a library of C functions, released under the
+@uref{http://www.gnu.org/copyleft/gpl.html,GPL}.
+It has been written by Otmar Lendl (@email{lendl@@cosy.sbg.ac.at})
+and is now maintained by Josef Leydold
+(@email{leydold@@statistik.wu-wien.ac.at}).
+
+The current version of this package can always be found on the 
+@uref{http://statistik.wu-wien.ac.at/arvag/,
+ARVAG (Automatic Random VAriate Generation) project group} in Vienna,
+or the 
+@uref{http://random.mat.sbg.ac.at/,pLab server} in Salzburg.
+
+In the case of any troubles, bug reports or need of assistance please contact the
+maintainer via @email{prng@@statistik.wu-wien.ac.at}.
+Please let us also know about your experiencies with the library.
+
+@c ....................................................................
+
+@unnumberedsec Features
+
+@itemize @bullet
+
+@item Portability.
+This library should compile on any computer with an 
+ANSI C compiler. A verification program is included.
+
+@item General Implementations.
+This library does not implement certain fixed generators
+like RANDU or @command{rand}, but implements the general PRNG algorithms
+to which all parameters can be supplied by the user.
+
+@item Consistent and object-oriented interface.
+This interface simplifies the PRNG handling inside the 
+main application.
+
+@item Possibility of independent copies of the same generator.
+
+@item Extensibility.
+New generators are easily integrated into the framework of this library.
+
+@item Fully supported Pseudorandom number generating methods:
+(free parametrization)
+
+@itemize @minus
+@item LCG       (linear congruential generator)
+@item ICG       (inversive congruential generator)
+@item EICG      (explicit inversive congruential generator)
+@item mEICG     (modified explicit inversive congruential generator)
+@item DICG      (digital inversive congruential generator)
+@item QCG       (quadratic congruential generator)
+@end itemize
+
+Fixed parameter PRNG (external generators):
+
+@itemize @minus
+@item MT19937   (Mersenne Twister by M. Matsumoto)
+@item TT800     (a large TSFR by M. Matsumoto)
+@item CTG       (Combined Tausworthe Generator by P. L'Ecuyer)
+@item MRG       (Multiple Recursive Generator by P. L'Ecuyer)
+@item CMRG      (Combined (Multiple Recursive Generator by P. L'Ecuyer)
+@end itemize
+
+plus the following methods (meta-generators):
+
+@itemize  @minus
+@item C         (Compound generator)
+@item SUB       (Subsequences)
+@item ANTI      (antithetic random variables)
+@item CON       (Consecutive blocks)
+@item AFILE     (Ascii file)
+@item BFILE     (Binary file)
+@end itemize
+
+@end itemize
+
+@c --------------------------------------------------------------------
+
+@menu
+* Install::  Install PRNG
+* Usage::    Using PRNG
+* Theory::   Theoretical background
+* Tables::   Tables of parameters
+@end menu
+
+@c --------------------------------------------------------------------
+
+@node Install
+@chapter Installing PRNG
+
+While the code is plain ANSI C and thus quite portable, the following
+adaptions might be neccessary for compile this library.
+
+All configurations are done in the file @file{src/prng.h}. Each option is
+extensively commented there. Here is a quick rundown on what to
+expect there:
+
+@itemize  @bullet
+
+@item  Definition of the basic numeric data-type @code{prng_num}. It is not
+recommended to change this. For 32 and 64 bit computers all
+neccessary auxiliary definitions will be made automatically.
+For other architectures, please edit @file{prng.h} according to the comments.
+
+@item  Various constants. See comments on the exact meanings.
+
+@item  Definition of @code{prng_inverse}. In previous versions, there was no
+algorithm which was fastest on all architectures, thus is was
+necessary configure the library for the each platform.
+Now @command{prng_inverse_own}, which combines the speedups of all
+old algorithms is the fastest one on all tested architectures
+and thus @emph{no} configuration is necessary any more.
+
+@end itemize
+
+The code is optimized for GNU CC (gcc). If your compiler supports the type
+(@code{long long int}), too, you can use this feature by defining
+@code{HAVE_LONGLONG} in @file{prng.h}. 
+
+Then do:
+
+@smallexample
+        ./configure --prefix=<prefix_path>
+        make
+@end smallexample
+
+This should compile the library (@file{libprng.a}) and example programs.
+
+To install the library (see also GNU generic installation instructions
+in file
+@ifhtml
+@uref{../INSTALL,@file{INSTALL}})
+@end ifhtml
+@ifnothtml
+@file{INSTALL})
+@end ifnothtml
+type:
+
+@smallexample
+        make install
+@end smallexample
+
+which installs @file{<prefix_path>/lib/libprng.a},
+@file{<prefix_path>/include/prng.h}, and
+@file{ <prefix_path>/info/prng.info}.
+If @code{--prefix} is omitted, then @code{/usr/local} is used as
+default.
+
+It is possible to remove these files by
+
+@smallexample
+        make uninstall
+@end smallexample
+
+I could not test this code in many environments, thus it might be
+necessary to tweak the code to compile it. Please mail me any changes
+you made, so that I can include them in the next official release.
+ 
+@c ..............................................
+
+@unnumberedsec Documentation
+
+A manual can be found in directory @file{doc} in various formats, including
+PS, PDF, HTML, Info and plain text.
+
+@c ..............................................
+
+@unnumberedsec Profiling and Verification
+
+Do
+
+@smallexample
+        make check
+@end smallexample
+
+to make and run the following executables:
+@itemize @bullet
+
+@item @command{iter} @*
+This program counts the number of iterations in the
+@code{euclid_table} algorithm. It's NOT kept up to date.
+Use at own risk.
+
+@item @command{validate} @*
+Using the supplied file tests.dat, this program tests
+the generator library for correct operation. On 32-bit
+computers it will fail on generators requiring 64-bit
+arithmetic.
+
+@end itemize
+
+@c -----------------------------------------------
+
+@include usage.texi
+
+@c -----------------------------------------------
+
+@include theory.texi
+
+@c -----------------------------------------------
+
+@include tables.texi
+
+@c -----------------------------------------------
+
+@bye
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

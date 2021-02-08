@@ -1,0 +1,173 @@
+
+
+  **************************************************************
+  *                                                            *
+  *  prng 3.0    (release date: 2000/12/01)                    *
+  *                                                            *
+  *  A library for the generation of pseudorandom numbers.     *
+  *                                                            *
+  *                                                            *
+  *                                                            *
+  *  (c) Otmar Lendl (lendl@cosy.sbg.ac.at)                    *
+  *                                                            *
+  **************************************************************
+
+
+This package implements a collection of algorithms for generating
+pseudorandom numbers as a library of C functions. Please see the
+file INSTALL for installation instructions. A manual can be found
+in the doc directory. The licence has changed since version 2.2.
+It is now possible to choose either the licence terms in file 
+LICENSE-2.2, or the GNU GPL as descripted in the file COPYING.
+
+The current version of this package can always be found on the pLab
+WWW server at http://random.mat.sbg.ac.at/ or at
+http://statistik.wu-wien.ac.at/prng/ of the 
+ARVAG (Automatic Random VAriate Generation) project group.
+
+For problems please contact prng@statistik.wu-wien.ac.at
+(Otmar Lendl or Josef Leydold).
+
+
+FEATURES
+
+ o  Portability. This library should compile on any computer with an 
+    ANSI C compiler. A verification program is included.
+
+ o  General Implementations. This library does not implement certain
+    fixed generators like RANDU or rand(), but implements the general
+    PRNG algorithms to which all parameters can be supplied by the user.
+
+ o  Consistent and object-oriented interface. This interface simplifies
+    the PRNG handling inside the main application.
+
+ o  Extensibility. New generators are easily integrated into the
+    framework of this library.
+
+ o  Fully supported Pseudorandom number generating methods:
+	(free parametrization)
+
+	+ LCG	(linear congruential generator)
+	+ ICG	(inversive congruential generator)
+	+ EICG	(explicit inversive congruential generator)
+	+ mEICG	(modified explicit inversive congruential generator)
+	+ DICG	(digital inversive congruential generator)
+	+ QCG	(quadratic congruential generator)
+	+ MT    (Mersenne Twister by M. Matsumoto)
+     
+     Fixed parameter PRNG (external generators):
+
+        + TT800	(a large TSFR by M. Matsumoto)
+	+ CTG	(Combined Tausworthe Generator by P. L'Ecuyer)
+	+ MRG	(Multiple Recursive Generator by P. L'Ecuyer)
+	+ CMRG	(Combined (Multiple Recursive Generator by P. L'Ecuyer)
+
+     plus the following methods (meta-generators):
+
+	+ C	(Compound generator)
+	+ SUB	(Subsequences)
+	+ CON	(Consecutive blocks)
+	+ ANTI  (Antithetic numbers, i.e. 1-U)
+	+ AFILE	(Ascii file)
+	+ BFILE	(Binary file)
+
+     
+
+INTERFACE DESCRIPTION:
+----------------------
+
+The interface has changed dramatically in version 2.0. As more and
+more generator types were added to this package, a new generic interface
+was needed. While still plain Ansi C, the architecture is now
+object-oriented.
+
+All generators are identified by a textual description. This description
+is either of the form "type(parameter1,parameter2, ...)" or is a 
+shortcut name for a common PRNG as defined in prng_def.h.
+
+Calling prng_new() with such a description as the only argument will
+allocate a new generator object, initialize it, and return its handle
+(struct prng *).
+
+All further calls need this handle as the first argument. They are
+best explained by example:
+
+#include <prng.h>			/* make sure that the compile can
+					   find this file. */
+
+struct prng *g;
+prng_num seed, n, M;
+double next, *array;
+int count;
+
+g = prng_new("eicg(2147483647,111,1,0");
+
+printf("Short name: %s\n",prng_short_name(g));
+				/* definition as in call to prng_new */
+printf("Expanded name: %s\n",prng_long_name(g));
+				/* Shortcuts expanded */
+
+next = prng_get_next(g);	/* get next number 0 <= next < 1 */
+prng_get_array(g,array,count);	/* fill array with count numbers */
+prng_reset(g);			/* reset the generator */
+prng_free(g);			/* deallocate the generator object */
+
+These functions work with all generators. For certain generators,
+the following functions are available, too:
+
+if (prng_is_congruential(g))
+	{
+	n = prng_get_next_int(g);	/* return next *unscaled* number */
+	M = prng_get_modulus(g);	/* return the modulus of the prng */
+	}
+
+if (prng_can_seed(g))
+	prng_seed(g,seed);		/* reseed the generator */
+
+if (prng_can_fast_sub(g))
+	puts(prng_get_sub_def(g,20,0);  /* Get subsequence definition */
+
+if (prng_can_fast_con(g))
+	puts(prng_get_con_def(g,20,1);  /* Get block definition */
+
+
+*NOTE*
+	prng_new() performs only a rudimentary check on the parameters. 
+	The user is responsible for enforcing all restrictions
+	on the parameters, such as checking that the modulus of an [E]ICG is
+	prime, or that LCG and ICG are maximum period generators.
+
+	Most of these functions are implemented as macros, so be
+	careful with autoincrements (++) in parameters.
+
+Prototypes:
+
+void		prng_reset(struct prng *g) ;
+double		prng_get_next(struct prng *g);
+void		prng_get_array(struct prng *g, double *array,int count);
+void		prng_free(struct prng *g);
+prng_num	prng_get_next_int(struct prng *g);
+char *		prng_short_name(struct prng *g);
+char *		prng_long_name(struct prng *g);
+int		prng_is_congruential(struct prng *g);
+prng_num	prng_get_modulus(struct prng *g);
+int		prng_can_seed(struct prng *g);
+void		prng_seed(struct prng *g,prng_num next);
+int		prng_can_fast_sub(struct prng *g);
+int		prng_get_sub_def(struct prng *g, int s, int i);
+int		prng_can_fast_con(struct prng *g);
+int		prng_get_con_def(struct prng *g, int l, int i);
+
+      -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+EXAMPLES:
+---------
+
+pairs.c is an example how to generate overlapping pairs of PRN using this
+package.
+
+tuples.c is a more general version of pairs.
+
+-- 
+Otmar Lendl (lendl@cosy.sbg.ac.at) 1997/01/27

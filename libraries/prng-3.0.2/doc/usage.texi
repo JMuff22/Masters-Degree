@@ -1,0 +1,183 @@
+
+@node Usage
+@chapter Usage of PRNG
+
+@menu
+* Description::  Interface Description
+* Functions::    PRNG Functions
+* Examples::     Examples
+@end menu  
+
+@c -----------------------------------------------
+
+@node Description
+@section Interface Description
+
+The interface has changed dramatically in version 2.0. As more and
+more generator types were added to this package, a new generic interface
+was needed. While still plain Ansi C, the architecture is now
+object-oriented.
+
+All generators are identified by a textual description. This description
+is either of the form @code{"type(parameter1,parameter2, ...)"} or is a 
+shortcut name for a common PRNG as defined in @file{src/prng_def.h}.
+
+Calling @command{prng_new} with such a description as the only argument will
+allocate a new generator object, initialize it, and return its handle
+(@code{struct prng *}).
+
+All further calls need this handle as the first argument. They are
+best explained by example:
+
+@smallexample
+#include <prng.h>   /* make sure that the compiler can find this file. */
+
+main()
+@{
+   struct prng *g;
+   prng_num seed, n, M;
+   double next, *array;
+   int count;
+
+   g = prng_new("eicg(2147483647,111,1,0)");
+
+   if (g == NULL) /* always check whether prng_new has been successful */
+   @{                                 
+      fprintf(stderr,"Initialisation of generator failed.\n");
+      exit (-1);
+   @}
+
+   printf("Short name: %s\n",prng_short_name(g));
+                                  /* definition as in call to prng_new */
+   printf("Expanded name: %s\n",prng_long_name(g));
+                                  /* Shortcuts expanded                */
+
+   next = prng_get_next(g);       /* get next number 0 <= next < 1     */
+   prng_get_array(g,array,count); /* fill array with count numbers     */
+   prng_reset(g);                 /* reset the generator */
+   prng_free(g);                  /* deallocate the generator object   */
+
+@}
+
+@end smallexample
+
+These functions work with all generators. For certain generators,
+the following functions are available, too:
+
+@smallexample
+
+if (prng_is_congruential(g))
+@{
+   n = prng_get_next_int(g);       /* return next *unscaled* number    */
+   M = prng_get_modulus(g);        /* return the modulus of the prng   */
+@}
+
+if (prng_can_seed(g))
+   prng_seed(g,seed);              /* reseed the generator             */
+
+if (prng_can_fast_sub(g))
+   puts(prng_get_sub_def(g,20,0)); /* Get subsequence definition       */
+
+if (prng_can_fast_con(g))
+   puts(prng_get_con_def(g,20,1)); /* Get block definition             */
+
+@end smallexample
+
+@noindent @strong{NOTE:}@*
+@command{prng_new} performs only a rudimentary check on the parameters. 
+The user is responsible for enforcing all restrictions
+on the parameters, such as checking that the modulus of an [E]ICG is
+prime, or that LCG and ICG are maximum period generators.
+
+Most of these functions are implemented as macros, so be
+careful with autoincrements (@code{++}) in parameters.
+
+@c ...........................................................
+
+@node Functions
+@section PRNG Functions
+
+@deftypefn{Library Function} {struct prng} prng_new (char *@var{str})
+Create a new generator object. If initialisation of the generator object
+fails then @code{NULL} is returned. Thus the pointer returned by this
+routine @strong{must} be checked against @code{NULL} @strong{before}
+using it.
+Otherwise the program aborts with a segmentation fault.
+@end deftypefn
+
+@deftypefn{Library Function} void prng_reset (struct prng *@var{g})
+Reset random number generator.
+@end deftypefn
+
+@deftypefn{Library Function} double prng_get_next (struct prng *@var{g})
+Sample from generator (get next pseudo-random number from stream).
+@end deftypefn
+
+@deftypefn{Library Function} void prng_get_array (struct prng *@var{g}, double *@var{array}, int @var{count})
+Sample array of length @var{count}.
+@end deftypefn
+
+@deftypefn{Library Function} prng_num prng_get_next_int (struct prng *@var{g})
+Sample integer random number from generator.
+@end deftypefn
+
+@deftypefn{Library Function} void prng_free (struct prng *@var{g})
+Destroy generator object.
+@end deftypefn
+
+@deftypefn{Library Function} {char*} prng_short_name (struct prng *@var{g})
+Get name of generator as in call to @command{prng_new}.
+@end deftypefn
+
+@deftypefn{Library Function} {char*} prng_long_name (struct prng *@var{g})
+Get name of generator with shortcuts expanded.
+@end deftypefn
+
+@deftypefn{Library Function} int prng_is_congruential (struct prng *@var{g})
+@code{TRUE} if @var{g} is a congruential generator.
+@end deftypefn
+
+@deftypefn{Library Function} prng_num prng_get_modulus (struct prng *@var{g})
+Return modulus of generator.
+@end deftypefn
+
+@deftypefn{Library Function} int prng_can_seed (struct prng *@var{g})
+@code{TRUE} if generator @var{g} can be reseeded.
+@end deftypefn
+
+@deftypefn{Library Function} void prng_seed (struct prng *@var{g}, prng_num @var{next})
+Reseed generator.
+@end deftypefn
+
+@deftypefn{Library Function} int prng_can_fast_sub (struct prng *@var{g})
+@code{TRUE} if subsequences of the random stream can computed directly.
+@end deftypefn
+
+@deftypefn{Library Function} {char*} prng_get_sub_def (struct prng *@var{g}, int @var{s}, int @var{i})
+Get definition for the generator of the subsequence stream of @var{g} with 
+starting point @var{i} and stepwidth @var{s}. It returns a character string
+that can be used a argument for @command{prng_new}.
+For generators where @code{prng_can_fast_sub} is @code{TRUE}.
+(see also @ref{SUB}).
+@end deftypefn
+
+@deftypefn{Library Function} int prng_can_fast_con (struct prng *@var{g})
+@code{TRUE} if blocks of the random stream can computed directly.
+@end deftypefn
+
+@deftypefn{Library Function} int prng_get_con_def (struct prng *@var{g}, int @var{l}, int @var{i})
+Get definition for the generator of the blocked stream of @var{g} with position
+@var{i} and block length @var{l}. It returns a character string
+that can be used a argument for @command{prng_new}.
+For generators where @code{prng_can_fast_con} is @code{TRUE}.
+(see also @ref{CON}).
+@end deftypefn
+
+
+@node Examples
+@section Examples
+
+@file{examples/pairs.c} is an example how to generate 
+overlapping pairs of PRN using this package.
+
+@file{examples/tuples.c} is a more general version of pairs.

@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="QCG">QCG</a>,
+Next:<a rel=next accesskey=n href="MT19937.html#MT19937">MT19937</a>,
+Previous:<a rel=previous accesskey=p href="LCG.html#LCG">LCG</a>,
+Up:<a rel=up accesskey=u href="Definitions.html#Definitions">Definitions</a>
+<hr><br>
+
+<h4>QCG (quadratic congruential generator)</h4>
+
+<ul>
+
+<li>Definition:
+<br><pre>y_n = a * y_{n-1}^2 + b *y_{n-1} + c (mod p)     n &gt; 0
+</pre>
+
+<li>Name (as given to <code>prng_new</code>):
+<code>"qcg(p,a,b,c,y0)"</code>.
+
+<li>Properties:
+<ul>
+<li>Period lengths up to p are possible. 
+<li>Weaker linear properties (tuples fall into union of lattices)
+<li>Reasonable distribution in dimension 2, but not that good in dimension 3. 
+<li><code>prng_is_congruential</code> is <code>TRUE</code>. 
+<li><code>prng_can_seed</code> is <code>TRUE</code>. <br>
+The parameter of <code>prng_seed</code> will be used as
+<code>y_{n-1}</code> in the next call to <code>get_next</code>. 
+<li><code>prng_can_fast_sub</code> and <code>prng_can_fast_con</code> are <code>FALSE</code>. 
+</ul>
+
+<li>Parameter selection:
+
+<p>If p is a power of 2, then a even, b == a + 1 mod 4, and
+c odd will guarantee period length = p.
+
+<p>No table of good parameters has been published.
+
+</p><li>Introduced in:
+
+<p>Knuth, D. E. "The Art of Computer Programming, Vol. 2
+Seminumerical Algorithms", Addison-Wesley, second edition, 1981
+</ul>
+
+</body></html>
+

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="EXTERNAL">EXTERNAL</a>,
+Next:<a rel=next accesskey=n href="COMPOUND.html#COMPOUND">COMPOUND</a>,
+Previous:<a rel=previous accesskey=p href="DICG.html#DICG">DICG</a>,
+Up:<a rel=up accesskey=u href="Definitions.html#Definitions">Definitions</a>
+<hr><br>
+
+<h4>EXTERNAL (Interface to fixed-parameter generators)</h4>
+
+<p>These generators are included to provide a uniform interface
+to a wider range of PRNG. The only enhancements from the
+published code is the support for multiple streams of these
+generators, as the original code used global variables.
+
+<p>See the file <code>src/external.c</code> for the references. Included are
+<ul>
+<li>TT800 (a large TSFR by M. Matsumoto)
+<li>CTG   (Combined Tausworthe Generator by P. L'Ecuyer)
+<li>MRG   (Multiple Recursive Generator by P. L'Ecuyer)
+<li>CMRG  (Combined (Multiple Recursive Generator by P. L'Ecuyer)
+</ul>
+
+</body></html>
+

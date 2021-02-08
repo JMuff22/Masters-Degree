@@ -92,66 +92,96 @@
 \baselineskip 14pt
 
 \begin{center}
-{\Large {\bf Basics of Monte Carlo Simulations 2021 \ \ \\ Report}} \\
+{\Large {\bf Basics of Monte Carlo Simulations 2021 \ \ \\ Report Ex2}} \\
 Jake Muff
-25/01/21
+8/2/2021
 \end{center}
 \section*{Question 1} 
-Please see attached scan, detailing my answer. The scan is also in the archive.
-
-\section*{Question 2} 
-The code is attached in the same folder as this document under \lstinline{buffon.cpp}. Note that in this I did not use the standard \lstinline{rand()} 
-function given in C/C++, because as discussed in class and in Numerical Recipes it is not that great. There is a better version in the \lstinline{random.h} header file included in the current
-versions of C++ (not sure about C) which uses the Mersenne Twister RNG.
-\\
-The averages errors are shown in the \lstinline{dat1.txt} text file and plotted below. As we can see the average error goes below 0.0001 some point after $10^7$ needles. I did not calculate this explicitly because I did not know how to calculate it relatively quickly whilst still maintaining precision. 
-My initial plan was to loop through the numbers 1 to $10^7$, however I quickly realised this would take a long time. 
-
+Writing a quadaratic congrutential generator. The solution code for this is found in \lstinline{QCG.cpp}, with the function found in the header file \lstinline{rng.h} under \lstinline{rand_qcg()}. For this I picked 
+$$ m = 2401, a=7, b =1, c =8 $$ 
+$m$ was picked for this as it is $7^4$. These numbers were not chosen in order to make the period long but to achieve and find necessary values in order for the QCG to work. The interval was calculate and found to match what was expected. This is found in \lstinline{rand_qcg_interval} in \lstinline{rng.h}. 
 \begin{figure}[h]
-    
-    \includegraphics[width=15cm]{Picture 1.png}
     \centering
-    \caption{Log plot of Averages errors as a function of the number of needles}
+    \includegraphics[width=10cm]{qcg_sc.png}
+    \caption{Screenshot of output of QCG.cpp showing that interval is equal to $m$}
+
 \end{figure}
 
-\section*{Question 3} 
-This was fairly simple, but was not without hiccups. In particular the interval of the Mersenne twister was not explicitly calculated due to its know and incredibly high period. The other two intervals were calculated and are what I expected given the conditions inputted. 
+\section*{Question 2}
+Understanding the TGFSR. \\
+Start off with:
+$$ k =0 \rightarrow a_k = 10 $$
+Bitshift $a_k$ by converting to binary and shifting 1 along
+$$ a_k = 10_{10} = 1010_{2} \rightarrow 101_{2} = 5_{10} $$
+Computing $(k+q) \ mod \ p$ 
+$$ (k+q) \ mod \ p = (0+11) \% 25 = 11$$
+The index of $(k+q) \ mod \ p$ is then 
+$$ a_{(k+q) \ mod \ p} = 21 $$
+Computing the first XOR :
+$$ 21 \ XOR \ 5 = 16 $$
+The least significant bit of $a_k$ is 0 so the second XOR is: 
+$$ 16 \ XOR \ 0 = 16 $$
+$$ k = k+ 1 \% 25 = 1 $$
+$$ a_{k'} = 16 $$ 
+Thus the new value assigned to $a_0$ is $16$. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{excel.png}
+    \caption{I calculated this in excel. Here is a screenshot}
+
+\end{figure}
+
+\section*{Question 3}
+Under the \lstinline{Chi2.cpp} program you will find a program to output the random numbers to .txt using the various array functions found in \lstinline{rng.h}. It was easier to take the arrays of random numbers and computer the $\chi^2$ value in python. \\
 \\
-For this question the header file \lstinline{rng.h} was made which includes all the relevant functions. 
+As we can see by the uniform distirbutions. The MT and PM are more 'noisy' and less uniform whereas the LCG and QCG are fairly uniform. This is shown by the chi2 values calcuated. The MT and PM generate good $\chi^2$ values whereas the LCG and QCG do not. Unfortunately this was done for just 1 run and thus the average is not very accurate.\\
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{Uniform_dist.png}
+    \caption{Uniform Distribution of the $1e6$ random numbers}
+
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{chi2.png}
+    \caption{$\chi^2$ sum for each of the Distribution}
+
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{chisqm.png}
+    \caption{$\chi^2$ sum for each of the Distribution}
+
+\end{figure}
 
 \section*{Question 4} 
-The plots for the LCG and Mersenne Twsiter are below. The plot for the Park Miller was not included 
-because there is a bug somewhere in my code that is stopping it from writing new values to file. By inspection of the text files you can see this error immediately. 
-I did not complete the 2D distribution of numbers between -1 and +1. 
+Performing the autocorrelation test for LCG and Park-Miller Generators. This is shown in \lstinline{autocorr_test.cpp}. This file runs by specifying your output file and the number of points ($10^5$) on the run line from the command line. The program works by splitting the autocorrelation test formula into the mean, mean squared and the variance. The program then outputs the autocorrelation results along with the index number to a .dat file. The .dat file is then read in and plotted with pyplot as shown in the \lstinline{plot_q3.py} \\
 \\
-From the distrubutions we can see that Mersenne Twister method produces the noisest plots with the LCG seemingly repeating. 
+As you can see with the plots the LCG is not as good as it's PM counterpart. Note that I also included the inbuilt rand() function as well as the Mersenne Twister for comparison. Interestingly the LCG shuffle did not change the results for the autocorrelation. The result for the original LCG is to be expected because the values will correlate after its period. \\
 \\
-If I was to use LCG for my Buffon's needle simulation it would produces results with greater error, however I ran out of time to implement this. 
+To calculate the LCG shuffle (implemented in rng.h) I used the Bays-Durham shuffled used in ran1 in Numerical Recipes but adapters for LCG. \\
+
+
 
 \begin{figure}[h]
-    
-    \includegraphics[width=15cm]{lcg_100.png}
     \centering
-    \caption{2D points plot for LCG with 100 points}
+    \includegraphics[width=15cm]{autocorr_1.png}
+    \caption{Command Line arguments shown for autocorrelation}
+
 \end{figure}
+
 \begin{figure}[h]
-    
-    \includegraphics[width=15cm]{lcg_1000.png}
     \centering
-    \caption{2D points plot for LCG with 1000 points}
+    \includegraphics[width=15cm]{autocorr_2.png}
+    \caption{Plot for the results of the autocorrelation}
+
 \end{figure}
-\begin{figure}[h]
-    
-    \includegraphics[width=15cm]{MT_100.png}
-    \centering
-    \caption{2D points plot for MT with 100 points}
-\end{figure}
-\begin{figure}[h]
-    
-    \includegraphics[width=15cm]{MT_1000.png}
-    \centering
-    \caption{2D points plot for MT with 1000 points}
-\end{figure}
+
+
 
 \end{document}
 

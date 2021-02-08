@@ -1,0 +1,12 @@
+Design, implementation, documentation by
+	Otmar Lendl (lendl@cosy.sbg.ac.at)
+
+Using Automake and Autoconf,
+adding Mersenne Twister,
+Extended documentation by
+	Josef Leydold (leydold@statistik.wu-wien.ac.at)
+
+External generators originate in code by
+	P. L'Ecuyer
+	M. Matsumoto
+

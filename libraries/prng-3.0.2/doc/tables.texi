@@ -1,0 +1,408 @@
+@c -----------------------------------------------
+
+@node Tables
+@appendix Tables of Parameters
+
+This chapter lists the implemented generators plus a few recommendations
+on the parameters.
+
+@menu
+* Table_LCG::          LCG (linear congruential generator)
+* Table_ICG::          ICG (inversive congruential generator)
+@end menu
+
+@c -----------------------------------------------
+
+@node Table_LCG
+@appendixsec Parameters for LCG (linear congruential generators)
+
+@smallexample
+y_n = a * y_@{n-1@} + b (mod p)     n > 0 
+@end smallexample
+
+@sp 1
+@emph{Hint:} A rule of thumb suggests not to use more than sqrt(p) random
+numbers from an LCG.
+
+@sp 1
+Notice that moduli larger than 2^32 require a computer with
+@code{sizeof(long)>32}.
+
+@sp 2
+Generators recommended by Park and Miller (1988),
+"Random number generators: good ones are hard to find", Comm. ACM 31, pp. 1192-1201
+(Minimal standard).
+
+@sp 1
+@multitable @columnfractions .15 .33 .33
+@item  modul p          @tab                            @tab    multiplicator a
+@item  ------------     @tab				@tab    ---------------------------
+@item 2^31 - 1 =	@tab    2147483647		@tab	16807   (b = 0)
+@end multitable
+
+@sp 2
+Generators recommended by Fishman (1990), 
+``Multiplicative congruential random number generators with modulus 
+@iftex
+@tex
+$2^\beta$:
+@end tex
+@end iftex
+@ifnottex
+2^beta:
+@end ifnottex
+An exhaustive analysis for 
+@iftex
+@tex
+$\beta=32$
+@end tex
+@end iftex
+@ifnottex
+beta=32
+@end ifnottex
+and a partial analysis for
+@iftex
+@tex
+$\beta=48$'',
+@end tex
+@end iftex
+@ifnottex
+beta=48'',
+@end ifnottex
+Math. Comp. 54, pp. 331-344.
+
+@sp 1
+@multitable @columnfractions .15 .33 .33
+@item  modul p          @tab                            @tab    multiplicator a
+@item  ------------     @tab				@tab    ---------------------------
+@item 2^31 - 1 =	@tab    2147483647		@tab	950706376    (b = 0)
+@end multitable
+
+@sp 2
+Generators recommended by L'Ecuyer (1999),
+"Tables of linear congruential generators of different sizes and
+good lattice structure", Math.Comp. 68, pp. 249-260.
+(constant b = 0.)
+
+@sp 1
+Generators with short periods can be used for generating @emph{quasi-random numbers}
+(@emph{Quasi-Monte Carlo methods}). In this case the @emph{whole} period should be used.
+
+@sp 1
+(These figures are listed without warranty. Please see also the original paper.)
+
+@sp 1
+@multitable @columnfractions .15 .33 .33
+@item  modul p          @tab                            @tab    multiplicator a
+@item  ------------     @tab				@tab    ---------------------------
+@item 2^8 - 5 =		@tab	251			@tab	33
+@item			@tab				@tab	55
+@item			@tab				@tab
+@item 2^9 - 3 =		@tab	509			@tab	25
+@item			@tab				@tab	110
+@item			@tab				@tab	273
+@item			@tab				@tab	349
+@item			@tab				@tab
+@item 2^10 - 3 =	@tab	1021			@tab	65
+@item			@tab				@tab	331
+@item			@tab				@tab
+@item 2^11 - 9 =	@tab	2039			@tab	995
+@item			@tab				@tab	328
+@item			@tab				@tab	393
+@item			@tab				@tab
+@item 2^12 - 3 =	@tab	4093 			@tab	209
+@item			@tab				@tab	235
+@item			@tab				@tab	219
+@item			@tab				@tab	3551
+@item			@tab				@tab
+@item 2^13 - 1 =	@tab	8191			@tab	884
+@item			@tab				@tab	1716
+@item			@tab				@tab	2685
+@item			@tab				@tab
+@item 2^14 - 3 =	@tab	16381 			@tab	572
+@item			@tab				@tab	3007
+@item			@tab				@tab	665
+@item			@tab				@tab	12957
+@item			@tab				@tab
+@item 2^15 - 19 =	@tab	32749 			@tab	219
+@item			@tab				@tab	1944
+@item			@tab				@tab	9515
+@item			@tab				@tab	22661
+@item			@tab				@tab
+@item 2^16 - 15 =	@tab	65521			@tab	17364
+@item			@tab				@tab	33285
+@item			@tab				@tab	2469
+@item			@tab				@tab
+@item 2^17 - 1 =	@tab	131071			@tab	43165
+@item			@tab				@tab	29223
+@item			@tab				@tab	29803
+@item			@tab				@tab
+@item 2^18 - 5 =	@tab	262139			@tab	92717
+@item			@tab				@tab	21876
+@item			@tab				@tab
+@item 2^19 - 1 =	@tab	524287			@tab	283741
+@item			@tab				@tab	37698
+@item			@tab				@tab	155411
+@item			@tab				@tab
+@item 2^20 - 3 =	@tab	1048573			@tab	380985
+@item			@tab				@tab	604211
+@item			@tab				@tab	100768
+@item			@tab				@tab	947805
+@item			@tab				@tab	22202
+@item			@tab				@tab	1026371
+@item			@tab				@tab
+@item 2^21 - 9 	= 	@tab	2097143			@tab	360889
+@item			@tab				@tab	1043187
+@item			@tab				@tab	1939807
+@item			@tab				@tab
+@item 2^22 - 3 =	@tab	4194301			@tab	914334
+@item			@tab				@tab	2788150
+@item			@tab				@tab	1731287
+@item			@tab				@tab	2463014
+@item			@tab				@tab
+@item 2^23 - 15 =	@tab	8388593			@tab	653276
+@item			@tab				@tab	3219358
+@item			@tab				@tab	1706325
+@item			@tab				@tab	6682268
+@item			@tab				@tab	422527
+@item			@tab				@tab	7966066
+@item			@tab				@tab
+@item 2^24 - 3 =	@tab	16777213		@tab	6423135
+@item			@tab				@tab	7050296
+@item			@tab				@tab	4408741
+@item			@tab				@tab	12368472
+@item			@tab				@tab	931724
+@item			@tab				@tab	15845489
+@item			@tab				@tab
+@item 2^25 - 39 =	@tab	33554393		@tab	25907312
+@item			@tab				@tab	12836191
+@item			@tab				@tab	28133808
+@item			@tab				@tab	25612572
+@item			@tab				@tab	31693768
+@item			@tab				@tab
+@item 2^26 - 5 =	@tab	67108859		@tab	26590841
+@item			@tab				@tab	19552116
+@item			@tab				@tab	66117721
+@item			@tab				@tab
+@item 2^27 - 39 =	@tab	134217689		@tab	45576512
+@item			@tab				@tab	63826429
+@item			@tab				@tab	3162696
+@item			@tab				@tab
+@item 2^28 - 57 =	@tab	268435399		@tab	246049789
+@item			@tab				@tab	140853223
+@item			@tab				@tab	29908911
+@item			@tab				@tab	104122896
+@item			@tab				@tab
+@item 2^29 - 3 	=	@tab	536870909	 	@tab	520332806
+@item			@tab				@tab	530877178
+@item			@tab				@tab
+@item 2^30 - 35 =	@tab	1073741789		@tab	771645345
+@item			@tab				@tab	295397169
+@item			@tab				@tab	921746065
+@item			@tab				@tab
+@item 2^31 - 1 =	@tab	2147483647		@tab	1583458089
+@item			@tab				@tab	784588716
+@item			@tab				@tab
+@item 2^32 - 5 =	@tab	4294967291		@tab	1588635695
+@item			@tab				@tab	1223106847
+@item			@tab				@tab	279470273
+@item			@tab				@tab
+@item 2^33 - 9 =	@tab	8589934583 		@tab	7425194315
+@item			@tab				@tab	2278442619
+@item			@tab				@tab	7312638624
+@item			@tab				@tab
+@item 2^34 - 41	=	@tab	17179869143 		@tab	5295517759
+@item			@tab				@tab	473186378
+@item			@tab				@tab
+@item 2^35 - 31 =	@tab	34359738337		@tab	3124199165
+@item			@tab				@tab	22277574834
+@item			@tab				@tab	8094871968
+@item			@tab				@tab
+@item 2^36 - 5 =	@tab	68719476731		@tab	49865143810
+@item			@tab				@tab	45453986995
+@item			@tab				@tab
+@item 2^37 - 25 =	@tab	137438953447 		@tab	76886758244
+@item			@tab				@tab	2996735870
+@item			@tab				@tab	85876534675
+@item			@tab				@tab
+@item 2^38 - 45	=	@tab	274877906899		@tab	17838542566
+@item			@tab				@tab	101262352583
+@item			@tab				@tab	24271817484
+@item			@tab				@tab
+@item 2^39 - 7	=	@tab	549755813881		@tab	61992693052
+@item			@tab				@tab	486583348513
+@item			@tab				@tab	541240737696
+@item			@tab				@tab
+@item 2^40 - 87	=	@tab	1099511627689		@tab	1038914804222
+@item			@tab				@tab	88718554611
+@item			@tab				@tab	937333352873
+@item			@tab				@tab
+@item 2^41 - 21	=	@tab	2199023255531		@tab	140245111714
+@item			@tab				@tab	416480024109
+@item			@tab				@tab	1319743354064
+@item			@tab				@tab
+@item 2^42 - 11	=	@tab	4398046511093		@tab	2214813540776
+@item			@tab				@tab	2928603677866
+@item			@tab				@tab	92644101553
+@item			@tab				@tab
+@item 2^43 - 57	=	@tab	8796093022151		@tab	4928052325348
+@item			@tab				@tab	4204926164974
+@item			@tab				@tab	3663455557440
+@item			@tab				@tab
+@item 2^44 - 17	=	@tab	17592186044399		@tab	6307617245999
+@item			@tab				@tab	11394954323348
+@item			@tab				@tab	949305806524
+@item			@tab				@tab
+@item 2^45 - 55	=	@tab	35184372088777		@tab	25933916233908
+@item			@tab				@tab	18586042069168
+@item			@tab				@tab	20827157855185
+@item			@tab				@tab
+@item 2^46 - 21	=	@tab	70368744177643		@tab	63975993200055
+@item			@tab				@tab	15721062042478
+@item			@tab				@tab	31895852118078
+@item			@tab				@tab
+@item 2^47 - 115 =	@tab	140737488355213		@tab	72624924005429
+@item			@tab				@tab	47912952719020
+@item			@tab				@tab	106090059835221
+@item			@tab				@tab
+@item 2^48 - 59	=	@tab	281474976710597		@tab	49235258628958
+@item			@tab				@tab	51699608632694
+@item			@tab				@tab	59279420901007
+@item			@tab				@tab
+@item 2^49 - 81	=	@tab	562949953421231		@tab	265609885904224
+@item			@tab				@tab	480567615612976
+@item			@tab				@tab	305898857643681
+@item			@tab				@tab
+@item 2^50 - 27	=	@tab	1125899906842597	@tab	1087141320185010
+@item			@tab				@tab	157252724901243
+@item			@tab				@tab	791038363307311
+@item			@tab				@tab
+@item 2^51 - 129 =	@tab	2251799813685119	@tab	349044191547257
+@item			@tab				@tab	277678575478219
+@item			@tab				@tab	486848186921772
+@item			@tab				@tab
+@item 2^52 - 47 =	@tab	4503599627370449	@tab	4359287924442956
+@item			@tab				@tab	3622689089018661
+@item			@tab				@tab	711667642880185
+@item			@tab				@tab
+@item 2^53 - 111 =	@tab	9007199254740881	@tab	2082839274626558
+@item			@tab				@tab	4179081713689027
+@item			@tab				@tab	5667072534355537
+@item			@tab				@tab
+@item 2^54 - 33 =	@tab	18014398509481951	@tab	9131148267933071
+@item			@tab				@tab	3819217137918427
+@item			@tab				@tab	11676603717543485
+@item			@tab				@tab
+@item 2^55 - 55 =	@tab	36028797018963913	@tab	33266544676670489
+@item			@tab				@tab	19708881949174686
+@item			@tab				@tab	32075972421209701
+@item			@tab				@tab
+@item 2^56 - 5 =	@tab	72057594037927931	@tab	4595551687825993
+@item			@tab				@tab	26093644409268278
+@item			@tab				@tab	4595551687828611
+@item			@tab				@tab
+@item 2^57 - 13 =	@tab	144115188075855859	@tab	75953708294752990
+@item			@tab				@tab	95424006161758065
+@item			@tab				@tab	133686472073660397
+@item			@tab				@tab
+@item 2^58 - 27 =	@tab	288230376151711717	@tab	101565695086122187
+@item			@tab				@tab	163847936876980536
+@item			@tab				@tab	206638310974457555
+@item			@tab				@tab
+@item 2^59 - 55 =	@tab	576460752303423433	@tab	346764851511064641
+@item			@tab				@tab	124795884580648576
+@item			@tab				@tab	573223409952553925
+@item			@tab				@tab
+@item 2^60 - 93 =	@tab	1152921504606846883	@tab	561860773102413563
+@item			@tab				@tab	439138238526007932
+@item			@tab				@tab	734022639675925522
+@item			@tab				@tab
+@item 2^61 - 1 =	@tab	2305843009213693951	@tab	1351750484049952003
+@item			@tab				@tab	1070922063159934167
+@item			@tab				@tab	1267205010812451270
+@item			@tab				@tab
+@item 2^62 - 57 =	@tab	4611686018427387847	@tab	2774243619903564593
+@item			@tab				@tab	431334713195186118
+@item			@tab				@tab	2192641879660214934
+@item			@tab				@tab
+@item 2^63 - 25 =	@tab	9223372036854775783 	@tab	4645906587823291368
+@item			@tab				@tab	2551091334535185398
+@item			@tab				@tab	4373305567859904186
+@item			@tab				@tab
+@item 2^64 - 59 =	@tab	18446744073709551557	@tab	13891176665706064842
+@item			@tab				@tab	2227057010910366687
+@item			@tab				@tab	18263440312458789471
+@end multitable
+
+@c -----------------------------------------------
+
+@node Table_ICG
+@appendixsec Parameters for ICG (inversive congruential generator)
+
+
+@smallexample
+y_n = a * inv(y_@{n-1@}) + b (mod p)    n > 0 
+@end smallexample
+
+@sp 1
+Notice that moduli larger than 2^32 require a computer with
+@code{sizeof(long)>32}.
+
+@sp 2
+Parameters suggested by P. Hellekalek (1995),
+``Inversive pseudorandom number generators: Concepts, Results and Links'',
+in: C. Alexopoulos, K. Kang, W.R. Lilegdon, and D. Goldsman (eds.),
+Proceedings of the 1995 Winter Simulation Conference, 
+pp. 255-262:
+
+There are no results that give reason to prefer one
+set of parameters over another.
+
+@sp 1
+(These figures are listed without warranty. Please see also the original paper.)
+
+@sp 1
+@multitable @columnfractions .2 .2 .2
+@item   p       @tab    a	@tab	b
+@item  ---------@tab  --------- @tab ---------
+@item   1031    @tab    849     @tab    1
+@item		@tab    345	@tab	1
+@item		@tab    55	@tab	1
+@item		@tab    116	@tab	1
+@item		@tab    441	@tab	1
+@item           @tab            @tab
+@item   1033    @tab    413	@tab	1
+@item		@tab    878	@tab	1
+@item		@tab    595	@tab	1
+@item		@tab    522	@tab	1
+@item		@tab    818	@tab	1
+@item           @tab            @tab
+@item   1039    @tab    173     @tab	1
+@item		@tab    481	@tab	1
+@item		@tab    769	@tab	1
+@item		@tab    1028	@tab	1
+@item		@tab    136	@tab	1
+@item           @tab            @tab
+@item   2027    @tab	579	@tab	1
+@item		@tab	1877	@tab	1
+@item		@tab	390	@tab	1
+@item		@tab	837	@tab	1
+@item		@tab	1048	@tab	1
+@item           @tab            @tab
+@item   2147483053@tab  858993221@tab	1
+@item		@tab	22211	@tab	11926380
+@item		@tab	579	@tab	24456079
+@item		@tab	11972	@tab	62187060
+@item		@tab	21714	@tab	94901263
+@item		@tab	4594	@tab	44183289
+@item           @tab            @tab
+@item   2147483647@tab	1288490188@tab	1
+@item		@tab	9102	@tab	36884165
+@item		@tab	14288	@tab	758634
+@item		@tab	21916	@tab	71499791
+@item		@tab	28933	@tab	59217914
+@item		@tab	31152	@tab	48897674
+@end multitable
+
+
+@c -----------------------------------------------

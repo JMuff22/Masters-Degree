@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="DICG">DICG</a>,
+Next:<a rel=next accesskey=n href="EXTERNAL.html#EXTERNAL">EXTERNAL</a>,
+Previous:<a rel=previous accesskey=p href="MEICG.html#MEICG">MEICG</a>,
+Up:<a rel=up accesskey=u href="Definitions.html#Definitions">Definitions</a>
+<hr><br>
+
+<h4>DICG (digital inversive congruential generator)</h4>
+
+<ul>
+<li>Definition:
+<br><pre>y_n = a * inv(y_{n-1}) + b (mod p)      n &gt; 0
+</pre>
+
+<p><strong>All operations are in the field F_{2^k} !!</strong>
+
+<li>Name (as given to <code>prng_new</code>):
+<code>"dicg(k,a,b,y_0)"</code>.
+
+<li>Properties:
+<ul>
+<li>Period length  = 2^k. 
+<li>Strong non-linear properties. 
+<li>Parameters seem not to be sensitive
+<li><code>prng_is_congruential</code> is <code>TRUE</code>. 
+<li><code>prng_can_seed</code> is <code>TRUE</code>. 
+The parameter of <code>prng_seed</code> will be used as
+<code>y_{n-1}</code> in the next call to <code>get_next</code>
+</ul>
+
+<li><code>prng_can_fast_sub</code> and <code>prng_can_fast_con</code> are <code>FALSE</code>.
+
+<li>Parameter selection:
+
+<p>Tricky.
+
+</p><li>Introduced in:
+
+<p>Eichenauer-Herrmann and Niederreiter, "Digital inversive
+pseudorandom numbers", ACM Transactions on Modeling and Computer
+Simulation, 4:339-349 (1994)
+</ul>
+
+</body></html>
+

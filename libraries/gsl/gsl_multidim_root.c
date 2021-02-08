@@ -1,0 +1,84 @@
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <gsl/gsl_vector.h>
+#include <gsl/gsl_multiroots.h>
+
+struct rparams
+{
+  double a;
+  double b;
+  double c;
+};
+
+int func (const gsl_vector * x, void *params, gsl_vector * f)
+{
+  double a = ((struct rparams *) params)->a;
+  double b = ((struct rparams *) params)->b;
+  double c = ((struct rparams *) params)->c;
+  
+  const double x0 = gsl_vector_get (x, 0);
+  const double x1 = gsl_vector_get (x, 1);
+  
+  const double y0 = a * (1 - x0 - c * x1 * x1);
+  const double y1 = b * (x1 - x0 * x0);
+  
+  gsl_vector_set (f, 0, y0);
+  gsl_vector_set (f, 1, y1);
+  
+  return GSL_SUCCESS;
+}
+
+
+int main (int argc, char **argv)
+{
+  const gsl_multiroot_fsolver_type *T;
+  gsl_multiroot_fsolver *s;
+  
+  int status;
+  size_t i, iter = 0;
+  
+  const size_t n = 2;
+  struct rparams p = {1.0, 10.0, 0.1};
+  gsl_multiroot_function f = {&func, n, &p};
+  
+  double x_init[2]; // = {-20.0, 50.0};
+  gsl_vector *x = gsl_vector_alloc (n);
+  
+  x_init[0]=atof(*++argv);
+  x_init[1]=atof(*++argv);
+
+  gsl_vector_set (x, 0, x_init[0]);
+  gsl_vector_set (x, 1, x_init[1]);
+  
+  T = gsl_multiroot_fsolver_hybrids;
+  s = gsl_multiroot_fsolver_alloc (T, 2);
+  gsl_multiroot_fsolver_set (s, &f, x);
+  
+  print_state (iter, s);
+  
+  do
+    {
+      iter++;
+      status = gsl_multiroot_fsolver_iterate (s);
+      print_state (iter, s);
+      if (status) break;      
+      status = gsl_multiroot_test_residual (s->f, 1e-7);
+    } while (status == GSL_CONTINUE && iter < 1000);
+  
+  printf ("status = %s\n", gsl_strerror (status));
+  
+  gsl_multiroot_fsolver_free (s);
+  gsl_vector_free (x);
+  return 0;
+}
+
+int print_state (size_t iter, gsl_multiroot_fsolver * s)
+{
+  printf ("iter = %3u x = % .3f % .3f f(x) = % .3e % .3e\n",
+	  iter,
+	  gsl_vector_get (s->x, 0),
+	  gsl_vector_get (s->x, 1),
+	  gsl_vector_get (s->f, 0),
+	  gsl_vector_get (s->f, 1));
+}

@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="MT19937">MT19937</a>,
+Next:<a rel=next accesskey=n href="MEICG.html#MEICG">MEICG</a>,
+Previous:<a rel=previous accesskey=p href="QCG.html#QCG">QCG</a>,
+Up:<a rel=up accesskey=u href="Definitions.html#Definitions">Definitions</a>
+<hr><br>
+
+<h4>MT19937 (Mersenne Twister)</h4>
+
+<ul>
+
+<li>Name (as given to <code>prng_new</code>):
+<code>"mt19937(seed)"</code>.
+
+<li>Properties:
+<ul>
+<li>Period lengths is 2^19937-1. 
+<li><code>prng_is_congruential</code> is <code>TRUE</code>. 
+<li><code>prng_can_seed</code> is <code>TRUE</code>. <br>
+The parameter of <code>prng_seed</code> will be used to
+seed the array of coefficients. 
+<li><code>prng_can_fast_sub</code> and <code>prng_can_fast_con</code> are <code>FALSE</code>. 
+</ul>
+
+<li>Introduced in:
+
+<p>Matsumoto, M. and Nishimura, T.,
+"Mersenne Twister: A 623-Dimensionally Equidistributed Uniform
+Pseudo-Random Number Generator",
+ACM Transactions on Modeling and Computer Simulation,
+Vol. 8, No. 1, January 1998, pp 3-30. 
+</ul>
+
+</body></html>
+

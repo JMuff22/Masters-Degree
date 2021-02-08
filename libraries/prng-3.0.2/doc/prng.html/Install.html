@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="Install">Install</a>,
+Next:<a rel=next accesskey=n href="Usage.html#Usage">Usage</a>,
+Previous:<a rel=previous accesskey=p href="index.html#Top">Top</a>,
+Up:<a rel=up accesskey=u href="index.html#Top">Top</a>
+<hr><br>
+
+<h2>Installing PRNG</h2>
+
+<p>While the code is plain ANSI C and thus quite portable, the following
+adaptions might be neccessary for compile this library.
+
+<p>All configurations are done in the file <code>src/prng.h</code>. Each option is
+extensively commented there. Here is a quick rundown on what to
+expect there:
+
+<ul>
+
+<li>Definition of the basic numeric data-type <code>prng_num</code>. It is not
+recommended to change this. For 32 and 64 bit computers all
+neccessary auxiliary definitions will be made automatically. 
+For other architectures, please edit <code>prng.h</code> according to the comments.
+
+<li>Various constants. See comments on the exact meanings.
+
+<li>Definition of <code>prng_inverse</code>. In previous versions, there was no
+algorithm which was fastest on all architectures, thus is was
+necessary configure the library for the each platform. 
+Now <code>prng_inverse_own</code>, which combines the speedups of all
+old algorithms is the fastest one on all tested architectures
+and thus <em>no</em> configuration is necessary any more.
+
+</ul>
+
+<p>The code is optimized for GNU CC (gcc). If your compiler supports the type
+(<code>long long int</code>), too, you can use this feature by defining
+<code>HAVE_LONGLONG</code> in <code>prng.h</code>.
+
+<p>Then do:
+
+<br><pre>        ./configure --prefix=&lt;prefix_path&gt;
+        make
+</pre>
+
+<p>This should compile the library (<code>libprng.a</code>) and example programs.
+
+<p>To install the library (see also GNU generic installation instructions
+in file
+<a href="../INSTALL"><code>INSTALL</code></a>)
+type:
+
+<br><pre>        make install
+</pre>
+
+<p>which installs <code>&lt;prefix_path&gt;/lib/libprng.a</code>,
+<code>&lt;prefix_path&gt;/include/prng.h</code>, and
+<code> &lt;prefix_path&gt;/info/prng.info</code>. 
+If <code>--prefix</code> is omitted, then <code>/usr/local</code> is used as
+default.
+
+<p>It is possible to remove these files by
+
+<br><pre>        make uninstall
+</pre>
+
+<p>I could not test this code in many environments, thus it might be
+necessary to tweak the code to compile it. Please mail me any changes
+you made, so that I can include them in the next official release.
+
+<h3>Documentation</h3>
+
+<p>A manual can be found in directory <code>doc</code> in various formats, including
+PS, PDF, HTML, Info and plain text.
+
+<h3>Profiling and Verification</h3>
+
+<p>Do
+
+<br><pre>        make check
+</pre>
+
+<p>to make and run the following executables:
+<ul>
+
+<li><code>iter</code> <br>
+This program counts the number of iterations in the
+<code>euclid_table</code> algorithm. It's NOT kept up to date. 
+Use at own risk.
+
+<li><code>validate</code> <br>
+Using the supplied file tests.dat, this program tests
+the generator library for correct operation. On 32-bit
+computers it will fail on generators requiring 64-bit
+arithmetic.
+
+</ul>
+
+</body></html>
+

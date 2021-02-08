@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+<title>PRNG User Manual</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="PRNG User Manual">
+<meta name=generator content="makeinfo 4.2">
+<link href="http://www.gnu.org/software/texinfo/" rel=generator-home>
+</head>
+<body>
+<p>
+Node:<a name="MEICG">MEICG</a>,
+Next:<a rel=next accesskey=n href="DICG.html#DICG">DICG</a>,
+Previous:<a rel=previous accesskey=p href="MT19937.html#MT19937">MT19937</a>,
+Up:<a rel=up accesskey=u href="Definitions.html#Definitions">Definitions</a>
+<hr><br>
+
+<h4>MEICG (modified explicit inversive congruential generator)</h4>
+
+<ul>
+
+<li>Definition:
+<br><pre>y_n = n * inv(a*(n_0 + n) + b) (mod p)    n &gt;= 0
+</pre>
+
+<li>Name (as given to <code>prng_new</code>):
+<code>"meicg(p,a,b,n_0)"</code>.
+
+<li>Properties:
+<ul>
+<li>Period length  = p. 
+<li><code>prng_is_congruential</code> is <code>TRUE</code>. 
+<li><code>prng_can_seed</code> is <code>TRUE</code>. 
+The parameter of <code>prng_seed</code> will be used as
+"n" in the next call to <code>get_next</code>. 
+<li><code>prng_can_fast_sub</code> and <code>prng_can_fast_con</code> are <code>FALSE</code>. 
+</ul>
+
+<p>Experimental generator: <strong>USE AT OWN RISK</strong>
+
+</p><li>Parameter selection:
+<ul>
+<li>For prime moduli, a != 0 suffices. 
+<li>It's possible to use a powe of 2 as modulus, which requires
+a = 2 (mod 4) and b = 1 (mod 2). 
+</ul>
+
+<li>Introduced in:
+
+<p>Eichenauer-Hermann, J. "Modified explicit inverive congruential
+pseudorandom numbers with power of 2 modulus"
+Statistics and Computing 6:31-36 (1996)
+</ul>
+
+</body></html>
+
