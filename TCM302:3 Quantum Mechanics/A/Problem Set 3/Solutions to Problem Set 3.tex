@@ -160,7 +160,7 @@ $$ = \frac{1}{\hbar} \frac{\hbar}{2 m \omega_0} F_0 2 \omega_0 \Big( \frac{\cos(
 
 $$ = \frac{F_0}{m} \frac{\cos(\omega_0 t) - \cos(\omega t)}{\omega_0^2 - \omega^2} $$
 
-Is this valid for $\omega = \omega_0 $ (Needs answering)
+Is this valid for $\omega = \omega_0 $? No. The equation becomes invalid when at resonance because as $\omega_0$ increases toward $\omega$ the soltion tends towards infinty, thus perturbation theory breaks down. 
 
 
 
@@ -187,9 +187,141 @@ $$ = \frac{-i}{\hbar} A \frac{\hbar}{2m \omega_0} \sqrt{2} \delta_{n2} \int_0^t 
 
 $$ = \frac{-i}{\hbar} A \frac{\hbar}{2 m \omega_0} \sqrt{2} \delta_{n2} \Big[ \frac{e^{i \omega_0 t'} - \frac{t'}{\tau} }{i \omega_0 - \frac{1}{\tau} } \Big]_0^t $$
 
+$$ = \frac{-i}{\hbar} A \frac{\hbar}{2 m \omega_0} \sqrt{2} \delta_{n2} \Big[ \frac{e^{i \omega_0 t - \frac{t}{\tau} } }{i \omega_0 - \frac{1}{\tau} } - \frac{1}{i \omega_0 - \frac{1}{\tau}} \Big] $$
 
+$$ = \frac{-i A}{m \omega_0} \frac{1}{\sqrt{2}} \delta_{n2} \Big[ \frac{e^{i \omega_0 t - \frac{t}{\tau}} }{i \omega_0 - \frac{1}{\tau} } \Big] $$
+
+Trying for $c_0^{(1)}$, $c_{1}^{(1)} $ and  $ c_{2}^{(1)}$ we find that 
+$$ c_0^{(1)} \neq 0 \rightarrow \delta_0 \neq 0 $$
+$$ c_2^{(1)} \neq 0 \rightarrow \delta_{22} \neq 0 $$
+So we can say $c_n^{(1)} = 0$ for $n \neq 0, 2$. This may be extended to $n \neq 0, 2n$ (aka even $n$) but I didn't test this. Therefore we have, 
+
+$$ c_0^{(1)} = \frac{-i}{\hbar} \int_0^t \frac{\hbar}{2 m \omega_0} A e^{\frac{-t'}{\tau} } dt' $$
+$$ = \frac{iA}{2m \omega_0} \tau (e^{- \frac{t}{\tau}} -1 ) $$
+With $t >> \tau $ we have 
+$$ c_0^{(1)} = - \frac{i A}{2 m \omega_0 }\tau $$
+
+For $c_2^{(1)} $ we have 
+$$ c_2^{(1)} = \frac{-i A}{m \omega_0}\frac{1}{\sqrt{2}} \frac{e^{i \omega_0 t - \frac{t}{\tau}} }{i \omega_0 - \frac{1}{\tau} } $$
+The transistion to the $\ket{2}$ state is 
+$$ | c_2^{(1)} |^2 = \frac{A^2 \tau^2 | e^{\frac{i \omega_0 t \tau - t}{\tau}} |^2}{2 m^2 \omega_0^2 ( \omega_0^2 \tau^2 +1) } $$
+With $t >> \tau $ we have 
+$$ | c_2^{(1)} |^2 = \frac{A^2 \tau^2}{2 m^2 \omega_0^2 ( \omega_0^2 \tau^2 +1) } $$
 
 \section*{Problem 3} 
+Hydrogen atom in ground state $(n l, m) = (1,0,0)$ with 
+$$ \vec{E} = \begin{cases}
+    0 & \quad t <0, \\
+    \vec{E_0} e^{-t/ \tau} & \quad t>0.
+    \end{cases} $$
+
+We want to calculate the probability for atom to found at at $t >> \tau $ in 
+$$ (n,l,m) = (2,1, \pm 1) $$
+$$ (n,l,m) = (2,1, 0) $$
+$$ (n,l,m) = (2,0,0) $$
+The potential is 
+$$ V = -eE_0 \hat{z} e^{-t / \tau} $$ 
+So we have 
+$$ c_n^{(1)} = \frac{-i}{\hbar} \int_0^t e^{i \omega_{ni} t'} \langle n | e E_0 \hat{z} e^{-t' / \tau} | i \rangle dt' $$
+$$ = \frac{i}{\hbar} \int_0^t e^{i \omega_{ni} t'} \langle n | e E_0 \hat{z} | i \rangle e^{-t' / \tau} dt' $$
+
+\begin{enumerate}
+    \item For $(n,l,m) = (2,1,\pm 1) $ we have 
+    $$ \langle 2,1, \pm 1 | \hat{z} | 1,0,0 \rangle =0 $$
+    And because of the $ \Delta m = 0$ selection rule we have 
+    $$ c_{2,1, \pm 1}^{(1)} = 0 $$ 
+    
+    \item For $(n,l,m) = (2,1,0) $ we have 
+    $$ \langle 2,1,0 | \hat{z} | 1,0,0 \rangle $$
+    We have a radial integral which we don't have to evaluate, which is 
+    $$ \langle 210 | \hat{z} | 100 \rangle = \int_0^{\infty} dr r^3 R_{21}^* R_{10} \int_{-1}^1 d (\cos \theta ) \cos \theta Y_1^0 Y_0^0 $$
+    $$ = \int_0^{\infty} R_{21}^* R_{10} r^3 dr $$
+    Normalizing this gives 
+    $$ = \frac{1}{\sqrt{3}} \int_0^{\infty} R_{21} R_{10} r^3 dr $$
+    Let's call this $I_r$ for ease. So that 
+    $$ c_{210}^{(1)} = I_r \cdot \frac{-i}{\hbar} \int_0^t e^{i \omega_{ni} t'} e E_0 e^{-t' / \tau } dt' $$
+    $$ = \frac{i}{\hbar} e E_0 \tau \cdot I_r \cdot \frac{e^(i \omega_{ni} t - \frac{1}{\tau} ) \tau -1}{1- i \omega_{ni} \tau } $$ 
+    With $ t >> \tau $ the probability transistion becomes 
+    $$ | c_{210}^{(1)} |^2 = \frac{e^2 E_0^2 \tau^2}{\hbar^2} \cdot | I_r |^2 \cdot \frac{1}{1 + \omega_{ni}^2 \tau^2 } $$
+    $$ \frac{e^2 E_0^2 \tau^2}{\hbar^2} | \int_0^{\infty} R_{21} R_{10} r^3 dr |^2 \cdot \frac{1}{1+ \omega_{ni}^2 \tau^2} $$
+
+    \item Replacing the final state with 2s gives 
+    $$ \langle 200 | \hat{z} | 100 \rangle = 0 $$
+    Due to selection rules $\Delta l = + 1$ and the transistion probability is thus 0. 
+
+    
+
+
+\end{enumerate}
+
+\section*{Problem 4} 
+For $t <0$, $H=0$. For $t > 0$ 
+$$ H = \Big( \frac{4 \Delta}{\hbar^2} \Big) \vec{S_1} \cdot \vec{S_2} $$
+The state is initially in $\ket{ + - }$ for $ t \leq 0$. We need to find the probability of being in $\ket{++}, \ket{+-}, \ket{-+}, \ket{--}$ as a function of time. 
+
+\begin{enumerate}
+    \item Solving exactly. Firstly: 
+    $$ \vec{S_1} \cdot \vec{S_2} = S_{12} S_{22} + \frac{1}{2} S_{1+} S_{2-} + \frac{1}{2} S_1 - S_{2+} $$
+    So $H$ can be expanded using Spin Operator identities in a coupled basis, i.e 
+    $$ S_+ \ket{-} = \hbar \ket{+} $$
+    $$ S_- \ket{+} = \hbar \ket{-} $$
+    $$ S_2 \ket{+} = \hbar{2} \ket{+} $$
+    and we denote $\ket{1} = \ket{++}, \ket{2} = \ket{+-}, \ket{3} = \ket{-+}, \ket{4} = \ket{--} $. So the Hamiltonian can now be expanded as a matrix 
+    $$ H = 4 \Delta \begin{pmatrix}
+        \frac{1}{4} & 0 & 0 & 0 \\
+        0 & - \frac{1}{4} & \frac{1}{2} & 0 \\
+        0 & \frac{1}{2} & - \frac{1}{4} & 0 \\
+        0 & 0 & 0 & \frac{1}{4} 
+    \end{pmatrix}  $$
+    This is worked from 11.230 of the QM 1 notes. The eigenvalues are 
+    $$ E_{1} = \Delta, E_{0} = - 3 \Delta $$ 
+    With $E_1$ for spin 1, $E_0$ for spin 0. From the Clebsch-Gordan coefficients we see that $\ket{++}, \ket{--}, \frac{1}{\sqrt{2}} ( \ket{+-}, + \ket{-+} )$ are all spin 1 and therefore have energy $\Delta$. $\frac{1}{\sqrt{2}} ( \ket{+-} - \ket{-+} ) $ is spin 0 and has energy $- 3 \Delta$. \\
+    If we denote a new basis with 
+    $$ \ket{1,0} = \frac{1}{\sqrt{2}} ( \ket{+-} + \ket{-+} ) $$
+    $$ \ket{0,0} = \frac{1}{\sqrt{2}} ( \ket{+-} - \ket{-+} ) $$
+    Then the initial state is 
+    $$ \ket{+-} = \frac{1}{\sqrt{2}} ( \ket{1,0} + \ket{0,0} ) $$
+    Solving exactly for $t >0$ we have 
+    $$ U(t, t_0) = e^{\frac{-i}{\hbar} H (t-t_0) } $$
+    $$ \ket{+-} = \frac{1}{\sqrt{2}} ( e^{-i \Delta t/ \hbar} \ket{1,0} + e^{i \Delta t 3 / \hbar} \ket{0,0} ) $$
+    $$ = \frac{1}{\sqrt{2}} e^{-i \Delta t / \hbar} ( \ket{+-} + \ket{-+ } ) + \frac{1}{\sqrt{2}} e^{3i \Delta t / \hbar} ( \ket{+-} - \ket{-+} ) $$
+    $$ = \frac{1}{2} \Big[ (e^{it \Delta / \hbar} + e^{3it \Delta / \hbar} ) \ket{+-} + ( e^{-i t \Delta / \hbar} + e^{3i \Delta t / \hbar} ) \ket{-+} \Big] $$
+    The probability to find the system in state $\ket{i}$ is $| \langle i | +- \rangle |^2$, thus, clearly 
+    $$ | \langle ++ | +- \rangle |^2 =0 $$
+    $$ | \langle -- | +- \rangle |^2 = 0 $$ 
+    The other two are 
+    $$ | \langle +- | +- \rangle |^2 = \frac{1}{4} ( 2 + e^{4i \Delta t / \hbar} + e^{-4 i t \Delta / \hbar} ) $$
+    $$ = \frac{1 + \cos( \frac{4 \Delta t}{\hbar} )}{2} $$
+    $$ | \langle -+ | +- \rangle |^2 = \frac{1}{4} ( 2 - e^{4i \Delta t / \hbar} - e^{-4i \Delta t / \hbar} ) $$
+    $$ = \frac{1 - \cos (\frac{4 \Delta t}{\hbar}  )}{2} $$
+
+    \item Now solved using perturbation theory. 
+    $$ c_n^{(0)} = \delta_{ni} $$
+    $$ c_n^{(1)} = \frac{-i}{\hbar} \int_0^t \langle n | H | i \rangle dt' $$
+    $$ = \frac{-it}{\hbar} \langle n | H | i \rangle $$
+    Using the matrix form of $H$ from before we have 
+    $$ \langle +- | H | +- \rangle =0 $$
+    $$ \langle -+ | H | +- \rangle = 2 \Delta $$
+    $$ \langle ++ | H | +- \rangle =0 $$
+    $$ \langle -- | H | +- \rangle = 0 $$
+    The bottom two agree with the exactly solved version. So we have 
+    $$ c_{\ket{+-} }^{(0)} = 1 $$
+    $$ c_{\ket{+-}}^{(1)} = 1 + \frac{it \Delta}{\hbar} $$
+    $$ c_{\ket{-+}}^{(1)} = \frac{-2i \Delta t}{\hbar} $$
+    $$ P_{\ket{+-} }^{(1)} = | c_{\ket{+-}}^{(1)} |^2 = 1 + \frac{t^2 \Delta^2}{\hbar^2} $$
+    $$ P_{\ket{-+}}^{(1)} = | c_{\ket{-+} }^{(1)} |^2 = \frac{4 \Delta^2 t^2}{\hbar^2} $$
+    Using the small angle approxmation for the exact solution we can then compare answers as 
+    $$ = \frac{1 - \cos (\frac{4 \Delta t}{\hbar}  )}{2} \approx \frac{4 \Delta^2 t^2}{\hbar^2} $$
+    Thus, for small times, first order perturbation theory gives the exact solution. The answer for the state $\ket{+-}$ does not match the exact solution, even when applying the same approxmation 
+    $$ = \frac{1 + \cos( \frac{4 \Delta t}{\hbar} )}{2} \approx 1 - \frac{4 \Delta^2 t^2}{\hbar^2} $$
+    However they do match in the sense that the probability must add up to equal 1
+    $$ P_{\ket{+-}}^{(1)} + P_{\ket{-+}}^{(1)} = 1 $$
+    Thus, 
+    $$ P_{\ket{+-}}^{(1)} = 1- \frac{4 \Delta^2 t^2}{\hbar^2} $$
+    I am not sure if I made a mistake somewhere, but it is interesting. 
+
+
+\end{enumerate}
 
 
 
