@@ -1,6 +1,0 @@
-
-Congruential generators (such as LCG, ICG, QCG, ...) only work
-with moduli of size less than or equal to ULONG_MAX. Eg. on a 32-bit
-architecture this usually is 2^32. Thus it is not possible to have
-LCGs with period longer than 4x10^9.
-
