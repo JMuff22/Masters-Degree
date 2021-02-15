@@ -1,0 +1,210 @@
+
+\documentclass[12pt]{article}
+%\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand{\pat}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abf}{{\bf a}}
+\newcommand{\Zcal}{{\cal Z}_{12}}
+\newcommand{\zcal}{z_{12}}
+\newcommand{\Acal}{{\cal A}}
+\newcommand{\Fcal}{{\cal F}}
+\newcommand{\Ucal}{{\cal U}}
+\newcommand{\Vcal}{{\cal V}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Scal}{{\cal S}}
+\newcommand{\Lcal}{{\cal L}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\hsf}{{\sf h}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\xibar}{\bar{\xi }}
+\newcommand{\barh}{\bar{h}}
+\newcommand{\Ubar}{\bar{\cal U}}
+\newcommand{\Vbar}{\bar{\cal V}}
+\newcommand{\Fbar}{\bar{F}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\zbarhat}{\hat{\bar{z}}}
+\newcommand{\wbarhat}{\hat{\bar{w}}}
+\newcommand{\wbartilde}{\tilde{\bar{w}}}
+\newcommand{\barone}{\bar{1}}
+\newcommand{\bartwo}{\bar{2}}
+\newcommand{\nbyn}{N \times N}
+\newcommand{\repres}{\leftrightarrow}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\ninfty}{N \rightarrow \infty}
+\newcommand{\unitk}{{\bf 1}_k}
+\newcommand{\unitm}{{\bf 1}}
+\newcommand{\zerom}{{\bf 0}}
+\newcommand{\unittwo}{{\bf 1}_2}
+\newcommand{\holo}{{\cal U}}
+%\newcommand{\bra}{\langle}
+%\newcommand{\ket}{\rangle}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\phat}{\hat{\phi}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\sgamma}{\sqrt{\gamma}}
+\newcommand{\bfE}{{\bf E}}
+\newcommand{\bfB}{{\bf B}}
+\newcommand{\bfM}{{\bf M}}
+\newcommand{\cl} {\cal l}
+\newcommand{\ctilde}{\tilde{\chi}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\ptilde}{\tilde{\phi}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\ztilde}{\tilde{z}}
+\newcommand{\ket}[1]{\vert{#1}\rangle}
+\newcommand{\bra}[1]{\langle{#1}\vert}
+
+
+\hoffset 0.5cm
+\voffset -0.4cm
+\evensidemargin -0.2in
+\oddsidemargin -0.2in
+\topmargin -0.2in
+\textwidth 6.3in
+\textheight 8.4in
+
+\begin{document}
+
+\normalsize
+
+\baselineskip 14pt
+
+\begin{center}
+{\Large {\bf Quantum Mechanics IIa 2021 \ \ \\ Solutions to Problem Set 4}} \\
+Jake Muff
+6/02/21
+\end{center}
+\section*{Problem 1}
+The scattering amplitude is 
+$$ f(\theta) = \frac{1}{k} (e^{ika} \sin (ka) + 3i e^{i2ka} \cos(\theta)) $$
+The s-wave differential cross section is 
+
+\section*{Problem 2} 
+\begin{enumerate}
+    \item % From equation 14.7 in Liboff. 
+    % $$ \sigma = \int d \sigma = 2 \pi \int_0^{\pi} |f (\theta) |^2 \sin (\theta) d \theta $$
+    % And 14.17 
+    % $$ f(\theta) = \frac{1}{k} e^{i \delta_0 } \sin(\delta_0) $$
+    In the question we have 
+    $$ \delta_l = \sin^{-1} \Big[ \frac{(iak)^l}{\sqrt{(2l+1)l!}}\Big] $$
+    Rearranged this is equivalent to 
+    $$ \sin (\delta_l)  = \frac{(iak)^l}{\sqrt{(2l+1)l!}} $$
+    We have (from equation 14.4 Liboff) 
+    $$ \sigma = \frac{4 \pi}{k^2} \sum_{l=0}^{\infty} (2l+1) \sin^2 (\delta_l) $$
+    With
+    $$ \sin^2 (\delta_l) = \frac{i^{2l} k^{2l} a^{2l}}{(2l+1)l!} $$
+    Such that 
+    $$ \sigma = \frac{4 \pi }{k^2} \sum_{l=0}^{\infty} \frac{i^{2l} k^{2l} a^{2l} }{l!} $$
+    $$ = \frac{4 \pi}{k^2} \sum_{l=0}^{\infty} \frac{(-a^2 k^2)^l}{l!} $$
+    Which is the exponenetial function i.e $\exp(x) = \sum_{l=0}^{\infty} \frac{x^l}{l!} $, so we can write 
+    $$ \sigma = \frac{4 \pi}{k^2} \exp(-a^2 k^2) $$
+    With $k^2 = \frac{2mE}{\hbar^2} $ we have 
+    $$ = \frac{4 \pi \hbar^2}{2mE} \exp(\frac{-2mE a^2}{\hbar^2}) $$
+
+    \item We can approximate the total cross section in s-wave scattering as $\sigma = 4 \pi a^2$, which matches
+    the previous answer when 
+    $$ E = \frac{\hbar^2}{2 m a^2} $$ 
+    As 
+    $$ \sigma = \frac{4 \pi a^2}{\exp(1/a^2)} $$
+    Which is approximately close. To be more precise 
+    $$ E = \frac{W_0(1) \hbar^2}{2ma^2} $$
+    Where $W_0(1)$ is the Lambert W function which is needed due to finding the solution of 
+    $$ e^u \cdot u = 1$$
+    For $\sigma=4 \pi a^2$ to hold. 
+\end{enumerate}
+
+
+\section*{Problem 3}
+$$ f(\theta) = - \frac{2m}{\hbar^2 q} \int_0^{\infty} dr r V(r) \sin(qr) $$
+$$ V(r) = - \frac{Ze^2 \exp(-r/a)}{r} $$
+$$ f(\theta) = - \frac{2m}{\hbar^2 q} \int_0^{\infty} dr r \Big[ - \frac{Ze^2 \exp(-r/a) }{r} \Big] \sin(qr) $$
+$$ = \frac{2mZe^2}{\hbar^2 q} \int_0^{\infty} \exp(-r/a) \sin(qr) $$
+$$ = \frac{2mZe^2}{\hbar^2 q} \Big[\frac{a^2 q}{a^2 q^2 +1} \Big] $$
+$$ = \frac{2mZe^2}{\hbar^2} \frac{a^2}{a^2 q^2 +1 } $$
+Here we can rewrite s.t $\frac{a^2}{a^2 q^2 +1 } \equiv \frac{a^2}{a^2 (q^2 + (\frac{1}{a} )^2)} = \frac{1}{q^2 + (\frac{1}{a} )^2} $
+$$ f(\theta) = \frac{2mZe^2}{\hbar^2} \frac{1}{q^2 + (\frac{1}{a} )^2 } $$
+Now we use the equation 
+$$ \frac{d \sigma}{d \Omega} = | f (\theta) |^2 $$
+$$ = \Big( \frac{2mZe^2}{\hbar^2} \Big)^2 \cdot \Big( \frac{1}{q^2 + (\frac{1}{a} )^2}\Big)^2 $$
+$$ = \frac{(2mZe^2/ \hbar^2)^2}{(q^2 + (\frac{1}{a} )^2)^2} $$
+
+\section*{Problem 4}
+\begin{enumerate}
+    \item $$ a = - \lim_{k \to 0} f(\theta) $$
+    Partial wave expansion of scattering amplitude is 
+    $$ f (\theta) = \sum_{l=0}^{\infty} (2l +1) \Big( \frac{e^{i \delta_l} \sin (\delta_l) }{k}\Big) P_l (\cos (\theta)) $$
+    For s-wave scattering we have low energies such that $ka << 1$ so 
+    $$ f(\theta) = \frac{1}{k} e^{i \delta_0} \sin(\delta_0) $$
+    If $|\delta_0| < < 1$ then $e^{-i \delta_0} \approx 1$ and $\sin (\delta_0 ) \approx \delta_0 $ so we have 
+    $$ f(\theta ) \approx \frac{\delta_0}{k} $$
+    Thus we get 
+    $$ a = - \lim_{k \to 0} \frac{\delta_0}{k} $$
+
+    \item The differential cross section is 
+    $$ \frac{d \sigma}{d \Omega} = | f(\theta)|^2 \approx | \frac{\delta_0}{k}|^2 = a^2 $$
+    The differential cross section is then independent of the angle, thus 
+    $$ \sigma \approx 4 \pi a^2 $$
+
+\end{enumerate}
+
+\section*{Problem 5}
+$$ V(\vec{x},t) = V(\vec{x}) \cos(\omega t) $$ 
+If the potential is treated to first order as a transistion from state $\ket{i}$ to state $\ket{m}$ at an initial time $t=0$, then we have 
+$$ c_m^{(1)} (t) = \frac{-i}{\hbar} \int_0^t e^{i \omega_{mi} t'} \langle m | V(\vec{x} ) | i \rangle \cos(\omega t') dt'$$
+The $\cos$ here can be split into its exponential parts 
+$$ = \frac{-i}{\hbar} \int_0^t e^{i \omega_{mi} t' } \langle m | v(\vec{x} ) | i \rangle \frac{1}{2} (e^{i \omega t'} + e^{-i \omega t'}) dt'  $$
+Where as usual $\omega_{mi} = \frac{E_m - E_i}{\hbar} $
+$$ c_m^{(1)} (t) = \frac{1}{2 \hbar} \langle m| v(\vec{x}) | i \rangle \Big( \frac{1-e^{i (\omega_{mi} + \omega ) t } }{\omega_{mi} + \omega} + \frac{1-e^{i(\omega_{mi} - \omega) t} }{\omega_{mi} - \omega } \Big) $$
+
+In Sakurai's book he has a section which ties together transisition rates and pertubation theory with cross sections and scattering. The rest of this follows from section 5.7 in the Book and section 6.1 (around equation 6.1.2) 
+The transistion rate (from 5.7.44) can be written as 
+$$ \omega_{i \to m} = \frac{2 \pi}{\hbar} | V_{mi} |^2 ( P(E_m)|_{(1)} + P(E_m)|_{(2)} ) $$
+Where $V_{mi} = \langle m| v(\vec{x}) | i \rangle $ and (1) and (2) are:
+\begin{equation}
+    \omega_{mi} + \omega \approx 0 \ or \ E_m \approx E_i - \hbar \omega 
+\end{equation}
+
+\begin{equation}
+    \omega_{mi} - \omega \approx 0 \ or \ E_m \approx E_i + \hbar \omega 
+\end{equation}
+Where 
+$$ P(E_m) = \frac{mk}{\hbar^2} \Big(\frac{L}{2 \pi} \Big)^3 d \Omega $$
+The cross section $d \sigma$ is defined as the transisition rate divided by the flux i.e 
+$$ d \sigma = \frac{\omega_{i \to m}}{\vec{j}} $$
+Where the flux is 
+$$ \vec{j} = \frac{h \vec{k} }{m L^3} $$
+Also note that we must consider the $k$ that has been defined for $P(E_m)$ as part of the state $\ket{m}$ and $\vec{k}$ defined above as part of the state $\ket{i}$. Thus 
+$$ \frac{d \sigma}{d \Omega} = \frac{1}{\Omega} \cdot \frac{\omega_{i \to m}}{\vec{j}} $$
+$$ = \frac{2 \pi}{\hbar} |V_{mi} |^2 \Big( \frac{m \sum k_m}{\hbar^2} \Big( \frac{L}{2 \pi} \Big)^3 d \Omega) / \frac{\hbar \vec{k} }{mL^3} \cdot \frac{1}{d \Omega} $$
+$$ = \frac{2 \pi}{\hbar} |V_{mi} |^2 \Big( \frac{L}{2 \pi} \Big)^3 \Big[ \frac{m \sum k_m / \hbar^2}{\hbar \vec{k} /L^3} \Big] $$
+$$ = \frac{2 \pi}{\hbar} |V_{mi} |^2 \Big( \frac{L}{2 \pi} \Big)^3 \frac{m^2 L^3 \sum k_m}{\vec{k} \hbar^3} $$
+$$ = |V_{mi} |^2 \frac{m^2 \sum k_m L^6 }{4 \pi^2 \hbar^4 \vec{k} } $$
+
+
+
+
+
+
+\end{document}
+
+
